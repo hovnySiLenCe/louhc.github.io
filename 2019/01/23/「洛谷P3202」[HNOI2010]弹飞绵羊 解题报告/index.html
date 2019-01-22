@@ -5,17 +5,17 @@
   
   <title>Hello,I am louhc</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="P3203 [HNOI2010]弹飞绵羊某天，Lostmonkey发明了一种超级弹力装置，为了在他的绵羊朋友面前显摆，他邀请小绵羊一起玩个游戏。游戏一开始，Lostmonkey在地上沿着一条直线摆上n个装置，每个装置设定初始弹力系数ki，当绵羊达到第i个装置时，它会往后弹ki步，达到第i+ki个装置，若不存在第i+ki个装置，则绵羊被弹飞。绵羊想知道当它从第i个装置起步时，被弹几次后会被弹飞。为了">
+  <meta name="description" content="P3203 [HNOI2010]弹飞绵羊">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hello,I am louhc">
 <meta property="og:url" content="https://louhc.github.io/2019/01/23/「洛谷P3202」[HNOI2010]弹飞绵羊 解题报告/index.html">
 <meta property="og:site_name" content="Hello,I am louhc">
-<meta property="og:description" content="P3203 [HNOI2010]弹飞绵羊某天，Lostmonkey发明了一种超级弹力装置，为了在他的绵羊朋友面前显摆，他邀请小绵羊一起玩个游戏。游戏一开始，Lostmonkey在地上沿着一条直线摆上n个装置，每个装置设定初始弹力系数ki，当绵羊达到第i个装置时，它会往后弹ki步，达到第i+ki个装置，若不存在第i+ki个装置，则绵羊被弹飞。绵羊想知道当它从第i个装置起步时，被弹几次后会被弹飞。为了">
+<meta property="og:description" content="P3203 [HNOI2010]弹飞绵羊">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-01-22T23:51:35.135Z">
+<meta property="og:updated_time" content="2019-01-22T23:53:21.783Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hello,I am louhc">
-<meta name="twitter:description" content="P3203 [HNOI2010]弹飞绵羊某天，Lostmonkey发明了一种超级弹力装置，为了在他的绵羊朋友面前显摆，他邀请小绵羊一起玩个游戏。游戏一开始，Lostmonkey在地上沿着一条直线摆上n个装置，每个装置设定初始弹力系数ki，当绵羊达到第i个装置时，它会往后弹ki步，达到第i+ki个装置，若不存在第i+ki个装置，则绵羊被弹飞。绵羊想知道当它从第i个装置起步时，被弹几次后会被弹飞。为了">
+<meta name="twitter:description" content="P3203 [HNOI2010]弹飞绵羊">
   
     <link rel="alternate" href="/atom.xml" title="Hello,I am louhc" type="application/atom+xml">
   
@@ -76,7 +76,8 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="P3203-HNOI2010-弹飞绵羊"><a href="#P3203-HNOI2010-弹飞绵羊" class="headerlink" title="P3203 [HNOI2010]弹飞绵羊"></a><a href="https://www.luogu.org/problemnew/show/P3203" target="_blank" rel="noopener">P3203 [HNOI2010]弹飞绵羊</a></h1><p>某天，Lostmonkey发明了一种超级弹力装置，为了在他的绵羊朋友面前显摆，他邀请小绵羊一起玩个游戏。游戏一开始，Lostmonkey在地上沿着一条直线摆上n个装置，每个装置设定初始弹力系数ki，当绵羊达到第i个装置时，它会往后弹ki步，达到第i+ki个装置，若不存在第i+ki个装置，则绵羊被弹飞。绵羊想知道当它从第i个装置起步时，被弹几次后会被弹飞。为了使得游戏更有趣，Lostmonkey可以修改某个弹力装置的弹力系数，任何时候弹力系数均为正整数。</p>
+        <h1 id="P3203-HNOI2010-弹飞绵羊"><a href="#P3203-HNOI2010-弹飞绵羊" class="headerlink" title="P3203 [HNOI2010]弹飞绵羊"></a><a href="https://www.luogu.org/problemnew/show/P3203" target="_blank" rel="noopener">P3203 [HNOI2010]弹飞绵羊</a></h1><a id="more"></a>
+<p>某天，Lostmonkey发明了一种超级弹力装置，为了在他的绵羊朋友面前显摆，他邀请小绵羊一起玩个游戏。游戏一开始，Lostmonkey在地上沿着一条直线摆上n个装置，每个装置设定初始弹力系数ki，当绵羊达到第i个装置时，它会往后弹ki步，达到第i+ki个装置，若不存在第i+ki个装置，则绵羊被弹飞。绵羊想知道当它从第i个装置起步时，被弹几次后会被弹飞。为了使得游戏更有趣，Lostmonkey可以修改某个弹力装置的弹力系数，任何时候弹力系数均为正整数。</p>
 <p>第一行包含一个整数n，表示地上有n个装置，装置的编号从0到n-1。</p>
 <p>接下来一行有n个正整数，依次为那n个装置的初始弹力系数。</p>
 <p>第三行有一个正整数m，</p>
@@ -91,7 +92,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://louhc.github.io/2019/01/23/「洛谷P3202」[HNOI2010]弹飞绵羊 解题报告/" data-id="cjr8eyo2v0000nwenlk51duvf" class="article-share-link">Share</a>
+      <a data-url="https://louhc.github.io/2019/01/23/「洛谷P3202」[HNOI2010]弹飞绵羊 解题报告/" data-id="cjr8ez1y30001xoen43wbq66v" class="article-share-link">Share</a>
       
       
     </footer>
