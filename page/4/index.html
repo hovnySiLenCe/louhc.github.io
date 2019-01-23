@@ -62,62 +62,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-「BZOJ4590」「SHOI2015」-自动刷题机-解题报告" class="article article-type-post" itemscope="" itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2019/01/23/「BZOJ4590」「SHOI2015」-自动刷题机-解题报告/" class="article-date">
-  <time datetime="2019-01-23T00:16:21.000Z" itemprop="datePublished">2019-01-23</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2019/01/23/「BZOJ4590」「SHOI2015」-自动刷题机-解题报告/">「BZOJ4590」「SHOI2015」 自动刷题机 解题报告</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="自动刷题机"><a href="#自动刷题机" class="headerlink" title="自动刷题机"></a><a href="https://www.lydsy.com/JudgeOnline/problem.php?id=4590" target="_blank" rel="noopener">自动刷题机</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>曾经发明了信号增幅仪的发明家SHTSC又公开了他的新发明：自动刷题机—一种可以自动AC题目的神秘装置。自动刷题机刷题的方式非常简单：首先会瞬间得出题目的正确做法，然后开始写程序，每秒，自动刷题机的代码生成模块会有两种可能的结果：</p>
-<blockquote>
-<p>A.写了x行代码。<br>B.心情不好，删掉了之前写的y行代码。（如果y大于当前代码长度则相当于全部删除。）</p>
-</blockquote>
-<p>对于每个OJ所有题目，存在某个固定的长度n&gt;0。一旦自动刷题机在某秒结束时积累了大于等于n行的代码，它就会自动提交并AC此题，然后新建一个文件开始写下一题。SHTSC在某个OJ上跑了一天的自动刷题机，得到了很多条关于写代码的日志信息。他突然发现自己没有记录这个OJ的n究竟是多少。所幸他通过自己在OJ上的Rank知道了机一共切了k道题。希望你计算n可能的最小值和最大值。</p>
-<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>第一行两个整数l，k，表示刷题机的日志一共有l行，一共了切了k题。</p>
-<p>第二行l个整数，$x_1…x_l。$$x_i \ge 0$表示写了$x_i$行代码。$x_i&lt;0$表示删除了这道题的$-x_i$行代码。</p>
-<p>$1 \le l,k \le 100000，\left| x_i \right| \le10^9$</p>
-<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>输出两个数a，b。分别代表n可能的最小值和最大值。如果不存在这样的n则输出-1。</p>
-<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">4 2</span><br><span class="line">2</span><br><span class="line">5</span><br><span class="line">-3</span><br><span class="line">9</span><br></pre></td></tr></table></figure>
-<h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3 7</span><br></pre></td></tr></table></figure>
-<p>样例1：如果n=2那么刷题机就会切掉3题。但如果n&gt;7刷题机最多只能切1题。考虑n=4发生了什么。<br> 第一秒：刷题机写了2行。<br> 第二秒：刷题机又写了5行，共有7行，提交，自信AC。<br> 第三秒：刷题机删掉了3行，共有0行。<br> 第四秒：刷题机写了9行，共有9行，提交，自信AC。<br> 一共AC了两题。</p>
-<hr>
-<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>这是一道二分题。 没错这就是一道二分题。</p>
-<p>它的单调性很明显。n越大，切的题就越少。 所以，话不多说——直接切入正题。</p>
-<p>这里要求最小值(ans1)与最大值(ans2)，所以要写2个二分，一个判断条件是$check(mid) &gt; k$ 另一个是 $\ge$ 。</p>
-<p>ans1要加1,因为$&gt;k$求出的是 满足 $check(mid) &gt; k$ 的 最大值。如果有答案的话，$ans1 + 1$必定是满足$check(mid) = k$最小值。</p>
-<p>话不多说，直接上代码$(〃’▽’〃)——$</p>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LL long long</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> l, k;</span><br><span class="line">LL a[<span class="number">100005</span>];</span><br><span class="line">LL le(1), ri, ans1, ans2, mid;</span><br><span class="line"></span><br><span class="line"><span class="function">LL <span class="title">check</span><span class="params">( LL x )</span></span>&#123;<span class="comment">//模拟求切题数</span></span><br><span class="line">    LL cur(0), s(0);</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= l; ++i )&#123;</span><br><span class="line">        cur = max( cur + a[i], <span class="number">0l</span>l );</span><br><span class="line">        <span class="keyword">if</span> ( cur &gt;= x )&#123;</span><br><span class="line">            s++; cur = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> s;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>( <span class="string">"%d%d"</span>, &amp;l, &amp;k );</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= l; ++i ) <span class="built_in">scanf</span>( <span class="string">"%lld"</span>, &amp;a[i] );</span><br><span class="line">    le = <span class="number">1</span>; ri = <span class="number">1000000000000000</span>;<span class="comment">//边界是个坑，走远一点就不会掉进去了嘛(｀・ω・´)反正时间复杂度不会超过O(100)</span></span><br><span class="line">    <span class="keyword">while</span>( le &lt;= ri )&#123;</span><br><span class="line">        mid = ( le + ri ) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> ( check( mid ) &gt; k )&#123;</span><br><span class="line">            le = mid + <span class="number">1</span>;</span><br><span class="line">            ans1 = mid;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> ri = mid - <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    ans1++;</span><br><span class="line">    le = <span class="number">1</span>; ri = <span class="number">1000000000000000</span>;</span><br><span class="line">    <span class="keyword">while</span>( le &lt;= ri )&#123;</span><br><span class="line">        mid = ( le + ri ) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> ( check( mid ) &gt;= k )&#123;</span><br><span class="line">            le = mid + <span class="number">1</span>;</span><br><span class="line">            ans2 = mid;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> ri = mid - <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> ( check( ans1 ) != k ) <span class="built_in">printf</span>( <span class="string">"-1\n"</span> );</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">printf</span>( <span class="string">"%lld %lld\n"</span>, ans1, ans2 );</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://louhc.github.io/2019/01/23/「BZOJ4590」「SHOI2015」-自动刷题机-解题报告/" data-id="cjr8gbuxn000cc0enjo4p7hqq" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/二分答案/">二分答案</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
     <article id="post-「BZOJ4510」「Usaco2016-Jan」Radio-Contact-解题报告" class="article article-type-post" itemscope="" itemprop="blogPost">
   <div class="article-meta">
     <a href="/2019/01/23/「BZOJ4510」「Usaco2016-Jan」Radio-Contact-解题报告/" class="article-date">
@@ -141,38 +85,15 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="无线电联系-Radio-Contact"><a href="#无线电联系-Radio-Contact" class="headerlink" title="无线电联系 Radio Contact"></a><a href="https://www.luogu.org/problemnew/show/P3133" target="_blank" rel="noopener">无线电联系 Radio Contact</a></h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>Farmer John has lost his favorite cow bell, and Bessie the cow has agreed to help him find it! They both fan out and search the farm along different paths, but stay in contact via radio so they can keep in touch with each-other. Unfortunately, the batteries in their radios are running low, so they want to plan their movements so as to conserve power, by trying to stay always within a short distance apart.</p>
-<p>Farmer John starts at location ($f_x, f_y$) and plans to follow a path consisting of NN steps, each of which is either ‘N’ (north), ‘E’ (east), ‘S’ (south), or ‘W’ west. Bessie starts at location ($b_x, b_y$) and follows a similar path consisting of MM steps. Both paths may share points in common. At each time step, Farmer John can either stay put at his current location, or take one step forward along his path, in whichever direction happens to be next (assuming he has not yet reached the final location in his path). Bessie can make a similar choice. At each time step (excluding the first step where they start at their initial locations), their radios consume energy equal to the square of the distance between them.</p>
-<p>Please help FJ and Bessie plan a joint movement strategy that will minimize the total amount of energy consumed up to and including the final step where both of them first reach the final locations on their respective paths.</p>
-<p>FJ失去了他最喜欢的牛铃，而Bessie已经同意帮助他找到它！他们用不同的路径搜索农场，通过无线电保持联系。不幸的是，无线电中的电池电量不足，所以他们设法尽可能保持两者位置的距离最小，以节省电量。</p>
-<p>FJ从位置$(f_x,f_y)$开始，并计划遵循由N步骤组成的路径，每个步骤都是“N”（北），“E”（东），“S”（南），或“W”（西）。Bessie从位置$(b_x,b_y)$开始，并遵循由M步骤组成的类似路径。两个路径可以经过相同的点。在每个时间段，FJ可以保持在他现在的位置，或沿着他的道路前进一步，无论哪个方向恰好在下一个（假设他还没有到达他的路径的最后位置）。Bessie可以做出类似的选择。在每个时间步（不包括从初始位置开始的第一步），他们的无线电消耗的能量等于它们之间距离的平方。</p>
-<p>请帮助FJ和Bessie计划行动策略，最大限度地减少消耗的能量总量。总量包括最终步骤，这时两者首先到达各自路径上的最终位置。</p>
-<h2 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h2><h3 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h3><p>The first line of input contains $N$ and $M$ ($1 \le N, M \le 1000$). The second line contains integers $f_x$ and $f_y$, and the third line contains $b_x$ and $b_y$ ($0 \le f_x, f_y, b_x, b_y \le 1000$). The next line contains a string of length $N$ describing FJ’s path, and the final line contains a string of length $M$ describing Bessie’s path. It is guranteed that Farmer John and Bessie’s coordinates are always in the range ($0 \le x,y \le 1000$) throughout their journey. Note that East points in the positive x direction and North points in the positive y direction.</p>
-<p>第一行输入$N$和$M$（$1 \le N,M \le 1000$）。</p>
-<p>第二行输入整数$f_x$和$f_y$，第三行输入$b_x$和$b_y$$(0 \le f_x,f_y,b_x,b_y \le 1000)$。下一行包含一个长度为N的字符串描述FJ的路径，最后一行包含一个字符串的长度$M$描述Bessie的路径。</p>
-<p>数据满足$(0 \le x,y \le 1000)$。注意，东方向为正X方向，北方向为正Y方向。</p>
-<h3 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h3><p>Output a single integer specifying the minimum energy FJ and Bessie can use</p>
-<p>during their travels.</p>
-<p>输出一个整数，表示最小能量。</p>
-<h2 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><h3 id="输入样例-1："><a href="#输入样例-1：" class="headerlink" title="输入样例#1："></a>输入样例#1：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">2 7</span><br><span class="line">3 0</span><br><span class="line">5 0</span><br><span class="line">NN</span><br><span class="line">NWWWWWN</span><br></pre></td></tr></table></figure>
-<h3 id="输出样例-1："><a href="#输出样例-1：" class="headerlink" title="输出样例#1："></a>输出样例#1：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">28</span><br></pre></td></tr></table></figure>
-<hr>
-<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><blockquote>
-<p><del>众所周知，DP是一个好东西，所以这题用DP。</del></p>
-</blockquote>
-<p>这是样例的示意图<br><img src="https://img-blog.csdn.net/20180814150653860?watermark/2/text/aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2xvdWhhbmNoZW5n/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70" alt="样例"></p>
-<p>这道题有十分明显的阶段性，而且数据也不大，所以用DP即可。<br>我们用一个二维数组<code>f[i][j]</code>表示当Farmer John到第i步，Bessie到第j步时所需花费的最小能量。<br>转移方程容易推得：</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">f[i][j] = min( f[i][j - <span class="number">1</span>], f[i - <span class="number">1</span>][j], f[i - <span class="number">1</span>][j - <span class="number">1</span>] ) + dist;</span><br></pre></td></tr></table></figure>
-<p>其中dist表示FJ在第i步，Bessie在j步时他们距离的平方$( tx1 - tx2 ) \times ( tx1 - tx2 ) + ( ty1 - ty2 ) \times ( ty1 - ty2 )$</p>
-<p>这里要注意初始化:</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">f[i][<span class="number">0</span>] = f[i - <span class="number">1</span>][<span class="number">0</span>] + dist;</span><br><span class="line">f[<span class="number">0</span>][i] = f[i - <span class="number">1</span>][<span class="number">0</span>] + dist;</span><br><span class="line">f[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">0</span>;<span class="comment">//因为从初始位置开始的第一步不需要能量</span></span><br></pre></td></tr></table></figure>
-<p>这里我用一个move函数移动坐标(用了引用变量方便一点)</p>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstring&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXN 1005</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LL long long</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> N, M;</span><br><span class="line">LL f[MAXN][MAXN];<span class="comment">//开long long防止上溢</span></span><br><span class="line"><span class="keyword">int</span> fx, fy, bx, by, la, lb;</span><br><span class="line"><span class="keyword">char</span> a[MAXN], b[MAXN];<span class="comment">//移动方向</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">move</span><span class="params">( <span class="keyword">int</span> &amp;x, <span class="keyword">int</span> &amp;y, <span class="keyword">char</span> d )</span></span>&#123; <span class="comment">//移动坐标</span></span><br><span class="line">    <span class="keyword">switch</span>( d )&#123;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'N'</span>: y++; <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'S'</span>: y--; <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'W'</span>: x--; <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">case</span> <span class="string">'E'</span>: x++; <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function">LL <span class="title">dist</span><span class="params">( <span class="keyword">int</span> x1, <span class="keyword">int</span> y1, <span class="keyword">int</span> x2, <span class="keyword">int</span> y2 )</span></span>&#123; <span class="comment">//花费能量</span></span><br><span class="line">    <span class="keyword">return</span> ( x1 - x2 ) * ( x1 - x2 ) + ( y1 - y2 ) * ( y1 - y2 );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>( <span class="string">"%d%d"</span>, &amp;N, &amp;M );</span><br><span class="line">    <span class="built_in">scanf</span>( <span class="string">"%d%d%d%d"</span>, &amp;fx, &amp;fy, &amp;bx, &amp;by );</span><br><span class="line">    <span class="built_in">scanf</span>( <span class="string">"%s%s"</span>, a + <span class="number">1</span>, b + <span class="number">1</span> );</span><br><span class="line">    la = <span class="built_in">strlen</span>( a + <span class="number">1</span> ); lb = <span class="built_in">strlen</span>( b + <span class="number">1</span> );</span><br><span class="line">    int tx1(fx), ty1(fy), tx2(bx), ty2(by);//FJ、Bessie的坐标</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= la; ++i )&#123; <span class="comment">// 初始化f[i][0](i != 0)</span></span><br><span class="line">        move( tx1, ty1, a[i] );</span><br><span class="line">        f[i][<span class="number">0</span>] = f[i - <span class="number">1</span>][<span class="number">0</span>] + dist( tx1, ty1, bx, by );</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= lb; ++i )&#123; <span class="comment">//初始化f[0][i](i != 0)</span></span><br><span class="line">        move( tx2, ty2, b[i] );</span><br><span class="line">        f[<span class="number">0</span>][i] = f[<span class="number">0</span>][i - <span class="number">1</span>] + dist( fx, fy, tx2, ty2 );</span><br><span class="line">    &#125;</span><br><span class="line">    tx1 = fx; ty1 = fy;</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= la; ++i )&#123;</span><br><span class="line">        tx2 = bx; ty2 = by;</span><br><span class="line">        move( tx1, ty1, a[i] );</span><br><span class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= lb; ++j )&#123;</span><br><span class="line">            move( tx2, ty2, b[j] );</span><br><span class="line">            f[i][j] = min( f[i - <span class="number">1</span>][j], f[i][j - <span class="number">1</span>] ); <span class="comment">// 上述转移方程</span></span><br><span class="line">            f[i][j] = min( f[i][j], f[i - <span class="number">1</span>][j - <span class="number">1</span>] );</span><br><span class="line">            f[i][j] += dist( tx1, ty1, tx2, ty2 );</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>( <span class="string">"%lld"</span>, f[la][lb] );</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong> <del>所以: DP是个好东西</del> </strong></p>
-
+        
+          <p class="article-more-link">
+            <a href="/2019/01/23/「BZOJ4510」「Usaco2016-Jan」Radio-Contact-解题报告/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://louhc.github.io/2019/01/23/「BZOJ4510」「Usaco2016-Jan」Radio-Contact-解题报告/" data-id="cjr8gbuxm000ac0envduktwy3" class="article-share-link">Share</a>
+      <a data-url="https://louhc.github.io/2019/01/23/「BZOJ4510」「Usaco2016-Jan」Radio-Contact-解题报告/" data-id="cjr8gslgp00098sen0zru4y3j" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/线性DP/">线性DP</a></li></ul>
@@ -206,13 +127,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
+        <h1 id="Dreamoon-and-Stairs"><a href="#Dreamoon-and-Stairs" class="headerlink" title="Dreamoon and Stairs"></a><a href="http://codeforces.com/problemset/problem/476/A" target="_blank" rel="noopener">Dreamoon and Stairs</a></h1><h2 id="题意翻译"><a href="#题意翻译" class="headerlink" title="题意翻译"></a>题意翻译</h2><p>题面 DM小朋友想要上一个有 $n$ 级台阶的楼梯。他每一步可以上 $1$ 或 $2$ 级台阶。假设他走上这个台阶一共用了 $x$ 步。现在DM想知道 $x$ 是否可能为 $m$ 的倍数。如果可能，输出 $x$ 的最小值。如果不可能，输出 $-1$<br>输入 两个正整数 $n,m (n \le 10000,m \le 10)$<br>输出 按要求输出 $x$ 或 $-1$</p>
+        
+          <p class="article-more-link">
+            <a href="/2019/01/23/「CodeForces-476A」Dreamoon-and-Stairs/#more">Read More</a>
+          </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://louhc.github.io/2019/01/23/「CodeForces-476A」Dreamoon-and-Stairs/" data-id="cjr8gbuxy000ic0enwazyxizl" class="article-share-link">Share</a>
+      <a data-url="https://louhc.github.io/2019/01/23/「CodeForces-476A」Dreamoon-and-Stairs/" data-id="cjr8gslh3000q8sen6as6wray" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/递推/">递推</a></li></ul>
+
     </footer>
   </div>
   
@@ -242,13 +170,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
+        <h1 id="Prime-Friend"><a href="#Prime-Friend" class="headerlink" title="Prime Friend"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=3823" target="_blank" rel="noopener">Prime Friend</a></h1><p><strong>Time Limit: 4000/2000 MS (Java/Others)    Memory Limit: 32768/32768 K (Java/Others)Total Submission(s): 5025    Accepted Submission(s): 1035</strong></p>
+<h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description"></a>Problem Description</h2><p>Besides the ordinary Boy Friend and Girl Friend, here we define a more academic kind of friend: Prime Friend. We call a nonnegative integer A is the integer B’s Prime Friend when the sum of A and B is a prime.<br>
+        
+          </p><p class="article-more-link">
+            <a href="/2019/01/23/「HDU3823」-Prime-Friend-解题报告/#more">Read More</a>
+          </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://louhc.github.io/2019/01/23/「HDU3823」-Prime-Friend-解题报告/" data-id="cjr8gbuy1000kc0en4supnjm5" class="article-share-link">Share</a>
+      <a data-url="https://louhc.github.io/2019/01/23/「HDU3823」-Prime-Friend-解题报告/" data-id="cjr8gslh5000t8sen833uztil" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/质数/">质数</a></li></ul>
+
     </footer>
   </div>
   
@@ -282,7 +218,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://louhc.github.io/2019/01/23/「学习笔记」动态规划-I『初识DP』/" data-id="cjr8gbuyl0018c0enm20p1fu7" class="article-share-link">Share</a>
+      <a data-url="https://louhc.github.io/2019/01/23/「学习笔记」动态规划-I『初识DP』/" data-id="cjr8gslhv001t8sena1nehnns" class="article-share-link">Share</a>
       
       
     </footer>
@@ -318,7 +254,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://louhc.github.io/2019/01/23/「学习笔记」离散化/" data-id="cjr8gbuyo001bc0en5o6tb2n0" class="article-share-link">Share</a>
+      <a data-url="https://louhc.github.io/2019/01/23/「学习笔记」离散化/" data-id="cjr8gslhw001u8sen68lqdhdo" class="article-share-link">Share</a>
       
       
     </footer>
@@ -354,7 +290,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://louhc.github.io/2019/01/23/「学习笔记」ST表/" data-id="cjr8gbuyk0017c0enex3zpzht" class="article-share-link">Share</a>
+      <a data-url="https://louhc.github.io/2019/01/23/「学习笔记」ST表/" data-id="cjr8gslht001q8sen8ig9ezrg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -387,26 +323,15 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="CH2401-送礼物"><a href="#CH2401-送礼物" class="headerlink" title="CH2401 送礼物"></a><a href="http://contest-hunter.org:83/contest/0x20%E3%80%8C%E6%90%9C%E7%B4%A2%E3%80%8D%E4%BE%8B%E9%A2%98/2401%20%E9%80%81%E7%A4%BC%E7%89%A9" target="_blank" rel="noopener">CH2401 送礼物</a></h1><h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>作为惩罚，GY被遣送去帮助某神牛给女生送礼物(GY：貌似是个好差事)但是在GY看到礼物之后，他就不这么认为了。某神牛有N个礼物，且异常沉重，但是GY的力气也异常的大(-_-b)，他一次可以搬动重量和在w(w&lt;=2^31-1)以下的任意多个物品。GY希望一次搬掉尽量重的一些物品，请你告诉他在他的力气范围内一次性能搬动的最大重量是多少。</p>
-<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>第一行两个整数，分别代表W和N。<br>以后N行，每行一个正整数表示G[i],G[i]&lt;= 2^31-1。</p>
-<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>仅一个整数，表示GY在他的力气范围内一次性能搬动的最大重量。</p>
-<h2 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">20 5</span><br><span class="line">7</span><br><span class="line">5</span><br><span class="line">4</span><br><span class="line">18</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
-<h2 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">19</span><br></pre></td></tr></table></figure>
-<h2 id="数据范围与约定"><a href="#数据范围与约定" class="headerlink" title="数据范围与约定"></a>数据范围与约定</h2><ul>
-<li>对于20%的数据 N&lt;=26<br>对于40%的数据 W&lt;=2^26<br>对于100%的数据 N&lt;=45 W&lt;=2^31-1</li>
-</ul>
-<hr>
-<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>这么小的数据。。。一般是搜索吧？？？这么大的W，用DP做肯定不成，而且也不资瓷离散化。。。。</p>
-<p>直接搜？+剪枝？我已经剪不下去了。。。不过80分勉勉强强还可以~</p>
-<h1 id="代码-搜索-剪枝"><a href="#代码-搜索-剪枝" class="headerlink" title="代码(搜索+剪枝)"></a>代码(搜索+剪枝)</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LL long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXN 50</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> N;</span><br><span class="line">LL W, ans;</span><br><span class="line">LL G[MAXN], f[MAXN];<span class="comment">//f表示“后缀和”</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">( LL x, LL y )</span></span>&#123; <span class="keyword">return</span> x &gt; y; &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS</span><span class="params">( <span class="keyword">int</span> x, LL h )</span></span>&#123;<span class="comment">//x表示当前搜的是第x件物品，h表示已经取到的总重量</span></span><br><span class="line">	<span class="keyword">while</span>( x &lt;= N &amp;&amp; h + G[x] &gt; W ) x++;<span class="comment">//由于是降序排序，找到第一个还能继续搬的物品</span></span><br><span class="line">	<span class="keyword">if</span> ( x &gt; N )&#123; ans = max( ans, h ); <span class="keyword">return</span>; &#125;<span class="comment">//没东西了（或者没有可以搬的了），当然得回溯</span></span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span> ( ; x &lt;= N; ++x )&#123;</span><br><span class="line">		<span class="keyword">if</span> ( h + f[x] &lt;= W )&#123; ans = max( ans, h + f[x] ); <span class="keyword">return</span>; &#125;<span class="comment">//剪枝~ 后面都能拿，当然要都拿来最优啦~ 这个剪枝可以看做是最优化剪枝</span></span><br><span class="line">		DFS( x + <span class="number">1</span>, h + G[x] );</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>( <span class="string">"%lld%d"</span>, &amp;W, &amp;N );</span><br><span class="line">	<span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= N; ++i ) <span class="built_in">scanf</span>( <span class="string">"%lld"</span>, &amp;G[i] );</span><br><span class="line">	sort( G + <span class="number">1</span>, G + N + <span class="number">1</span>, cmp );<span class="comment">//剪枝~ 降序排序再搜~</span></span><br><span class="line">	<span class="keyword">for</span> ( <span class="keyword">int</span> i = N; i &gt;= <span class="number">1</span>; --i ) f[i] = f[i + <span class="number">1</span>] + G[i];</span><br><span class="line">	</span><br><span class="line">	DFS( <span class="number">1</span>, <span class="number">0</span> );</span><br><span class="line">	<span class="built_in">printf</span>( <span class="string">"%lld\n"</span>, ans );</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>相信大家都不会仅满足于80分~还有俩测试点呢。。。<br>我们用一种神奇的搜索方式——双向搜索！</p>
-<p>也就是说，先找前半段，预处理出所有可以达到的总重量，存在一个数组F中，然后再搜索后半段，对于后半段已取的质量，在F中二分找出既满足条件，又最大的重量，加起来更新ans的值就可以了。这样复杂度就为O($2^{\frac n 2 }+2^{\frac n 2 } \times \log_2n$)基本可以满足要求。</p>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LL long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXN 50</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> N, M;</span><br><span class="line">LL W, ans;</span><br><span class="line">LL G[MAXN];</span><br><span class="line">LL F[<span class="number">20000000</span>], tot;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">( LL x, LL y )</span></span>&#123; <span class="keyword">return</span> x &gt; y; &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS_1</span><span class="params">( <span class="keyword">int</span> x, LL h )</span></span>&#123;<span class="comment">//第一次搜索，注意所有能得到的重量都要记录，所以不必剪枝 还有注意0也要记录</span></span><br><span class="line">	F[++tot] = h;</span><br><span class="line">	<span class="keyword">while</span>( x &lt;= M &amp;&amp; h + G[x] &gt; W ) x++;</span><br><span class="line">	<span class="keyword">for</span> ( ; x &lt;= M; ++x ) DFS_1( x + <span class="number">1</span>, h + G[x] );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">EF</span><span class="params">( LL x )</span></span>&#123;<span class="comment">//手打二分~</span></span><br><span class="line">	int l(1), r(tot), mid, ans(1);</span><br><span class="line">	<span class="keyword">while</span>( l &lt;= r )&#123;</span><br><span class="line">		mid = ( l + r ) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">if</span> ( F[mid] + x &lt;= W ) l = mid + <span class="number">1</span>, ans = mid;</span><br><span class="line">		<span class="keyword">else</span> r = mid - <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS_2</span><span class="params">( <span class="keyword">int</span> x, LL h )</span></span>&#123;</span><br><span class="line">	ans = max( ans, h + F[EF(h)] );</span><br><span class="line">	<span class="keyword">while</span>( x &lt;= N &amp;&amp; h + G[x] &gt; W ) x++;</span><br><span class="line">	<span class="keyword">for</span> ( ; x &lt;= N; ++x ) DFS_2( x + <span class="number">1</span>, h + G[x] );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>( <span class="string">"%lld%d"</span>, &amp;W, &amp;N ); M = ( N &gt;&gt; <span class="number">1</span> ) + <span class="number">2</span>;<span class="comment">//lyd大佬说前半段1~N/2+2最快~蒟蒻当然照做</span></span><br><span class="line">	<span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= N; ++i ) <span class="built_in">scanf</span>( <span class="string">"%lld"</span>, &amp;G[i] );</span><br><span class="line">	sort( G + <span class="number">1</span>, G + N + <span class="number">1</span>, cmp );<span class="comment">//照样排序</span></span><br><span class="line">	</span><br><span class="line">	DFS_1( <span class="number">1</span>, <span class="number">0</span> );</span><br><span class="line">	sort( F + <span class="number">1</span>, F + tot + <span class="number">1</span> ); tot = unique( F + <span class="number">1</span>, F + tot + <span class="number">1</span> ) - F - <span class="number">1</span>;<span class="comment">//排序&amp;去重</span></span><br><span class="line">	DFS_2( M + <span class="number">1</span>, <span class="number">0</span> );</span><br><span class="line">	<span class="built_in">printf</span>( <span class="string">"%lld\n"</span>, ans );</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>搜索真是博大精深~</p>
-
+        
+          <p class="article-more-link">
+            <a href="/2019/01/23/「CH2401」送礼物-解题报告/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://louhc.github.io/2019/01/23/「CH2401」送礼物-解题报告/" data-id="cjr8gbuxw000fc0eniv26gw0e" class="article-share-link">Share</a>
+      <a data-url="https://louhc.github.io/2019/01/23/「CH2401」送礼物-解题报告/" data-id="cjr8gslgw000i8seni6vbvzdg" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/搜索/">搜索</a></li></ul>
@@ -440,13 +365,21 @@
     
     <div class="article-entry" itemprop="articleBody">
       
+        <h1 id="CH2501-矩阵距离"><a href="#CH2501-矩阵距离" class="headerlink" title="CH2501 矩阵距离"></a><a href="http://contest-hunter.org:83/contest/0x20%E3%80%8C%E6%90%9C%E7%B4%A2%E3%80%8D%E4%BE%8B%E9%A2%98/2501%20%E7%9F%A9%E9%98%B5%E8%B7%9D%E7%A6%BB" target="_blank" rel="noopener">CH2501 矩阵距离</a></h1><h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>给定一个N行M列的01矩阵 A，$A[i][j]$ 与 $A[k][l]$ 之间的曼哈顿距离定义为：<br>$dist(A[i][j],A[k][l])=|i-k|+|j-l|$</p>
+<p>输出一个N行M列的整数矩阵B，其中：<br>$B[i][j]=min(1 \le x \le N,1 \le y \le M,A[x][y]=1)⁡{dist(A[i][j],A[x][y])}$<br>即求与每个位置曼哈顿距离最近的1<br>$N,M \le 1000$。</p>
+        
+          <p class="article-more-link">
+            <a href="/2019/01/23/「CH2501」矩阵距离-解题报告/#more">Read More</a>
+          </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://louhc.github.io/2019/01/23/「CH2501」矩阵距离-解题报告/" data-id="cjr8gbuxx000gc0enpulbg3m2" class="article-share-link">Share</a>
+      <a data-url="https://louhc.github.io/2019/01/23/「CH2501」矩阵距离-解题报告/" data-id="cjr8gslh0000m8senfo1o3aci" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/搜索/">搜索</a></li></ul>
+
     </footer>
   </div>
   
@@ -477,27 +410,61 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="CH2101-可达性统计"><a href="#CH2101-可达性统计" class="headerlink" title="CH2101 可达性统计"></a><a href="http://contest-hunter.org:83/contest/0x20%E3%80%8C%E6%90%9C%E7%B4%A2%E3%80%8D%E4%BE%8B%E9%A2%98/2101%20%E5%8F%AF%E8%BE%BE%E6%80%A7%E7%BB%9F%E8%AE%A1" target="_blank" rel="noopener">CH2101 可达性统计</a></h1><h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>给定一张N个点M条边的有向无环图，分别统计从每个点出发能够到达的点的数量。N,M≤30000。</p>
-<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>第一行两个整数N,M，接下来M行每行两个整数x,y，表示从x到y的一条有向边。</p>
-<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>共N行，表示每个点能够到达的点的数量。</p>
-<h2 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">10 10</span><br><span class="line">3 8</span><br><span class="line">2 3</span><br><span class="line">2 5</span><br><span class="line">5 9</span><br><span class="line">5 9</span><br><span class="line">2 3</span><br><span class="line">3 9</span><br><span class="line">4 8</span><br><span class="line">2 10</span><br><span class="line">4 9</span><br></pre></td></tr></table></figure>
-<h2 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">6</span><br><span class="line">3</span><br><span class="line">3</span><br><span class="line">2</span><br><span class="line">1</span><br><span class="line">1</span><br><span class="line">1</span><br><span class="line">1</span><br><span class="line">1</span><br></pre></td></tr></table></figure>
-<hr>
-<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>我们可以利用记忆化搜索，对于每个点，记录它能到达的点的集合。</p>
-<p>至于怎么记录这个集合，我们采用bitset</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">bitset</span>&lt;MAXN&gt; f[MAXN];</span><br></pre></td></tr></table></figure>
-<p>由于bitset十分省内存，30000大小就占用30000bit，不用担心炸空间。</p>
-<p>还有，bitset支持位运算！你可以当做一个二进制数来操作，也可以当做一个bool数组，还支持各种神奇函数，十分强大。</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">bitset</span>&lt;MAXN&gt; a, b;</span><br><span class="line">a[<span class="number">1</span>] = <span class="number">1</span>;<span class="comment">//当做bool数组~</span></span><br><span class="line">b[<span class="number">2</span>] = <span class="number">1</span>;</span><br><span class="line">a = a | b;<span class="comment">//支持位运算~</span></span><br><span class="line"><span class="built_in">printf</span>(<span class="string">"%llu\n"</span>, a.count());<span class="comment">//统计1的个数~ 返回值是unsigned long long类型的</span></span><br></pre></td></tr></table></figure>
-<p>搜索过程十分简单，差不多是一个记忆化搜索模板。</p>
-<p>P.S. 当然你也可以拓扑序DP</p>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXN 30005</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXM 30005</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> bs bitset<span class="meta-string">&lt;30005&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, m;</span><br><span class="line"><span class="keyword">int</span> hd[MAXN], nxt[MAXM], to[MAXM], tot;</span><br><span class="line">bs f[MAXN];</span><br><span class="line"><span class="keyword">int</span> x, y;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Add</span><span class="params">( <span class="keyword">int</span> x, <span class="keyword">int</span> y )</span></span>&#123; nxt[++tot] = hd[x]; hd[x] = tot; to[tot] = y; &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS</span><span class="params">( <span class="keyword">int</span> x )</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> ( f[x].any() ) <span class="keyword">return</span>;</span><br><span class="line">	f[x][x] = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> ( <span class="keyword">int</span> i = hd[x]; i; i = nxt[i] )</span><br><span class="line">		f[x] |= ( DFS( to[i] ), f[to[i]] );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>( <span class="string">"%d%d"</span>, &amp;n, &amp;m );</span><br><span class="line">	<span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= m; ++i )&#123; <span class="built_in">scanf</span>( <span class="string">"%d%d"</span>, &amp;x, &amp;y ); Add( x, y ); &#125;</span><br><span class="line">	<span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i ) <span class="built_in">printf</span>( <span class="string">"%llu\n"</span>, ( DFS(i), f[i].count() ) );</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2019/01/23/「CH2101」可达性统计-解题报告/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://louhc.github.io/2019/01/23/「CH2101」可达性统计-解题报告/" data-id="cjr8gbuxr000dc0enco5icz2o" class="article-share-link">Share</a>
+      <a data-url="https://louhc.github.io/2019/01/23/「CH2101」可达性统计-解题报告/" data-id="cjr8gslgv000g8senlat7tx4f" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/STL/">STL</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-「CH2601」电路维修-解题报告" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/23/「CH2601」电路维修-解题报告/" class="article-date">
+  <time datetime="2019-01-23T00:14:13.000Z" itemprop="datePublished">2019-01-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/23/「CH2601」电路维修-解题报告/">「CH2601」电路维修 解题报告</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="CH2601-电路维修"><a href="#CH2601-电路维修" class="headerlink" title="CH2601 电路维修"></a><a href="http://contest-hunter.org:83/contest/0x20%E3%80%8C%E6%90%9C%E7%B4%A2%E3%80%8D%E4%BE%8B%E9%A2%98/2601%20%E7%94%B5%E8%B7%AF%E7%BB%B4%E4%BF%AE" target="_blank" rel="noopener">CH2601 电路维修</a></h1><h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>Ha’nyu是来自异世界的魔女，她在漫无目的地四处漂流的时候，遇到了善良的少女Rika，从而被收留在地球上。Rika的家里有一辆飞行车。有一天飞行车的电路板突然出现了故障，导致无法启动。<br>
+        
+          </p><p class="article-more-link">
+            <a href="/2019/01/23/「CH2601」电路维修-解题报告/#more">Read More</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://louhc.github.io/2019/01/23/「CH2601」电路维修-解题报告/" data-id="cjr8gslh1000n8sena5snu2bs" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/搜索/">搜索</a></li></ul>
 
     </footer>
   </div>
@@ -522,7 +489,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/NOIP/">NOIP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STL/">STL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二分答案/">二分答案</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/割点/">割点</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搜索/">搜索</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/暴力/">暴力</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/最短路/">最短路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/欧拉回路/">欧拉回路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/水题/">水题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/线性DP/">线性DP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/背包DP/">背包DP</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/NOIP/">NOIP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STL/">STL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二分答案/">二分答案</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/割点/">割点</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博弈论/">博弈论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/归并排序/">归并排序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搜索/">搜索</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/暴力/">暴力</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/最短路/">最短路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/期望-概率/">期望,概率</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/欧拉回路/">欧拉回路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/水题/">水题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/神仙题/">神仙题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/线性DP/">线性DP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/背包DP/">背包DP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/质数/">质数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/贪心/">贪心</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/递推/">递推</a></li></ul>
     </div>
   </div>
 
@@ -532,7 +499,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/NOIP/" style="font-size: 10px;">NOIP</a> <a href="/tags/STL/" style="font-size: 10px;">STL</a> <a href="/tags/二分答案/" style="font-size: 10px;">二分答案</a> <a href="/tags/割点/" style="font-size: 10px;">割点</a> <a href="/tags/搜索/" style="font-size: 20px;">搜索</a> <a href="/tags/暴力/" style="font-size: 10px;">暴力</a> <a href="/tags/最短路/" style="font-size: 10px;">最短路</a> <a href="/tags/欧拉回路/" style="font-size: 10px;">欧拉回路</a> <a href="/tags/水题/" style="font-size: 10px;">水题</a> <a href="/tags/线性DP/" style="font-size: 10px;">线性DP</a> <a href="/tags/背包DP/" style="font-size: 20px;">背包DP</a>
+      <a href="/tags/NOIP/" style="font-size: 10px;">NOIP</a> <a href="/tags/STL/" style="font-size: 10px;">STL</a> <a href="/tags/二分答案/" style="font-size: 10px;">二分答案</a> <a href="/tags/割点/" style="font-size: 10px;">割点</a> <a href="/tags/博弈论/" style="font-size: 10px;">博弈论</a> <a href="/tags/归并排序/" style="font-size: 10px;">归并排序</a> <a href="/tags/搜索/" style="font-size: 20px;">搜索</a> <a href="/tags/暴力/" style="font-size: 10px;">暴力</a> <a href="/tags/最短路/" style="font-size: 10px;">最短路</a> <a href="/tags/期望-概率/" style="font-size: 10px;">期望,概率</a> <a href="/tags/欧拉回路/" style="font-size: 10px;">欧拉回路</a> <a href="/tags/水题/" style="font-size: 10px;">水题</a> <a href="/tags/神仙题/" style="font-size: 10px;">神仙题</a> <a href="/tags/线性DP/" style="font-size: 10px;">线性DP</a> <a href="/tags/背包DP/" style="font-size: 15px;">背包DP</a> <a href="/tags/质数/" style="font-size: 10px;">质数</a> <a href="/tags/贪心/" style="font-size: 10px;">贪心</a> <a href="/tags/递推/" style="font-size: 10px;">递推</a>
     </div>
   </div>
 

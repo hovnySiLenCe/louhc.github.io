@@ -93,7 +93,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://louhc.github.io/2019/01/23/「2015南阳CCPC-D」金砖-解题报告/" data-id="cjr8gbux50000c0ennztvkbou" class="article-share-link">Share</a>
+      <a data-url="https://louhc.github.io/2019/01/23/「2015南阳CCPC-D」金砖-解题报告/" data-id="cjr8gslgc00008sent9zs8lqc" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/背包DP/">背包DP</a></li></ul>
@@ -131,7 +131,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://louhc.github.io/2019/01/23/「洛谷P1233」木棍加工-解题报告/" data-id="cjr8gbuz1001lc0enxoz6p81l" class="article-share-link">Share</a>
+      <a data-url="https://louhc.github.io/2019/01/23/「洛谷P1233」木棍加工-解题报告/" data-id="cjr8gsli900248senh1n7ib9s" class="article-share-link">Share</a>
       
       
     </footer>
@@ -167,7 +167,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://louhc.github.io/2019/01/23/解题报告/" data-id="cjr8gbuzg0023c0en1d7vu6ys" class="article-share-link">Share</a>
+      <a data-url="https://louhc.github.io/2019/01/23/解题报告/" data-id="cjr8gsliv002l8sen4c0xpoz6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -203,7 +203,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://louhc.github.io/2019/01/23/「洛谷P1080」「NOIP2012提高组」国王游戏-解题报告/" data-id="cjr8gbuyw001hc0en0wkhq0wx" class="article-share-link">Share</a>
+      <a data-url="https://louhc.github.io/2019/01/23/「洛谷P1080」「NOIP2012提高组」国王游戏-解题报告/" data-id="cjr8gsli600208senwmgdsxfg" class="article-share-link">Share</a>
       
       
     </footer>
@@ -247,7 +247,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://louhc.github.io/2019/01/23/NOIP-2018-普及组-解题报告/" data-id="cjr8gbuzl0024c0en0yzelbq5" class="article-share-link">Share</a>
+      <a data-url="https://louhc.github.io/2019/01/23/NOIP-2018-普及组-解题报告/" data-id="cjr8gsliu002k8senfmc66ymd" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NOIP/">NOIP</a></li></ul>
@@ -282,24 +282,15 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="5、传送机-sent"><a href="#5、传送机-sent" class="headerlink" title="5、传送机(sent.*)"></a>5、传送机(sent.*)</h1><h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述:"></a>问题描述:</h1><p>黄黄同学要到清华大学上学去了。黄黄同学很喜欢清华大学的校园，每次去上课时总喜欢把校园里面的每条路都走一遍，当然，黄黄同学想每条路也只走一遍。<br>我们一般人很可能对一些地图是办不到每条路走一遍且仅走一遍的，但是黄黄同学有个传送机，他可以任意地将一个人从一个路口传送到任意一个路口。<br>可是，每传送一次是需要耗费巨大的内力的，黄黄同学希望可以用最少的传送次数完成游遍校园，你帮助他吗？因为黄黄同学只是游历校园，于是我们可以认为黄黄同学可以从任意点开始，到任意点结束。<br>注意：不必经过所有的点。输入格式：输入第一行一个整数N，表示黄黄的校园里一共有多少路口。第二行一个整数M，表示路口之间有M条路。后面M行，每行两个整数a、b，表示a与b之间有一条路，且路是双向的。输出格式：输出一行一个整数S，表示黄黄同学最少的传送次数。</p>
-<h1 id="输入样例："><a href="#输入样例：" class="headerlink" title="输入样例："></a>输入样例：</h1><p>3<br>2<br>1 2<br>2 3</p>
-<h1 id="输出样例："><a href="#输出样例：" class="headerlink" title="输出样例："></a>输出样例：</h1><p>0</p>
-<h1 id="数据规模："><a href="#数据规模：" class="headerlink" title="数据规模："></a>数据规模：</h1><p>对于100%的数据满足：N&lt;=100000，M&lt;=500000，1&lt;=a，b&lt;=N。</p>
-<hr>
-<h1 id="知识储备："><a href="#知识储备：" class="headerlink" title="知识储备："></a>知识储备：</h1><p>奇点：度数为奇数的点 //度数是什么就不解释了</p>
-<p>当一个连通图的奇点个数为0或2时，该连通图可以从某个点出发，经过每条边一次（仅一次）//自己概括，可能有所疏忽，请大家指出错误之处！</p>
-<p>一句话概括，就是添加最少的边，使它构成一个欧拉回路，也就是广为人知的一笔画问题。</p>
-<p><del>这样理解，你就死了因为根据之前我的题解，会导致细节贼多，超难理解，所以我换了种思路</del></p>
-<p>可以这样考虑：不要看总体，考虑每个连通块分别构成欧拉回路，也就是对于每个连通块，连上 max((奇点个数 - 2) / 2,0)条边</p>
-<p>再将所有连通块的起点和终点顺次相连，这样就可以保证整个图构成欧拉回路了</p>
-<p>不难理解吧（由于目前时间紧迫，有时间再添加具体细节）</p>
-<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXN 100005</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> N, M;</span><br><span class="line"><span class="keyword">int</span> fa[MAXN];</span><br><span class="line"><span class="keyword">int</span> s[MAXN], a[MAXN];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">( <span class="keyword">int</span> x )</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> ( x == fa[x] ) <span class="keyword">return</span> x;</span><br><span class="line">    <span class="keyword">return</span> fa[x] = find( fa[x] );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Merge</span><span class="params">( <span class="keyword">int</span> x, <span class="keyword">int</span> y )</span></span>&#123;</span><br><span class="line">    x = find(x); y = find(y);</span><br><span class="line">    <span class="keyword">if</span> ( x != y ) fa[x] = y;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>( <span class="string">"%d%d"</span>, &amp;N, &amp;M );</span><br><span class="line">    <span class="keyword">if</span> ( M == <span class="number">0</span> )&#123; <span class="built_in">printf</span>( <span class="string">"0\n"</span> ); <span class="keyword">return</span> <span class="number">0</span>; &#125;</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= N; ++i ) fa[i] = i;</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= M; ++i )&#123;</span><br><span class="line">        <span class="keyword">int</span> x, y; <span class="built_in">scanf</span>( <span class="string">"%d%d"</span>, &amp;x, &amp;y );</span><br><span class="line">        s[x]++; s[y]++;</span><br><span class="line">        Merge( x, y );</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= N; ++i ) a[find(i)] += s[i] % <span class="number">2</span>;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">ans</span><span class="params">(<span class="number">0</span>)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= N; ++i )</span><br><span class="line">        <span class="keyword">if</span> ( s[i] &gt; <span class="number">0</span> &amp;&amp; find(i) == i ) ans = ans + <span class="number">1</span> + max( <span class="number">0</span>, ( a[i] - <span class="number">2</span> ) / <span class="number">2</span> );</span><br><span class="line">    <span class="built_in">printf</span>( <span class="string">"%d\n"</span>, ans - <span class="number">1</span> );</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>完结撒花</p>
-
+        
+          <p class="article-more-link">
+            <a href="/2019/01/23/「2018-11-05模拟赛」T5-传送机-解题报告/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://louhc.github.io/2019/01/23/「2018-11-05模拟赛」T5-传送机-解题报告/" data-id="cjr8gbuxa0001c0en9195hfs1" class="article-share-link">Share</a>
+      <a data-url="https://louhc.github.io/2019/01/23/「2018-11-05模拟赛」T5-传送机-解题报告/" data-id="cjr8gslgh00018sentgh3m260" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/欧拉回路/">欧拉回路</a></li></ul>
@@ -337,7 +328,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://louhc.github.io/2019/01/23/「洛谷P1196」「NOI2002」银河英雄传说-解题报告/" data-id="cjr8gbuyx001ic0eniahj7zs1" class="article-share-link">Share</a>
+      <a data-url="https://louhc.github.io/2019/01/23/「洛谷P1196」「NOI2002」银河英雄传说-解题报告/" data-id="cjr8gsli600218senonakbjc0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -373,7 +364,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://louhc.github.io/2019/01/23/「黑科技」查错神器——对拍/" data-id="cjr8gbuzf0021c0enggwytalf" class="article-share-link">Share</a>
+      <a data-url="https://louhc.github.io/2019/01/23/「黑科技」查错神器——对拍/" data-id="cjr8gslix002n8senhda8lqt0" class="article-share-link">Share</a>
       
       
     </footer>
@@ -409,7 +400,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://louhc.github.io/2019/01/23/「分块系列」数列分块入门1-解题报告/" data-id="cjr8gbuyc000xc0enk56u2e11" class="article-share-link">Share</a>
+      <a data-url="https://louhc.github.io/2019/01/23/「分块系列」数列分块入门1-解题报告/" data-id="cjr8gslhk001f8sen6x9ikvse" class="article-share-link">Share</a>
       
       
     </footer>
@@ -445,7 +436,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://louhc.github.io/2019/01/23/「分块系列」数列分块入门2-解题报告/" data-id="cjr8gbuyc000yc0ennnmh37qh" class="article-share-link">Share</a>
+      <a data-url="https://louhc.github.io/2019/01/23/「分块系列」数列分块入门2-解题报告/" data-id="cjr8gslhl001g8sen529o4bpi" class="article-share-link">Share</a>
       
       
     </footer>
@@ -471,7 +462,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/NOIP/">NOIP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STL/">STL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二分答案/">二分答案</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/割点/">割点</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搜索/">搜索</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/暴力/">暴力</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/最短路/">最短路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/欧拉回路/">欧拉回路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/水题/">水题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/线性DP/">线性DP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/背包DP/">背包DP</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/NOIP/">NOIP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STL/">STL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二分答案/">二分答案</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/割点/">割点</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博弈论/">博弈论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/归并排序/">归并排序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搜索/">搜索</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/暴力/">暴力</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/最短路/">最短路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/期望-概率/">期望,概率</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/欧拉回路/">欧拉回路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/水题/">水题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/神仙题/">神仙题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/线性DP/">线性DP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/背包DP/">背包DP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/质数/">质数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/贪心/">贪心</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/递推/">递推</a></li></ul>
     </div>
   </div>
 
@@ -481,7 +472,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/NOIP/" style="font-size: 10px;">NOIP</a> <a href="/tags/STL/" style="font-size: 10px;">STL</a> <a href="/tags/二分答案/" style="font-size: 10px;">二分答案</a> <a href="/tags/割点/" style="font-size: 10px;">割点</a> <a href="/tags/搜索/" style="font-size: 20px;">搜索</a> <a href="/tags/暴力/" style="font-size: 10px;">暴力</a> <a href="/tags/最短路/" style="font-size: 10px;">最短路</a> <a href="/tags/欧拉回路/" style="font-size: 10px;">欧拉回路</a> <a href="/tags/水题/" style="font-size: 10px;">水题</a> <a href="/tags/线性DP/" style="font-size: 10px;">线性DP</a> <a href="/tags/背包DP/" style="font-size: 20px;">背包DP</a>
+      <a href="/tags/NOIP/" style="font-size: 10px;">NOIP</a> <a href="/tags/STL/" style="font-size: 10px;">STL</a> <a href="/tags/二分答案/" style="font-size: 10px;">二分答案</a> <a href="/tags/割点/" style="font-size: 10px;">割点</a> <a href="/tags/博弈论/" style="font-size: 10px;">博弈论</a> <a href="/tags/归并排序/" style="font-size: 10px;">归并排序</a> <a href="/tags/搜索/" style="font-size: 20px;">搜索</a> <a href="/tags/暴力/" style="font-size: 10px;">暴力</a> <a href="/tags/最短路/" style="font-size: 10px;">最短路</a> <a href="/tags/期望-概率/" style="font-size: 10px;">期望,概率</a> <a href="/tags/欧拉回路/" style="font-size: 10px;">欧拉回路</a> <a href="/tags/水题/" style="font-size: 10px;">水题</a> <a href="/tags/神仙题/" style="font-size: 10px;">神仙题</a> <a href="/tags/线性DP/" style="font-size: 10px;">线性DP</a> <a href="/tags/背包DP/" style="font-size: 15px;">背包DP</a> <a href="/tags/质数/" style="font-size: 10px;">质数</a> <a href="/tags/贪心/" style="font-size: 10px;">贪心</a> <a href="/tags/递推/" style="font-size: 10px;">递推</a>
     </div>
   </div>
 

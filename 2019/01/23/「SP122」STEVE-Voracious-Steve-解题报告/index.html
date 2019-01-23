@@ -5,14 +5,18 @@
   
   <title>「SP122」STEVE - Voracious Steve 解题报告 | Hello,I am louhc</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
+  <meta name="description" content="SP122 STEVE - Voracious Steve题意翻译ProblemSteve和他的一个朋友在玩游戏,游戏开始前，盒子里有 n个甜甜圈，两个人轮流从盒子里抓甜甜圈，每次至少抓 1个，最多抓m个。">
+<meta name="keywords" content="博弈论">
+<meta property="og:type" content="article">
 <meta property="og:title" content="「SP122」STEVE - Voracious Steve 解题报告">
 <meta property="og:url" content="https://louhc.github.io/2019/01/23/「SP122」STEVE-Voracious-Steve-解题报告/index.html">
 <meta property="og:site_name" content="Hello,I am louhc">
+<meta property="og:description" content="SP122 STEVE - Voracious Steve题意翻译ProblemSteve和他的一个朋友在玩游戏,游戏开始前，盒子里有 n个甜甜圈，两个人轮流从盒子里抓甜甜圈，每次至少抓 1个，最多抓m个。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-01-23T00:08:43.403Z">
+<meta property="og:updated_time" content="2019-01-23T00:53:04.104Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="「SP122」STEVE - Voracious Steve 解题报告">
+<meta name="twitter:description" content="SP122 STEVE - Voracious Steve题意翻译ProblemSteve和他的一个朋友在玩游戏,游戏开始前，盒子里有 n个甜甜圈，两个人轮流从盒子里抓甜甜圈，每次至少抓 1个，最多抓m个。">
   
     <link rel="alternate" href="/atom.xml" title="Hello,I am louhc" type="application/atom+xml">
   
@@ -83,13 +87,41 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="SP122-STEVE-Voracious-Steve"><a href="#SP122-STEVE-Voracious-Steve" class="headerlink" title="SP122 STEVE - Voracious Steve"></a><a href="https://www.luogu.org/problemnew/show/SP122" target="_blank" rel="noopener">SP122 STEVE - Voracious Steve</a></h1><h2 id="题意翻译"><a href="#题意翻译" class="headerlink" title="题意翻译"></a>题意翻译</h2><h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p>Steve和他的一个朋友在玩游戏,游戏开始前，盒子里有 n个甜甜圈，两个人轮流从盒子里抓甜甜圈，每次至少抓 1个，最多抓m个。</p>
+<a id="more"></a>
+<p>最后一次将当盒子的甜甜圈抓完的人是这一轮游戏胜利者，他可以将所有抓到的甜甜圈吃完，另外一个人是这轮的失败者，他抓到的所有甜甜圈要重新放到盒子里。</p>
+<p>下一轮游戏由上一轮的失败者开始抓，游戏继续。直到若干轮后，所有的甜甜圈被吃完，游戏结束。</p>
+<p>游戏的目标是吃到尽量多的甜甜圈。游戏最开始，由Steve先抓，两个人均采用最优策略，请问Steve最多可以吃到多少甜甜圈。</p>
+<h3 id="Input-Data"><a href="#Input-Data" class="headerlink" title="Input Data"></a>Input Data</h3><p>第一行输入t,表示有t组测试数据</p>
+<p>第2~t行，两个整数n和m(1≤m≤n≤100)</p>
+<h3 id="Output-Data"><a href="#Output-Data" class="headerlink" title="Output Data"></a>Output Data</h3><p>一行，一个整数，表示Steve最多可以吃到多少个甜甜 圈。</p>
+<h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>Steve and Digit bought a box containing a number of donuts. In order to divide them between themselves they play a special game that they created. The players alternately take a certain, positive number of donuts from the box, but no more than some fixed integer. Each player’s donuts are gathered on the player’s side. The player that empties the box eats his donuts while the other one puts his donuts back into the box and the game continues with the “loser” player starting. The game goes on until all the donuts are eaten. The goal of the game is to eat the most donuts. How many donuts can Steve, who starts the game, count on, assuming the best strategy for both players?</p>
+<h3 id="Task"><a href="#Task" class="headerlink" title="Task"></a>Task</h3><p>Write a program that:</p>
+<ul>
+<li>reads the parameters of the game from the standard input,</li>
+<li>computes the number of donuts Steve can count on,</li>
+<li>writes the result to the standard output.</li>
+</ul>
+<h2 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h2><h3 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h3><p>The input begins with the integer t, the number of test cases. Then t test cases follow.</p>
+<p>For each test case the first and only line of the input contains exactly two integers n and m separated by a single space, 1 &lt;= m &lt;= n &lt;= 100 - the parameters of the game, where n is the number of donuts in the box at the beginning of the game and m is the upper limit on the number of donuts to be taken by one player in one move.</p>
+<h3 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h3><p>For each test case the output contains exactly one integer equal to the number of donuts Steve can count on.</p>
+<h2 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><h3 id="输入样例-1："><a href="#输入样例-1：" class="headerlink" title="输入样例#1："></a>输入样例#1：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1</span><br><span class="line">5 2</span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-1："><a href="#输出样例-1：" class="headerlink" title="输出样例#1："></a>输出样例#1：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>$a[all][one][tho]$表示总共有$all$个甜甜圈，现在轮到的人已经取了$one$个甜甜圈，另一个人取了$tho$个甜甜圈，现在轮到的人最多能取到的甜甜圈数。</p>
+<p>我们用记搜方式实现。</p>
+<p>当$all=0$时，直接返回0。</p>
+<p>当$all\not=0$时，我们枚举取的个数，从中选出最大值。</p>
+<p>一些边界、细节请看代码。</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, m;</span><br><span class="line"><span class="keyword">int</span> a[<span class="number">205</span>][<span class="number">205</span>][<span class="number">205</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">SG</span><span class="params">( <span class="keyword">int</span> all, <span class="keyword">int</span> one, <span class="keyword">int</span> tho )</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> ( all == <span class="number">0</span> ) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">if</span> ( a[all][one][tho] ) <span class="keyword">return</span> a[all][one][tho];</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">ans</span><span class="params">(<span class="number">0</span>)</span></span>;<span class="comment">//ans为找出的最大值</span></span><br><span class="line">	<span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= min( m, all - one - tho ); ++i )&#123;</span><br><span class="line">		<span class="keyword">if</span> ( one + tho + i == all ) ans = max( ans, all - SG( tho, <span class="number">0</span>, <span class="number">0</span> ) );<span class="comment">//取完了，把没取到最后一个的人的甜甜圈拿来继续取</span></span><br><span class="line">		<span class="keyword">else</span> ans = max( ans, all - SG( all, tho, one + i ) );<span class="comment">//没取玩，继续取</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> a[all][one][tho] = ans;<span class="comment">//记录答案</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> T;</span><br><span class="line">	<span class="built_in">scanf</span>( <span class="string">"%d"</span>, &amp;T );</span><br><span class="line">	<span class="keyword">while</span>( T-- )&#123;</span><br><span class="line">		<span class="built_in">memset</span>( a, <span class="number">0</span>, <span class="keyword">sizeof</span> a );<span class="comment">//每次的m都不同，所以别忘了初始化</span></span><br><span class="line">		<span class="built_in">scanf</span>( <span class="string">"%d%d"</span>, &amp;n, &amp;m );</span><br><span class="line">		<span class="built_in">printf</span>( <span class="string">"%d\n"</span>, SG( n, <span class="number">0</span>, <span class="number">0</span> ) );</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://louhc.github.io/2019/01/23/「SP122」STEVE-Voracious-Steve-解题报告/" data-id="cjr8gbuy2000lc0en0otb9pb9" class="article-share-link">Share</a>
+      <a data-url="https://louhc.github.io/2019/01/23/「SP122」STEVE-Voracious-Steve-解题报告/" data-id="cjr8gslh6000v8senk1jrzp5z" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/博弈论/">博弈论</a></li></ul>
+
     </footer>
   </div>
   
@@ -127,7 +159,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/NOIP/">NOIP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STL/">STL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二分答案/">二分答案</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/割点/">割点</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搜索/">搜索</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/暴力/">暴力</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/最短路/">最短路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/欧拉回路/">欧拉回路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/水题/">水题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/线性DP/">线性DP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/背包DP/">背包DP</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/NOIP/">NOIP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STL/">STL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二分答案/">二分答案</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/割点/">割点</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博弈论/">博弈论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/归并排序/">归并排序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搜索/">搜索</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/暴力/">暴力</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/最短路/">最短路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/期望-概率/">期望,概率</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/欧拉回路/">欧拉回路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/水题/">水题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/神仙题/">神仙题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/线性DP/">线性DP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/背包DP/">背包DP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/质数/">质数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/贪心/">贪心</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/递推/">递推</a></li></ul>
     </div>
   </div>
 
@@ -137,7 +169,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/NOIP/" style="font-size: 10px;">NOIP</a> <a href="/tags/STL/" style="font-size: 10px;">STL</a> <a href="/tags/二分答案/" style="font-size: 10px;">二分答案</a> <a href="/tags/割点/" style="font-size: 10px;">割点</a> <a href="/tags/搜索/" style="font-size: 20px;">搜索</a> <a href="/tags/暴力/" style="font-size: 10px;">暴力</a> <a href="/tags/最短路/" style="font-size: 10px;">最短路</a> <a href="/tags/欧拉回路/" style="font-size: 10px;">欧拉回路</a> <a href="/tags/水题/" style="font-size: 10px;">水题</a> <a href="/tags/线性DP/" style="font-size: 10px;">线性DP</a> <a href="/tags/背包DP/" style="font-size: 20px;">背包DP</a>
+      <a href="/tags/NOIP/" style="font-size: 10px;">NOIP</a> <a href="/tags/STL/" style="font-size: 10px;">STL</a> <a href="/tags/二分答案/" style="font-size: 10px;">二分答案</a> <a href="/tags/割点/" style="font-size: 10px;">割点</a> <a href="/tags/博弈论/" style="font-size: 10px;">博弈论</a> <a href="/tags/归并排序/" style="font-size: 10px;">归并排序</a> <a href="/tags/搜索/" style="font-size: 20px;">搜索</a> <a href="/tags/暴力/" style="font-size: 10px;">暴力</a> <a href="/tags/最短路/" style="font-size: 10px;">最短路</a> <a href="/tags/期望-概率/" style="font-size: 10px;">期望,概率</a> <a href="/tags/欧拉回路/" style="font-size: 10px;">欧拉回路</a> <a href="/tags/水题/" style="font-size: 10px;">水题</a> <a href="/tags/神仙题/" style="font-size: 10px;">神仙题</a> <a href="/tags/线性DP/" style="font-size: 10px;">线性DP</a> <a href="/tags/背包DP/" style="font-size: 15px;">背包DP</a> <a href="/tags/质数/" style="font-size: 10px;">质数</a> <a href="/tags/贪心/" style="font-size: 10px;">贪心</a> <a href="/tags/递推/" style="font-size: 10px;">递推</a>
     </div>
   </div>
 
