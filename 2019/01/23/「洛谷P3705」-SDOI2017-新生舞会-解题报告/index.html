@@ -5,18 +5,18 @@
   
   <title>「洛谷P3705」[SDOI2017]新生舞会 解题报告 | Hello,I am louhc</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="P3705 [SDOI2017]新生舞会题目描述学校组织了一次新生舞会，Cathy作为经验丰富的老学姐，负责为同学们安排舞伴。 有$n$个男生和$n$个女生参加舞会买一个男生和一个女生一起跳舞，互为舞伴。 Cathy收集了这些同学之间的关系，比如两个人之前认识没计算得出 $a_{i,j}$ Cathy还需要考虑两个人一起跳舞是否方便，比如身高体重差别会不会太大，计算得出 $b_{i,j}$，表示第">
+  <meta name="description" content="P3705 [SDOI2017]新生舞会题目描述学校组织了一次新生舞会，Cathy作为经验丰富的老学姐，负责为同学们安排舞伴。 有$n$个男生和$n$个女生参加舞会买一个男生和一个女生一起跳舞，互为舞伴。 Cathy收集了这些同学之间的关系，比如两个人之前认识没计算得出 $a_{i,j}$">
 <meta name="keywords" content="0&#x2F;1分数规划">
 <meta property="og:type" content="article">
 <meta property="og:title" content="「洛谷P3705」[SDOI2017]新生舞会 解题报告">
 <meta property="og:url" content="https://louhc.github.io/2019/01/23/「洛谷P3705」-SDOI2017-新生舞会-解题报告/index.html">
 <meta property="og:site_name" content="Hello,I am louhc">
-<meta property="og:description" content="P3705 [SDOI2017]新生舞会题目描述学校组织了一次新生舞会，Cathy作为经验丰富的老学姐，负责为同学们安排舞伴。 有$n$个男生和$n$个女生参加舞会买一个男生和一个女生一起跳舞，互为舞伴。 Cathy收集了这些同学之间的关系，比如两个人之前认识没计算得出 $a_{i,j}$ Cathy还需要考虑两个人一起跳舞是否方便，比如身高体重差别会不会太大，计算得出 $b_{i,j}$，表示第">
+<meta property="og:description" content="P3705 [SDOI2017]新生舞会题目描述学校组织了一次新生舞会，Cathy作为经验丰富的老学姐，负责为同学们安排舞伴。 有$n$个男生和$n$个女生参加舞会买一个男生和一个女生一起跳舞，互为舞伴。 Cathy收集了这些同学之间的关系，比如两个人之前认识没计算得出 $a_{i,j}$">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-01-23T06:50:04.390Z">
+<meta property="og:updated_time" content="2019-01-23T06:52:03.088Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="「洛谷P3705」[SDOI2017]新生舞会 解题报告">
-<meta name="twitter:description" content="P3705 [SDOI2017]新生舞会题目描述学校组织了一次新生舞会，Cathy作为经验丰富的老学姐，负责为同学们安排舞伴。 有$n$个男生和$n$个女生参加舞会买一个男生和一个女生一起跳舞，互为舞伴。 Cathy收集了这些同学之间的关系，比如两个人之前认识没计算得出 $a_{i,j}$ Cathy还需要考虑两个人一起跳舞是否方便，比如身高体重差别会不会太大，计算得出 $b_{i,j}$，表示第">
+<meta name="twitter:description" content="P3705 [SDOI2017]新生舞会题目描述学校组织了一次新生舞会，Cathy作为经验丰富的老学姐，负责为同学们安排舞伴。 有$n$个男生和$n$个女生参加舞会买一个男生和一个女生一起跳舞，互为舞伴。 Cathy收集了这些同学之间的关系，比如两个人之前认识没计算得出 $a_{i,j}$">
   
     <link rel="alternate" href="/atom.xml" title="Hello,I am louhc" type="application/atom+xml">
   
@@ -90,6 +90,7 @@
         <h1 id="P3705-SDOI2017-新生舞会"><a href="#P3705-SDOI2017-新生舞会" class="headerlink" title="P3705 [SDOI2017]新生舞会"></a>P3705 [SDOI2017]新生舞会</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>学校组织了一次新生舞会，Cathy作为经验丰富的老学姐，负责为同学们安排舞伴。</p>
 <p>有$n$个男生和$n$个女生参加舞会买一个男生和一个女生一起跳舞，互为舞伴。</p>
 <p>Cathy收集了这些同学之间的关系，比如两个人之前认识没计算得出 $a_{i,j}$</p>
+<a id="more"></a>
 <p>Cathy还需要考虑两个人一起跳舞是否方便，比如身高体重差别会不会太大，计算得出 $b_{i,j}$，表示第i个男生和第j个女生一起跳舞时的不协调程度。</p>
 <p>当然，还需要考虑很多其他问题。</p>
 <p>Cathy想先用一个程序通过$a_{i,j}$和$b_{i,j}$求出一种方案，再手动对方案进行微调。</p>
@@ -117,7 +118,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://louhc.github.io/2019/01/23/「洛谷P3705」-SDOI2017-新生舞会-解题报告/" data-id="cjr8twvei004sl0ennsnc46zf" class="article-share-link">Share</a>
+      <a data-url="https://louhc.github.io/2019/01/23/「洛谷P3705」-SDOI2017-新生舞会-解题报告/" data-id="cjr8tyr1e003choencv81p9lq" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/0-1分数规划/">0/1分数规划</a></li></ul>
