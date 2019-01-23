@@ -344,7 +344,7 @@ tpwidget("show");</script>
                 
               
 
-              <time title="创建时间：2019-01-23 18:27:08 / 修改时间：18:39:05" itemprop="dateCreated datePublished" datetime="2019-01-23T18:27:08+08:00">2019-01-23</time>
+              <time title="创建时间：2019-01-23 18:27:08 / 修改时间：18:41:10" itemprop="dateCreated datePublished" datetime="2019-01-23T18:27:08+08:00">2019-01-23</time>
             
 
             
@@ -384,26 +384,16 @@ tpwidget("show");</script>
 
       
         
+          <h1 id="P1337-JSOI2004-平衡点-吊打XXX"><a href="#P1337-JSOI2004-平衡点-吊打XXX" class="headerlink" title="P1337 [JSOI2004]平衡点 / 吊打XXX"></a><a href="https://www.luogu.org/problemnew/show/P1337" target="_blank" rel="noopener">P1337 [JSOI2004]平衡点 / 吊打XXX</a></h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>如图：有n个重物，每个重物系在一条足够长的绳子上。每条绳子自上而下穿过桌面上的洞，然后系在一起。图中X处就是公共的绳结。假设绳子是完全弹性的（不会造成能量损失），桌子足够高（因而重物不会垂到地上），且忽略所有的摩擦。</p>
+          <!--noindex-->
           
-            <h1 id="P1337-JSOI2004-平衡点-吊打XXX"><a href="#P1337-JSOI2004-平衡点-吊打XXX" class="headerlink" title="P1337 [JSOI2004]平衡点 / 吊打XXX"></a><a href="https://www.luogu.org/problemnew/show/P1337" target="_blank" rel="noopener">P1337 [JSOI2004]平衡点 / 吊打XXX</a></h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>如图：有n个重物，每个重物系在一条足够长的绳子上。每条绳子自上而下穿过桌面上的洞，然后系在一起。图中X处就是公共的绳结。假设绳子是完全弹性的（不会造成能量损失），桌子足够高（因而重物不会垂到地上），且忽略所有的摩擦。</p>
-<p>问绳结X最终平衡于何处。</p>
-<p>注意：桌面上的洞都比绳结X小得多，所以即使某个重物特别重，绳结X也不可能穿过桌面上的洞掉下来，最多是卡在某个洞口处。</p>
-<p><img src="https://cdn.luogu.org/upload/pic/148.png" alt="img"></p>
-<h2 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h2><h3 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h3><p>文件的第一行为一个正整数n（1≤n≤1000），表示重物和洞的数目。接下来的n行，每行是3个整数：Xi.Yi.Wi，分别表示第i个洞的坐标以及第 i个重物的重量。(-10000≤ x,y ≤10000, 0&lt; w ≤ 1000 )</p>
-<h3 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h3><p>你的程序必须输出两个浮点数（保留小数点后三位），分别表示处于最终平衡状态时绳结X的横坐标和纵坐标。两个数以一个空格隔开。</p>
-<h2 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><h3 id="输入样例-1："><a href="#输入样例-1：" class="headerlink" title="输入样例#1："></a>输入样例#1：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">0 0 1</span><br><span class="line">0 2 1</span><br><span class="line">1 1 1</span><br></pre></td></tr></table></figure>
-<h3 id="输出样例-1："><a href="#输出样例-1：" class="headerlink" title="输出样例#1："></a>输出样例#1：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0.577 1.000</span><br></pre></td></tr></table></figure>
-<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>[JSOI]</p>
-<hr>
-<h1 id="前置芝士"><a href="#前置芝士" class="headerlink" title="前置芝士"></a>前置芝士</h1><p>爬山算法。。。</p>
-<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>很经典的爬山算法。</p>
-<p>爬山算法是一个不断接近答案的<del>骗分</del>算法。</p>
-<p>先设定答案的横纵坐标分别为每个点横纵坐标的平均数。</p>
-<p>然后计算出每个点对它位置的影响（距离越远，重力越小，影响越小）；进行缩放（T）。</p>
-<p>T不断减小时，当精度过高时就可以退出了。</p>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Re register</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXN 1005</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> N;</span><br><span class="line"><span class="keyword">int</span> x[MAXN], y[MAXN], w[MAXN];</span><br><span class="line"><span class="keyword">double</span> ansx, ansy;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> sqr(x) ( (x) * (x) )</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">ClimbHill</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">double</span> <span class="title">T</span><span class="params">(<span class="number">1000</span>)</span></span>;<span class="comment">//设定T的初值</span></span><br><span class="line">	<span class="keyword">while</span>( T &gt; <span class="number">1e-5</span> )&#123;</span><br><span class="line">		double cx(0), cy(0), tx, ty, dis;</span><br><span class="line">		<span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= N; ++i )&#123;</span><br><span class="line">			tx = x[i] - ansx; ty = y[i] - ansy;</span><br><span class="line">			dis = <span class="built_in">sqrt</span>( tx * tx + ty * ty );<span class="comment">//计算距离</span></span><br><span class="line">			<span class="keyword">if</span> ( dis &lt; <span class="number">1e-10</span> ) <span class="keyword">continue</span>;<span class="comment">//避免除以0</span></span><br><span class="line">			cx += tx * w[i] / dis;<span class="comment">//计算对横纵坐标的影响</span></span><br><span class="line">			cy += ty * w[i] / dis;</span><br><span class="line">		&#125;</span><br><span class="line">		ansx += cx * T; ansy += cy * T; T *= <span class="number">0.98</span>;<span class="comment">//T的值不断减小</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>( <span class="string">"%d"</span>, &amp;N );</span><br><span class="line">	<span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= N; ++i ) <span class="built_in">scanf</span>( <span class="string">"%d%d%d"</span>, &amp;x[i], &amp;y[i], &amp;w[i] ), ansx += x[i], ansy += y[i];</span><br><span class="line">	ansx /= N; ansy /= N;<span class="comment">//计算初值</span></span><br><span class="line">	ClimbHill();</span><br><span class="line">	<span class="built_in">printf</span>( <span class="string">"%.3lf %.3lf\n"</span>, ansx, ansy );</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/01/23/「洛谷P1337」-JSOI2004-平衡点-吊打XXX-解题报告/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
           
+          <!--/noindex-->
         
       
     </div>
