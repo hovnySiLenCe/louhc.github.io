@@ -5,14 +5,18 @@
   
   <title>「BZOJ4590」「SHOI2015」 自动刷题机 解题报告 | Hello,I am louhc</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
+  <meta name="description" content="自动刷题机Description曾经发明了信号增幅仪的发明家SHTSC又公开了他的新发明：自动刷题机—一种可以自动AC题目的神秘装置。自动刷题机刷题的方式非常简单：首先会瞬间得出题目的正确做法，然后开始写程序，每秒，自动刷题机的代码生成模块会有两种可能的结果：  A.写了x行代码。B.心情不好，删掉了之前写的y行代码。（如果y大于当前代码长度则相当于全部删除。）  对于每个OJ所有题目，存在某个固">
+<meta name="keywords" content="二分答案">
+<meta property="og:type" content="article">
 <meta property="og:title" content="「BZOJ4590」「SHOI2015」 自动刷题机 解题报告">
 <meta property="og:url" content="https://louhc.github.io/2019/01/23/「BZOJ4590」「SHOI2015」-自动刷题机-解题报告/index.html">
 <meta property="og:site_name" content="Hello,I am louhc">
+<meta property="og:description" content="自动刷题机Description曾经发明了信号增幅仪的发明家SHTSC又公开了他的新发明：自动刷题机—一种可以自动AC题目的神秘装置。自动刷题机刷题的方式非常简单：首先会瞬间得出题目的正确做法，然后开始写程序，每秒，自动刷题机的代码生成模块会有两种可能的结果：  A.写了x行代码。B.心情不好，删掉了之前写的y行代码。（如果y大于当前代码长度则相当于全部删除。）  对于每个OJ所有题目，存在某个固">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-01-23T00:16:21.435Z">
+<meta property="og:updated_time" content="2019-01-23T00:38:53.503Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="「BZOJ4590」「SHOI2015」 自动刷题机 解题报告">
+<meta name="twitter:description" content="自动刷题机Description曾经发明了信号增幅仪的发明家SHTSC又公开了他的新发明：自动刷题机—一种可以自动AC题目的神秘装置。自动刷题机刷题的方式非常简单：首先会瞬间得出题目的正确做法，然后开始写程序，每秒，自动刷题机的代码生成模块会有两种可能的结果：  A.写了x行代码。B.心情不好，删掉了之前写的y行代码。（如果y大于当前代码长度则相当于全部删除。）  对于每个OJ所有题目，存在某个固">
   
     <link rel="alternate" href="/atom.xml" title="Hello,I am louhc" type="application/atom+xml">
   
@@ -83,13 +87,33 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="自动刷题机"><a href="#自动刷题机" class="headerlink" title="自动刷题机"></a><a href="https://www.lydsy.com/JudgeOnline/problem.php?id=4590" target="_blank" rel="noopener">自动刷题机</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>曾经发明了信号增幅仪的发明家SHTSC又公开了他的新发明：自动刷题机—一种可以自动AC题目的神秘装置。自动刷题机刷题的方式非常简单：首先会瞬间得出题目的正确做法，然后开始写程序，每秒，自动刷题机的代码生成模块会有两种可能的结果：</p>
+<blockquote>
+<p>A.写了x行代码。<br>B.心情不好，删掉了之前写的y行代码。（如果y大于当前代码长度则相当于全部删除。）</p>
+</blockquote>
+<p>对于每个OJ所有题目，存在某个固定的长度n&gt;0。一旦自动刷题机在某秒结束时积累了大于等于n行的代码，它就会自动提交并AC此题，然后新建一个文件开始写下一题。SHTSC在某个OJ上跑了一天的自动刷题机，得到了很多条关于写代码的日志信息。他突然发现自己没有记录这个OJ的n究竟是多少。所幸他通过自己在OJ上的Rank知道了机一共切了k道题。希望你计算n可能的最小值和最大值。</p>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>第一行两个整数l，k，表示刷题机的日志一共有l行，一共了切了k题。</p>
+<p>第二行l个整数，$x_1…x_l。$$x_i \ge 0$表示写了$x_i$行代码。$x_i&lt;0$表示删除了这道题的$-x_i$行代码。</p>
+<p>$1 \le l,k \le 100000，\left| x_i \right| \le10^9$</p>
+<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>输出两个数a，b。分别代表n可能的最小值和最大值。如果不存在这样的n则输出-1。</p>
+<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">4 2</span><br><span class="line">2</span><br><span class="line">5</span><br><span class="line">-3</span><br><span class="line">9</span><br></pre></td></tr></table></figure>
+<h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">3 7</span><br></pre></td></tr></table></figure>
+<p>样例1：如果n=2那么刷题机就会切掉3题。但如果n&gt;7刷题机最多只能切1题。考虑n=4发生了什么。<br> 第一秒：刷题机写了2行。<br> 第二秒：刷题机又写了5行，共有7行，提交，自信AC。<br> 第三秒：刷题机删掉了3行，共有0行。<br> 第四秒：刷题机写了9行，共有9行，提交，自信AC。<br> 一共AC了两题。</p>
+<hr>
+<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>这是一道二分题。 没错这就是一道二分题。</p>
+<p>它的单调性很明显。n越大，切的题就越少。 所以，话不多说——直接切入正题。</p>
+<p>这里要求最小值(ans1)与最大值(ans2)，所以要写2个二分，一个判断条件是$check(mid) &gt; k$ 另一个是 $\ge$ 。</p>
+<p>ans1要加1,因为$&gt;k$求出的是 满足 $check(mid) &gt; k$ 的 最大值。如果有答案的话，$ans1 + 1$必定是满足$check(mid) = k$最小值。</p>
+<p>话不多说，直接上代码$(〃’▽’〃)——$</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LL long long</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> l, k;</span><br><span class="line">LL a[<span class="number">100005</span>];</span><br><span class="line">LL le(1), ri, ans1, ans2, mid;</span><br><span class="line"></span><br><span class="line"><span class="function">LL <span class="title">check</span><span class="params">( LL x )</span></span>&#123;<span class="comment">//模拟求切题数</span></span><br><span class="line">    LL cur(0), s(0);</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= l; ++i )&#123;</span><br><span class="line">        cur = max( cur + a[i], <span class="number">0l</span>l );</span><br><span class="line">        <span class="keyword">if</span> ( cur &gt;= x )&#123;</span><br><span class="line">            s++; cur = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> s;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>( <span class="string">"%d%d"</span>, &amp;l, &amp;k );</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= l; ++i ) <span class="built_in">scanf</span>( <span class="string">"%lld"</span>, &amp;a[i] );</span><br><span class="line">    le = <span class="number">1</span>; ri = <span class="number">1000000000000000</span>;<span class="comment">//边界是个坑，走远一点就不会掉进去了嘛(｀・ω・´)反正时间复杂度不会超过O(100)</span></span><br><span class="line">    <span class="keyword">while</span>( le &lt;= ri )&#123;</span><br><span class="line">        mid = ( le + ri ) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> ( check( mid ) &gt; k )&#123;</span><br><span class="line">            le = mid + <span class="number">1</span>;</span><br><span class="line">            ans1 = mid;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> ri = mid - <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    ans1++;</span><br><span class="line">    le = <span class="number">1</span>; ri = <span class="number">1000000000000000</span>;</span><br><span class="line">    <span class="keyword">while</span>( le &lt;= ri )&#123;</span><br><span class="line">        mid = ( le + ri ) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">if</span> ( check( mid ) &gt;= k )&#123;</span><br><span class="line">            le = mid + <span class="number">1</span>;</span><br><span class="line">            ans2 = mid;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">else</span> ri = mid - <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> ( check( ans1 ) != k ) <span class="built_in">printf</span>( <span class="string">"-1\n"</span> );</span><br><span class="line">    <span class="keyword">else</span> <span class="built_in">printf</span>( <span class="string">"%lld %lld\n"</span>, ans1, ans2 );</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://louhc.github.io/2019/01/23/「BZOJ4590」「SHOI2015」-自动刷题机-解题报告/" data-id="cjr8g6spl0007j0enm6dogjb5" class="article-share-link">Share</a>
+      <a data-url="https://louhc.github.io/2019/01/23/「BZOJ4590」「SHOI2015」-自动刷题机-解题报告/" data-id="cjr8gbuxn000cc0enjo4p7hqq" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/二分答案/">二分答案</a></li></ul>
+
     </footer>
   </div>
   
@@ -127,7 +151,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/NOIP/">NOIP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/欧拉回路/">欧拉回路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/背包DP/">背包DP</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/NOIP/">NOIP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STL/">STL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二分答案/">二分答案</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/割点/">割点</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搜索/">搜索</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/暴力/">暴力</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/最短路/">最短路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/欧拉回路/">欧拉回路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/水题/">水题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/线性DP/">线性DP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/背包DP/">背包DP</a></li></ul>
     </div>
   </div>
 
@@ -137,7 +161,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/NOIP/" style="font-size: 10px;">NOIP</a> <a href="/tags/欧拉回路/" style="font-size: 10px;">欧拉回路</a> <a href="/tags/背包DP/" style="font-size: 10px;">背包DP</a>
+      <a href="/tags/NOIP/" style="font-size: 10px;">NOIP</a> <a href="/tags/STL/" style="font-size: 10px;">STL</a> <a href="/tags/二分答案/" style="font-size: 10px;">二分答案</a> <a href="/tags/割点/" style="font-size: 10px;">割点</a> <a href="/tags/搜索/" style="font-size: 20px;">搜索</a> <a href="/tags/暴力/" style="font-size: 10px;">暴力</a> <a href="/tags/最短路/" style="font-size: 10px;">最短路</a> <a href="/tags/欧拉回路/" style="font-size: 10px;">欧拉回路</a> <a href="/tags/水题/" style="font-size: 10px;">水题</a> <a href="/tags/线性DP/" style="font-size: 10px;">线性DP</a> <a href="/tags/背包DP/" style="font-size: 20px;">背包DP</a>
     </div>
   </div>
 

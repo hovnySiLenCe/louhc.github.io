@@ -88,7 +88,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://louhc.github.io/2019/01/23/「CH2601」电路维修-解题报告/" data-id="cjr8g6spq000cj0enxd92uygs" class="article-share-link">Share</a>
+      <a data-url="https://louhc.github.io/2019/01/23/「CH2601」电路维修-解题报告/" data-id="cjr8gbuxy000hc0enc4h11tp3" class="article-share-link">Share</a>
       
       
     </footer>
@@ -120,13 +120,32 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="CH2201-小猫爬山"><a href="#CH2201-小猫爬山" class="headerlink" title="CH2201 小猫爬山"></a><a href="http://contest-hunter.org:83/contest/0x20%E3%80%8C%E6%90%9C%E7%B4%A2%E3%80%8D%E4%BE%8B%E9%A2%98/2201%20%E5%B0%8F%E7%8C%AB%E7%88%AC%E5%B1%B1" target="_blank" rel="noopener">CH2201 小猫爬山</a></h1><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>Freda和rainbow饲养了N只小猫，这天，小猫们要去爬山。经历了千辛万苦，小猫们终于爬上了山顶，但是疲倦的它们再也不想徒步走下山了（呜咕&gt;_&lt;）。</p>
+<h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>Freda和rainbow只好花钱让它们坐索道下山。索道上的缆车最大承重量为W，而N只小猫的重量分别是C1、C2……CN。当然，每辆缆车上的小猫的重量之和不能超过W。每租用一辆缆车，Freda和rainbow就要付1美元，所以他们想知道，最少需要付多少美元才能把这N只小猫都运送下山？</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>第一行包含两个用空格隔开的整数，N和W。<br>接下来N行每行一个整数，其中第i+1行的整数表示第i只小猫的重量Ci。</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>输出一个整数，最少需要多少美元，也就是最少需要多少辆缆车。</p>
+<h2 id="样例输入"><a href="#样例输入" class="headerlink" title="样例输入"></a>样例输入</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">5 1996</span><br><span class="line">1</span><br><span class="line">2</span><br><span class="line">1994</span><br><span class="line">12</span><br><span class="line">29</span><br></pre></td></tr></table></figure>
+<h2 id="样例输出"><a href="#样例输出" class="headerlink" title="样例输出"></a>样例输出</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2</span><br></pre></td></tr></table></figure>
+<h2 id="数据范围与约定"><a href="#数据范围与约定" class="headerlink" title="数据范围与约定"></a>数据范围与约定</h2><ul>
+<li>对于100%的数据，1&lt;=N&lt;=18，1&lt;=Ci&lt;=W&lt;=10^8。</li>
+</ul>
+<h2 id="来源"><a href="#来源" class="headerlink" title="来源"></a>来源</h2><p>石家庄二中【Nescafé 26】杯NOIP模拟赛T1</p>
+<hr>
+<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>数据20-，很明显是搜索。</p>
+<p>我们采用<strong>先花钱，再放小猫</strong>也就是说，有没有放满先不管，车先拿来，以后再继续放。这样，对于每只猫，就有两种情况：</p>
+<p>1.坐之前就有的</p>
+<p>2.再花1dollar</p>
+<p>还可以加一个最优化剪枝~</p>
+<p>代码十分简短。。。</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXN 22</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> N, W;</span><br><span class="line"><span class="keyword">int</span> c[MAXN];</span><br><span class="line"><span class="keyword">int</span> p[MAXN], ans;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">( <span class="keyword">int</span> x, <span class="keyword">int</span> y )</span></span>&#123; <span class="keyword">return</span> x &gt; y; &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS</span><span class="params">( <span class="keyword">int</span> x, <span class="keyword">int</span> cnt )</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> ( cnt &gt;= ans ) <span class="keyword">return</span>;<span class="comment">//最优化剪枝</span></span><br><span class="line">	<span class="keyword">if</span> ( x &gt;= N )&#123; ans = cnt; <span class="keyword">return</span>; &#125;<span class="comment">//搜索边界</span></span><br><span class="line">	<span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= cnt; ++i )</span><br><span class="line">		<span class="keyword">if</span> ( p[i] + c[x] &lt;= W ) p[i] += c[x], DFS( x + <span class="number">1</span>, cnt ), p[i] -= c[x];<span class="comment">//放在之前具有的索道</span></span><br><span class="line">	p[cnt + <span class="number">1</span>] = c[x]; DFS( x + <span class="number">1</span>, cnt + <span class="number">1</span> ); p[cnt + <span class="number">1</span>] = <span class="number">0</span>;<span class="comment">//再花1dollar</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>( <span class="string">"%d%d"</span>, &amp;N, &amp;W );</span><br><span class="line">	<span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; ++i ) <span class="built_in">scanf</span>( <span class="string">"%d"</span>, &amp;c[i] );</span><br><span class="line">	sort( c, c + N, cmp ); ans = N;</span><br><span class="line">	DFS( <span class="number">0</span>, <span class="number">0</span> );</span><br><span class="line">	<span class="built_in">printf</span>( <span class="string">"%d\n"</span>, ans );</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://louhc.github.io/2019/01/23/「CH2201」小猫爬山-解题报告/" data-id="cjr8g6spn0009j0enxvhgx437" class="article-share-link">Share</a>
+      <a data-url="https://louhc.github.io/2019/01/23/「CH2201」小猫爬山-解题报告/" data-id="cjr8gbuxu000ec0enpcn44yz1" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/搜索/">搜索</a></li></ul>
+
     </footer>
   </div>
   
@@ -160,7 +179,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://louhc.github.io/2019/01/23/「黑科技」玄学优化/" data-id="cjr8g6sr6001yj0enx4m699m7" class="article-share-link">Share</a>
+      <a data-url="https://louhc.github.io/2019/01/23/「黑科技」玄学优化/" data-id="cjr8gbuzg0022c0ensa6k76l5" class="article-share-link">Share</a>
       
       
     </footer>
@@ -196,7 +215,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://louhc.github.io/2019/01/23/「题单」网络流『最大流-最小割』/" data-id="cjr8g6sr2001tj0enqj33hs8d" class="article-share-link">Share</a>
+      <a data-url="https://louhc.github.io/2019/01/23/「题单」网络流『最大流-最小割』/" data-id="cjr8gbuzc001yc0enbvgahdd9" class="article-share-link">Share</a>
       
       
     </footer>
@@ -232,7 +251,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://louhc.github.io/2019/01/23/「题单」网络流『费用流』/" data-id="cjr8g6sr3001uj0ens9tkph4r" class="article-share-link">Share</a>
+      <a data-url="https://louhc.github.io/2019/01/23/「题单」网络流『费用流』/" data-id="cjr8gbuzd001zc0en9933oov6" class="article-share-link">Share</a>
       
       
     </footer>
@@ -268,7 +287,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://louhc.github.io/2019/01/23/「洛谷P1343」地震逃生-解题报告/" data-id="cjr8g6sqs001jj0en8vz8hclp" class="article-share-link">Share</a>
+      <a data-url="https://louhc.github.io/2019/01/23/「洛谷P1343」地震逃生-解题报告/" data-id="cjr8gbuz3001oc0enub9onsaj" class="article-share-link">Share</a>
       
       
     </footer>
@@ -304,7 +323,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://louhc.github.io/2019/01/23/「洛谷P1402」酒店之王-解题报告/" data-id="cjr8g6sqt001kj0enxgen7so8" class="article-share-link">Share</a>
+      <a data-url="https://louhc.github.io/2019/01/23/「洛谷P1402」酒店之王-解题报告/" data-id="cjr8gbuz5001pc0enzcn3nn8w" class="article-share-link">Share</a>
       
       
     </footer>
@@ -340,7 +359,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://louhc.github.io/2019/01/23/「洛谷P1231」教辅的组成-解题报告/" data-id="cjr8g6sqp001fj0enwcrirxb3" class="article-share-link">Share</a>
+      <a data-url="https://louhc.github.io/2019/01/23/「洛谷P1231」教辅的组成-解题报告/" data-id="cjr8gbuz0001kc0enccu0th12" class="article-share-link">Share</a>
       
       
     </footer>
@@ -376,7 +395,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://louhc.github.io/2019/01/23/「洛谷P2891」-USACO07OPEN-吃饭Dining-解题报告/" data-id="cjr8g6sqw001mj0engb8cb19r" class="article-share-link">Share</a>
+      <a data-url="https://louhc.github.io/2019/01/23/「洛谷P2891」-USACO07OPEN-吃饭Dining-解题报告/" data-id="cjr8gbuz7001rc0en7gz3esic" class="article-share-link">Share</a>
       
       
     </footer>
@@ -412,7 +431,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://louhc.github.io/2019/01/23/「洛谷P3469」-POI2008-BLO-Blockade-解题报告/" data-id="cjr8g6sqy001pj0eng11r2ofa" class="article-share-link">Share</a>
+      <a data-url="https://louhc.github.io/2019/01/23/「洛谷P3469」-POI2008-BLO-Blockade-解题报告/" data-id="cjr8gbuz9001uc0enek5k34xp" class="article-share-link">Share</a>
       
       
     </footer>
@@ -438,7 +457,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/NOIP/">NOIP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/欧拉回路/">欧拉回路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/背包DP/">背包DP</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/NOIP/">NOIP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STL/">STL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二分答案/">二分答案</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/割点/">割点</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搜索/">搜索</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/暴力/">暴力</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/最短路/">最短路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/欧拉回路/">欧拉回路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/水题/">水题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/线性DP/">线性DP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/背包DP/">背包DP</a></li></ul>
     </div>
   </div>
 
@@ -448,7 +467,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/NOIP/" style="font-size: 10px;">NOIP</a> <a href="/tags/欧拉回路/" style="font-size: 10px;">欧拉回路</a> <a href="/tags/背包DP/" style="font-size: 10px;">背包DP</a>
+      <a href="/tags/NOIP/" style="font-size: 10px;">NOIP</a> <a href="/tags/STL/" style="font-size: 10px;">STL</a> <a href="/tags/二分答案/" style="font-size: 10px;">二分答案</a> <a href="/tags/割点/" style="font-size: 10px;">割点</a> <a href="/tags/搜索/" style="font-size: 20px;">搜索</a> <a href="/tags/暴力/" style="font-size: 10px;">暴力</a> <a href="/tags/最短路/" style="font-size: 10px;">最短路</a> <a href="/tags/欧拉回路/" style="font-size: 10px;">欧拉回路</a> <a href="/tags/水题/" style="font-size: 10px;">水题</a> <a href="/tags/线性DP/" style="font-size: 10px;">线性DP</a> <a href="/tags/背包DP/" style="font-size: 20px;">背包DP</a>
     </div>
   </div>
 
