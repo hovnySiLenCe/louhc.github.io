@@ -1,521 +1,601 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
-  <title>Page 3 | Hello,I am louhc</title>
-  <meta name="author" content="louhc">
-  
-  
+  <title>Hello,I am louhc</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
+  <meta property="og:type" content="website">
+<meta property="og:title" content="Hello,I am louhc">
+<meta property="og:url" content="https://louhc.github.io/page/3/index.html">
+<meta property="og:site_name" content="Hello,I am louhc">
+<meta property="og:locale" content="zh-CN">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hello,I am louhc">
   
-  <meta property="og:site_name" content="Hello,I am louhc">
-
+    <link rel="alternate" href="/atom.xml" title="Hello,I am louhc" type="application/atom+xml">
   
-    <meta property="og:image" content="">
   
-
-  <link href="/favicon.png" rel="icon">
-  <link rel="alternate" href="/atom.xml" title="Hello,I am louhc" type="application/atom+xml">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
   
 
 </head>
 </html>
-
 <body>
-  <header id="header" class="inner"><div class="alignleft">
-  <h1><a href="/">Hello,I am louhc</a></h1>
-  <h2><a href="/"></a></h2>
-</div>
-<nav id="main-nav" class="alignright">
-  <ul>
-    
-      <li><a href="/">Home</a></li>
-    
-      <li><a href="/archives">Archives</a></li>
-    
-  </ul>
-  <div class="clearfix"></div>
-</nav>
-<div class="clearfix"></div>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hello,I am louhc</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://louhc.github.io"></form>
+      </div>
+    </div>
+  </div>
 </header>
-  <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper">
-  <article class="post">
+      <div class="outer">
+        <section id="main">
   
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2019-01-23T00:18:00.000Z"><a href="/2019/01/23/「2018-12-02模拟赛」T2-种树-解题报告/">2019-01-23</a></time>
-      
-      
+    <article id="post-「2018-12-02模拟赛」T2-种树-解题报告" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/23/「2018-12-02模拟赛」T2-种树-解题报告/" class="article-date">
+  <time datetime="2019-01-23T00:18:00.000Z" itemprop="datePublished">2019-01-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 class="title"><a href="/2019/01/23/「2018-12-02模拟赛」T2-种树-解题报告/">「2018-12-02模拟赛」T2 种树 解题报告</a></h1>
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/23/「2018-12-02模拟赛」T2-种树-解题报告/">「2018-12-02模拟赛」T2 种树 解题报告</a>
+    </h1>
   
 
-    </header>
-    <div class="entry">
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
       
         <h1 id="2-种树-tree-pas-cpp-in-out"><a href="#2-种树-tree-pas-cpp-in-out" class="headerlink" title="2.种树(tree.pas/cpp/in/out)"></a>2.种树(tree.pas/cpp/in/out)</h1><h2 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h2><p>Fanvree 很聪明，解决难题时他总会把问题简单化。<br>例如，他就整天喜欢把图转化为树。但是他不会缩环，那他怎么转化呢？ 这是一个有<br>n 个点 m 条双向边的图，Fanvree 会选定一个节点，然后删掉这个节点和这个点连出去的边，<br>如果变成了一棵树，那么这个节点便是可行的，什么是树呢？树也即无简单环的无向连通图。<br>告诉 Fanvree 可能的节点是什么。</p>
+        
+          <p class="article-more-link">
+            <a href="/2019/01/23/「2018-12-02模拟赛」T2-种树-解题报告/#more">Read More</a>
+          </p>
+        
       
     </div>
-    <footer>
+    <footer class="article-footer">
+      <a data-url="https://louhc.github.io/2019/01/23/「2018-12-02模拟赛」T2-种树-解题报告/" data-id="cjr8kxbqe000458en5xrv26iz" class="article-share-link">Share</a>
       
-        
-          <div class="alignleft">
-            <a href="/2019/01/23/「2018-12-02模拟赛」T2-种树-解题报告/#more" class="more-link">Read More</a>
-          </div>
-        
-        
       
-      <div class="clearfix"></div>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/割点/">割点</a></li></ul>
+
     </footer>
   </div>
+  
 </article>
 
 
-
-
-  <article class="post">
   
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2019-01-23T00:17:50.000Z"><a href="/2019/01/23/「2018-12-02模拟赛」T3-约束排列-解题报告/">2019-01-23</a></time>
-      
-      
+    <article id="post-「2018-12-02模拟赛」T3-约束排列-解题报告" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/23/「2018-12-02模拟赛」T3-约束排列-解题报告/" class="article-date">
+  <time datetime="2019-01-23T00:17:50.000Z" itemprop="datePublished">2019-01-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 class="title"><a href="/2019/01/23/「2018-12-02模拟赛」T3-约束排列-解题报告/">「2018-12-02模拟赛」T3 约束排列 解题报告</a></h1>
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/23/「2018-12-02模拟赛」T3-约束排列-解题报告/">「2018-12-02模拟赛」T3 约束排列 解题报告</a>
+    </h1>
   
 
-    </header>
-    <div class="entry">
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
       
         <h1 id="3-约束排列-place-pas-cpp-in-out"><a href="#3-约束排列-place-pas-cpp-in-out" class="headerlink" title="3.约束排列(place.pas/cpp/in/out)"></a>3.约束排列(place.pas/cpp/in/out)</h1><h2 id="问题描述："><a href="#问题描述：" class="headerlink" title="问题描述："></a>问题描述：</h2><p>给出 n 个互不相同的小写字母，表示出现的字符类型，以及 k 个约束关系：  …..，表示 ai 必须出现在 bi 前面(ai,bi 不会超出所给字符类型的范围，且<br>ai!=bi)。<br>请按照字典序输出所有满足约束条件的序列。<br>如:<br>n=3，字符类型为：x y z<br>k=1，约束条件为：x z，表示 x 必须出现在 z 的前面。<br>所有满足约束条件的排列有：<br>xyz<br>xzy<br>yxz</p>
+        
+          <p class="article-more-link">
+            <a href="/2019/01/23/「2018-12-02模拟赛」T3-约束排列-解题报告/#more">Read More</a>
+          </p>
+        
       
     </div>
-    <footer>
+    <footer class="article-footer">
+      <a data-url="https://louhc.github.io/2019/01/23/「2018-12-02模拟赛」T3-约束排列-解题报告/" data-id="cjr8kxbqf000558ennjdy6ppc" class="article-share-link">Share</a>
       
-        
-          <div class="alignleft">
-            <a href="/2019/01/23/「2018-12-02模拟赛」T3-约束排列-解题报告/#more" class="more-link">Read More</a>
-          </div>
-        
-        
       
-      <div class="clearfix"></div>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/暴力/">暴力</a></li></ul>
+
     </footer>
   </div>
+  
 </article>
 
 
-
-
-  <article class="post">
   
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2019-01-23T00:17:41.000Z"><a href="/2019/01/23/「Vijos-1283」「OIBH杯NOIP2006第二次模拟赛」佳佳的魔杖/">2019-01-23</a></time>
-      
-      
+    <article id="post-「Vijos-1283」「OIBH杯NOIP2006第二次模拟赛」佳佳的魔杖" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/23/「Vijos-1283」「OIBH杯NOIP2006第二次模拟赛」佳佳的魔杖/" class="article-date">
+  <time datetime="2019-01-23T00:17:41.000Z" itemprop="datePublished">2019-01-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 class="title"><a href="/2019/01/23/「Vijos-1283」「OIBH杯NOIP2006第二次模拟赛」佳佳的魔杖/">「Vijos 1283」「OIBH杯NOIP2006第二次模拟赛」佳佳的魔杖</a></h1>
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/23/「Vijos-1283」「OIBH杯NOIP2006第二次模拟赛」佳佳的魔杖/">「Vijos 1283」「OIBH杯NOIP2006第二次模拟赛」佳佳的魔杖</a>
+    </h1>
   
 
-    </header>
-    <div class="entry">
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
       
         <h1 id="佳佳的魔杖"><a href="#佳佳的魔杖" class="headerlink" title="佳佳的魔杖"></a><a href="https://vijos.org/p/1283" target="_blank" rel="noopener">佳佳的魔杖</a></h1><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>配制成功了珍贵的0号药水，MM的病治好了。轻松下来的佳佳意外的得到了一个好东西……那就是——一种非常珍贵的树枝。这些树枝可以用来做优质的魔杖！当然了，不能只做自己的，至少还要考虑到MM的对吧。选择怎样的切割方式来制作魔杖非常重要，关键问题是——一把魔杖既不能太长、又不能太短，且制作出来的魔杖不能有冲突……</p>
+        
+          <p class="article-more-link">
+            <a href="/2019/01/23/「Vijos-1283」「OIBH杯NOIP2006第二次模拟赛」佳佳的魔杖/#more">Read More</a>
+          </p>
+        
       
     </div>
-    <footer>
+    <footer class="article-footer">
+      <a data-url="https://louhc.github.io/2019/01/23/「Vijos-1283」「OIBH杯NOIP2006第二次模拟赛」佳佳的魔杖/" data-id="cjr8kxbra001758enu76v68zf" class="article-share-link">Share</a>
       
-        
-          <div class="alignleft">
-            <a href="/2019/01/23/「Vijos-1283」「OIBH杯NOIP2006第二次模拟赛」佳佳的魔杖/#more" class="more-link">Read More</a>
-          </div>
-        
-        
       
-      <div class="clearfix"></div>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/线性DP/">线性DP</a></li></ul>
+
     </footer>
   </div>
+  
 </article>
 
 
-
-
-  <article class="post">
   
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2019-01-23T00:17:30.000Z"><a href="/2019/01/23/「Vijos-1284」「OIBH杯NOIP2006第二次模拟赛」佳佳的魔法阵/">2019-01-23</a></time>
-      
-      
+    <article id="post-「Vijos-1284」「OIBH杯NOIP2006第二次模拟赛」佳佳的魔法阵" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/23/「Vijos-1284」「OIBH杯NOIP2006第二次模拟赛」佳佳的魔法阵/" class="article-date">
+  <time datetime="2019-01-23T00:17:30.000Z" itemprop="datePublished">2019-01-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 class="title"><a href="/2019/01/23/「Vijos-1284」「OIBH杯NOIP2006第二次模拟赛」佳佳的魔法阵/">「Vijos 1284」「OIBH杯NOIP2006第二次模拟赛」佳佳的魔法阵</a></h1>
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/23/「Vijos-1284」「OIBH杯NOIP2006第二次模拟赛」佳佳的魔法阵/">「Vijos 1284」「OIBH杯NOIP2006第二次模拟赛」佳佳的魔法阵</a>
+    </h1>
   
 
-    </header>
-    <div class="entry">
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
       
         <h1 id="佳佳的魔法阵"><a href="#佳佳的魔法阵" class="headerlink" title="佳佳的魔法阵"></a><a href="https://vijos.org/p/1285" target="_blank" rel="noopener">佳佳的魔法阵</a></h1><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>也许是为了捕捉猎物（捕捉MM？），也许是因为其它原因，总之，佳佳准备设计一个魔法阵。而设计魔法阵涉及到的最关键问题，似乎就是那些带有魔力的宝石的摆放……</p>
+        
+          <p class="article-more-link">
+            <a href="/2019/01/23/「Vijos-1284」「OIBH杯NOIP2006第二次模拟赛」佳佳的魔法阵/#more">Read More</a>
+          </p>
+        
       
     </div>
-    <footer>
+    <footer class="article-footer">
+      <a data-url="https://louhc.github.io/2019/01/23/「Vijos-1284」「OIBH杯NOIP2006第二次模拟赛」佳佳的魔法阵/" data-id="cjr8kxbre001b58enbnn07p4b" class="article-share-link">Share</a>
       
-        
-          <div class="alignleft">
-            <a href="/2019/01/23/「Vijos-1284」「OIBH杯NOIP2006第二次模拟赛」佳佳的魔法阵/#more" class="more-link">Read More</a>
-          </div>
-        
-        
       
-      <div class="clearfix"></div>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/搜索/">搜索</a></li></ul>
+
     </footer>
   </div>
+  
 </article>
 
 
-
-
-  <article class="post">
   
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2019-01-23T00:17:21.000Z"><a href="/2019/01/23/「Vijos-1285」「OIBH杯NOIP2006第二次模拟赛」佳佳的魔法药水/">2019-01-23</a></time>
-      
-      
+    <article id="post-「Vijos-1285」「OIBH杯NOIP2006第二次模拟赛」佳佳的魔法药水" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/23/「Vijos-1285」「OIBH杯NOIP2006第二次模拟赛」佳佳的魔法药水/" class="article-date">
+  <time datetime="2019-01-23T00:17:21.000Z" itemprop="datePublished">2019-01-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 class="title"><a href="/2019/01/23/「Vijos-1285」「OIBH杯NOIP2006第二次模拟赛」佳佳的魔法药水/">「Vijos 1285」「OIBH杯NOIP2006第二次模拟赛」佳佳的魔法药水</a></h1>
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/23/「Vijos-1285」「OIBH杯NOIP2006第二次模拟赛」佳佳的魔法药水/">「Vijos 1285」「OIBH杯NOIP2006第二次模拟赛」佳佳的魔法药水</a>
+    </h1>
   
 
-    </header>
-    <div class="entry">
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
       
         <h1 id="佳佳的魔法药水"><a href="#佳佳的魔法药水" class="headerlink" title="佳佳的魔法药水"></a><a href="https://vijos.org/p/1285" target="_blank" rel="noopener">佳佳的魔法药水</a></h1><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>发完了k张照片，佳佳却得到了一个坏消息：他的MM得病了！佳佳和大家一样焦急万分！治好MM的病只有一种办法，那就是传说中的0号药水……怎么样才能得到0号药水呢？你要知道佳佳的家境也不是很好，成本得足够低才行……</p>
+        
+          <p class="article-more-link">
+            <a href="/2019/01/23/「Vijos-1285」「OIBH杯NOIP2006第二次模拟赛」佳佳的魔法药水/#more">Read More</a>
+          </p>
+        
       
     </div>
-    <footer>
+    <footer class="article-footer">
+      <a data-url="https://louhc.github.io/2019/01/23/「Vijos-1285」「OIBH杯NOIP2006第二次模拟赛」佳佳的魔法药水/" data-id="cjr8kxbrb001858entjetwn5f" class="article-share-link">Share</a>
       
-        
-          <div class="alignleft">
-            <a href="/2019/01/23/「Vijos-1285」「OIBH杯NOIP2006第二次模拟赛」佳佳的魔法药水/#more" class="more-link">Read More</a>
-          </div>
-        
-        
       
-      <div class="clearfix"></div>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/最短路/">最短路</a></li></ul>
+
     </footer>
   </div>
+  
 </article>
 
 
-
-
-  <article class="post">
   
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2019-01-23T00:17:13.000Z"><a href="/2019/01/23/「Vijos-1282」「OIBH杯NOIP2006第二次模拟赛」佳佳的魔法照片/">2019-01-23</a></time>
-      
-      
+    <article id="post-「Vijos-1282」「OIBH杯NOIP2006第二次模拟赛」佳佳的魔法照片" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/23/「Vijos-1282」「OIBH杯NOIP2006第二次模拟赛」佳佳的魔法照片/" class="article-date">
+  <time datetime="2019-01-23T00:17:13.000Z" itemprop="datePublished">2019-01-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 class="title"><a href="/2019/01/23/「Vijos-1282」「OIBH杯NOIP2006第二次模拟赛」佳佳的魔法照片/">「Vijos 1282」「OIBH杯NOIP2006第二次模拟赛」佳佳的魔法照片</a></h1>
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/23/「Vijos-1282」「OIBH杯NOIP2006第二次模拟赛」佳佳的魔法照片/">「Vijos 1282」「OIBH杯NOIP2006第二次模拟赛」佳佳的魔法照片</a>
+    </h1>
   
 
-    </header>
-    <div class="entry">
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
       
         <h1 id="佳佳的魔法照片"><a href="#佳佳的魔法照片" class="headerlink" title="佳佳的魔法照片"></a><a href="https://vijos.org/p/1282" target="_blank" rel="noopener">佳佳的魔法照片</a></h1><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>佳佳的魔法照片(Magic Photo)：如果你看过《哈利·波特》，你就会知道魔法世界里的照片是很神奇的。也许是因为小魔法师佳佳长的太帅，很多人都找他要那种神奇的魔法照片，而且还都要佳佳和他的MM的合照。那些照片可是非常珍贵的，他到底应该把照片给谁呢？</p>
+        
+          <p class="article-more-link">
+            <a href="/2019/01/23/「Vijos-1282」「OIBH杯NOIP2006第二次模拟赛」佳佳的魔法照片/#more">Read More</a>
+          </p>
+        
       
     </div>
-    <footer>
+    <footer class="article-footer">
+      <a data-url="https://louhc.github.io/2019/01/23/「Vijos-1282」「OIBH杯NOIP2006第二次模拟赛」佳佳的魔法照片/" data-id="cjr8kxbr8001458en3xtiuc2x" class="article-share-link">Share</a>
       
-        
-          <div class="alignleft">
-            <a href="/2019/01/23/「Vijos-1282」「OIBH杯NOIP2006第二次模拟赛」佳佳的魔法照片/#more" class="more-link">Read More</a>
-          </div>
-        
-        
       
-      <div class="clearfix"></div>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/排序/">排序</a></li></ul>
+
     </footer>
   </div>
+  
 </article>
 
 
-
-
-  <article class="post">
   
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2019-01-23T00:16:59.000Z"><a href="/2019/01/23/「CodeForces-546B」Soldier-and-Badges-解题报告/">2019-01-23</a></time>
-      
-      
+    <article id="post-「CodeForces-546B」Soldier-and-Badges-解题报告" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/23/「CodeForces-546B」Soldier-and-Badges-解题报告/" class="article-date">
+  <time datetime="2019-01-23T00:16:59.000Z" itemprop="datePublished">2019-01-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 class="title"><a href="/2019/01/23/「CodeForces-546B」Soldier-and-Badges-解题报告/">「CodeForces 546B」Soldier and Badges 解题报告</a></h1>
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/23/「CodeForces-546B」Soldier-and-Badges-解题报告/">「CodeForces 546B」Soldier and Badges 解题报告</a>
+    </h1>
   
 
-    </header>
-    <div class="entry">
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
       
         <h1 id="CF546B-Soldier-and-Badges"><a href="#CF546B-Soldier-and-Badges" class="headerlink" title="CF546B Soldier and Badges"></a><a href="https://www.luogu.org/problemnew/show/CF546B" target="_blank" rel="noopener">CF546B Soldier and Badges</a></h1><h2 id="题意翻译"><a href="#题意翻译" class="headerlink" title="题意翻译"></a>题意翻译</h2><p>给 n 个数，每次操作可以将一个数 +1，要使这 n 个数都不相同， 求最少要加多少？ $1 \le n \le 3000$<br>感谢@凉凉 提供的翻译</p>
+        
+          <p class="article-more-link">
+            <a href="/2019/01/23/「CodeForces-546B」Soldier-and-Badges-解题报告/#more">Read More</a>
+          </p>
+        
       
     </div>
-    <footer>
+    <footer class="article-footer">
+      <a data-url="https://louhc.github.io/2019/01/23/「CodeForces-546B」Soldier-and-Badges-解题报告/" data-id="cjr8kxbr0000r58enf7iigips" class="article-share-link">Share</a>
       
-        
-          <div class="alignleft">
-            <a href="/2019/01/23/「CodeForces-546B」Soldier-and-Badges-解题报告/#more" class="more-link">Read More</a>
-          </div>
-        
-        
       
-      <div class="clearfix"></div>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/贪心/">贪心</a></li></ul>
+
     </footer>
   </div>
+  
 </article>
 
 
-
-
-  <article class="post">
   
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2019-01-23T00:16:38.000Z"><a href="/2019/01/23/「BZOJ1722」「Usaco2006-Mar」Milk-Team-Select产奶比赛-解题报告/">2019-01-23</a></time>
-      
-      
+    <article id="post-「BZOJ1722」「Usaco2006-Mar」Milk-Team-Select产奶比赛-解题报告" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/23/「BZOJ1722」「Usaco2006-Mar」Milk-Team-Select产奶比赛-解题报告/" class="article-date">
+  <time datetime="2019-01-23T00:16:38.000Z" itemprop="datePublished">2019-01-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 class="title"><a href="/2019/01/23/「BZOJ1722」「Usaco2006-Mar」Milk-Team-Select产奶比赛-解题报告/">「BZOJ1722」「Usaco2006 Mar」Milk Team Select产奶比赛 解题报告</a></h1>
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/23/「BZOJ1722」「Usaco2006-Mar」Milk-Team-Select产奶比赛-解题报告/">「BZOJ1722」「Usaco2006 Mar」Milk Team Select产奶比赛 解题报告</a>
+    </h1>
   
 
-    </header>
-    <div class="entry">
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
       
         <h1 id="Milk-Team-Select-产奶比赛"><a href="#Milk-Team-Select-产奶比赛" class="headerlink" title="Milk Team Select 产奶比赛"></a><a href="https://www.lydsy.com/JudgeOnline/problem.php?id=1722" target="_blank" rel="noopener">Milk Team Select 产奶比赛</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Farmer John’s N ($1 \le N \le 500$) cows are trying to select the milking team for the world-famous Multistate Milking Match-up (MMM) competition. As you probably know, any team that produces at least X ($1 \le X \le 1,000,000$) gallons of milk is a winner. Each cow has the potential of contributing between $-10,000$ and $10,000$ gallons of milk. (Sadly, some cows have a tendency to knock over jugs containing milk produced by other cows.) The MMM prides itself on promoting family values. FJ’s cows have no doubt that they can produce X gallons of milk and win the contest, but to support the contest’s spirit,<br>
-      
-    </p></div>
-    <footer>
-      
         
-          <div class="alignleft">
-            <a href="/2019/01/23/「BZOJ1722」「Usaco2006-Mar」Milk-Team-Select产奶比赛-解题报告/#more" class="more-link">Read More</a>
-          </div>
-        
+          </p><p class="article-more-link">
+            <a href="/2019/01/23/「BZOJ1722」「Usaco2006-Mar」Milk-Team-Select产奶比赛-解题报告/#more">Read More</a>
+          </p>
         
       
-      <div class="clearfix"></div>
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://louhc.github.io/2019/01/23/「BZOJ1722」「Usaco2006-Mar」Milk-Team-Select产奶比赛-解题报告/" data-id="cjr8kxbqk000b58envfsdxg1m" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/背包DP/">背包DP</a></li></ul>
+
     </footer>
   </div>
+  
 </article>
 
 
-
-
-  <article class="post">
   
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2019-01-23T00:16:29.000Z"><a href="/2019/01/23/「BZOJ1385」「Baltic2000」Division-expression-解题报告/">2019-01-23</a></time>
-      
-      
+    <article id="post-「BZOJ1385」「Baltic2000」Division-expression-解题报告" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/23/「BZOJ1385」「Baltic2000」Division-expression-解题报告/" class="article-date">
+  <time datetime="2019-01-23T00:16:29.000Z" itemprop="datePublished">2019-01-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 class="title"><a href="/2019/01/23/「BZOJ1385」「Baltic2000」Division-expression-解题报告/">「BZOJ1385」「Baltic2000」Division expression 解题报告</a></h1>
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/23/「BZOJ1385」「Baltic2000」Division-expression-解题报告/">「BZOJ1385」「Baltic2000」Division expression 解题报告</a>
+    </h1>
   
 
-    </header>
-    <div class="entry">
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
       
         <h1 id="Division-expression"><a href="#Division-expression" class="headerlink" title="Division expression"></a><a href="https://www.lydsy.com/JudgeOnline/problem.php?id=1385" target="_blank" rel="noopener">Division expression</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>除法表达式有如下的形式: $X_1/X_2/X_3…/X_k$ 其中Xi是正整数且$X_i \le 1000000000(1 \le i \le k,K \le 10000)$ 除法表达式应当按照从左到右的顺序求，例如表达式1/2/1/2的值为1/4.但可以在表达式中加入括号来改变计算顺序，例如(1/2)/(1/2)的值为1.现给出一个除法表达式E，求是告诉是否可以通过增加括号来使其为E’,E’为整数。</p>
+        
+          <p class="article-more-link">
+            <a href="/2019/01/23/「BZOJ1385」「Baltic2000」Division-expression-解题报告/#more">Read More</a>
+          </p>
+        
       
     </div>
-    <footer>
+    <footer class="article-footer">
+      <a data-url="https://louhc.github.io/2019/01/23/「BZOJ1385」「Baltic2000」Division-expression-解题报告/" data-id="cjr8kxbqi000858eng1dxrjtk" class="article-share-link">Share</a>
       
-        
-          <div class="alignleft">
-            <a href="/2019/01/23/「BZOJ1385」「Baltic2000」Division-expression-解题报告/#more" class="more-link">Read More</a>
-          </div>
-        
-        
       
-      <div class="clearfix"></div>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/水题/">水题</a></li></ul>
+
     </footer>
   </div>
+  
 </article>
 
 
-
-
-  <article class="post">
   
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2019-01-23T00:16:21.000Z"><a href="/2019/01/23/「BZOJ4590」「SHOI2015」-自动刷题机-解题报告/">2019-01-23</a></time>
-      
-      
+    <article id="post-「BZOJ4590」「SHOI2015」-自动刷题机-解题报告" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/23/「BZOJ4590」「SHOI2015」-自动刷题机-解题报告/" class="article-date">
+  <time datetime="2019-01-23T00:16:21.000Z" itemprop="datePublished">2019-01-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 class="title"><a href="/2019/01/23/「BZOJ4590」「SHOI2015」-自动刷题机-解题报告/">「BZOJ4590」「SHOI2015」 自动刷题机 解题报告</a></h1>
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/01/23/「BZOJ4590」「SHOI2015」-自动刷题机-解题报告/">「BZOJ4590」「SHOI2015」 自动刷题机 解题报告</a>
+    </h1>
   
 
-    </header>
-    <div class="entry">
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
       
         <h1 id="自动刷题机"><a href="#自动刷题机" class="headerlink" title="自动刷题机"></a><a href="https://www.lydsy.com/JudgeOnline/problem.php?id=4590" target="_blank" rel="noopener">自动刷题机</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>曾经发明了信号增幅仪的发明家SHTSC又公开了他的新发明：自动刷题机—一种可以自动AC题目的神秘装置。自动刷题机刷题的方式非常简单：首先会瞬间得出题目的正确做法，然后开始写程序，每秒，自动刷题机的代码生成模块会有两种可能的结果：</p>
+        
+          <p class="article-more-link">
+            <a href="/2019/01/23/「BZOJ4590」「SHOI2015」-自动刷题机-解题报告/#more">Read More</a>
+          </p>
+        
       
     </div>
-    <footer>
+    <footer class="article-footer">
+      <a data-url="https://louhc.github.io/2019/01/23/「BZOJ4590」「SHOI2015」-自动刷题机-解题报告/" data-id="cjr8kxbqm000d58entazzpew3" class="article-share-link">Share</a>
       
-        
-          <div class="alignleft">
-            <a href="/2019/01/23/「BZOJ4590」「SHOI2015」-自动刷题机-解题报告/#more" class="more-link">Read More</a>
-          </div>
-        
-        
       
-      <div class="clearfix"></div>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/二分答案/">二分答案</a></li></ul>
+
     </footer>
   </div>
+  
 </article>
 
 
-
-
-
-<nav id="pagination">
-  
-    <a href="/page/2/" class="alignleft prev">Prev</a>
-  
-  
-    <a href="/page/4/" class="alignright next">Next</a>
-  
-  <div class="clearfix"></div>
-</nav></div></div>
-    <aside id="sidebar" class="alignright">
-  <div class="search">
-  <form action="//google.com/search" method="get" accept-charset="utf-8">
-    <input type="search" name="q" results="0" placeholder="Search">
-    <input type="hidden" name="q" value="site:louhc.github.io">
-  </form>
-</div>
-
   
 
-  
-<div class="widget tag">
-  <h3 class="title">Tags</h3>
-  <ul class="entry">
-  
-    <li><a href="/tags/KMP/">KMP</a><small>1</small></li>
-  
-    <li><a href="/tags/NOIP/">NOIP</a><small>1</small></li>
-  
-    <li><a href="/tags/STL/">STL</a><small>1</small></li>
-  
-    <li><a href="/tags/ST表/">ST表</a><small>1</small></li>
-  
-    <li><a href="/tags/二分答案/">二分答案</a><small>2</small></li>
-  
-    <li><a href="/tags/分块/">分块</a><small>11</small></li>
-  
-    <li><a href="/tags/割点/">割点</a><small>2</small></li>
-  
-    <li><a href="/tags/博弈论/">博弈论</a><small>1</small></li>
-  
-    <li><a href="/tags/学习笔记/">学习笔记</a><small>6</small></li>
-  
-    <li><a href="/tags/并查集/">并查集</a><small>1</small></li>
-  
-    <li><a href="/tags/归并排序/">归并排序</a><small>1</small></li>
-  
-    <li><a href="/tags/技巧/">技巧</a><small>1</small></li>
-  
-    <li><a href="/tags/排序/">排序</a><small>1</small></li>
-  
-    <li><a href="/tags/搜索/">搜索</a><small>5</small></li>
-  
-    <li><a href="/tags/数学-数论/">数学,数论</a><small>5</small></li>
-  
-    <li><a href="/tags/暴力/">暴力</a><small>1</small></li>
-  
-    <li><a href="/tags/最短路/">最短路</a><small>2</small></li>
-  
-    <li><a href="/tags/期望-概率/">期望,概率</a><small>1</small></li>
-  
-    <li><a href="/tags/欧拉回路/">欧拉回路</a><small>1</small></li>
-  
-    <li><a href="/tags/水题/">水题</a><small>1</small></li>
-  
-    <li><a href="/tags/深搜/">深搜</a><small>1</small></li>
-  
-    <li><a href="/tags/神仙题/">神仙题</a><small>2</small></li>
-  
-    <li><a href="/tags/线性DP/">线性DP</a><small>2</small></li>
-  
-    <li><a href="/tags/缩点/">缩点</a><small>1</small></li>
-  
-    <li><a href="/tags/网络流/">网络流</a><small>7</small></li>
-  
-    <li><a href="/tags/背包DP/">背包DP</a><small>2</small></li>
-  
-    <li><a href="/tags/质数/">质数</a><small>1</small></li>
-  
-    <li><a href="/tags/贪心/">贪心</a><small>3</small></li>
-  
-    <li><a href="/tags/递推/">递推</a><small>1</small></li>
-  
-    <li><a href="/tags/黑科技/">黑科技</a><small>3</small></li>
-  
-  </ul>
-</div>
 
-</aside>
-    <div class="clearfix"></div>
+  <nav id="page-nav">
+    <a class="extend prev" rel="prev" href="/page/2/">&laquo; __('prev')</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/4/">__('next') &raquo;</a>
+  </nav>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/KMP/">KMP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NOIP/">NOIP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STL/">STL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ST表/">ST表</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二分答案/">二分答案</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/分块/">分块</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/割点/">割点</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博弈论/">博弈论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习笔记/">学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/并查集/">并查集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/归并排序/">归并排序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技巧/">技巧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/排序/">排序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搜索/">搜索</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数学-数论/">数学,数论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/暴力/">暴力</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/最短路/">最短路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/期望-概率/">期望,概率</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/欧拉回路/">欧拉回路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/水题/">水题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/深搜/">深搜</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/神仙题/">神仙题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/线性DP/">线性DP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/缩点/">缩点</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络流/">网络流</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/背包DP/">背包DP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/质数/">质数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/贪心/">贪心</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/递推/">递推</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/黑科技/">黑科技</a></li></ul>
+    </div>
   </div>
-  <footer id="footer" class="inner"><div class="alignleft">
+
+
   
-  &copy; 2019 louhc
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/KMP/" style="font-size: 10px;">KMP</a> <a href="/tags/NOIP/" style="font-size: 10px;">NOIP</a> <a href="/tags/STL/" style="font-size: 10px;">STL</a> <a href="/tags/ST表/" style="font-size: 10px;">ST表</a> <a href="/tags/二分答案/" style="font-size: 11.67px;">二分答案</a> <a href="/tags/分块/" style="font-size: 20px;">分块</a> <a href="/tags/割点/" style="font-size: 11.67px;">割点</a> <a href="/tags/博弈论/" style="font-size: 10px;">博弈论</a> <a href="/tags/学习笔记/" style="font-size: 16.67px;">学习笔记</a> <a href="/tags/并查集/" style="font-size: 10px;">并查集</a> <a href="/tags/归并排序/" style="font-size: 10px;">归并排序</a> <a href="/tags/技巧/" style="font-size: 10px;">技巧</a> <a href="/tags/排序/" style="font-size: 10px;">排序</a> <a href="/tags/搜索/" style="font-size: 15px;">搜索</a> <a href="/tags/数学-数论/" style="font-size: 15px;">数学,数论</a> <a href="/tags/暴力/" style="font-size: 10px;">暴力</a> <a href="/tags/最短路/" style="font-size: 11.67px;">最短路</a> <a href="/tags/期望-概率/" style="font-size: 10px;">期望,概率</a> <a href="/tags/欧拉回路/" style="font-size: 10px;">欧拉回路</a> <a href="/tags/水题/" style="font-size: 10px;">水题</a> <a href="/tags/深搜/" style="font-size: 10px;">深搜</a> <a href="/tags/神仙题/" style="font-size: 11.67px;">神仙题</a> <a href="/tags/线性DP/" style="font-size: 11.67px;">线性DP</a> <a href="/tags/缩点/" style="font-size: 10px;">缩点</a> <a href="/tags/网络流/" style="font-size: 18.33px;">网络流</a> <a href="/tags/背包DP/" style="font-size: 11.67px;">背包DP</a> <a href="/tags/质数/" style="font-size: 10px;">质数</a> <a href="/tags/贪心/" style="font-size: 13.33px;">贪心</a> <a href="/tags/递推/" style="font-size: 10px;">递推</a> <a href="/tags/黑科技/" style="font-size: 13.33px;">黑科技</a>
+    </div>
+  </div>
+
   
-</div>
-<div class="clearfix"></div></footer>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a></li></ul>
+    </div>
+  </div>
 
 
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/01/23/「2015南阳CCPC-D」金砖-解题报告/">「2015南阳CCPC D」金砖 解题报告</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/23/「洛谷P1233」木棍加工-解题报告/">「洛谷P1233」木棍加工 解题报告</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/23/「2018-11-02模拟赛」T3-老大-解题报告/">「2018-11-02模拟赛」t3 老大 解题报告</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/23/「洛谷P1080」「NOIP2012提高组」国王游戏-解题报告/">「洛谷P1080」「NOIP2012提高组」国王游戏 解题报告</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/23/NOIP-2018-普及组-解题报告/">NOIP 2018 普及组 解题报告</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 louhc<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-<script type="text/javascript">
-(function($){
-  $('.fancybox').fancybox();
-})(jQuery);
-</script>
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
+
+<script src="/js/script.js"></script>
+
+  </div>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         tex2jax: {

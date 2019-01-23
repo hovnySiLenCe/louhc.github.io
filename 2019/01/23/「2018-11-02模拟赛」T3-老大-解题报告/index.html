@@ -1,65 +1,91 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
 <head><meta name="generator" content="Hexo 3.8.0">
   <meta charset="utf-8">
   
   <title>「2018-11-02模拟赛」t3 老大 解题报告 | Hello,I am louhc</title>
-  <meta name="author" content="louhc">
-  
-  <meta name="description" content="老大题目描述因为 OB 今年拿下 4 块金牌，学校赞助扩建劳模办公室为劳模办公室群，为了体现 OI 的特色，办公室群被设计成了树形（n 个点 n − 1 条边的无向连通图），由于新建的办公室太大以至于要将奖杯要分放在两个不同的地方以便同学们丢硬币进去开光，OB 想请你帮帮他看看奖杯放在哪两个办公室使得在任意一个在劳模办公室做题的小朋友能最快地找到奖杯来开光。一句话题意：给出一个 n 个点的树，在两个合适且不同的点放上奖杯，使得每个点到最近的奖杯距离最大值最小。">
-  
-  
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-
-  <meta property="og:title" content="「2018-11-02模拟赛」t3 老大 解题报告">
-  <meta property="og:site_name" content="Hello,I am louhc">
-
+  <meta name="description" content="老大题目描述因为 OB 今年拿下 4 块金牌，学校赞助扩建劳模办公室为劳模办公室群，为了体现 OI 的特色，办公室群被设计成了树形（n 个点 n − 1 条边的无向连通图），由于新建的办公室太大以至于要将奖杯要分放在两个不同的地方以便同学们丢硬币进去开光，OB 想请你帮帮他看看奖杯放在哪两个办公室使得在任意一个在劳模办公室做题的小朋友能最快地找到奖杯来开光。一句话题意：给出一个 n 个点的树，在两">
+<meta name="keywords" content="二分答案">
+<meta property="og:type" content="article">
+<meta property="og:title" content="「2018-11-02模拟赛」t3 老大 解题报告">
+<meta property="og:url" content="https://louhc.github.io/2019/01/23/「2018-11-02模拟赛」T3-老大-解题报告/index.html">
+<meta property="og:site_name" content="Hello,I am louhc">
+<meta property="og:description" content="老大题目描述因为 OB 今年拿下 4 块金牌，学校赞助扩建劳模办公室为劳模办公室群，为了体现 OI 的特色，办公室群被设计成了树形（n 个点 n − 1 条边的无向连通图），由于新建的办公室太大以至于要将奖杯要分放在两个不同的地方以便同学们丢硬币进去开光，OB 想请你帮帮他看看奖杯放在哪两个办公室使得在任意一个在劳模办公室做题的小朋友能最快地找到奖杯来开光。一句话题意：给出一个 n 个点的树，在两">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-01-23T01:59:07.703Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="「2018-11-02模拟赛」t3 老大 解题报告">
+<meta name="twitter:description" content="老大题目描述因为 OB 今年拿下 4 块金牌，学校赞助扩建劳模办公室为劳模办公室群，为了体现 OI 的特色，办公室群被设计成了树形（n 个点 n − 1 条边的无向连通图），由于新建的办公室太大以至于要将奖杯要分放在两个不同的地方以便同学们丢硬币进去开光，OB 想请你帮帮他看看奖杯放在哪两个办公室使得在任意一个在劳模办公室做题的小朋友能最快地找到奖杯来开光。一句话题意：给出一个 n 个点的树，在两">
   
-    <meta property="og:image" content="">
+    <link rel="alternate" href="/atom.xml" title="Hello,I am louhc" type="application/atom+xml">
   
-
-  <link href="/favicon.png" rel="icon">
-  <link rel="alternate" href="/atom.xml" title="Hello,I am louhc" type="application/atom+xml">
-  <link rel="stylesheet" href="/css/style.css" media="screen" type="text/css">
-  <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
   
 
 </head>
 </html>
-
 <body>
-  <header id="header" class="inner"><div class="alignleft">
-  <h1><a href="/">Hello,I am louhc</a></h1>
-  <h2><a href="/"></a></h2>
-</div>
-<nav id="main-nav" class="alignright">
-  <ul>
-    
-      <li><a href="/">Home</a></li>
-    
-      <li><a href="/archives">Archives</a></li>
-    
-  </ul>
-  <div class="clearfix"></div>
-</nav>
-<div class="clearfix"></div>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Hello,I am louhc</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="搜索"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://louhc.github.io"></form>
+      </div>
+    </div>
+  </div>
 </header>
-  <div id="content" class="inner">
-    <div id="main-col" class="alignleft"><div id="wrapper"><article class="post">
+      <div class="outer">
+        <section id="main"><article id="post-「2018-11-02模拟赛」T3-老大-解题报告" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/01/23/「2018-11-02模拟赛」T3-老大-解题报告/" class="article-date">
+  <time datetime="2019-01-23T00:22:54.000Z" itemprop="datePublished">2019-01-23</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-  <div class="post-content">
-    <header>
-      
-        <div class="icon"></div>
-        <time datetime="2019-01-23T00:22:54.000Z"><a href="/2019/01/23/「2018-11-02模拟赛」T3-老大-解题报告/">2019-01-23</a></time>
-      
-      
-  
-    <h1 class="title">「2018-11-02模拟赛」t3 老大 解题报告</h1>
+    <h1 class="article-title" itemprop="name">
+      「2018-11-02模拟赛」t3 老大 解题报告
+    </h1>
   
 
-    </header>
-    <div class="entry">
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
       
         <h1 id="老大"><a href="#老大" class="headerlink" title="老大"></a>老大</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>因为 OB 今年拿下 4 块金牌，学校赞助扩建劳模办公室为劳模办公室群，为了体现 OI 的特色，办公室群被设计成了树形（n 个点 n − 1 条边的无向连通图），由于新建的办公室太大以至于要将奖杯要分放在两个不同的地方以便同学们丢硬币进去开光，OB 想请你帮帮他看看奖杯放在哪两个办公室使得在任意一个在劳模办公室做题的小朋友能最快地找到奖杯来开光。<br>一句话题意：给出一个 n 个点的树，在两个合适且不同的点放上奖杯，使得每个点到最近的奖杯距离最大值最小。</p>
 <a id="more"></a>
@@ -94,163 +120,137 @@
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//把STL改为手打QAQ</span></span><br><span class="line"><span class="comment">//最后的结果 </span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXN 200005</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Reg register</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"><span class="keyword">int</span> head[MAXN], nxt[MAXN &lt;&lt; <span class="number">1</span>], to[MAXN &lt;&lt; <span class="number">1</span>], tot;</span><br><span class="line"><span class="keyword">int</span> dep[MAXN], o[MAXN], f[MAXN];</span><br><span class="line"><span class="keyword">int</span> v[MAXN];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">read</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="function">Reg <span class="keyword">int</span> <span class="title">x</span><span class="params">(<span class="number">0</span>)</span></span>;</span><br><span class="line">	Reg <span class="keyword">char</span> c = getchar();</span><br><span class="line">	<span class="keyword">while</span> ( !<span class="built_in">isdigit</span>(c) ) c = getchar();</span><br><span class="line">	<span class="keyword">for</span> ( ;<span class="built_in">isdigit</span>(c); c = getchar() ) x = x * <span class="number">10</span> + ( c ^ <span class="string">'0'</span> );</span><br><span class="line">	<span class="keyword">return</span> x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">( <span class="keyword">int</span> x, <span class="keyword">int</span> y )</span></span>&#123;</span><br><span class="line">	<span class="keyword">return</span> dep[x] &gt; dep[y];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Add</span><span class="params">( <span class="keyword">int</span> x, <span class="keyword">int</span> y )</span></span>&#123;</span><br><span class="line">	to[++tot] = y; nxt[tot] = head[x]; head[x] = tot;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">int</span> q[MAXN];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">BFS</span><span class="params">()</span></span>&#123;</span><br><span class="line">	int tl(1), hd(1);</span><br><span class="line">	q[<span class="number">1</span>] = <span class="number">1</span>; f[<span class="number">1</span>] = <span class="number">1</span>; dep[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">while</span>( tl &gt;= hd )&#123;</span><br><span class="line">		<span class="function"><span class="keyword">int</span> <span class="title">t</span><span class="params">(q[hd])</span></span>; hd++;</span><br><span class="line">		<span class="keyword">for</span> ( <span class="keyword">int</span> i = head[t]; i; i = nxt[i] )</span><br><span class="line">			<span class="keyword">if</span> ( to[i] != f[t] )&#123;</span><br><span class="line">				dep[to[i]] = dep[t] + <span class="number">1</span>; f[to[i]] = t; q[++tl] = to[i];</span><br><span class="line">			&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">states</span>&#123;</span></span><br><span class="line">	<span class="keyword">int</span> id, de, fa;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> states <span class="title">make_st</span><span class="params">( <span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="keyword">int</span> z )</span></span>&#123;</span><br><span class="line">	states t;</span><br><span class="line">	t.id = x; t.de = y; t.fa = z;</span><br><span class="line">	<span class="keyword">return</span> t;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">states Q[MAXN];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">bfs</span><span class="params">( <span class="keyword">int</span> x, <span class="keyword">int</span> maxd )</span></span>&#123;</span><br><span class="line">	int tl(1), hd(1);</span><br><span class="line">	Q[<span class="number">1</span>] = make_st( x, <span class="number">0</span>, x );</span><br><span class="line">	<span class="keyword">while</span>( tl &gt;= hd )&#123;</span><br><span class="line">		int t(Q[hd].id), d(Q[hd].de), fth(Q[hd].fa);</span><br><span class="line">		hd++; v[t] = <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">if</span> ( d &gt;= maxd ) <span class="keyword">continue</span>;</span><br><span class="line">		<span class="keyword">for</span> ( <span class="keyword">int</span> i = head[t]; i; i = nxt[i] )</span><br><span class="line">			<span class="keyword">if</span> ( to[i] != fth ) Q[++tl] = make_st( to[i], d + <span class="number">1</span>, t );</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">check</span><span class="params">( <span class="keyword">int</span> x )</span></span>&#123;</span><br><span class="line">	<span class="function"><span class="keyword">int</span> <span class="title">cur</span><span class="params">(<span class="number">0</span>)</span></span>; <span class="built_in">memset</span>( v, <span class="number">0</span>, <span class="keyword">sizeof</span> v );</span><br><span class="line">	<span class="keyword">for</span> ( Reg <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i )&#123;</span><br><span class="line">		<span class="keyword">if</span> ( !v[o[i]] )&#123;</span><br><span class="line">			<span class="function"><span class="keyword">int</span> <span class="title">t</span><span class="params">(o[i])</span></span>;</span><br><span class="line">			<span class="keyword">for</span> ( <span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= x; ++j ) t = f[t];</span><br><span class="line">			cur++;</span><br><span class="line">			<span class="keyword">if</span> ( cur &gt; <span class="number">2</span> ) <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">			bfs( t, x ); </span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="comment">//	freopen( "ob.in", "r", stdin );</span></span><br><span class="line"><span class="comment">//	freopen( "ob.out", "w", stdout );</span></span><br><span class="line">	<span class="built_in">scanf</span>( <span class="string">"%d"</span>, &amp;n );</span><br><span class="line">	Reg <span class="keyword">int</span> x, y;</span><br><span class="line">	<span class="keyword">for</span> ( Reg <span class="keyword">int</span> i = <span class="number">1</span>; i &lt; n; ++i )&#123;</span><br><span class="line">		x = read(); y = read();</span><br><span class="line">		Add( x, y ); Add( y, x );</span><br><span class="line">	&#125;</span><br><span class="line">	BFS();</span><br><span class="line">	<span class="keyword">for</span> ( Reg <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i ) o[i] = i;</span><br><span class="line">	sort( o + <span class="number">1</span>, o + n + <span class="number">1</span>, cmp );</span><br><span class="line">	int l(1), r(200000), mid, ans(-1);</span><br><span class="line">	<span class="keyword">while</span>( l &lt;= r )&#123;</span><br><span class="line">		mid = ( l + r ) &gt;&gt; <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">if</span> ( check( mid ) ) r = mid - <span class="number">1</span>, ans = mid;</span><br><span class="line">		<span class="keyword">else</span> l = mid + <span class="number">1</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>( <span class="string">"%d\n"</span>, ans );</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
-    <footer>
+    <footer class="article-footer">
+      <a data-url="https://louhc.github.io/2019/01/23/「2018-11-02模拟赛」T3-老大-解题报告/" data-id="cjr8kxbu8005958eni3fqa1n3" class="article-share-link">Share</a>
       
-        
-        
-  
-  <div class="tags">
-    <a href="/tags/二分答案/">二分答案</a>
-  </div>
-
-        
-  <div class="addthis addthis_toolbox addthis_default_style">
-    
-      <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
-    
-    
-      <a class="addthis_button_tweet"></a>
-    
-    
-      <a class="addthis_button_google_plusone" g:plusone:size="medium"></a>
-    
-    
-      <a class="addthis_button_pinterest_pinit" pi:pinit:layout="horizontal"></a>
-    
-    <a class="addthis_counter addthis_pill_style"></a>
-  </div>
-  <script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js"></script>
-
       
-      <div class="clearfix"></div>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/二分答案/">二分答案</a></li></ul>
+
     </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2019/01/23/「洛谷P1233」木棍加工-解题报告/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          「洛谷P1233」木棍加工 解题报告
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/01/23/「洛谷P1080」「NOIP2012提高组」国王游戏-解题报告/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">「洛谷P1080」「NOIP2012提高组」国王游戏 解题报告</div>
+    </a>
+  
+</nav>
+
+  
 </article>
 
-
-<section id="comment">
-  <h1 class="title">Comments</h1>
-
-  
-      <div id="fb-root"></div>
-<script>
-  (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=123456789012345";
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));
-</script>
-
-<div class="fb-comments" data-href="https://louhc.github.io/2019/01/23/「2018-11-02模拟赛」T3-老大-解题报告/index.html" data-num-posts="5" data-width="840" data-colorscheme="light"></div>
-      
-  
 </section>
-
-</div></div>
-    <aside id="sidebar" class="alignright">
-  <div class="search">
-  <form action="//google.com/search" method="get" accept-charset="utf-8">
-    <input type="search" name="q" results="0" placeholder="Search">
-    <input type="hidden" name="q" value="site:louhc.github.io">
-  </form>
-</div>
+        
+          <aside id="sidebar">
+  
+    
 
   
-
-  
-<div class="widget tag">
-  <h3 class="title">Tags</h3>
-  <ul class="entry">
-  
-    <li><a href="/tags/KMP/">KMP</a><small>1</small></li>
-  
-    <li><a href="/tags/NOIP/">NOIP</a><small>1</small></li>
-  
-    <li><a href="/tags/STL/">STL</a><small>1</small></li>
-  
-    <li><a href="/tags/ST表/">ST表</a><small>1</small></li>
-  
-    <li><a href="/tags/二分答案/">二分答案</a><small>2</small></li>
-  
-    <li><a href="/tags/分块/">分块</a><small>11</small></li>
-  
-    <li><a href="/tags/割点/">割点</a><small>2</small></li>
-  
-    <li><a href="/tags/博弈论/">博弈论</a><small>1</small></li>
-  
-    <li><a href="/tags/学习笔记/">学习笔记</a><small>6</small></li>
-  
-    <li><a href="/tags/并查集/">并查集</a><small>1</small></li>
-  
-    <li><a href="/tags/归并排序/">归并排序</a><small>1</small></li>
-  
-    <li><a href="/tags/技巧/">技巧</a><small>1</small></li>
-  
-    <li><a href="/tags/排序/">排序</a><small>1</small></li>
-  
-    <li><a href="/tags/搜索/">搜索</a><small>5</small></li>
-  
-    <li><a href="/tags/数学-数论/">数学,数论</a><small>5</small></li>
-  
-    <li><a href="/tags/暴力/">暴力</a><small>1</small></li>
-  
-    <li><a href="/tags/最短路/">最短路</a><small>2</small></li>
-  
-    <li><a href="/tags/期望-概率/">期望,概率</a><small>1</small></li>
-  
-    <li><a href="/tags/欧拉回路/">欧拉回路</a><small>1</small></li>
-  
-    <li><a href="/tags/水题/">水题</a><small>1</small></li>
-  
-    <li><a href="/tags/深搜/">深搜</a><small>1</small></li>
-  
-    <li><a href="/tags/神仙题/">神仙题</a><small>2</small></li>
-  
-    <li><a href="/tags/线性DP/">线性DP</a><small>2</small></li>
-  
-    <li><a href="/tags/缩点/">缩点</a><small>1</small></li>
-  
-    <li><a href="/tags/网络流/">网络流</a><small>7</small></li>
-  
-    <li><a href="/tags/背包DP/">背包DP</a><small>2</small></li>
-  
-    <li><a href="/tags/质数/">质数</a><small>1</small></li>
-  
-    <li><a href="/tags/贪心/">贪心</a><small>3</small></li>
-  
-    <li><a href="/tags/递推/">递推</a><small>1</small></li>
-  
-    <li><a href="/tags/黑科技/">黑科技</a><small>3</small></li>
-  
-  </ul>
-</div>
-
-</aside>
-    <div class="clearfix"></div>
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/KMP/">KMP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NOIP/">NOIP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STL/">STL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ST表/">ST表</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二分答案/">二分答案</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/分块/">分块</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/割点/">割点</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博弈论/">博弈论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习笔记/">学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/并查集/">并查集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/归并排序/">归并排序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技巧/">技巧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/排序/">排序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搜索/">搜索</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数学-数论/">数学,数论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/暴力/">暴力</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/最短路/">最短路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/期望-概率/">期望,概率</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/欧拉回路/">欧拉回路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/水题/">水题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/深搜/">深搜</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/神仙题/">神仙题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/线性DP/">线性DP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/缩点/">缩点</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络流/">网络流</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/背包DP/">背包DP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/质数/">质数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/贪心/">贪心</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/递推/">递推</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/黑科技/">黑科技</a></li></ul>
+    </div>
   </div>
-  <footer id="footer" class="inner"><div class="alignleft">
+
+
   
-  &copy; 2019 louhc
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/KMP/" style="font-size: 10px;">KMP</a> <a href="/tags/NOIP/" style="font-size: 10px;">NOIP</a> <a href="/tags/STL/" style="font-size: 10px;">STL</a> <a href="/tags/ST表/" style="font-size: 10px;">ST表</a> <a href="/tags/二分答案/" style="font-size: 11.67px;">二分答案</a> <a href="/tags/分块/" style="font-size: 20px;">分块</a> <a href="/tags/割点/" style="font-size: 11.67px;">割点</a> <a href="/tags/博弈论/" style="font-size: 10px;">博弈论</a> <a href="/tags/学习笔记/" style="font-size: 16.67px;">学习笔记</a> <a href="/tags/并查集/" style="font-size: 10px;">并查集</a> <a href="/tags/归并排序/" style="font-size: 10px;">归并排序</a> <a href="/tags/技巧/" style="font-size: 10px;">技巧</a> <a href="/tags/排序/" style="font-size: 10px;">排序</a> <a href="/tags/搜索/" style="font-size: 15px;">搜索</a> <a href="/tags/数学-数论/" style="font-size: 15px;">数学,数论</a> <a href="/tags/暴力/" style="font-size: 10px;">暴力</a> <a href="/tags/最短路/" style="font-size: 11.67px;">最短路</a> <a href="/tags/期望-概率/" style="font-size: 10px;">期望,概率</a> <a href="/tags/欧拉回路/" style="font-size: 10px;">欧拉回路</a> <a href="/tags/水题/" style="font-size: 10px;">水题</a> <a href="/tags/深搜/" style="font-size: 10px;">深搜</a> <a href="/tags/神仙题/" style="font-size: 11.67px;">神仙题</a> <a href="/tags/线性DP/" style="font-size: 11.67px;">线性DP</a> <a href="/tags/缩点/" style="font-size: 10px;">缩点</a> <a href="/tags/网络流/" style="font-size: 18.33px;">网络流</a> <a href="/tags/背包DP/" style="font-size: 11.67px;">背包DP</a> <a href="/tags/质数/" style="font-size: 10px;">质数</a> <a href="/tags/贪心/" style="font-size: 13.33px;">贪心</a> <a href="/tags/递推/" style="font-size: 10px;">递推</a> <a href="/tags/黑科技/" style="font-size: 13.33px;">黑科技</a>
+    </div>
+  </div>
+
   
-</div>
-<div class="clearfix"></div></footer>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a></li></ul>
+    </div>
+  </div>
 
 
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/01/23/「2015南阳CCPC-D」金砖-解题报告/">「2015南阳CCPC D」金砖 解题报告</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/23/「洛谷P1233」木棍加工-解题报告/">「洛谷P1233」木棍加工 解题报告</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/23/「2018-11-02模拟赛」T3-老大-解题报告/">「2018-11-02模拟赛」t3 老大 解题报告</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/23/「洛谷P1080」「NOIP2012提高组」国王游戏-解题报告/">「洛谷P1080」「NOIP2012提高组」国王游戏 解题报告</a>
+          </li>
+        
+          <li>
+            <a href="/2019/01/23/NOIP-2018-普及组-解题报告/">NOIP 2018 普及组 解题报告</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 louhc<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-<script type="text/javascript">
-(function($){
-  $('.fancybox').fancybox();
-})(jQuery);
-</script>
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
 
+
+<script src="/js/script.js"></script>
+
+  </div>
 <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
         tex2jax: {
