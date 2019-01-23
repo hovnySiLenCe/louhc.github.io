@@ -85,21 +85,15 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h1 id="P4322-JSOI2016-最佳团体"><a href="#P4322-JSOI2016-最佳团体" class="headerlink" title="P4322 [JSOI2016]最佳团体"></a><a href="https://www.luogu.org/problemnew/show/P4322" target="_blank" rel="noopener">P4322 [JSOI2016]最佳团体</a></h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>JSOI 信息学代表队一共有 $N$ 名候选人，这些候选人从 $1$ 到 $N$ 编号。方便起见，JYY 的编号是 $0$ 号。每个候选人都由一位编号比他小的候选人$R_i$推荐。如果 $R_i = 0$ ，则说明这个候选人是 JYY 自己看上的。为了保证团队的和谐，JYY 需要保证，如果招募了候选人 $i$，那么候选人 $R_i$也一定需要在团队中。当然了，JYY 自己总是在团队里的。每一个候选人都有一个战斗值 $P_i$ ，也有一个招募费用 $S_i$。JYY 希望招募 $K$ 个候选人（JYY 自己不算），组成一个性价比最高的团队。也就是，这 $K$ 个被 JYY 选择的候选人的总战斗值与总招募费用的比值最大。</p>
-<h2 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h2><h3 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h3><p>输入一行包含两个正整数 $K$ 和 $N$ 。<br>接下来 $N$ 行，其中第 $i$ 行包含三个整数 $S_i$,$P_i$, $R_i$, 表示候选人$i$的招募费用，战斗值和推荐人编号。</p>
-<h3 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h3><p>输出一行一个实数，表示最佳比值。答案保留三位小数。</p>
-<h2 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><h3 id="输入样例-1："><a href="#输入样例-1：" class="headerlink" title="输入样例#1："></a>输入样例#1：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">1 2</span><br><span class="line">1000 1 0</span><br><span class="line">1 1000 1</span><br></pre></td></tr></table></figure>
-<h3 id="输出样例-1："><a href="#输出样例-1：" class="headerlink" title="输出样例#1："></a>输出样例#1：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0.001</span><br></pre></td></tr></table></figure>
-<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>对于100%的数据满足$1 \le K \le N \le 2500,0 &lt; S_i,P_i≤10^4$</p>
-<hr>
-<h1 id="前置芝士"><a href="#前置芝士" class="headerlink" title="前置芝士"></a>前置芝士</h1><p>树形DP，背包DP，0/1分数规划</p>
-<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>十分裸的0/1分数规划。</p>
-<p>$\frac{P_1+P_2+..P_k}{S_1+S_2+..S_k}= Ans$转换成$\sum (P_i-S_i\times Ans) = 0$</p>
-<p>二分答案即可。条件判断可以使用树上分组背包DP解决。</p>
-<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Re register</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXN 2505</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LD double</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> K, N; </span><br><span class="line"><span class="keyword">int</span> S[MAXN], P[MAXN], R, sz[MAXN];</span><br><span class="line"><span class="keyword">int</span> hd[MAXN], nxt[MAXN &lt;&lt; <span class="number">1</span>], to[MAXN &lt;&lt; <span class="number">1</span>], tot;</span><br><span class="line">LD f[MAXN][MAXN], v[MAXN];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">Add</span><span class="params">( Re <span class="keyword">int</span> x, Re <span class="keyword">int</span> y )</span></span>&#123; nxt[++tot] = hd[x]; hd[x] = tot; to[tot] = y; &#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS</span><span class="params">( Re <span class="keyword">int</span> x )</span></span>&#123;</span><br><span class="line">	f[x][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> ( Re <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= K; ++i ) f[x][i] = <span class="number">-1e10</span>;</span><br><span class="line">	sz[x] = <span class="number">1</span>;</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span> ( Re <span class="keyword">int</span> i = hd[x]; i; i = nxt[i] )&#123;</span><br><span class="line">		DFS(to[i]);</span><br><span class="line">		sz[x] += sz[to[i]];</span><br><span class="line">		</span><br><span class="line">		</span><br><span class="line">		<span class="function"><span class="keyword">int</span> <span class="title">t</span><span class="params">(min( sz[x], K ))</span></span>;</span><br><span class="line">		<span class="keyword">for</span> ( Re <span class="keyword">int</span> k = t; k &gt;= <span class="number">1</span>; --k )</span><br><span class="line">			<span class="keyword">for</span> ( Re <span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= sz[to[i]]; ++j )</span><br><span class="line">				<span class="keyword">if</span> ( k - j &gt;= <span class="number">0</span> ) f[x][k] = max( f[x][k], f[x][k - j] + f[to[i]][j] );</span><br><span class="line">				<span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> ( Re <span class="keyword">int</span> i = min( K, sz[x] ); i &gt;= <span class="number">1</span>; --i ) f[x][i] = f[x][i - <span class="number">1</span>] + v[x];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">bool</span> <span class="title">check</span><span class="params">( Re LD x )</span></span>&#123;</span><br><span class="line">	<span class="keyword">for</span> ( Re <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= N; ++i ) v[i] = (LD)P[i] - (LD)S[i] * x;</span><br><span class="line">	DFS( <span class="number">0</span> );</span><br><span class="line">	<span class="keyword">return</span> f[<span class="number">0</span>][K] &gt;= <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>( <span class="string">"%d%d"</span>, &amp;K, &amp;N ); K++;</span><br><span class="line">	<span class="keyword">for</span> ( Re <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= N; ++i )</span><br><span class="line">		<span class="built_in">scanf</span>( <span class="string">"%d%d%d"</span>, &amp;S[i], &amp;P[i], &amp;R ), Add( R, i );</span><br><span class="line">	</span><br><span class="line">	Re LD l(0), r(10000), mid, ans(0);</span><br><span class="line">	<span class="keyword">while</span> ( r - l &gt; <span class="number">0.0001</span> )&#123;</span><br><span class="line">		mid = ( l + r ) / <span class="number">2</span>;</span><br><span class="line">		<span class="keyword">if</span> ( check( mid ) ) l = mid, ans = mid;</span><br><span class="line">		<span class="keyword">else</span> r = mid;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="built_in">printf</span>( <span class="string">"%.3lf\n"</span>, ans );</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2019/01/23/「洛谷P4322」-JSOI2016-最佳团体-解题报告/#more">Read More</a>
+          </p>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://louhc.github.io/2019/01/23/「洛谷P4322」-JSOI2016-最佳团体-解题报告/" data-id="cjr8s03x6003fhken1g7i5usq" class="article-share-link">Share</a>
+      <a data-url="https://louhc.github.io/2019/01/23/「洛谷P4322」-JSOI2016-最佳团体-解题报告/" data-id="cjr8s2mxv003f1cenonyvq4ig" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/0-1分数规划/">0/1分数规划</a></li></ul>
@@ -142,7 +136,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://louhc.github.io/2019/01/23/「2015南阳CCPC-D」金砖-解题报告/" data-id="cjr8s03ud0000hkenqhc6jn9n" class="article-share-link">Share</a>
+      <a data-url="https://louhc.github.io/2019/01/23/「2015南阳CCPC-D」金砖-解题报告/" data-id="cjr8s2mv600001cen98nx65dz" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/背包DP/">背包DP</a></li></ul>
@@ -185,7 +179,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://louhc.github.io/2019/01/23/「洛谷P1233」木棍加工-解题报告/" data-id="cjr8s03wo002qhkenn5x0pij8" class="article-share-link">Share</a>
+      <a data-url="https://louhc.github.io/2019/01/23/「洛谷P1233」木棍加工-解题报告/" data-id="cjr8s2mxb002q1cenqpoiodq8" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/贪心/">贪心</a></li></ul>
@@ -228,7 +222,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://louhc.github.io/2019/01/23/「2018-11-02模拟赛」T3-老大-解题报告/" data-id="cjr8s03yc005chkenj6gto2q4" class="article-share-link">Share</a>
+      <a data-url="https://louhc.github.io/2019/01/23/「2018-11-02模拟赛」T3-老大-解题报告/" data-id="cjr8s2myy005c1cenw8iiuc2k" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/二分答案/">二分答案</a></li></ul>
@@ -271,7 +265,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://louhc.github.io/2019/01/23/「洛谷P1080」「NOIP2012提高组」国王游戏-解题报告/" data-id="cjr8s03wi002hhkenke7adlv3" class="article-share-link">Share</a>
+      <a data-url="https://louhc.github.io/2019/01/23/「洛谷P1080」「NOIP2012提高组」国王游戏-解题报告/" data-id="cjr8s2mx6002h1cenpraddn9w" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/贪心/">贪心</a></li></ul>
@@ -317,7 +311,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://louhc.github.io/2019/01/23/NOIP-2018-普及组-解题报告/" data-id="cjr8s03yb005bhken5jz0fnl4" class="article-share-link">Share</a>
+      <a data-url="https://louhc.github.io/2019/01/23/NOIP-2018-普及组-解题报告/" data-id="cjr8s2myx005b1cen65fysm53" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/NOIP/">NOIP</a></li></ul>
@@ -360,7 +354,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://louhc.github.io/2019/01/23/「2018-11-05模拟赛」T5-传送机-解题报告/" data-id="cjr8s03uh0001hkenmw3qvvmk" class="article-share-link">Share</a>
+      <a data-url="https://louhc.github.io/2019/01/23/「2018-11-05模拟赛」T5-传送机-解题报告/" data-id="cjr8s2mvb00011cenurv28t4z" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/欧拉回路/">欧拉回路</a></li></ul>
@@ -403,7 +397,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://louhc.github.io/2019/01/23/「洛谷P1196」「NOI2002」银河英雄传说-解题报告/" data-id="cjr8s03wl002khkenkfjzhdrs" class="article-share-link">Share</a>
+      <a data-url="https://louhc.github.io/2019/01/23/「洛谷P1196」「NOI2002」银河英雄传说-解题报告/" data-id="cjr8s2mx7002k1cen7iyx8n70" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/并查集/">并查集</a></li></ul>
@@ -450,7 +444,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://louhc.github.io/2019/01/23/「黑科技」查错神器——对拍/" data-id="cjr8s03xd003qhkenuyxo0g3b" class="article-share-link">Share</a>
+      <a data-url="https://louhc.github.io/2019/01/23/「黑科技」查错神器——对拍/" data-id="cjr8s2my4003q1cen2k1e38ja" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/黑科技/">黑科技</a></li></ul>
@@ -493,7 +487,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://louhc.github.io/2019/01/23/「分块系列」数列分块入门1-解题报告/" data-id="cjr8s03vs001ihkenkxkulu4u" class="article-share-link">Share</a>
+      <a data-url="https://louhc.github.io/2019/01/23/「分块系列」数列分块入门1-解题报告/" data-id="cjr8s2mwg001i1centhtvjpb3" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/分块/">分块</a></li></ul>
