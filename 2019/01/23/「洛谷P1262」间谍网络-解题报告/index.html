@@ -97,14 +97,14 @@
 
 
   <meta name="description" content="P1262 间谍网络题目描述由于外国间谍的大量渗入，国家安全正处于高度的危机之中。如果A间谍手中掌握着关于B间谍的犯罪证据，则称A可以揭发B。有些间谍收受贿赂，只要给他们一定数量的美元，他们就愿意交出手中掌握的全部情报。所以，如果我们能够收买一些间谍的话，我们就可能控制间谍网中的每一分子。因为一旦我们逮捕了一个间谍，他手中掌握的情报都将归我们所有，这样就有可能逮捕新的间谍，掌握新的情报。">
-<meta name="keywords" content="缩点">
+<meta name="keywords" content="缩点,解题报告,Tarjan">
 <meta property="og:type" content="article">
 <meta property="og:title" content="「洛谷P1262」间谍网络 解题报告">
 <meta property="og:url" content="https://louhc.github.io/2019/01/23/「洛谷P1262」间谍网络-解题报告/index.html">
 <meta property="og:site_name" content="Hello,I am louhc">
 <meta property="og:description" content="P1262 间谍网络题目描述由于外国间谍的大量渗入，国家安全正处于高度的危机之中。如果A间谍手中掌握着关于B间谍的犯罪证据，则称A可以揭发B。有些间谍收受贿赂，只要给他们一定数量的美元，他们就愿意交出手中掌握的全部情报。所以，如果我们能够收买一些间谍的话，我们就可能控制间谍网中的每一分子。因为一旦我们逮捕了一个间谍，他手中掌握的情报都将归我们所有，这样就有可能逮捕新的间谍，掌握新的情报。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-01-23T01:41:04.910Z">
+<meta property="og:updated_time" content="2019-01-23T08:06:56.735Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="「洛谷P1262」间谍网络 解题报告">
 <meta name="twitter:description" content="P1262 间谍网络题目描述由于外国间谍的大量渗入，国家安全正处于高度的危机之中。如果A间谍手中掌握着关于B间谍的犯罪证据，则称A可以揭发B。有些间谍收受贿赂，只要给他们一定数量的美元，他们就愿意交出手中掌握的全部情报。所以，如果我们能够收买一些间谍的话，我们就可能控制间谍网中的每一分子。因为一旦我们逮捕了一个间谍，他手中掌握的情报都将归我们所有，这样就有可能逮捕新的间谍，掌握新的情报。">
@@ -332,7 +332,7 @@
                 
               
 
-              <time title="创建时间：2019-01-23 08:10:28 / 修改时间：09:41:04" itemprop="dateCreated datePublished" datetime="2019-01-23T08:10:28+08:00">2019-01-23</time>
+              <time title="创建时间：2019-01-23 08:10:28 / 修改时间：16:06:56" itemprop="dateCreated datePublished" datetime="2019-01-23T08:10:28+08:00">2019-01-23</time>
             
 
             
@@ -421,6 +421,10 @@
         <div class="post-tags">
           
             <a href="/tags/缩点/" rel="tag"># 缩点</a>
+          
+            <a href="/tags/解题报告/" rel="tag"># 解题报告</a>
+          
+            <a href="/tags/Tarjan/" rel="tag"># Tarjan</a>
           
         </div>
       
@@ -592,7 +596,63 @@
                     
                       
                     
-                    <span class="site-state-item-count">31</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">55</span>
                     <span class="site-state-item-name">标签</span>
                   
                 </div>
@@ -799,6 +859,43 @@
   
   
 
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+      for (i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+  overflow: auto hidden;
+}
+</style>
+
+    
   
 
 

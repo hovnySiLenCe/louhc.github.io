@@ -97,14 +97,14 @@
 
 
   <meta name="description" content="2.种树(tree.pas/cpp/in/out)问题描述：Fanvree 很聪明，解决难题时他总会把问题简单化。例如，他就整天喜欢把图转化为树。但是他不会缩环，那他怎么转化呢？ 这是一个有n 个点 m 条双向边的图，Fanvree 会选定一个节点，然后删掉这个节点和这个点连出去的边，如果变成了一棵树，那么这个节点便是可行的，什么是树呢？树也即无简单环的无向连通图。告诉 Fanvree 可能的节点">
-<meta name="keywords" content="割点">
+<meta name="keywords" content="割点,解题报告,Tarjan">
 <meta property="og:type" content="article">
 <meta property="og:title" content="「2018-12-02模拟赛」T2 种树 解题报告">
 <meta property="og:url" content="https://louhc.github.io/2019/01/23/「2018-12-02模拟赛」T2-种树-解题报告/index.html">
 <meta property="og:site_name" content="Hello,I am louhc">
 <meta property="og:description" content="2.种树(tree.pas/cpp/in/out)问题描述：Fanvree 很聪明，解决难题时他总会把问题简单化。例如，他就整天喜欢把图转化为树。但是他不会缩环，那他怎么转化呢？ 这是一个有n 个点 m 条双向边的图，Fanvree 会选定一个节点，然后删掉这个节点和这个点连出去的边，如果变成了一棵树，那么这个节点便是可行的，什么是树呢？树也即无简单环的无向连通图。告诉 Fanvree 可能的节点">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-01-23T00:44:03.152Z">
+<meta property="og:updated_time" content="2019-01-23T08:07:15.568Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="「2018-12-02模拟赛」T2 种树 解题报告">
 <meta name="twitter:description" content="2.种树(tree.pas/cpp/in/out)问题描述：Fanvree 很聪明，解决难题时他总会把问题简单化。例如，他就整天喜欢把图转化为树。但是他不会缩环，那他怎么转化呢？ 这是一个有n 个点 m 条双向边的图，Fanvree 会选定一个节点，然后删掉这个节点和这个点连出去的边，如果变成了一棵树，那么这个节点便是可行的，什么是树呢？树也即无简单环的无向连通图。告诉 Fanvree 可能的节点">
@@ -332,7 +332,7 @@
                 
               
 
-              <time title="创建时间：2019-01-23 08:18:00 / 修改时间：08:44:03" itemprop="dateCreated datePublished" datetime="2019-01-23T08:18:00+08:00">2019-01-23</time>
+              <time title="创建时间：2019-01-23 08:18:00 / 修改时间：16:07:15" itemprop="dateCreated datePublished" datetime="2019-01-23T08:18:00+08:00">2019-01-23</time>
             
 
             
@@ -379,7 +379,7 @@
 <h2 id="样例输出："><a href="#样例输出：" class="headerlink" title="样例输出："></a>样例输出：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">3</span><br><span class="line">4 5 6</span><br></pre></td></tr></table></figure>
 <h2 id="数据范围："><a href="#数据范围：" class="headerlink" title="数据范围："></a>数据范围：</h2><p>对于 40%的数据：n，m&lt;=1000；<br>另外存在 10%的数据：m=n-1；<br>另外存在 20%的数据：m=n；<br>对于 100%的数据：n，m&lt;=100000。</p>
 <hr>
-<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>只要掌握一个小定理，就显得<del>十分简单</del>（啊呸，叫我这种刚刚普及退役$Tarjan$都不会蒟蒻找割点）</p>
+<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>只要掌握一个小定理，就显得<del>十分简单</del>（啊呸，叫我这种刚刚普及退役$Tarjan$都不会的蒟蒻找割点QAQ）</p>
 <blockquote>
 <p>当且仅当一个有N个节点的连通图有N - 1条边，这是一棵树。</p>
 </blockquote>
@@ -411,6 +411,10 @@
         <div class="post-tags">
           
             <a href="/tags/割点/" rel="tag"># 割点</a>
+          
+            <a href="/tags/解题报告/" rel="tag"># 解题报告</a>
+          
+            <a href="/tags/Tarjan/" rel="tag"># Tarjan</a>
           
         </div>
       
@@ -582,7 +586,63 @@
                     
                       
                     
-                    <span class="site-state-item-count">31</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">55</span>
                     <span class="site-state-item-name">标签</span>
                   
                 </div>
@@ -789,6 +849,43 @@
   
   
 
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+      for (i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+  overflow: auto hidden;
+}
+</style>
+
+    
   
 
 

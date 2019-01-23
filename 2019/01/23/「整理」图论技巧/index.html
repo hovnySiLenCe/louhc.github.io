@@ -96,17 +96,18 @@
 
 
 
-  <meta name="description" content="带填坑目标：下个学期开学前填完坑！">
+  <meta name="description" content="待填坑目标：下个学期开学前填完坑！">
+<meta name="keywords" content="技巧,待填坑">
 <meta property="og:type" content="article">
 <meta property="og:title" content="「整理」图论技巧">
 <meta property="og:url" content="https://louhc.github.io/2019/01/23/「整理」图论技巧/index.html">
 <meta property="og:site_name" content="Hello,I am louhc">
-<meta property="og:description" content="带填坑目标：下个学期开学前填完坑！">
+<meta property="og:description" content="待填坑目标：下个学期开学前填完坑！">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-01-23T01:34:51.008Z">
+<meta property="og:updated_time" content="2019-01-23T08:04:59.416Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="「整理」图论技巧">
-<meta name="twitter:description" content="带填坑目标：下个学期开学前填完坑！">
+<meta name="twitter:description" content="待填坑目标：下个学期开学前填完坑！">
 
 
 
@@ -331,7 +332,7 @@
                 
               
 
-              <time title="创建时间：2019-01-23 08:10:10 / 修改时间：09:34:51" itemprop="dateCreated datePublished" datetime="2019-01-23T08:10:10+08:00">2019-01-23</time>
+              <time title="创建时间：2019-01-23 08:10:10 / 修改时间：16:04:59" itemprop="dateCreated datePublished" datetime="2019-01-23T08:10:10+08:00">2019-01-23</time>
             
 
             
@@ -370,7 +371,7 @@
       
 
       
-        <h1 id="带填坑"><a href="#带填坑" class="headerlink" title="带填坑"></a>带填坑</h1><p>目标：下个学期开学前填完坑！</p>
+        <h1 id="待填坑"><a href="#待填坑" class="headerlink" title="待填坑"></a>待填坑</h1><p>目标：下个学期开学前填完坑！</p>
 <a id="more"></a>
 <h1 id="I-网络流"><a href="#I-网络流" class="headerlink" title="I 网络流"></a>I 网络流</h1><h2 id="1-关于双向边"><a href="#1-关于双向边" class="headerlink" title="1 关于双向边"></a>1 关于双向边</h2><p>当要求边是双向时，我们可以将正边、反向边的权值都赋为流量，而不必赋为0。<br>这一点很明显，因为对于两条边，起始点fr、终点to相同，我们可以把这两条边合并。即变成一条权值为这两条边权之和的边。<br>本来是这样——<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Add</span><span class="params">( <span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="keyword">int</span> z )</span></span>&#123;</span><br><span class="line">	nxt[++tot] = hd[x]; hd[x] = tot; to[tot] = y; val[tot] = z;</span><br><span class="line">	nxt[++tot] = hd[y]; hd[y] = tot; to[tot] = x; val[tot] = <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Add( x, y, z );<span class="comment">//step 1</span></span><br><span class="line">Add( y, x, z );<span class="comment">//step 2</span></span><br></pre></td></tr></table></figure></p>
 <p>很明显，step 1建的正边与step 2建的反向边可以合并。合并后权值即为z。可以简写成这样——<br><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Add</span><span class="params">( <span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="keyword">int</span> z )</span></span>&#123;</span><br><span class="line">	nxt[++tot] = hd[x]; hd[x] = tot; to[tot] = y; val[tot] = z;</span><br><span class="line">	nxt[++tot] = hd[y]; hd[y] = tot; to[tot] = x; val[tot] = z;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">Add( x, y, z );</span><br></pre></td></tr></table></figure></p>
@@ -395,6 +396,14 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/技巧/" rel="tag"># 技巧</a>
+          
+            <a href="/tags/待填坑/" rel="tag"># 待填坑</a>
+          
+        </div>
       
 
       
@@ -564,7 +573,63 @@
                     
                       
                     
-                    <span class="site-state-item-count">31</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">55</span>
                     <span class="site-state-item-name">标签</span>
                   
                 </div>
@@ -600,7 +665,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#带填坑"><span class="nav-number">1.</span> <span class="nav-text">带填坑</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#I-网络流"><span class="nav-number">2.</span> <span class="nav-text">I 网络流</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-关于双向边"><span class="nav-number">2.1.</span> <span class="nav-text">1 关于双向边</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#待填坑"><span class="nav-number">1.</span> <span class="nav-text">待填坑</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#I-网络流"><span class="nav-number">2.</span> <span class="nav-text">I 网络流</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-关于双向边"><span class="nav-number">2.1.</span> <span class="nav-text">1 关于双向边</span></a></li></ol></li></ol></div>
             
 
           </div>

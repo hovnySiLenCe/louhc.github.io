@@ -97,14 +97,14 @@
 
 
   <meta name="description" content="自动刷题机Description曾经发明了信号增幅仪的发明家SHTSC又公开了他的新发明：自动刷题机—一种可以自动AC题目的神秘装置。自动刷题机刷题的方式非常简单：首先会瞬间得出题目的正确做法，然后开始写程序，每秒，自动刷题机的代码生成模块会有两种可能的结果：">
-<meta name="keywords" content="二分答案">
+<meta name="keywords" content="二分答案,解题报告">
 <meta property="og:type" content="article">
 <meta property="og:title" content="「BZOJ4590」「SHOI2015」 自动刷题机 解题报告">
 <meta property="og:url" content="https://louhc.github.io/2019/01/23/「BZOJ4590」「SHOI2015」-自动刷题机-解题报告/index.html">
 <meta property="og:site_name" content="Hello,I am louhc">
 <meta property="og:description" content="自动刷题机Description曾经发明了信号增幅仪的发明家SHTSC又公开了他的新发明：自动刷题机—一种可以自动AC题目的神秘装置。自动刷题机刷题的方式非常简单：首先会瞬间得出题目的正确做法，然后开始写程序，每秒，自动刷题机的代码生成模块会有两种可能的结果：">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-01-23T00:45:18.392Z">
+<meta property="og:updated_time" content="2019-01-23T07:51:49.240Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="「BZOJ4590」「SHOI2015」 自动刷题机 解题报告">
 <meta name="twitter:description" content="自动刷题机Description曾经发明了信号增幅仪的发明家SHTSC又公开了他的新发明：自动刷题机—一种可以自动AC题目的神秘装置。自动刷题机刷题的方式非常简单：首先会瞬间得出题目的正确做法，然后开始写程序，每秒，自动刷题机的代码生成模块会有两种可能的结果：">
@@ -332,7 +332,7 @@
                 
               
 
-              <time title="创建时间：2019-01-23 08:16:21 / 修改时间：08:45:18" itemprop="dateCreated datePublished" datetime="2019-01-23T08:16:21+08:00">2019-01-23</time>
+              <time title="创建时间：2019-01-23 08:16:21 / 修改时间：15:51:49" itemprop="dateCreated datePublished" datetime="2019-01-23T08:16:21+08:00">2019-01-23</time>
             
 
             
@@ -386,7 +386,7 @@
 <p>样例1：如果n=2那么刷题机就会切掉3题。但如果n&gt;7刷题机最多只能切1题。考虑n=4发生了什么。<br> 第一秒：刷题机写了2行。<br> 第二秒：刷题机又写了5行，共有7行，提交，自信AC。<br> 第三秒：刷题机删掉了3行，共有0行。<br> 第四秒：刷题机写了9行，共有9行，提交，自信AC。<br> 一共AC了两题。</p>
 <hr>
 <h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>这是一道二分题。 没错这就是一道二分题。</p>
-<p>它的单调性很明显。n越大，切的题就越少。 所以，话不多说——直接切入正题。</p>
+<p>它的单调性很明显。n越大，切的题就越少。</p>
 <p>这里要求最小值(ans1)与最大值(ans2)，所以要写2个二分，一个判断条件是$check(mid) &gt; k$ 另一个是 $\ge$ 。</p>
 <p>ans1要加1,因为$&gt;k$求出的是 满足 $check(mid) &gt; k$ 的 最大值。如果有答案的话，$ans1 + 1$必定是满足$check(mid) = k$最小值。</p>
 <p>话不多说，直接上代码$(〃’▽’〃)——$</p>
@@ -414,6 +414,8 @@
         <div class="post-tags">
           
             <a href="/tags/二分答案/" rel="tag"># 二分答案</a>
+          
+            <a href="/tags/解题报告/" rel="tag"># 解题报告</a>
           
         </div>
       
@@ -585,7 +587,63 @@
                     
                       
                     
-                    <span class="site-state-item-count">31</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">55</span>
                     <span class="site-state-item-name">标签</span>
                   
                 </div>
@@ -792,6 +850,43 @@
   
   
 
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+      for (i = 0; i < all.length; i += 1) {
+        all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+<style>
+.MathJax_Display {
+  overflow: auto hidden;
+}
+</style>
+
+    
   
 
 
