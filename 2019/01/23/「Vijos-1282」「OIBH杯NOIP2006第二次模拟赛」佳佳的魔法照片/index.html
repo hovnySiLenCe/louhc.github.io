@@ -5,14 +5,18 @@
   
   <title>「Vijos 1282」「OIBH杯NOIP2006第二次模拟赛」佳佳的魔法照片 | Hello,I am louhc</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
+  <meta name="description" content="佳佳的魔法照片背景佳佳的魔法照片(Magic Photo)：如果你看过《哈利·波特》，你就会知道魔法世界里的照片是很神奇的。也许是因为小魔法师佳佳长的太帅，很多人都找他要那种神奇的魔法照片，而且还都要佳佳和他的MM的合照。那些照片可是非常珍贵的，他到底应该把照片给谁呢？">
+<meta name="keywords" content="排序">
+<meta property="og:type" content="article">
 <meta property="og:title" content="「Vijos 1282」「OIBH杯NOIP2006第二次模拟赛」佳佳的魔法照片">
 <meta property="og:url" content="https://louhc.github.io/2019/01/23/「Vijos-1282」「OIBH杯NOIP2006第二次模拟赛」佳佳的魔法照片/index.html">
 <meta property="og:site_name" content="Hello,I am louhc">
+<meta property="og:description" content="佳佳的魔法照片背景佳佳的魔法照片(Magic Photo)：如果你看过《哈利·波特》，你就会知道魔法世界里的照片是很神奇的。也许是因为小魔法师佳佳长的太帅，很多人都找他要那种神奇的魔法照片，而且还都要佳佳和他的MM的合照。那些照片可是非常珍贵的，他到底应该把照片给谁呢？">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-01-23T00:17:13.243Z">
+<meta property="og:updated_time" content="2019-01-23T01:07:55.830Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="「Vijos 1282」「OIBH杯NOIP2006第二次模拟赛」佳佳的魔法照片">
+<meta name="twitter:description" content="佳佳的魔法照片背景佳佳的魔法照片(Magic Photo)：如果你看过《哈利·波特》，你就会知道魔法世界里的照片是很神奇的。也许是因为小魔法师佳佳长的太帅，很多人都找他要那种神奇的魔法照片，而且还都要佳佳和他的MM的合照。那些照片可是非常珍贵的，他到底应该把照片给谁呢？">
   
     <link rel="alternate" href="/atom.xml" title="Hello,I am louhc" type="application/atom+xml">
   
@@ -83,13 +87,31 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="佳佳的魔法照片"><a href="#佳佳的魔法照片" class="headerlink" title="佳佳的魔法照片"></a><a href="https://vijos.org/p/1282" target="_blank" rel="noopener">佳佳的魔法照片</a></h1><h2 id="背景"><a href="#背景" class="headerlink" title="背景"></a>背景</h2><p>佳佳的魔法照片(Magic Photo)：如果你看过《哈利·波特》，你就会知道魔法世界里的照片是很神奇的。也许是因为小魔法师佳佳长的太帅，很多人都找他要那种神奇的魔法照片，而且还都要佳佳和他的MM的合照。那些照片可是非常珍贵的，他到底应该把照片给谁呢？</p>
+<a id="more"></a>
+<h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>一共有n个人（以1—n编号）向佳佳要照片，而佳佳只能把照片给其中的k个人。佳佳按照与他们的关系好坏的程度给每个人赋予了一个初始权值W[i]。然后将初始权值从大到小进行排序，每人就有了一个序号D[i]（取值同样是1—n）。按照这个序号对10取模的值将这些人分为10类。也就是说定义每个人的类别序号C[i]的值为(D[i]-1) mod 10 +1，显然类别序号的取值为1—10。第i类的人将会额外得到E[i]的权值。你需要做的就是求出加上额外权值以后，最终的权值最大的k个人，并输出他们的编号。在排序中，如果两人的W[i]相同，编号小的优先。</p>
+<h2 id="输入格式"><a href="#输入格式" class="headerlink" title="输入格式"></a>输入格式</h2><p>第一行输出用空格隔开的两个整数，分别是n和k。</p>
+<p>第二行给出了10个正整数，分别是E[1]到E[10]。</p>
+<p>第三行给出了n个正整数，第i个数表示编号为i的人的权值W[i]。</p>
+<h2 id="输出格式"><a href="#输出格式" class="headerlink" title="输出格式"></a>输出格式</h2><p>只需输出一行用空格隔开的k个整数，分别表示最终的W[i]从高到低的人的编号。</p>
+<h2 id="样例1"><a href="#样例1" class="headerlink" title="样例1"></a>样例1</h2><h3 id="样例输入1"><a href="#样例输入1" class="headerlink" title="样例输入1"></a>样例输入1</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">10 10</span><br><span class="line">1 2 3 4 5 6 7 8 9 10</span><br><span class="line">2 4 6 8 10 12 14 16 18 20</span><br></pre></td></tr></table></figure>
+<h3 id="样例输出1"><a href="#样例输出1" class="headerlink" title="样例输出1"></a>样例输出1</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">10 9 8 7 6 5 4 3 2 1</span><br></pre></td></tr></table></figure>
+<h2 id="限制"><a href="#限制" class="headerlink" title="限制"></a>限制</h2><p>1秒</p>
+<h2 id="提示"><a href="#提示" class="headerlink" title="提示"></a>提示</h2><p>对于50%的数据，$n \le 200$；<br>对于100%的数据，$n \le 50000$，$k \le 2000$，给出的所有正整数都不超过32767。</p>
+<hr>
+<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>这题没什么好说的，就是快排。。。</p>
+<p>STL 的 sort还是很好用的——</p>
+<p>如果想更快的还可以按编号分成10组归并，不过这里没有必要。</p>
+<p>具体就不仔细讲了，看代码吧。</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXN 50005</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n, k;</span><br><span class="line"><span class="keyword">int</span> E[<span class="number">15</span>];</span><br><span class="line"><span class="keyword">int</span> W[MAXN], D[MAXN];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">( <span class="keyword">int</span> x, <span class="keyword">int</span> y )</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> ( W[x] == W[y] ) <span class="keyword">return</span> x &lt; y;</span><br><span class="line">    <span class="keyword">return</span> W[x] &gt; W[y];</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="comment">//    freopen( "mphoto.in", "r", stdin );</span></span><br><span class="line"><span class="comment">//    freopen( "mphoto.out", "w", stdout );</span></span><br><span class="line">    <span class="built_in">scanf</span>( <span class="string">"%d%d"</span>, &amp;n, &amp;k );</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= <span class="number">10</span>; ++i ) <span class="built_in">scanf</span>( <span class="string">"%d"</span>, &amp;E[i] );</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i ) <span class="built_in">scanf</span>( <span class="string">"%d"</span>, &amp;W[i] ), D[i] = i;</span><br><span class="line">    sort( D + <span class="number">1</span>, D + n + <span class="number">1</span>, cmp );</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i ) W[D[i]] += E[( i - <span class="number">1</span> ) % <span class="number">10</span> + <span class="number">1</span>];</span><br><span class="line">    sort( D + <span class="number">1</span>, D + n + <span class="number">1</span>, cmp );</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= k; ++i ) <span class="built_in">printf</span>( <span class="string">"%d%c"</span>, D[i], <span class="string">"\n "</span>[i != k] );</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://louhc.github.io/2019/01/23/「Vijos-1282」「OIBH杯NOIP2006第二次模拟赛」佳佳的魔法照片/" data-id="cjr8gslhe00178senwvf1m4cg" class="article-share-link">Share</a>
+      <a data-url="https://louhc.github.io/2019/01/23/「Vijos-1282」「OIBH杯NOIP2006第二次模拟赛」佳佳的魔法照片/" data-id="cjr8jtvnc0017b4ene038jdln" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/排序/">排序</a></li></ul>
+
     </footer>
   </div>
   
@@ -127,7 +149,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/NOIP/">NOIP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STL/">STL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二分答案/">二分答案</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/割点/">割点</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博弈论/">博弈论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/归并排序/">归并排序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搜索/">搜索</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/暴力/">暴力</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/最短路/">最短路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/期望-概率/">期望,概率</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/欧拉回路/">欧拉回路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/水题/">水题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/神仙题/">神仙题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/线性DP/">线性DP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/背包DP/">背包DP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/质数/">质数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/贪心/">贪心</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/递推/">递推</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/KMP/">KMP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NOIP/">NOIP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STL/">STL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ST表/">ST表</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二分答案/">二分答案</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/分块/">分块</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/割点/">割点</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博弈论/">博弈论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习笔记/">学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/并查集/">并查集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/归并排序/">归并排序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技巧/">技巧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/排序/">排序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搜索/">搜索</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数学-数论/">数学,数论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/暴力/">暴力</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/最短路/">最短路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/期望-概率/">期望,概率</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/欧拉回路/">欧拉回路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/水题/">水题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/深搜/">深搜</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/神仙题/">神仙题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/线性DP/">线性DP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/缩点/">缩点</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络流/">网络流</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/背包DP/">背包DP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/质数/">质数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/贪心/">贪心</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/递推/">递推</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/黑科技/">黑科技</a></li></ul>
     </div>
   </div>
 
@@ -137,7 +159,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/NOIP/" style="font-size: 10px;">NOIP</a> <a href="/tags/STL/" style="font-size: 10px;">STL</a> <a href="/tags/二分答案/" style="font-size: 10px;">二分答案</a> <a href="/tags/割点/" style="font-size: 10px;">割点</a> <a href="/tags/博弈论/" style="font-size: 10px;">博弈论</a> <a href="/tags/归并排序/" style="font-size: 10px;">归并排序</a> <a href="/tags/搜索/" style="font-size: 20px;">搜索</a> <a href="/tags/暴力/" style="font-size: 10px;">暴力</a> <a href="/tags/最短路/" style="font-size: 10px;">最短路</a> <a href="/tags/期望-概率/" style="font-size: 10px;">期望,概率</a> <a href="/tags/欧拉回路/" style="font-size: 10px;">欧拉回路</a> <a href="/tags/水题/" style="font-size: 10px;">水题</a> <a href="/tags/神仙题/" style="font-size: 10px;">神仙题</a> <a href="/tags/线性DP/" style="font-size: 10px;">线性DP</a> <a href="/tags/背包DP/" style="font-size: 15px;">背包DP</a> <a href="/tags/质数/" style="font-size: 10px;">质数</a> <a href="/tags/贪心/" style="font-size: 10px;">贪心</a> <a href="/tags/递推/" style="font-size: 10px;">递推</a>
+      <a href="/tags/KMP/" style="font-size: 10px;">KMP</a> <a href="/tags/NOIP/" style="font-size: 10px;">NOIP</a> <a href="/tags/STL/" style="font-size: 10px;">STL</a> <a href="/tags/ST表/" style="font-size: 10px;">ST表</a> <a href="/tags/二分答案/" style="font-size: 11.67px;">二分答案</a> <a href="/tags/分块/" style="font-size: 20px;">分块</a> <a href="/tags/割点/" style="font-size: 11.67px;">割点</a> <a href="/tags/博弈论/" style="font-size: 10px;">博弈论</a> <a href="/tags/学习笔记/" style="font-size: 16.67px;">学习笔记</a> <a href="/tags/并查集/" style="font-size: 10px;">并查集</a> <a href="/tags/归并排序/" style="font-size: 10px;">归并排序</a> <a href="/tags/技巧/" style="font-size: 10px;">技巧</a> <a href="/tags/排序/" style="font-size: 10px;">排序</a> <a href="/tags/搜索/" style="font-size: 15px;">搜索</a> <a href="/tags/数学-数论/" style="font-size: 15px;">数学,数论</a> <a href="/tags/暴力/" style="font-size: 10px;">暴力</a> <a href="/tags/最短路/" style="font-size: 11.67px;">最短路</a> <a href="/tags/期望-概率/" style="font-size: 10px;">期望,概率</a> <a href="/tags/欧拉回路/" style="font-size: 10px;">欧拉回路</a> <a href="/tags/水题/" style="font-size: 10px;">水题</a> <a href="/tags/深搜/" style="font-size: 10px;">深搜</a> <a href="/tags/神仙题/" style="font-size: 11.67px;">神仙题</a> <a href="/tags/线性DP/" style="font-size: 11.67px;">线性DP</a> <a href="/tags/缩点/" style="font-size: 10px;">缩点</a> <a href="/tags/网络流/" style="font-size: 18.33px;">网络流</a> <a href="/tags/背包DP/" style="font-size: 11.67px;">背包DP</a> <a href="/tags/质数/" style="font-size: 10px;">质数</a> <a href="/tags/贪心/" style="font-size: 13.33px;">贪心</a> <a href="/tags/递推/" style="font-size: 10px;">递推</a> <a href="/tags/黑科技/" style="font-size: 13.33px;">黑科技</a>
     </div>
   </div>
 
@@ -167,7 +189,7 @@
           </li>
         
           <li>
-            <a href="/2019/01/23/解题报告/">解题报告</a>
+            <a href="/2019/01/23/「2018-11-02模拟赛」T3-老大-解题报告/">「2018-11-02模拟赛」t3 老大 解题报告</a>
           </li>
         
           <li>

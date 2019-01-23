@@ -5,14 +5,18 @@
   
   <title>「洛谷P1080」「NOIP2012提高组」国王游戏 解题报告 | Hello,I am louhc</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
+  <meta name="description" content="P1080 国王游戏题目描述恰逢 $H$国国庆，国王邀请$n$位大臣来玩一个有奖游戏。首先，他让每个大臣在左、右手上面分别写下一个整数，国王自己也在左、右手上各写一个整数。然后，让这 $n$ 位大臣排成一排，国王站在队伍的最前面。排好队后，所有的大臣都会获得国王奖赏的若干金币，每位大臣获得的金币数分别是：排在该大臣前面的所有人的左手上的数的乘积除以他自己右手上的数，然后向下取整得到的结果。">
+<meta name="keywords" content="贪心">
+<meta property="og:type" content="article">
 <meta property="og:title" content="「洛谷P1080」「NOIP2012提高组」国王游戏 解题报告">
 <meta property="og:url" content="https://louhc.github.io/2019/01/23/「洛谷P1080」「NOIP2012提高组」国王游戏-解题报告/index.html">
 <meta property="og:site_name" content="Hello,I am louhc">
+<meta property="og:description" content="P1080 国王游戏题目描述恰逢 $H$国国庆，国王邀请$n$位大臣来玩一个有奖游戏。首先，他让每个大臣在左、右手上面分别写下一个整数，国王自己也在左、右手上各写一个整数。然后，让这 $n$ 位大臣排成一排，国王站在队伍的最前面。排好队后，所有的大臣都会获得国王奖赏的若干金币，每位大臣获得的金币数分别是：排在该大臣前面的所有人的左手上的数的乘积除以他自己右手上的数，然后向下取整得到的结果。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-01-23T00:22:23.329Z">
+<meta property="og:updated_time" content="2019-01-23T01:35:49.752Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="「洛谷P1080」「NOIP2012提高组」国王游戏 解题报告">
+<meta name="twitter:description" content="P1080 国王游戏题目描述恰逢 $H$国国庆，国王邀请$n$位大臣来玩一个有奖游戏。首先，他让每个大臣在左、右手上面分别写下一个整数，国王自己也在左、右手上各写一个整数。然后，让这 $n$ 位大臣排成一排，国王站在队伍的最前面。排好队后，所有的大臣都会获得国王奖赏的若干金币，每位大臣获得的金币数分别是：排在该大臣前面的所有人的左手上的数的乘积除以他自己右手上的数，然后向下取整得到的结果。">
   
     <link rel="alternate" href="/atom.xml" title="Hello,I am louhc" type="application/atom+xml">
   
@@ -83,24 +87,68 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="P1080-国王游戏"><a href="#P1080-国王游戏" class="headerlink" title="P1080 国王游戏"></a><a href="https://www.luogu.org/problemnew/show/P1080" target="_blank" rel="noopener">P1080 国王游戏</a></h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>恰逢 $H$国国庆，国王邀请$n$位大臣来玩一个有奖游戏。首先，他让每个大臣在左、右手上面分别写下一个整数，国王自己也在左、右手上各写一个整数。然后，让这 $n$ 位大臣排成一排，国王站在队伍的最前面。排好队后，所有的大臣都会获得国王奖赏的若干金币，每位大臣获得的金币数分别是：排在该大臣前面的所有人的左手上的数的乘积除以他自己右手上的数，然后向下取整得到的结果。</p>
+<a id="more"></a>
+<p>国王不希望某一个大臣获得特别多的奖赏，所以他想请你帮他重新安排一下队伍的顺序，使得获得奖赏最多的大臣，所获奖赏尽可能的少。注意，国王的位置始终在队伍的最前面。</p>
+<h2 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h2><h3 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h3><p>第一行包含一个整数$n$，表示大臣的人数。</p>
+<p>第二行包含两个整数 $a$和 $b$，之间用一个空格隔开，分别表示国王左手和右手上的整数。</p>
+<p>接下来 $n$行，每行包含两个整数$a$ 和 $b$，之间用一个空格隔开，分别表示每个大臣左手和右手上的整数。</p>
+<h3 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h3><p>一个整数，表示重新排列后的队伍中获奖赏最多的大臣所获得的金币数。</p>
+<h2 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><h3 id="输入样例-1："><a href="#输入样例-1：" class="headerlink" title="输入样例#1："></a>输入样例#1：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">3 </span><br><span class="line">1 1 </span><br><span class="line">2 3 </span><br><span class="line">7 4 </span><br><span class="line">4 6</span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-1："><a href="#输出样例-1：" class="headerlink" title="输出样例#1："></a>输出样例#1：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2</span><br></pre></td></tr></table></figure>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>【输入输出样例说明】</p>
+<p>按11、22、33 这样排列队伍，获得奖赏最多的大臣所获得金币数为 22；</p>
+<p>按 11、33、22 这样排列队伍，获得奖赏最多的大臣所获得金币数为22；</p>
+<p>按 22、11、33 这样排列队伍，获得奖赏最多的大臣所获得金币数为 22；</p>
+<p>按22、33、11这样排列队伍，获得奖赏最多的大臣所获得金币数为99；</p>
+<p>按 33、11、22这样排列队伍，获得奖赏最多的大臣所获得金币数为 22；</p>
+<p>按33、22、11 这样排列队伍，获得奖赏最多的大臣所获得金币数为 99。</p>
+<p>因此，奖赏最多的大臣最少获得 22个金币，答案输出 22。</p>
+<p>【数据范围】</p>
+<p>对于 20%的数据，有 1≤ n≤ 10,0 &lt; a,b &lt; 81≤n≤10,0&lt; a,b&lt;8；</p>
+<p>对于 40%的数据，有1≤ n≤20,0 &lt; a,b &lt; 81≤n≤20,0&lt; a,b&lt;8；</p>
+<p>对于 60%的数据，有 1≤ n≤1001≤n≤100；</p>
+<p>对于 60%的数据，保证答案不超过 10^9109；</p>
+<p>对于 100%的数据，有 1 ≤ n ≤1,000,0 &lt; a,b &lt; 100001≤n≤1,000,0&lt; a,b&lt;10000。</p>
+<p>NOIP 2012 提高组 第一天 第二题</p>
+<hr>
+<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>我们假设一个正确的序列中有两个元素 i 与 i + 1,他们左右手的数字分别为Ai，Bi，Ai+1，Bi+1</p>
+<p>排在i大臣前面的所有人的左手上的数的乘积为T(以下向下取整省略不写)</p>
+<p>这两位大臣得到最多的硬币为 max( T / Bi, (T * Ai) / Bi+1 ) = Ans1</p>
+<p>假设交换这两位大臣 则他们得到最多硬币数变为 max( T / Bi+1, (T * Ai+1) / Bi ) = Ans2</p>
+<p>要求Ans1 &lt;= Ans2，原序列顺序可能不是最优（否则这两位大臣交换能得到更有策略）</p>
+<p>所以要使 T / Bi 和 (T * Ai) / Bi+1都小于等于Ans2即可满足要求</p>
+<p>由于T / Bi &lt;= (T <em> Ai+1) / Bi ，T / Bi 肯定能满足要求，只要使 ( T </em> Ai ) / Bi+1 也小于等于 Ans2即可</p>
+<p>(T <em> Ai) / Bi+1 肯定大于等于 T / Bi+1 ，所以只能使  (T </em> Ai+1) / Bi 大于等于(T * Ai) / Bi+1 ,否则不能达到要求</p>
+<p>然后我们就可以列出不等式 (T <em> Ai) / Bi+1 &lt;= (T </em> Ai+1) / Bi</p>
+<p>因为T是正数，所以可以同时消去</p>
+<p>Ai / Bi+1 &lt;= Ai+1 / Bi</p>
+<p>同乘Bi+1Bi</p>
+<p>Ai <em> Bi &lt;= Ai+1 </em> Bi+1</p>
+<p>所以，只要按Ai * Bi从小到大排序就不成问题了。（当然别把国王也排序了）</p>
+<p>注意要加高精度。</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXN 10005</span></span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">ppp</span>&#123;</span></span><br><span class="line">    <span class="keyword">int</span> a, b;</span><br><span class="line">&#125;p[MAXN];</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmp</span><span class="params">( ppp x, ppp y )</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> x.a * x.b &lt; y.a * y.b;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> s[<span class="number">4005</span>], len;</span><br><span class="line"><span class="keyword">int</span> ans[<span class="number">4005</span>], ans_l(<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Mul</span><span class="params">( <span class="keyword">int</span> x )</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">t</span><span class="params">(len)</span></span>;</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= len; ++i ) s[i] *= x;</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= len + <span class="number">5</span>; ++i )&#123;</span><br><span class="line">        <span class="keyword">if</span> ( s[i] ) t = i;</span><br><span class="line">        s[i + <span class="number">1</span>] += s[i] / <span class="number">10</span>;</span><br><span class="line">        s[i] %= <span class="number">10</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    len = t;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Copy</span><span class="params">( <span class="keyword">int</span> c[], <span class="keyword">int</span> c_l )</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= c_l; ++i ) ans[i] = c[i];</span><br><span class="line">    ans_l = c_l;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Out</span><span class="params">( <span class="keyword">int</span> s[], <span class="keyword">int</span> l )</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = l; i &gt;= <span class="number">1</span>; --i ) <span class="built_in">printf</span>( <span class="string">"%d"</span>, s[i] );</span><br><span class="line">    <span class="built_in">putchar</span>(<span class="string">'\n'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Div</span><span class="params">( <span class="keyword">int</span> x )</span></span>&#123;</span><br><span class="line">    <span class="keyword">int</span> c[<span class="number">4005</span>], l(<span class="number">-1</span>);</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= len; ++i ) c[i] = s[i];</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = len; i &gt;= <span class="number">1</span>; --i )&#123;</span><br><span class="line">        c[i - <span class="number">1</span>] += ( c[i] % x ) * <span class="number">10</span>;</span><br><span class="line">        c[i] /= x;</span><br><span class="line">        <span class="keyword">if</span> ( c[i] &amp;&amp; l == <span class="number">-1</span> ) l = i;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> ( ans_l == l )&#123;</span><br><span class="line">        <span class="function"><span class="keyword">bool</span> <span class="title">flg</span><span class="params">(<span class="number">0</span>)</span></span>;</span><br><span class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span> i = l; i &gt;= <span class="number">1</span>; --i )</span><br><span class="line">            <span class="keyword">if</span> ( ans[i] &lt; c[i] )&#123; flg = <span class="number">1</span>; <span class="keyword">break</span>; &#125;</span><br><span class="line">            <span class="keyword">else</span> <span class="keyword">break</span>;</span><br><span class="line">        <span class="keyword">if</span> ( flg ) Copy( c, l );</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> ( ans_l &lt; l ) Copy( c, l );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>( <span class="string">"%d"</span>, &amp;n );</span><br><span class="line">    <span class="built_in">scanf</span>( <span class="string">"%d%d"</span>, &amp;p[<span class="number">0</span>].a, &amp;p[<span class="number">0</span>].b );</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i ) <span class="built_in">scanf</span>( <span class="string">"%d%d"</span>, &amp;p[i].a, &amp;p[i].b );</span><br><span class="line">    sort( p + <span class="number">1</span>, p + n + <span class="number">1</span>, cmp );</span><br><span class="line">    s[<span class="number">1</span>] = <span class="number">1</span>; len = <span class="number">1</span>;</span><br><span class="line">    Mul( p[<span class="number">0</span>].a );</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= n; ++i )</span><br><span class="line">        Div( p[i].b ), Mul( p[i].a );</span><br><span class="line">    Out( ans, ans_l );</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>完事！！！</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://louhc.github.io/2019/01/23/「洛谷P1080」「NOIP2012提高组」国王游戏-解题报告/" data-id="cjr8gsli600208senwmgdsxfg" class="article-share-link">Share</a>
+      <a data-url="https://louhc.github.io/2019/01/23/「洛谷P1080」「NOIP2012提高组」国王游戏-解题报告/" data-id="cjr8jqu2j000034enq5s7x9on" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/贪心/">贪心</a></li></ul>
+
     </footer>
   </div>
   
     
 <nav id="article-nav">
   
-    <a href="/2019/01/23/解题报告/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2019/01/23/「2018-11-02模拟赛」T3-老大-解题报告/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          解题报告
+          「2018-11-02模拟赛」t3 老大 解题报告
         
       </div>
     </a>
@@ -127,7 +175,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/NOIP/">NOIP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STL/">STL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二分答案/">二分答案</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/割点/">割点</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博弈论/">博弈论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/归并排序/">归并排序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搜索/">搜索</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/暴力/">暴力</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/最短路/">最短路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/期望-概率/">期望,概率</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/欧拉回路/">欧拉回路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/水题/">水题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/神仙题/">神仙题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/线性DP/">线性DP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/背包DP/">背包DP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/质数/">质数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/贪心/">贪心</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/递推/">递推</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/KMP/">KMP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NOIP/">NOIP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STL/">STL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ST表/">ST表</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二分答案/">二分答案</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/分块/">分块</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/割点/">割点</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博弈论/">博弈论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习笔记/">学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/并查集/">并查集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/归并排序/">归并排序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技巧/">技巧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/排序/">排序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搜索/">搜索</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数学-数论/">数学,数论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/暴力/">暴力</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/最短路/">最短路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/期望-概率/">期望,概率</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/欧拉回路/">欧拉回路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/水题/">水题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/深搜/">深搜</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/神仙题/">神仙题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/线性DP/">线性DP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/缩点/">缩点</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络流/">网络流</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/背包DP/">背包DP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/质数/">质数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/贪心/">贪心</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/递推/">递推</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/黑科技/">黑科技</a></li></ul>
     </div>
   </div>
 
@@ -137,7 +185,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/NOIP/" style="font-size: 10px;">NOIP</a> <a href="/tags/STL/" style="font-size: 10px;">STL</a> <a href="/tags/二分答案/" style="font-size: 10px;">二分答案</a> <a href="/tags/割点/" style="font-size: 10px;">割点</a> <a href="/tags/博弈论/" style="font-size: 10px;">博弈论</a> <a href="/tags/归并排序/" style="font-size: 10px;">归并排序</a> <a href="/tags/搜索/" style="font-size: 20px;">搜索</a> <a href="/tags/暴力/" style="font-size: 10px;">暴力</a> <a href="/tags/最短路/" style="font-size: 10px;">最短路</a> <a href="/tags/期望-概率/" style="font-size: 10px;">期望,概率</a> <a href="/tags/欧拉回路/" style="font-size: 10px;">欧拉回路</a> <a href="/tags/水题/" style="font-size: 10px;">水题</a> <a href="/tags/神仙题/" style="font-size: 10px;">神仙题</a> <a href="/tags/线性DP/" style="font-size: 10px;">线性DP</a> <a href="/tags/背包DP/" style="font-size: 15px;">背包DP</a> <a href="/tags/质数/" style="font-size: 10px;">质数</a> <a href="/tags/贪心/" style="font-size: 10px;">贪心</a> <a href="/tags/递推/" style="font-size: 10px;">递推</a>
+      <a href="/tags/KMP/" style="font-size: 10px;">KMP</a> <a href="/tags/NOIP/" style="font-size: 10px;">NOIP</a> <a href="/tags/STL/" style="font-size: 10px;">STL</a> <a href="/tags/ST表/" style="font-size: 10px;">ST表</a> <a href="/tags/二分答案/" style="font-size: 11.67px;">二分答案</a> <a href="/tags/分块/" style="font-size: 20px;">分块</a> <a href="/tags/割点/" style="font-size: 11.67px;">割点</a> <a href="/tags/博弈论/" style="font-size: 10px;">博弈论</a> <a href="/tags/学习笔记/" style="font-size: 16.67px;">学习笔记</a> <a href="/tags/并查集/" style="font-size: 10px;">并查集</a> <a href="/tags/归并排序/" style="font-size: 10px;">归并排序</a> <a href="/tags/技巧/" style="font-size: 10px;">技巧</a> <a href="/tags/排序/" style="font-size: 10px;">排序</a> <a href="/tags/搜索/" style="font-size: 15px;">搜索</a> <a href="/tags/数学-数论/" style="font-size: 15px;">数学,数论</a> <a href="/tags/暴力/" style="font-size: 10px;">暴力</a> <a href="/tags/最短路/" style="font-size: 11.67px;">最短路</a> <a href="/tags/期望-概率/" style="font-size: 10px;">期望,概率</a> <a href="/tags/欧拉回路/" style="font-size: 10px;">欧拉回路</a> <a href="/tags/水题/" style="font-size: 10px;">水题</a> <a href="/tags/深搜/" style="font-size: 10px;">深搜</a> <a href="/tags/神仙题/" style="font-size: 11.67px;">神仙题</a> <a href="/tags/线性DP/" style="font-size: 11.67px;">线性DP</a> <a href="/tags/缩点/" style="font-size: 10px;">缩点</a> <a href="/tags/网络流/" style="font-size: 18.33px;">网络流</a> <a href="/tags/背包DP/" style="font-size: 11.67px;">背包DP</a> <a href="/tags/质数/" style="font-size: 10px;">质数</a> <a href="/tags/贪心/" style="font-size: 13.33px;">贪心</a> <a href="/tags/递推/" style="font-size: 10px;">递推</a> <a href="/tags/黑科技/" style="font-size: 13.33px;">黑科技</a>
     </div>
   </div>
 
@@ -167,7 +215,7 @@
           </li>
         
           <li>
-            <a href="/2019/01/23/解题报告/">解题报告</a>
+            <a href="/2019/01/23/「2018-11-02模拟赛」T3-老大-解题报告/">「2018-11-02模拟赛」t3 老大 解题报告</a>
           </li>
         
           <li>

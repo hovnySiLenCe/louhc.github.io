@@ -5,14 +5,18 @@
   
   <title>「洛谷P1198」 [JSOI2008]最大数 解题报告 | Hello,I am louhc</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
+  <meta name="description" content="P1198 [JSOI2008]最大数题目描述现在请求你维护一个数列，要求提供以下两种操作：">
+<meta name="keywords" content="ST表">
+<meta property="og:type" content="article">
 <meta property="og:title" content="「洛谷P1198」 [JSOI2008]最大数 解题报告">
 <meta property="og:url" content="https://louhc.github.io/2019/01/23/「洛谷P1198」-JSOI2008-最大数-解题报告/index.html">
 <meta property="og:site_name" content="Hello,I am louhc">
+<meta property="og:description" content="P1198 [JSOI2008]最大数题目描述现在请求你维护一个数列，要求提供以下两种操作：">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-01-23T00:10:36.481Z">
+<meta property="og:updated_time" content="2019-01-23T02:09:45.020Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="「洛谷P1198」 [JSOI2008]最大数 解题报告">
+<meta name="twitter:description" content="P1198 [JSOI2008]最大数题目描述现在请求你维护一个数列，要求提供以下两种操作：">
   
     <link rel="alternate" href="/atom.xml" title="Hello,I am louhc" type="application/atom+xml">
   
@@ -83,13 +87,37 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h1 id="P1198-JSOI2008-最大数"><a href="#P1198-JSOI2008-最大数" class="headerlink" title="P1198 [JSOI2008]最大数"></a><a href="https://www.luogu.org/problemnew/show/P1198" target="_blank" rel="noopener">P1198 [JSOI2008]最大数</a></h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>现在请求你维护一个数列，要求提供以下两种操作：</p>
+<a id="more"></a>
+<p>1、 查询操作。</p>
+<p>语法：<code>Q L</code></p>
+<p>功能：查询当前数列中末尾L个数中的最大的数，并输出这个数的值。</p>
+<p>限制：$L$不超过当前数列的长度。$(L &gt; 0)$</p>
+<p>2、 插入操作。</p>
+<p>语法：<code>A n</code></p>
+<p>功能：将$n$加上$t$，其中$t$是最近一次查询操作的答案（如果还未执行过查询操作，则$t=0$)，并将所得结果对一个固定的常数$D$取模，将所得答案插入到数列的末尾。</p>
+<p>限制：$n$是整数（可能为负数）并且在长整范围内。</p>
+<p>注意：初始时数列是空的，没有一个数。</p>
+<h2 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h2><h3 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h3><p>第一行两个整数，$M$和$D$，其中$M$表示操作的个数$(M \le 200,000)$，$D$如上文中所述，满足$(0&lt;D&lt;2,000,000,000)$</p>
+<p>接下来的$M$行，每行一个字符串，描述一个具体的操作。语法如上文所述。</p>
+<h3 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h3><p>对于每一个查询操作，你应该按照顺序依次输出结果，每个结果占一行。</p>
+<h2 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><h3 id="输入样例-1："><a href="#输入样例-1：" class="headerlink" title="输入样例#1："></a>输入样例#1：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">5 100</span><br><span class="line">A 96</span><br><span class="line">Q 1</span><br><span class="line">A 97</span><br><span class="line">Q 1</span><br><span class="line">Q 2</span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-1："><a href="#输出样例-1：" class="headerlink" title="输出样例#1："></a>输出样例#1：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">96</span><br><span class="line">93</span><br><span class="line">96</span><br></pre></td></tr></table></figure>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>[JSOI2008]<br>本题数据已加强</p>
+<hr>
+<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>很明显，这道题的一般思路是线段树。但是，这道题用ST表也可以做！！！</p>
+<p>一般来说，我们写ST表都是$f[i][j] =\max\text{ a[i] , a[i+1],······,a[i+j \times 2-1] }$</p>
+<p>但是，它是从后插入元素的，如果按照一般思路，正着做的话，最坏情况下就要改$nlgn$ 次，还不如暴力呢！但是，我们可以倒过来$f[i][j] = \max\text{a[i] , a[i-1] ,······, a[i - j \times 2 + 1]}$，这样，每次插入仅需修改$lgn$个元素了。</p>
+<p>这种解法十分神奇，结束了“ST表不能修改”的历史。在这道题中，合理地使用ST表还是能得出很简洁的解法的。</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXN 200005</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LL long long</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> M;</span><br><span class="line">LL D;</span><br><span class="line"><span class="keyword">char</span> opt;</span><br><span class="line">LL t, x;</span><br><span class="line">LL a[MAXN], f[MAXN][<span class="number">20</span>], N;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>( <span class="string">"%d%lld"</span>, &amp;M, &amp;D );</span><br><span class="line">	<span class="keyword">while</span> ( M-- )&#123;</span><br><span class="line">		<span class="keyword">while</span>( ( opt = getchar() ) != <span class="string">'A'</span> &amp;&amp; opt != <span class="string">'Q'</span> );</span><br><span class="line">		<span class="built_in">scanf</span>( <span class="string">"%lld"</span>, &amp;x );</span><br><span class="line">		<span class="keyword">if</span> ( opt == <span class="string">'A'</span> )&#123;</span><br><span class="line">			a[++N] = ( x + t ) % D;</span><br><span class="line">			f[N][<span class="number">0</span>] = a[N];</span><br><span class="line">			<span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; ( <span class="number">1</span> &lt;&lt; i ) &lt;= N; ++i ) f[N][i] = max( f[N][i - <span class="number">1</span>], f[N - (<span class="number">1</span> &lt;&lt; ( i - <span class="number">1</span> ))][i - <span class="number">1</span>] );</span><br><span class="line">		&#125;<span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="keyword">int</span> len = min( x, N ); x = N - len + <span class="number">1</span>;</span><br><span class="line">			<span class="function"><span class="keyword">int</span> <span class="title">tt</span><span class="params">((LL)<span class="built_in">floor</span>(<span class="built_in">log</span>(len) / <span class="built_in">log</span>(<span class="number">2</span>)))</span></span>;</span><br><span class="line">			<span class="built_in">printf</span>( <span class="string">"%lld\n"</span>, ( t = max( f[N][tt], f[x + ( <span class="number">1</span> &lt;&lt; tt ) - <span class="number">1</span>][tt] ) ) );</span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://louhc.github.io/2019/01/23/「洛谷P1198」-JSOI2008-最大数-解题报告/" data-id="cjr8gsli800228sen91sopiaf" class="article-share-link">Share</a>
+      <a data-url="https://louhc.github.io/2019/01/23/「洛谷P1198」-JSOI2008-最大数-解题报告/" data-id="cjr8jv9nm000098ens5q0qnvv" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ST表/">ST表</a></li></ul>
+
     </footer>
   </div>
   
@@ -127,7 +155,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/NOIP/">NOIP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STL/">STL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二分答案/">二分答案</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/割点/">割点</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博弈论/">博弈论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/归并排序/">归并排序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搜索/">搜索</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/暴力/">暴力</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/最短路/">最短路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/期望-概率/">期望,概率</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/欧拉回路/">欧拉回路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/水题/">水题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/神仙题/">神仙题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/线性DP/">线性DP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/背包DP/">背包DP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/质数/">质数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/贪心/">贪心</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/递推/">递推</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/KMP/">KMP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NOIP/">NOIP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STL/">STL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ST表/">ST表</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二分答案/">二分答案</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/分块/">分块</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/割点/">割点</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博弈论/">博弈论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习笔记/">学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/并查集/">并查集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/归并排序/">归并排序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技巧/">技巧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/排序/">排序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搜索/">搜索</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数学-数论/">数学,数论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/暴力/">暴力</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/最短路/">最短路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/期望-概率/">期望,概率</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/欧拉回路/">欧拉回路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/水题/">水题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/深搜/">深搜</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/神仙题/">神仙题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/线性DP/">线性DP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/缩点/">缩点</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络流/">网络流</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/背包DP/">背包DP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/质数/">质数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/贪心/">贪心</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/递推/">递推</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/黑科技/">黑科技</a></li></ul>
     </div>
   </div>
 
@@ -137,7 +165,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/NOIP/" style="font-size: 10px;">NOIP</a> <a href="/tags/STL/" style="font-size: 10px;">STL</a> <a href="/tags/二分答案/" style="font-size: 10px;">二分答案</a> <a href="/tags/割点/" style="font-size: 10px;">割点</a> <a href="/tags/博弈论/" style="font-size: 10px;">博弈论</a> <a href="/tags/归并排序/" style="font-size: 10px;">归并排序</a> <a href="/tags/搜索/" style="font-size: 20px;">搜索</a> <a href="/tags/暴力/" style="font-size: 10px;">暴力</a> <a href="/tags/最短路/" style="font-size: 10px;">最短路</a> <a href="/tags/期望-概率/" style="font-size: 10px;">期望,概率</a> <a href="/tags/欧拉回路/" style="font-size: 10px;">欧拉回路</a> <a href="/tags/水题/" style="font-size: 10px;">水题</a> <a href="/tags/神仙题/" style="font-size: 10px;">神仙题</a> <a href="/tags/线性DP/" style="font-size: 10px;">线性DP</a> <a href="/tags/背包DP/" style="font-size: 15px;">背包DP</a> <a href="/tags/质数/" style="font-size: 10px;">质数</a> <a href="/tags/贪心/" style="font-size: 10px;">贪心</a> <a href="/tags/递推/" style="font-size: 10px;">递推</a>
+      <a href="/tags/KMP/" style="font-size: 10px;">KMP</a> <a href="/tags/NOIP/" style="font-size: 10px;">NOIP</a> <a href="/tags/STL/" style="font-size: 10px;">STL</a> <a href="/tags/ST表/" style="font-size: 10px;">ST表</a> <a href="/tags/二分答案/" style="font-size: 11.67px;">二分答案</a> <a href="/tags/分块/" style="font-size: 20px;">分块</a> <a href="/tags/割点/" style="font-size: 11.67px;">割点</a> <a href="/tags/博弈论/" style="font-size: 10px;">博弈论</a> <a href="/tags/学习笔记/" style="font-size: 16.67px;">学习笔记</a> <a href="/tags/并查集/" style="font-size: 10px;">并查集</a> <a href="/tags/归并排序/" style="font-size: 10px;">归并排序</a> <a href="/tags/技巧/" style="font-size: 10px;">技巧</a> <a href="/tags/排序/" style="font-size: 10px;">排序</a> <a href="/tags/搜索/" style="font-size: 15px;">搜索</a> <a href="/tags/数学-数论/" style="font-size: 15px;">数学,数论</a> <a href="/tags/暴力/" style="font-size: 10px;">暴力</a> <a href="/tags/最短路/" style="font-size: 11.67px;">最短路</a> <a href="/tags/期望-概率/" style="font-size: 10px;">期望,概率</a> <a href="/tags/欧拉回路/" style="font-size: 10px;">欧拉回路</a> <a href="/tags/水题/" style="font-size: 10px;">水题</a> <a href="/tags/深搜/" style="font-size: 10px;">深搜</a> <a href="/tags/神仙题/" style="font-size: 11.67px;">神仙题</a> <a href="/tags/线性DP/" style="font-size: 11.67px;">线性DP</a> <a href="/tags/缩点/" style="font-size: 10px;">缩点</a> <a href="/tags/网络流/" style="font-size: 18.33px;">网络流</a> <a href="/tags/背包DP/" style="font-size: 11.67px;">背包DP</a> <a href="/tags/质数/" style="font-size: 10px;">质数</a> <a href="/tags/贪心/" style="font-size: 13.33px;">贪心</a> <a href="/tags/递推/" style="font-size: 10px;">递推</a> <a href="/tags/黑科技/" style="font-size: 13.33px;">黑科技</a>
     </div>
   </div>
 
@@ -167,7 +195,7 @@
           </li>
         
           <li>
-            <a href="/2019/01/23/解题报告/">解题报告</a>
+            <a href="/2019/01/23/「2018-11-02模拟赛」T3-老大-解题报告/">「2018-11-02模拟赛」t3 老大 解题报告</a>
           </li>
         
           <li>

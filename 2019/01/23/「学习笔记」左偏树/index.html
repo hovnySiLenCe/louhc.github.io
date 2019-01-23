@@ -5,14 +5,18 @@
   
   <title>「学习笔记」左偏树 | Hello,I am louhc</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="article">
+  <meta name="description" content="左偏树是一种可以合并的“堆”。这里打了引号，是因为左偏树并不是堆，但是能完成与堆类似的功能。而且还能支持可持久化。">
+<meta name="keywords" content="学习笔记">
+<meta property="og:type" content="article">
 <meta property="og:title" content="「学习笔记」左偏树">
 <meta property="og:url" content="https://louhc.github.io/2019/01/23/「学习笔记」左偏树/index.html">
 <meta property="og:site_name" content="Hello,I am louhc">
+<meta property="og:description" content="左偏树是一种可以合并的“堆”。这里打了引号，是因为左偏树并不是堆，但是能完成与堆类似的功能。而且还能支持可持久化。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-01-23T00:08:34.288Z">
+<meta property="og:updated_time" content="2019-01-23T01:25:07.722Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="「学习笔记」左偏树">
+<meta name="twitter:description" content="左偏树是一种可以合并的“堆”。这里打了引号，是因为左偏树并不是堆，但是能完成与堆类似的功能。而且还能支持可持久化。">
   
     <link rel="alternate" href="/atom.xml" title="Hello,I am louhc" type="application/atom+xml">
   
@@ -83,13 +87,147 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <p>左偏树是一种可以合并的“堆”。这里打了引号，是因为左偏树<strong>并不是堆</strong>，但是能完成与堆类似的功能。<strong>而且还能支持可持久化</strong>。</p>
+<a id="more"></a>
+<p>在可合并对中，左偏树是最常用的。虽然它的效率不及斐波那契堆与配对堆，但是复杂度是同一个级别，单次操作最坏情况下都是$O(log_2n)$的。而且不像斐波那契堆，码量大，难理解，在竞赛中用太不合算了，配对堆不资瓷可持久化。。。。。</p>
+<p>放张表格，看看你打算学哪种？这里（目前）只教左偏树。<del>其他的除了二叉堆博主都不会</del></p>
+<div class="table-container">
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>二叉堆</th>
+<th>左偏树/斜堆</th>
+<th>二项堆</th>
+<th>斐波那契堆</th>
+<th>配对堆</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>建堆</td>
+<td>$O(n)$</td>
+<td>$O(n)$</td>
+<td>$O(n)$</td>
+<td>$O(n)$</td>
+<td>$O(n)$</td>
+</tr>
+<tr>
+<td>插入节点</td>
+<td>$O(log_2n)$</td>
+<td>$O(log_2n)$</td>
+<td>$O(log_2n)$</td>
+<td>$O(1)$</td>
+<td>$O(1)$</td>
+</tr>
+<tr>
+<td>取最值节点</td>
+<td>$O(1)$</td>
+<td>$O(1)$</td>
+<td>$O(log_2n)$</td>
+<td>$O(1)$</td>
+<td>$O(1)$</td>
+</tr>
+<tr>
+<td>删除最值节点</td>
+<td>$O(log_2n)$</td>
+<td>$O(log_2n)$</td>
+<td>$O(log_2n)$</td>
+<td>$O(log_2n)$</td>
+<td>$O(log_2n)$</td>
+</tr>
+<tr>
+<td>删除任意<strong>已知</strong>节点</td>
+<td>$O(log_2n)$</td>
+<td>$O(log_2n)$</td>
+<td>$O(log_2n)$</td>
+<td>$O(log_2n)$</td>
+<td>$O(log_2n)$</td>
+</tr>
+<tr>
+<td>合并</td>
+<td>$O(nlog_2n)$</td>
+<td>$O(log_2n)$</td>
+<td>$O(log_2n)$</td>
+<td>$O(1)$</td>
+<td>$O(1)$</td>
+</tr>
+<tr>
+<td>空间</td>
+<td>$—$</td>
+<td>$-$</td>
+<td>$+$</td>
+<td>$++$</td>
+<td>$-$</td>
+</tr>
+<tr>
+<td>代码复杂度</td>
+<td>$—$</td>
+<td>$-$</td>
+<td>$++$</td>
+<td>$+++$</td>
+<td>$-$</td>
+</tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li><strong>已知</strong>：表示知道编号，而不是值。</li>
+<li>$—$表示很小，$-$表示较小，$+$表示一般，$++$表示较大，$+++$表示很大。</li>
+</ul>
+<p>左偏树的基本结构与堆有许多相似之处。它是一棵二叉树，对于一个节点$x$，设其左儿子为$ls$，右儿子为$rs$，值为$v_x$总是满足$v_x \le v_{ls},v_x\le v_{rs}$（如果存在左右儿子）。</p>
+<p>再次明确一遍，<strong>左偏树不是堆，它不一定是完全二叉树</strong>。“左偏”的意义就在于保证时间复杂度（否则一条链就能把复杂度卡到$O(n^2)$）。来看看何为“左偏”。</p>
+<p>先讲一讲外节点。如果一个节点没有左儿子或没有右儿子（或者都没有），那么这个节点被称为<strong>外节点</strong>。我们设$dis_{x}$表示$x$与最近的外节点之间的距离。（一条边的长度为1）。特别地，空节点0的$dis$为$-1$。（这样就可以自然地完成外节点的$dis$为0）</p>
+<p>左偏即为对于<strong>任意节点$x$</strong>，满足$dis_{ls}\ge dis_{rs}$。（这样就可以得到$dis_x=dis_{rs}+1$）</p>
+<p>为什么这样就可以保证复杂度呢？</p>
+<p>很明显，一般地，节点总是集中于左子树，我们就可以把操作集中于右子树来减少操作。</p>
+<p>来看看更严谨的证明。</p>
+<ul>
+<li>引理：最大dis为k的左偏树节点个数至少为$2^{k+1}-1$（满二叉树）。</li>
+</ul>
+<p>我们运用反证法。我们将深度大于k的节点去除，得到树T，如果树T不是满二叉树，则树T中必定有一个外节点$x$深度小于k，与根节点dis为k矛盾，原命题成立。</p>
+<ul>
+<li>定理： 由对于一个有$n$个节点的左偏树，最大距离不超过 $\log_2(n+1)-1$<br><strong>证明</strong>： 设 $max\{dist\}=k$ ，由引理得$n\geq 2^{k+1}-1$ ，移项得： $k\leq \log_2(n+1)-1$ 。</li>
+</ul>
+<p>这就保证了$O(log_2n)$的复杂度。</p>
+<h1 id="如何实现"><a href="#如何实现" class="headerlink" title="如何实现"></a>如何实现</h1><h2 id="合并"><a href="#合并" class="headerlink" title="合并"></a>合并</h2><p>合并操作与FHQ Treap十分类似，如果你会FHQ Treap，这将很好理解。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Merge</span><span class="params">( <span class="keyword">int</span> x, <span class="keyword">int</span> y )</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> ( !x || !y )&#123; <span class="keyword">return</span> x | y; &#125;<span class="comment">//如果有一个堆为0，直接返回这个堆</span></span><br><span class="line">	<span class="keyword">if</span> ( val[x] &gt; val[y] || ( val[x] == val[y] &amp;&amp; x &gt; y  ) ) swap( x, y );<span class="comment">//使x的值小于y(将x做为根节点)</span></span><br><span class="line">	R[x] = Merge( R[x], y ); fa[R[x]] = x;<span class="comment">//R[x]可能已被更改，更新R[x]的父亲</span></span><br><span class="line">	<span class="keyword">if</span> ( dis[L[x]] &lt; dis[R[x]] ) swap( L[x], R[x] );<span class="comment">//维持左偏性质</span></span><br><span class="line">	dis[x] = dis[R[x]] + <span class="number">1</span>;<span class="comment">//更新dis</span></span><br><span class="line">	<span class="keyword">return</span> x; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p><code>val[x]</code>记录该节点保存的值，<code>L[x]</code>表示$x$的左儿子（没有的话就为0），<code>R[x]</code>表示$x$的右儿子（没有的话就为0）。<code>fa[x]</code>记录该节点的父亲。</p>
+<p>Merge的作用就是将两个堆（已知根节点）合并成一个并返回其根节点。由于要保持堆的性质，根节点的值肯定要是最小的。要合并的两个堆中，值最小的肯定是$x$与$y$，如果$y$的值比$x$小，那$x$肯定不能作为根节点，所以这时候$x$不能作为根节点，只能把$y$作为根节点了。为了方便处理，我们直接交换x与y（注意：不是val，交换的是两个堆的位置）。这样$x$就肯定为根节点了。我们不改变$x$的左子树（因为是左偏的嘛，左子树太费时），将原来$x$的右子树与$y$合并作为$x$的右子树。注意要更新$dis$与$fa$的值。</p>
+<p>还有一个前面提到过的小细节：<strong><code>dis[0]</code>在主程序中必须赋为-1</strong></p>
+<hr>
+<h2 id="删除"><a href="#删除" class="headerlink" title="删除"></a>删除</h2><p>删除根节点操作就更简单了，直接合并左右儿子即可。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Del(x) val[x] = -1, fa[L[x]] = fa[R[x]] = 0, Merge( L[x], R[x] )</span></span><br><span class="line"><span class="comment">//注意先把父亲赋为0</span></span><br></pre></td></tr></table></figure>
+<hr>
+<p>会了这两个操作，就可以完成<a href="https://www.luogu.org/problemnew/show/P3377" target="_blank" rel="noopener">左偏树模板</a>啦。。。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXN 100005</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> N, M;</span><br><span class="line"><span class="keyword">int</span> L[MAXN], R[MAXN];</span><br><span class="line"><span class="keyword">int</span> fa[MAXN], val[MAXN], dis[MAXN];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Merge</span><span class="params">( <span class="keyword">int</span> x, <span class="keyword">int</span> y )</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> ( !x || !y )&#123; <span class="keyword">return</span> x | y; &#125;</span><br><span class="line">	<span class="keyword">if</span> ( val[x] &gt; val[y] || ( val[x] == val[y] &amp;&amp; x &gt; y  ) ) swap( x, y );</span><br><span class="line">	R[x] = Merge( R[x], y ); fa[R[x]] = x;</span><br><span class="line">	<span class="keyword">if</span> ( dis[L[x]] &lt; dis[R[x]] ) swap( L[x], R[x] );</span><br><span class="line">	dis[x] = dis[R[x]] + <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">return</span> x; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Del(x) val[x] = -1, fa[L[x]] = fa[R[x]] = 0, Merge( L[x], R[x] )</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">find</span><span class="params">( <span class="keyword">int</span> x )</span></span>&#123;</span><br><span class="line">	<span class="keyword">while</span>( fa[x] ) x = fa[x];</span><br><span class="line">	<span class="keyword">return</span> x;</span><br><span class="line">&#125;<span class="comment">//fa表示直接父亲！这不是并查集！不要想着去路径压缩！</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>( <span class="string">"%d%d"</span>, &amp;N, &amp;M );</span><br><span class="line">	<span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= N; ++i ) <span class="built_in">scanf</span>( <span class="string">"%d"</span>, &amp;val[i] );</span><br><span class="line">	dis[<span class="number">0</span>] = <span class="number">-1</span>;<span class="comment">//重要！</span></span><br><span class="line">	<span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= M; ++i )&#123;</span><br><span class="line">		<span class="keyword">int</span> opt, x, y;</span><br><span class="line">		<span class="built_in">scanf</span>( <span class="string">"%d"</span>, &amp;opt );</span><br><span class="line">		<span class="keyword">if</span> ( opt == <span class="number">1</span> )&#123;</span><br><span class="line">			<span class="built_in">scanf</span>( <span class="string">"%d%d"</span>, &amp;x, &amp;y );</span><br><span class="line">			<span class="keyword">if</span> ( val[x] == <span class="number">-1</span> || val[y] == <span class="number">-1</span> ) <span class="keyword">continue</span>;<span class="comment">//有一个点被删除就不要操作了</span></span><br><span class="line">			x = find(x); y = find(y);<span class="comment">//记得先找到根节点再合并</span></span><br><span class="line">			<span class="keyword">if</span> ( x != y ) Merge( x, y );</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">else</span>&#123;</span><br><span class="line">			<span class="built_in">scanf</span>( <span class="string">"%d"</span>, &amp;x );</span><br><span class="line">			<span class="keyword">if</span> ( val[x] == <span class="number">-1</span> ) <span class="built_in">printf</span>( <span class="string">"-1\n"</span> );<span class="comment">//用val=-1标记已被删除的节点（输入全是正整数，如果有负数可以用INT_MIN，反正视数据范围而定）</span></span><br><span class="line">			<span class="keyword">else</span> <span class="built_in">printf</span>( <span class="string">"%d\n"</span>, val[x = find(x)] ), Del(x);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>当然，操作远远不止这些~慢慢更</p>
+<hr>
+<h2 id="修改"><a href="#修改" class="headerlink" title="修改"></a>修改</h2><p><a href="https://www.luogu.org/problemnew/show/P1456" target="_blank" rel="noopener">洛谷P1456 Monkey King</a></p>
+<p>这题要修改值。。。其实暴力一点，直接删去，再合并就OK。。。</p>
+<p>具体一点：</p>
+<ol>
+<li>删去两个左偏树的根节点（用x、y保存编号，t1、t2保存删去x、y后的左偏树根节点编号）（删除方法同上）</li>
+<li><code>val[x]</code>与<code>val[y]</code>减半</li>
+<li>初始化x、y（<code>L[x]=R[x]=fa[x]=0</code>，y也一样）</li>
+<li>合并x、y、t1、t2</li>
+<li>返回<code>val[根节点]</code></li>
+</ol>
+<p>不难理解吧？注意一个小优化，先合并x、y。因为x、y都只剩一个根节点，合并复杂度是$O(1)$的。这只是优化常数，不优化也能过。</p>
+<p>核心代码：</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">fight</span><span class="params">( <span class="keyword">int</span> x, <span class="keyword">int</span> y )</span></span>&#123;</span><br><span class="line">	x = find(x); y = find(y);</span><br><span class="line">	<span class="keyword">if</span> ( x == y ) <span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line">	fa[L[x]] = fa[R[x]] = fa[L[y]] = fa[R[y]] = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">int</span> t1, t2;</span><br><span class="line">	t1 = Merge( L[x], R[x] ); t2 = Merge( L[y], R[y] ); </span><br><span class="line">	val[x] &gt;&gt;= <span class="number">1</span>; val[y] &gt;&gt;= <span class="number">1</span>;</span><br><span class="line">	L[x] = R[x] = L[y] = R[y] = dis[x] = dis[y] = <span class="number">0</span>;</span><br><span class="line">	x = Merge( x, y ); x = Merge( x, t1 ); x = Merge( x, t2 );</span><br><span class="line">	<span class="keyword">return</span> val[x];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>还有一个猥琐的坑点：多组数据！记得初始化。</p>
+<hr>
+<p>更新中。。。。</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://louhc.github.io/2019/01/23/「学习笔记」左偏树/" data-id="cjr8gslht001r8senylvzcern" class="article-share-link">Share</a>
+      <a data-url="https://louhc.github.io/2019/01/23/「学习笔记」左偏树/" data-id="cjr8jp2x500018seny2dyzx8j" class="article-share-link">Share</a>
       
       
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/学习笔记/">学习笔记</a></li></ul>
+
     </footer>
   </div>
   
@@ -127,7 +265,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/NOIP/">NOIP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STL/">STL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二分答案/">二分答案</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/割点/">割点</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博弈论/">博弈论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/归并排序/">归并排序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搜索/">搜索</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/暴力/">暴力</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/最短路/">最短路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/期望-概率/">期望,概率</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/欧拉回路/">欧拉回路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/水题/">水题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/神仙题/">神仙题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/线性DP/">线性DP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/背包DP/">背包DP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/质数/">质数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/贪心/">贪心</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/递推/">递推</a></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/KMP/">KMP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/NOIP/">NOIP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/STL/">STL</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/ST表/">ST表</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/二分答案/">二分答案</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/分块/">分块</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/割点/">割点</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/博弈论/">博弈论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/学习笔记/">学习笔记</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/并查集/">并查集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/归并排序/">归并排序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/技巧/">技巧</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/排序/">排序</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/搜索/">搜索</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数学-数论/">数学,数论</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/暴力/">暴力</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/最短路/">最短路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/期望-概率/">期望,概率</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/欧拉回路/">欧拉回路</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/水题/">水题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/深搜/">深搜</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/神仙题/">神仙题</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/线性DP/">线性DP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/缩点/">缩点</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/网络流/">网络流</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/背包DP/">背包DP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/质数/">质数</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/贪心/">贪心</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/递推/">递推</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/黑科技/">黑科技</a></li></ul>
     </div>
   </div>
 
@@ -137,7 +275,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/NOIP/" style="font-size: 10px;">NOIP</a> <a href="/tags/STL/" style="font-size: 10px;">STL</a> <a href="/tags/二分答案/" style="font-size: 10px;">二分答案</a> <a href="/tags/割点/" style="font-size: 10px;">割点</a> <a href="/tags/博弈论/" style="font-size: 10px;">博弈论</a> <a href="/tags/归并排序/" style="font-size: 10px;">归并排序</a> <a href="/tags/搜索/" style="font-size: 20px;">搜索</a> <a href="/tags/暴力/" style="font-size: 10px;">暴力</a> <a href="/tags/最短路/" style="font-size: 10px;">最短路</a> <a href="/tags/期望-概率/" style="font-size: 10px;">期望,概率</a> <a href="/tags/欧拉回路/" style="font-size: 10px;">欧拉回路</a> <a href="/tags/水题/" style="font-size: 10px;">水题</a> <a href="/tags/神仙题/" style="font-size: 10px;">神仙题</a> <a href="/tags/线性DP/" style="font-size: 10px;">线性DP</a> <a href="/tags/背包DP/" style="font-size: 15px;">背包DP</a> <a href="/tags/质数/" style="font-size: 10px;">质数</a> <a href="/tags/贪心/" style="font-size: 10px;">贪心</a> <a href="/tags/递推/" style="font-size: 10px;">递推</a>
+      <a href="/tags/KMP/" style="font-size: 10px;">KMP</a> <a href="/tags/NOIP/" style="font-size: 10px;">NOIP</a> <a href="/tags/STL/" style="font-size: 10px;">STL</a> <a href="/tags/ST表/" style="font-size: 10px;">ST表</a> <a href="/tags/二分答案/" style="font-size: 11.67px;">二分答案</a> <a href="/tags/分块/" style="font-size: 20px;">分块</a> <a href="/tags/割点/" style="font-size: 11.67px;">割点</a> <a href="/tags/博弈论/" style="font-size: 10px;">博弈论</a> <a href="/tags/学习笔记/" style="font-size: 16.67px;">学习笔记</a> <a href="/tags/并查集/" style="font-size: 10px;">并查集</a> <a href="/tags/归并排序/" style="font-size: 10px;">归并排序</a> <a href="/tags/技巧/" style="font-size: 10px;">技巧</a> <a href="/tags/排序/" style="font-size: 10px;">排序</a> <a href="/tags/搜索/" style="font-size: 15px;">搜索</a> <a href="/tags/数学-数论/" style="font-size: 15px;">数学,数论</a> <a href="/tags/暴力/" style="font-size: 10px;">暴力</a> <a href="/tags/最短路/" style="font-size: 11.67px;">最短路</a> <a href="/tags/期望-概率/" style="font-size: 10px;">期望,概率</a> <a href="/tags/欧拉回路/" style="font-size: 10px;">欧拉回路</a> <a href="/tags/水题/" style="font-size: 10px;">水题</a> <a href="/tags/深搜/" style="font-size: 10px;">深搜</a> <a href="/tags/神仙题/" style="font-size: 11.67px;">神仙题</a> <a href="/tags/线性DP/" style="font-size: 11.67px;">线性DP</a> <a href="/tags/缩点/" style="font-size: 10px;">缩点</a> <a href="/tags/网络流/" style="font-size: 18.33px;">网络流</a> <a href="/tags/背包DP/" style="font-size: 11.67px;">背包DP</a> <a href="/tags/质数/" style="font-size: 10px;">质数</a> <a href="/tags/贪心/" style="font-size: 13.33px;">贪心</a> <a href="/tags/递推/" style="font-size: 10px;">递推</a> <a href="/tags/黑科技/" style="font-size: 13.33px;">黑科技</a>
     </div>
   </div>
 
@@ -167,7 +305,7 @@
           </li>
         
           <li>
-            <a href="/2019/01/23/解题报告/">解题报告</a>
+            <a href="/2019/01/23/「2018-11-02模拟赛」T3-老大-解题报告/">「2018-11-02模拟赛」t3 老大 解题报告</a>
           </li>
         
           <li>
