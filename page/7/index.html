@@ -2,15 +2,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
   
 
 
@@ -32,6 +23,8 @@
 
 
 
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -46,21 +39,6 @@
 
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
-
-<link rel="stylesheet" href="/css/main.css?v=6.7.0">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.7.0">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.7.0">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.7.0">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=6.7.0" color="#222">
 
 
 
@@ -68,12 +46,37 @@
 
 
 
-<script id="hexo.configurations">
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.0.6" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.0.6">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.0.6">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.0.6">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.0.6" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
     scheme: 'Muse',
-    version: '6.7.0',
+    version: '6.0.6',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: false,
     fastclick: false,
@@ -89,20 +92,7 @@
     }
   };
 </script>
-<script>(function(T,h,i,n,k,P,a,g,e){g=function(){P=h.createElement(i);a=h.getElementsByTagName(i)[0];P.src=k;P.charset="utf-8";P.async=1;a.parentNode.insertBefore(P,a)};T["ThinkPageWeatherWidgetObject"]=n;T[n]||(T[n]=function(){(T[n].q=T[n].q||[]).push(arguments)});T[n].l=+new Date();if(T.attachEvent){T.attachEvent("onload",g)}else{T.addEventListener("load",g,false)}}(window,document,"script","tpwidget","//widget.seniverse.com/widget/chameleon.js"))</script>
-<script>tpwidget("init", {
-    "flavor": "bubble",
-    "location": "WTJQSMBKCGCH",
-    "geolocation": "disabled",
-    "position": "top-left",
-    "margin": "10px 10px",
-    "language": "zh-chs",
-    "unit": "c",
-    "theme": "chameleon",
-    "uid": "UE3F3BC902",
-    "hash": "158200f84a057618ae8c69aed033a6b3"
-});
-tpwidget("show");</script>
+
 
   
 
@@ -126,7 +116,7 @@ tpwidget("show");</script>
 
 
 
-<script id="page.configurations">
+<script type="text/javascript" id="page.configurations">
   CONFIG.page = {
     sidebar: "",
   };
@@ -143,38 +133,36 @@ tpwidget("show");</script>
 
 
 
-
-
-
   <noscript>
-  <style>
-  .use-motion .motion-element,
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-title { opacity: initial; }
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
 
-  .use-motion .logo,
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
 
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
   </style>
 </noscript>
 
 </head>
 
 <body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
-
 
   
   
@@ -186,8 +174,10 @@ tpwidget("show");</script>
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta">
+      <div class="header-inner"> 
+
+<div class="site-brand-wrapper">
+  <div class="site-meta ">
     
 
     <div class="custom-logo-site-title">
@@ -197,8 +187,9 @@ tpwidget("show");</script>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-    
-    
+      
+        <p class="site-subtitle"></p>
+      
   </div>
 
   <div class="site-nav-toggle">
@@ -210,48 +201,31 @@ tpwidget("show");</script>
   </div>
 </div>
 
-
-
 <nav class="site-nav">
+  
+
   
     <ul id="menu" class="menu">
       
         
         
-        
           
-          <li class="menu-item menu-item-home">
+  <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+</li>
 
-    
-    
-    
       
-    
-
-    
-
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
-
-  </li>
-        
         
         
           
-          <li class="menu-item menu-item-archives">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
-
-  </li>
+  <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+</li>
 
       
+
       
     </ul>
   
@@ -265,12 +239,11 @@ tpwidget("show");</script>
 </nav>
 
 
-
   
 
 
 
-</div>
+ </div>
     </header>
 
     
@@ -318,20 +291,11 @@ tpwidget("show");</script>
         
           <h1 class="post-title" itemprop="name headline">
                 
-                
-                <a href="/2019/01/23/「整理」其他/" class="post-title-link" itemprop="url">「整理」其他</a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2019/01/23/「整理」其他/" itemprop="url">「整理」其他</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -339,25 +303,18 @@ tpwidget("show");</script>
               
                 <span class="post-meta-item-text">发表于</span>
               
-
-              
-                
-              
-
-              <time title="创建时间：2019-01-23 08:09:51 / 修改时间：16:03:55" itemprop="dateCreated datePublished" datetime="2019-01-23T08:09:51+08:00">2019-01-23</time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-23T08:09:51+08:00">2019-01-23</time>
             
 
             
-              
+            
 
-              
             
           </span>
 
           
 
           
-            
             
           
 
@@ -401,9 +358,6 @@ tpwidget("show");</script>
 
     
 
-    
-      
-    
     
 
     
@@ -462,20 +416,11 @@ tpwidget("show");</script>
         
           <h1 class="post-title" itemprop="name headline">
                 
-                
-                <a href="/2019/01/23/「整理」勾股数组/" class="post-title-link" itemprop="url">「整理」勾股数组</a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2019/01/23/「整理」勾股数组/" itemprop="url">「整理」勾股数组</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -483,25 +428,18 @@ tpwidget("show");</script>
               
                 <span class="post-meta-item-text">发表于</span>
               
-
-              
-                
-              
-
-              <time title="创建时间：2019-01-23 08:09:42 / 修改时间：16:04:33" itemprop="dateCreated datePublished" datetime="2019-01-23T08:09:42+08:00">2019-01-23</time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-23T08:09:42+08:00">2019-01-23</time>
             
 
             
-              
+            
 
-              
             
           </span>
 
           
 
           
-            
             
           
 
@@ -534,13 +472,11 @@ tpwidget("show");</script>
 <h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>我们大概老早就知道勾股定理，它大概就长这样：  </p>
 <script type="math/tex; mode=display">a^2+b^2=c^2</script><p>嗯，的确够简单的。</p>
           <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/01/23/「整理」勾股数组/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/01/23/「整理」勾股数组/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
           <!--/noindex-->
         
       
@@ -554,9 +490,6 @@ tpwidget("show");</script>
 
     
 
-    
-      
-    
     
 
     
@@ -615,20 +548,11 @@ tpwidget("show");</script>
         
           <h1 class="post-title" itemprop="name headline">
                 
-                
-                <a href="/2019/01/23/「整理」同余/" class="post-title-link" itemprop="url">「整理」同余</a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2019/01/23/「整理」同余/" itemprop="url">「整理」同余</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -636,25 +560,18 @@ tpwidget("show");</script>
               
                 <span class="post-meta-item-text">发表于</span>
               
-
-              
-                
-              
-
-              <time title="创建时间：2019-01-23 08:09:02 / 修改时间：16:04:09" itemprop="dateCreated datePublished" datetime="2019-01-23T08:09:02+08:00">2019-01-23</time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-23T08:09:02+08:00">2019-01-23</time>
             
 
             
-              
+            
 
-              
             
           </span>
 
           
 
           
-            
             
           
 
@@ -683,13 +600,11 @@ tpwidget("show");</script>
         
           <h1 id="留坑中"><a href="#留坑中" class="headerlink" title="留坑中"></a>留坑中</h1><p>目标：下个学期开学前填完坑！</p>
           <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/01/23/「整理」同余/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/01/23/「整理」同余/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
           <!--/noindex-->
         
       
@@ -703,9 +618,6 @@ tpwidget("show");</script>
 
     
 
-    
-      
-    
     
 
     
@@ -764,20 +676,11 @@ tpwidget("show");</script>
         
           <h1 class="post-title" itemprop="name headline">
                 
-                
-                <a href="/2019/01/23/「学习笔记」-FHQ-Treap/" class="post-title-link" itemprop="url">「学习笔记」 FHQ Treap</a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2019/01/23/「学习笔记」-FHQ-Treap/" itemprop="url">「学习笔记」 FHQ Treap</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -785,25 +688,18 @@ tpwidget("show");</script>
               
                 <span class="post-meta-item-text">发表于</span>
               
-
-              
-                
-              
-
-              <time title="创建时间：2019-01-23 08:08:52 / 修改时间：16:01:57" itemprop="dateCreated datePublished" datetime="2019-01-23T08:08:52+08:00">2019-01-23</time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-23T08:08:52+08:00">2019-01-23</time>
             
 
             
-              
+            
 
-              
             
           </span>
 
           
 
           
-            
             
           
 
@@ -832,13 +728,11 @@ tpwidget("show");</script>
         
           <h1 id="FHQ-Treap"><a href="#FHQ-Treap" class="headerlink" title="FHQ Treap"></a>FHQ Treap</h1><p>FHQ Treap （%%%发明者范浩强年年NOI金牌）是一种神奇的数据结构，也叫非旋Treap，它不像Treap zig zag搞不清楚（所以叫非旋嘛），也不像Splay完全看不懂，而且它能完成Treap与Splay能完成的<strong>所有事</strong>，代码短，理解也容易。</p>
           <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/01/23/「学习笔记」-FHQ-Treap/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/01/23/「学习笔记」-FHQ-Treap/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
           <!--/noindex-->
         
       
@@ -852,9 +746,6 @@ tpwidget("show");</script>
 
     
 
-    
-      
-    
     
 
     
@@ -913,20 +804,11 @@ tpwidget("show");</script>
         
           <h1 class="post-title" itemprop="name headline">
                 
-                
-                <a href="/2019/01/23/「SP122」STEVE-Voracious-Steve-解题报告/" class="post-title-link" itemprop="url">「SP122」STEVE - Voracious Steve 解题报告</a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2019/01/23/「SP122」STEVE-Voracious-Steve-解题报告/" itemprop="url">「SP122」STEVE - Voracious Steve 解题报告</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -934,25 +816,18 @@ tpwidget("show");</script>
               
                 <span class="post-meta-item-text">发表于</span>
               
-
-              
-                
-              
-
-              <time title="创建时间：2019-01-23 08:08:43 / 修改时间：15:56:06" itemprop="dateCreated datePublished" datetime="2019-01-23T08:08:43+08:00">2019-01-23</time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-23T08:08:43+08:00">2019-01-23</time>
             
 
             
-              
+            
 
-              
             
           </span>
 
           
 
           
-            
             
           
 
@@ -981,13 +856,11 @@ tpwidget("show");</script>
         
           <h1 id="SP122-STEVE-Voracious-Steve"><a href="#SP122-STEVE-Voracious-Steve" class="headerlink" title="SP122 STEVE - Voracious Steve"></a><a href="https://www.luogu.org/problemnew/show/SP122" target="_blank" rel="noopener">SP122 STEVE - Voracious Steve</a></h1><h2 id="题意翻译"><a href="#题意翻译" class="headerlink" title="题意翻译"></a>题意翻译</h2><h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p>Steve和他的一个朋友在玩游戏,游戏开始前，盒子里有 n个甜甜圈，两个人轮流从盒子里抓甜甜圈，每次至少抓 1个，最多抓m个。</p>
           <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/01/23/「SP122」STEVE-Voracious-Steve-解题报告/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/01/23/「SP122」STEVE-Voracious-Steve-解题报告/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
           <!--/noindex-->
         
       
@@ -1001,9 +874,6 @@ tpwidget("show");</script>
 
     
 
-    
-      
-    
     
 
     
@@ -1062,20 +932,11 @@ tpwidget("show");</script>
         
           <h1 class="post-title" itemprop="name headline">
                 
-                
-                <a href="/2019/01/23/「学习笔记」左偏树/" class="post-title-link" itemprop="url">「学习笔记」左偏树</a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2019/01/23/「学习笔记」左偏树/" itemprop="url">「学习笔记」左偏树</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1083,25 +944,18 @@ tpwidget("show");</script>
               
                 <span class="post-meta-item-text">发表于</span>
               
-
-              
-                
-              
-
-              <time title="创建时间：2019-01-23 08:08:34 / 修改时间：16:02:42" itemprop="dateCreated datePublished" datetime="2019-01-23T08:08:34+08:00">2019-01-23</time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-23T08:08:34+08:00">2019-01-23</time>
             
 
             
-              
+            
 
-              
             
           </span>
 
           
 
           
-            
             
           
 
@@ -1130,13 +984,11 @@ tpwidget("show");</script>
         
           <p>左偏树是一种可以合并的“堆”。这里打了引号，是因为左偏树<strong>并不是堆</strong>，但是能完成与堆类似的功能。<strong>而且还能支持可持久化</strong>。</p>
           <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/01/23/「学习笔记」左偏树/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/01/23/「学习笔记」左偏树/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
           <!--/noindex-->
         
       
@@ -1150,9 +1002,6 @@ tpwidget("show");</script>
 
     
 
-    
-      
-    
     
 
     
@@ -1211,20 +1060,11 @@ tpwidget("show");</script>
         
           <h1 class="post-title" itemprop="name headline">
                 
-                
-                <a href="/2019/01/23/「学习笔记」珂朵莉树-ODT/" class="post-title-link" itemprop="url">「学习笔记」珂朵莉树 ODT</a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2019/01/23/「学习笔记」珂朵莉树-ODT/" itemprop="url">「学习笔记」珂朵莉树 ODT</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1232,25 +1072,18 @@ tpwidget("show");</script>
               
                 <span class="post-meta-item-text">发表于</span>
               
-
-              
-                
-              
-
-              <time title="创建时间：2019-01-23 08:08:26 / 修改时间：16:03:06" itemprop="dateCreated datePublished" datetime="2019-01-23T08:08:26+08:00">2019-01-23</time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-23T08:08:26+08:00">2019-01-23</time>
             
 
             
-              
+            
 
-              
             
           </span>
 
           
 
           
-            
             
           
 
@@ -1282,13 +1115,11 @@ tpwidget("show");</script>
 <p>从前有一天，珂朵莉出现了。。。<br>然后有一天，珂朵莉树出现了。。。</p>
 </blockquote>
           <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/01/23/「学习笔记」珂朵莉树-ODT/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/01/23/「学习笔记」珂朵莉树-ODT/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
           <!--/noindex-->
         
       
@@ -1302,9 +1133,6 @@ tpwidget("show");</script>
 
     
 
-    
-      
-    
     
 
     
@@ -1363,20 +1191,11 @@ tpwidget("show");</script>
         
           <h1 class="post-title" itemprop="name headline">
                 
-                
-                <a href="/2019/01/23/「洛谷P2397」-yyy-loves-Maths-VI-mode-解题报告/" class="post-title-link" itemprop="url">「洛谷P2397」 yyy loves Maths VI (mode) 解题报告</a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2019/01/23/「洛谷P2397」-yyy-loves-Maths-VI-mode-解题报告/" itemprop="url">「洛谷P2397」 yyy loves Maths VI (mode) 解题报告</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1384,25 +1203,18 @@ tpwidget("show");</script>
               
                 <span class="post-meta-item-text">发表于</span>
               
-
-              
-                
-              
-
-              <time title="创建时间：2019-01-23 08:08:13 / 修改时间：16:08:49" itemprop="dateCreated datePublished" datetime="2019-01-23T08:08:13+08:00">2019-01-23</time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-23T08:08:13+08:00">2019-01-23</time>
             
 
             
-              
+            
 
-              
             
           </span>
 
           
 
           
-            
             
           
 
@@ -1431,13 +1243,11 @@ tpwidget("show");</script>
         
           <h1 id="P2397-yyy-loves-Maths-VI-mode"><a href="#P2397-yyy-loves-Maths-VI-mode" class="headerlink" title="P2397 yyy loves Maths VI (mode)"></a><a href="https://www.luogu.org/problemnew/show/P2397" target="_blank" rel="noopener">P2397 yyy loves Maths VI (mode)</a></h1><h2 id="题目背景"><a href="#题目背景" class="headerlink" title="题目背景"></a>题目背景</h2><p>自动上次redbag用加法好好的刁难过了yyy同学以后,yyy十分愤怒.他还击给了redbag一题,但是这题他惊讶的发现自己居然也不会,所以只好找你</p>
           <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/01/23/「洛谷P2397」-yyy-loves-Maths-VI-mode-解题报告/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/01/23/「洛谷P2397」-yyy-loves-Maths-VI-mode-解题报告/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
           <!--/noindex-->
         
       
@@ -1451,9 +1261,6 @@ tpwidget("show");</script>
 
     
 
-    
-      
-    
     
 
     
@@ -1512,20 +1319,11 @@ tpwidget("show");</script>
         
           <h1 class="post-title" itemprop="name headline">
                 
-                
-                <a href="/2019/01/23/「UVA12004」-Bubble-Sort-解题报告/" class="post-title-link" itemprop="url">「UVA12004」 Bubble Sort 解题报告</a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2019/01/23/「UVA12004」-Bubble-Sort-解题报告/" itemprop="url">「UVA12004」 Bubble Sort 解题报告</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1533,25 +1331,18 @@ tpwidget("show");</script>
               
                 <span class="post-meta-item-text">发表于</span>
               
-
-              
-                
-              
-
-              <time title="创建时间：2019-01-23 08:08:00 / 修改时间：15:57:00" itemprop="dateCreated datePublished" datetime="2019-01-23T08:08:00+08:00">2019-01-23</time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-23T08:08:00+08:00">2019-01-23</time>
             
 
             
-              
+            
 
-              
             
           </span>
 
           
 
           
-            
             
           
 
@@ -1580,13 +1371,11 @@ tpwidget("show");</script>
         
           <h1 id="UVA12004-Bubble-Sort"><a href="#UVA12004-Bubble-Sort" class="headerlink" title="UVA12004 Bubble Sort"></a><a href="https://www.luogu.org/problemnew/show/UVA12004" target="_blank" rel="noopener">UVA12004 Bubble Sort</a></h1><p>Check the following code which counts the number of swaps of bubble sort.</p>
           <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/01/23/「UVA12004」-Bubble-Sort-解题报告/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/01/23/「UVA12004」-Bubble-Sort-解题报告/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
           <!--/noindex-->
         
       
@@ -1600,9 +1389,6 @@ tpwidget("show");</script>
 
     
 
-    
-      
-    
     
 
     
@@ -1661,20 +1447,11 @@ tpwidget("show");</script>
         
           <h1 class="post-title" itemprop="name headline">
                 
-                
-                <a href="/2019/01/23/「SP25784」BUBBLESORT-Bubble-Sort-解题报告/" class="post-title-link" itemprop="url">「SP25784」BUBBLESORT - Bubble Sort 解题报告</a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2019/01/23/「SP25784」BUBBLESORT-Bubble-Sort-解题报告/" itemprop="url">「SP25784」BUBBLESORT - Bubble Sort 解题报告</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1682,25 +1459,18 @@ tpwidget("show");</script>
               
                 <span class="post-meta-item-text">发表于</span>
               
-
-              
-                
-              
-
-              <time title="创建时间：2019-01-23 08:07:48 / 修改时间：15:56:23" itemprop="dateCreated datePublished" datetime="2019-01-23T08:07:48+08:00">2019-01-23</time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-23T08:07:48+08:00">2019-01-23</time>
             
 
             
-              
+            
 
-              
             
           </span>
 
           
 
           
-            
             
           
 
@@ -1729,13 +1499,11 @@ tpwidget("show");</script>
         
           <h1 id="SP25784-BUBBLESORT-Bubble-Sort"><a href="#SP25784-BUBBLESORT-Bubble-Sort" class="headerlink" title="SP25784 BUBBLESORT - Bubble Sort"></a><a href="https://www.luogu.org/problemnew/show/SP25784" target="_blank" rel="noopener">SP25784 BUBBLESORT - Bubble Sort</a></h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>One of the simplest sorting algorithms, the Bubble Sort, can be expressed as (0-based array):<br>
           <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/01/23/「SP25784」BUBBLESORT-Bubble-Sort-解题报告/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/01/23/「SP25784」BUBBLESORT-Bubble-Sort-解题报告/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
           <!--/noindex-->
         
       
@@ -1749,9 +1517,6 @@ tpwidget("show");</script>
 
     
 
-    
-      
-    
     
 
     
@@ -1808,7 +1573,7 @@ tpwidget("show");</script>
 
       
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -1965,6 +1730,7 @@ tpwidget("show");</script>
           
 
           
+          
 
           
           
@@ -1975,7 +1741,7 @@ tpwidget("show");</script>
           
 
         </div>
-      </div>
+      </section>
 
       
 
@@ -1992,7 +1758,7 @@ tpwidget("show");</script>
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love" id="animate">
+  <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">louhc</span>
@@ -2003,7 +1769,9 @@ tpwidget("show");</script>
 </div>
 
 
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 
 
@@ -2011,7 +1779,7 @@ tpwidget("show");</script>
 
 
 
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v6.7.0</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Muse</a> v6.0.6</div>
 
 
 
@@ -2038,14 +1806,11 @@ tpwidget("show");</script>
 
     
 
-    
-
-    
   </div>
 
   
 
-<script>
+<script type="text/javascript">
   if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
     window.Promise = null;
   }
@@ -2077,42 +1842,39 @@ tpwidget("show");</script>
 
 
   
-  <script src="/lib/jquery/index.js?v=2.1.3"></script>
-
   
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
   
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-
-  
-
-
-  <script src="/js/src/utils.js?v=6.7.0"></script>
-
-  <script src="/js/src/motion.js?v=6.7.0"></script>
-
-
 
   
   
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
 
-
-  <script src="/js/src/schemes/muse.js?v=6.7.0"></script>
-
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
 
 
   
 
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.0.6"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.0.6"></script>
+
+
+
+  
+  
+
+  
+
   
 
 
-  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
-
-
-
-  
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.6"></script>
 
 
 
@@ -2120,9 +1882,34 @@ tpwidget("show");</script>
 
 
 
+	
+
+
+
 
 
   
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
 
   
 
@@ -2163,49 +1950,30 @@ tpwidget("show");</script>
   
     
       <script type="text/x-mathjax-config">
-  
-
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true,
-      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    },
-    TeX: {
-      
-      equationNumbers: {
-        autoNumber: "AMS"
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
       }
-    }
-  });
+    });
 </script>
 
 <script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-      for (i = 0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-      }
-  });
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
 </script>
-<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-<style>
-.MathJax_Display {
-  overflow: auto hidden;
-}
-</style>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
     
   
 
 
   
-
-  
-
-  
-
   
 
   

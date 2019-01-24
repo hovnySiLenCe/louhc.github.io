@@ -2,15 +2,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
   
 
 
@@ -32,6 +23,8 @@
 
 
 
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -46,21 +39,6 @@
 
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
-
-<link rel="stylesheet" href="/css/main.css?v=6.7.0">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.7.0">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.7.0">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.7.0">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=6.7.0" color="#222">
 
 
 
@@ -68,12 +46,37 @@
 
 
 
-<script id="hexo.configurations">
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.0.6" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.0.6">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.0.6">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.0.6">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.0.6" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
     scheme: 'Muse',
-    version: '6.7.0',
+    version: '6.0.6',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: false,
     fastclick: false,
@@ -89,20 +92,7 @@
     }
   };
 </script>
-<script>(function(T,h,i,n,k,P,a,g,e){g=function(){P=h.createElement(i);a=h.getElementsByTagName(i)[0];P.src=k;P.charset="utf-8";P.async=1;a.parentNode.insertBefore(P,a)};T["ThinkPageWeatherWidgetObject"]=n;T[n]||(T[n]=function(){(T[n].q=T[n].q||[]).push(arguments)});T[n].l=+new Date();if(T.attachEvent){T.attachEvent("onload",g)}else{T.addEventListener("load",g,false)}}(window,document,"script","tpwidget","//widget.seniverse.com/widget/chameleon.js"))</script>
-<script>tpwidget("init", {
-    "flavor": "bubble",
-    "location": "WTJQSMBKCGCH",
-    "geolocation": "disabled",
-    "position": "top-left",
-    "margin": "10px 10px",
-    "language": "zh-chs",
-    "unit": "c",
-    "theme": "chameleon",
-    "uid": "UE3F3BC902",
-    "hash": "158200f84a057618ae8c69aed033a6b3"
-});
-tpwidget("show");</script>
+
 
   
 
@@ -126,7 +116,7 @@ tpwidget("show");</script>
 
 
 
-<script id="page.configurations">
+<script type="text/javascript" id="page.configurations">
   CONFIG.page = {
     sidebar: "",
   };
@@ -143,38 +133,36 @@ tpwidget("show");</script>
 
 
 
-
-
-
   <noscript>
-  <style>
-  .use-motion .motion-element,
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-title { opacity: initial; }
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
 
-  .use-motion .logo,
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
 
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
   </style>
 </noscript>
 
 </head>
 
 <body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
-
 
   
   
@@ -186,8 +174,10 @@ tpwidget("show");</script>
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta">
+      <div class="header-inner"> 
+
+<div class="site-brand-wrapper">
+  <div class="site-meta ">
     
 
     <div class="custom-logo-site-title">
@@ -197,8 +187,9 @@ tpwidget("show");</script>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-    
-    
+      
+        <p class="site-subtitle"></p>
+      
   </div>
 
   <div class="site-nav-toggle">
@@ -210,48 +201,31 @@ tpwidget("show");</script>
   </div>
 </div>
 
-
-
 <nav class="site-nav">
+  
+
   
     <ul id="menu" class="menu">
       
         
         
-        
           
-          <li class="menu-item menu-item-home">
+  <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+</li>
 
-    
-    
-    
       
-    
-
-    
-
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
-
-  </li>
-        
         
         
           
-          <li class="menu-item menu-item-archives">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
-
-  </li>
+  <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+</li>
 
       
+
       
     </ul>
   
@@ -265,12 +239,11 @@ tpwidget("show");</script>
 </nav>
 
 
-
   
 
 
 
-</div>
+ </div>
     </header>
 
     
@@ -318,20 +291,11 @@ tpwidget("show");</script>
         
           <h1 class="post-title" itemprop="name headline">
                 
-                
-                <a href="/2019/01/23/「BZOJ1722」「Usaco2006-Mar」Milk-Team-Select产奶比赛-解题报告/" class="post-title-link" itemprop="url">「BZOJ1722」「Usaco2006 Mar」Milk Team Select产奶比赛 解题报告</a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2019/01/23/「BZOJ1722」「Usaco2006-Mar」Milk-Team-Select产奶比赛-解题报告/" itemprop="url">「BZOJ1722」「Usaco2006 Mar」Milk Team Select产奶比赛 解题报告</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -339,25 +303,18 @@ tpwidget("show");</script>
               
                 <span class="post-meta-item-text">发表于</span>
               
-
-              
-                
-              
-
-              <time title="创建时间：2019-01-23 08:16:38 / 修改时间：15:50:36" itemprop="dateCreated datePublished" datetime="2019-01-23T08:16:38+08:00">2019-01-23</time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-23T08:16:38+08:00">2019-01-23</time>
             
 
             
-              
+            
 
-              
             
           </span>
 
           
 
           
-            
             
           
 
@@ -386,13 +343,11 @@ tpwidget("show");</script>
         
           <h1 id="Milk-Team-Select-产奶比赛"><a href="#Milk-Team-Select-产奶比赛" class="headerlink" title="Milk Team Select 产奶比赛"></a><a href="https://www.lydsy.com/JudgeOnline/problem.php?id=1722" target="_blank" rel="noopener">Milk Team Select 产奶比赛</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Farmer John’s N ($1 \le N \le 500$) cows are trying to select the milking team for the world-famous Multistate Milking Match-up (MMM) competition. As you probably know, any team that produces at least X ($1 \le X \le 1,000,000$) gallons of milk is a winner. Each cow has the potential of contributing between $-10,000$ and $10,000$ gallons of milk. (Sadly, some cows have a tendency to knock over jugs containing milk produced by other cows.) The MMM prides itself on promoting family values. FJ’s cows have no doubt that they can produce X gallons of milk and win the contest, but to support the contest’s spirit,<br>
           <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/01/23/「BZOJ1722」「Usaco2006-Mar」Milk-Team-Select产奶比赛-解题报告/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/01/23/「BZOJ1722」「Usaco2006-Mar」Milk-Team-Select产奶比赛-解题报告/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
           <!--/noindex-->
         
       
@@ -406,9 +361,6 @@ tpwidget("show");</script>
 
     
 
-    
-      
-    
     
 
     
@@ -467,20 +419,11 @@ tpwidget("show");</script>
         
           <h1 class="post-title" itemprop="name headline">
                 
-                
-                <a href="/2019/01/23/「BZOJ1385」「Baltic2000」Division-expression-解题报告/" class="post-title-link" itemprop="url">「BZOJ1385」「Baltic2000」Division expression 解题报告</a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2019/01/23/「BZOJ1385」「Baltic2000」Division-expression-解题报告/" itemprop="url">「BZOJ1385」「Baltic2000」Division expression 解题报告</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -488,25 +431,18 @@ tpwidget("show");</script>
               
                 <span class="post-meta-item-text">发表于</span>
               
-
-              
-                
-              
-
-              <time title="创建时间：2019-01-23 08:16:29 / 修改时间：15:50:04" itemprop="dateCreated datePublished" datetime="2019-01-23T08:16:29+08:00">2019-01-23</time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-23T08:16:29+08:00">2019-01-23</time>
             
 
             
-              
+            
 
-              
             
           </span>
 
           
 
           
-            
             
           
 
@@ -535,13 +471,11 @@ tpwidget("show");</script>
         
           <h1 id="Division-expression"><a href="#Division-expression" class="headerlink" title="Division expression"></a><a href="https://www.lydsy.com/JudgeOnline/problem.php?id=1385" target="_blank" rel="noopener">Division expression</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>除法表达式有如下的形式: $X_1/X_2/X_3…/X_k$ 其中Xi是正整数且$X_i \le 1000000000(1 \le i \le k,K \le 10000)$ 除法表达式应当按照从左到右的顺序求，例如表达式1/2/1/2的值为1/4.但可以在表达式中加入括号来改变计算顺序，例如(1/2)/(1/2)的值为1.现给出一个除法表达式E，求是告诉是否可以通过增加括号来使其为E’,E’为整数。</p>
           <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/01/23/「BZOJ1385」「Baltic2000」Division-expression-解题报告/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/01/23/「BZOJ1385」「Baltic2000」Division-expression-解题报告/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
           <!--/noindex-->
         
       
@@ -555,9 +489,6 @@ tpwidget("show");</script>
 
     
 
-    
-      
-    
     
 
     
@@ -616,20 +547,11 @@ tpwidget("show");</script>
         
           <h1 class="post-title" itemprop="name headline">
                 
-                
-                <a href="/2019/01/23/「BZOJ4590」「SHOI2015」-自动刷题机-解题报告/" class="post-title-link" itemprop="url">「BZOJ4590」「SHOI2015」 自动刷题机 解题报告</a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2019/01/23/「BZOJ4590」「SHOI2015」-自动刷题机-解题报告/" itemprop="url">「BZOJ4590」「SHOI2015」 自动刷题机 解题报告</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -637,25 +559,18 @@ tpwidget("show");</script>
               
                 <span class="post-meta-item-text">发表于</span>
               
-
-              
-                
-              
-
-              <time title="创建时间：2019-01-23 08:16:21 / 修改时间：15:51:49" itemprop="dateCreated datePublished" datetime="2019-01-23T08:16:21+08:00">2019-01-23</time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-23T08:16:21+08:00">2019-01-23</time>
             
 
             
-              
+            
 
-              
             
           </span>
 
           
 
           
-            
             
           
 
@@ -684,13 +599,11 @@ tpwidget("show");</script>
         
           <h1 id="自动刷题机"><a href="#自动刷题机" class="headerlink" title="自动刷题机"></a><a href="https://www.lydsy.com/JudgeOnline/problem.php?id=4590" target="_blank" rel="noopener">自动刷题机</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>曾经发明了信号增幅仪的发明家SHTSC又公开了他的新发明：自动刷题机—一种可以自动AC题目的神秘装置。自动刷题机刷题的方式非常简单：首先会瞬间得出题目的正确做法，然后开始写程序，每秒，自动刷题机的代码生成模块会有两种可能的结果：</p>
           <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/01/23/「BZOJ4590」「SHOI2015」-自动刷题机-解题报告/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/01/23/「BZOJ4590」「SHOI2015」-自动刷题机-解题报告/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
           <!--/noindex-->
         
       
@@ -704,9 +617,6 @@ tpwidget("show");</script>
 
     
 
-    
-      
-    
     
 
     
@@ -765,20 +675,11 @@ tpwidget("show");</script>
         
           <h1 class="post-title" itemprop="name headline">
                 
-                
-                <a href="/2019/01/23/「BZOJ4510」「Usaco2016-Jan」Radio-Contact-解题报告/" class="post-title-link" itemprop="url">「BZOJ4510」「Usaco2016 Jan」Radio Contact 解题报告</a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2019/01/23/「BZOJ4510」「Usaco2016-Jan」Radio-Contact-解题报告/" itemprop="url">「BZOJ4510」「Usaco2016 Jan」Radio Contact 解题报告</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -786,25 +687,18 @@ tpwidget("show");</script>
               
                 <span class="post-meta-item-text">发表于</span>
               
-
-              
-                
-              
-
-              <time title="创建时间：2019-01-23 08:16:10 / 修改时间：15:50:49" itemprop="dateCreated datePublished" datetime="2019-01-23T08:16:10+08:00">2019-01-23</time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-23T08:16:10+08:00">2019-01-23</time>
             
 
             
-              
+            
 
-              
             
           </span>
 
           
 
           
-            
             
           
 
@@ -833,13 +727,11 @@ tpwidget("show");</script>
         
           <h1 id="无线电联系-Radio-Contact"><a href="#无线电联系-Radio-Contact" class="headerlink" title="无线电联系 Radio Contact"></a><a href="https://www.luogu.org/problemnew/show/P3133" target="_blank" rel="noopener">无线电联系 Radio Contact</a></h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>Farmer John has lost his favorite cow bell, and Bessie the cow has agreed to help him find it! They both fan out and search the farm along different paths, but stay in contact via radio so they can keep in touch with each-other. Unfortunately, the batteries in their radios are running low, so they want to plan their movements so as to conserve power, by trying to stay always within a short distance apart.</p>
           <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/01/23/「BZOJ4510」「Usaco2016-Jan」Radio-Contact-解题报告/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/01/23/「BZOJ4510」「Usaco2016-Jan」Radio-Contact-解题报告/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
           <!--/noindex-->
         
       
@@ -853,9 +745,6 @@ tpwidget("show");</script>
 
     
 
-    
-      
-    
     
 
     
@@ -914,20 +803,11 @@ tpwidget("show");</script>
         
           <h1 class="post-title" itemprop="name headline">
                 
-                
-                <a href="/2019/01/23/「CodeForces-476A」Dreamoon-and-Stairs/" class="post-title-link" itemprop="url">「CodeForces 476A」Dreamoon and Stairs</a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2019/01/23/「CodeForces-476A」Dreamoon-and-Stairs/" itemprop="url">「CodeForces 476A」Dreamoon and Stairs</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -935,25 +815,18 @@ tpwidget("show");</script>
               
                 <span class="post-meta-item-text">发表于</span>
               
-
-              
-                
-              
-
-              <time title="创建时间：2019-01-23 08:15:58 / 修改时间：15:54:49" itemprop="dateCreated datePublished" datetime="2019-01-23T08:15:58+08:00">2019-01-23</time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-23T08:15:58+08:00">2019-01-23</time>
             
 
             
-              
+            
 
-              
             
           </span>
 
           
 
           
-            
             
           
 
@@ -982,13 +855,11 @@ tpwidget("show");</script>
         
           <h1 id="Dreamoon-and-Stairs"><a href="#Dreamoon-and-Stairs" class="headerlink" title="Dreamoon and Stairs"></a><a href="http://codeforces.com/problemset/problem/476/A" target="_blank" rel="noopener">Dreamoon and Stairs</a></h1><h2 id="题意翻译"><a href="#题意翻译" class="headerlink" title="题意翻译"></a>题意翻译</h2><p>题面 DM小朋友想要上一个有 $n$ 级台阶的楼梯。他每一步可以上 $1$ 或 $2$ 级台阶。假设他走上这个台阶一共用了 $x$ 步。现在DM想知道 $x$ 是否可能为 $m$ 的倍数。如果可能，输出 $x$ 的最小值。如果不可能，输出 $-1$<br>输入 两个正整数 $n,m (n \le 10000,m \le 10)$<br>输出 按要求输出 $x$ 或 $-1$</p>
           <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/01/23/「CodeForces-476A」Dreamoon-and-Stairs/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/01/23/「CodeForces-476A」Dreamoon-and-Stairs/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
           <!--/noindex-->
         
       
@@ -1002,9 +873,6 @@ tpwidget("show");</script>
 
     
 
-    
-      
-    
     
 
     
@@ -1063,20 +931,11 @@ tpwidget("show");</script>
         
           <h1 class="post-title" itemprop="name headline">
                 
-                
-                <a href="/2019/01/23/「HDU3823」-Prime-Friend-解题报告/" class="post-title-link" itemprop="url">「HDU3823」 Prime Friend 解题报告</a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2019/01/23/「HDU3823」-Prime-Friend-解题报告/" itemprop="url">「HDU3823」 Prime Friend 解题报告</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1084,25 +943,18 @@ tpwidget("show");</script>
               
                 <span class="post-meta-item-text">发表于</span>
               
-
-              
-                
-              
-
-              <time title="创建时间：2019-01-23 08:15:44 / 修改时间：15:55:53" itemprop="dateCreated datePublished" datetime="2019-01-23T08:15:44+08:00">2019-01-23</time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-23T08:15:44+08:00">2019-01-23</time>
             
 
             
-              
+            
 
-              
             
           </span>
 
           
 
           
-            
             
           
 
@@ -1132,13 +984,11 @@ tpwidget("show");</script>
           <h1 id="Prime-Friend"><a href="#Prime-Friend" class="headerlink" title="Prime Friend"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=3823" target="_blank" rel="noopener">Prime Friend</a></h1><p><strong>Time Limit: 4000/2000 MS (Java/Others)    Memory Limit: 32768/32768 K (Java/Others)Total Submission(s): 5025    Accepted Submission(s): 1035</strong></p>
 <h2 id="Problem-Description"><a href="#Problem-Description" class="headerlink" title="Problem Description"></a>Problem Description</h2><p>Besides the ordinary Boy Friend and Girl Friend, here we define a more academic kind of friend: Prime Friend. We call a nonnegative integer A is the integer B’s Prime Friend when the sum of A and B is a prime.<br>
           <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/01/23/「HDU3823」-Prime-Friend-解题报告/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/01/23/「HDU3823」-Prime-Friend-解题报告/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
           <!--/noindex-->
         
       
@@ -1152,9 +1002,6 @@ tpwidget("show");</script>
 
     
 
-    
-      
-    
     
 
     
@@ -1213,20 +1060,11 @@ tpwidget("show");</script>
         
           <h1 class="post-title" itemprop="name headline">
                 
-                
-                <a href="/2019/01/23/「学习笔记」动态规划-I『初识DP』/" class="post-title-link" itemprop="url">「学习笔记」动态规划 I『初识DP』</a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2019/01/23/「学习笔记」动态规划-I『初识DP』/" itemprop="url">「学习笔记」动态规划 I『初识DP』</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1234,25 +1072,18 @@ tpwidget("show");</script>
               
                 <span class="post-meta-item-text">发表于</span>
               
-
-              
-                
-              
-
-              <time title="创建时间：2019-01-23 08:15:34 / 修改时间：16:02:24" itemprop="dateCreated datePublished" datetime="2019-01-23T08:15:34+08:00">2019-01-23</time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-23T08:15:34+08:00">2019-01-23</time>
             
 
             
-              
+            
 
-              
             
           </span>
 
           
 
           
-            
             
           
 
@@ -1284,13 +1115,11 @@ tpwidget("show");</script>
 <hr>
 <h1 id="动态规划介绍"><a href="#动态规划介绍" class="headerlink" title="动态规划介绍"></a>动态规划介绍</h1><p>动态规划，简称DP(Dynamic Programming)<br><a href="http://baike.sogou.com/v61658563.htm" target="_blank" rel="noopener">简介1</a> <a href="http://baike.sogou.com/v83500148.htm?fromTitle=%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92%E7%AE%97%E6%B3%95" target="_blank" rel="noopener">简介2</a></p>
           <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/01/23/「学习笔记」动态规划-I『初识DP』/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/01/23/「学习笔记」动态规划-I『初识DP』/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
           <!--/noindex-->
         
       
@@ -1304,9 +1133,6 @@ tpwidget("show");</script>
 
     
 
-    
-      
-    
     
 
     
@@ -1365,20 +1191,11 @@ tpwidget("show");</script>
         
           <h1 class="post-title" itemprop="name headline">
                 
-                
-                <a href="/2019/01/23/「学习笔记」离散化/" class="post-title-link" itemprop="url">「学习笔记」离散化</a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2019/01/23/「学习笔记」离散化/" itemprop="url">「学习笔记」离散化</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1386,25 +1203,18 @@ tpwidget("show");</script>
               
                 <span class="post-meta-item-text">发表于</span>
               
-
-              
-                
-              
-
-              <time title="创建时间：2019-01-23 08:15:23 / 修改时间：16:03:19" itemprop="dateCreated datePublished" datetime="2019-01-23T08:15:23+08:00">2019-01-23</time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-23T08:15:23+08:00">2019-01-23</time>
             
 
             
-              
+            
 
-              
             
           </span>
 
           
 
           
-            
             
           
 
@@ -1433,13 +1243,11 @@ tpwidget("show");</script>
         
           <h1 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h1><p>离散化是应用于当结果与具体数值无关时，将较大数据按次序变为较小数据的一种算法。</p>
           <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/01/23/「学习笔记」离散化/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/01/23/「学习笔记」离散化/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
           <!--/noindex-->
         
       
@@ -1453,9 +1261,6 @@ tpwidget("show");</script>
 
     
 
-    
-      
-    
     
 
     
@@ -1514,20 +1319,11 @@ tpwidget("show");</script>
         
           <h1 class="post-title" itemprop="name headline">
                 
-                
-                <a href="/2019/01/23/「学习笔记」ST表/" class="post-title-link" itemprop="url">「学习笔记」ST表</a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2019/01/23/「学习笔记」ST表/" itemprop="url">「学习笔记」ST表</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1535,25 +1331,18 @@ tpwidget("show");</script>
               
                 <span class="post-meta-item-text">发表于</span>
               
-
-              
-                
-              
-
-              <time title="创建时间：2019-01-23 08:15:09 / 修改时间：16:02:11" itemprop="dateCreated datePublished" datetime="2019-01-23T08:15:09+08:00">2019-01-23</time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-23T08:15:09+08:00">2019-01-23</time>
             
 
             
-              
+            
 
-              
             
           </span>
 
           
 
           
-            
             
           
 
@@ -1582,13 +1371,11 @@ tpwidget("show");</script>
         
           <h1 id="问题引入"><a href="#问题引入" class="headerlink" title="问题引入"></a>问题引入</h1><p>先让我们看一个简单的问题，有N个元素，Q次操作，每次操作需要求出一段区间内的最大/小值。</p>
           <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/01/23/「学习笔记」ST表/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/01/23/「学习笔记」ST表/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
           <!--/noindex-->
         
       
@@ -1602,9 +1389,6 @@ tpwidget("show");</script>
 
     
 
-    
-      
-    
     
 
     
@@ -1663,20 +1447,11 @@ tpwidget("show");</script>
         
           <h1 class="post-title" itemprop="name headline">
                 
-                
-                <a href="/2019/01/23/「CH2401」送礼物-解题报告/" class="post-title-link" itemprop="url">「CH2401」送礼物 解题报告</a>
-              
-            
-          </h1>
+                <a class="post-title-link" href="/2019/01/23/「CH2401」送礼物-解题报告/" itemprop="url">「CH2401」送礼物 解题报告</a></h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1684,25 +1459,18 @@ tpwidget("show");</script>
               
                 <span class="post-meta-item-text">发表于</span>
               
-
-              
-                
-              
-
-              <time title="创建时间：2019-01-23 08:14:59 / 修改时间：15:54:22" itemprop="dateCreated datePublished" datetime="2019-01-23T08:14:59+08:00">2019-01-23</time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-23T08:14:59+08:00">2019-01-23</time>
             
 
             
-              
+            
 
-              
             
           </span>
 
           
 
           
-            
             
           
 
@@ -1731,13 +1499,11 @@ tpwidget("show");</script>
         
           <h1 id="CH2401-送礼物"><a href="#CH2401-送礼物" class="headerlink" title="CH2401 送礼物"></a><a href="http://contest-hunter.org:83/contest/0x20%E3%80%8C%E6%90%9C%E7%B4%A2%E3%80%8D%E4%BE%8B%E9%A2%98/2401%20%E9%80%81%E7%A4%BC%E7%89%A9" target="_blank" rel="noopener">CH2401 送礼物</a></h1><h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>作为惩罚，GY被遣送去帮助某神牛给女生送礼物(GY：貌似是个好差事)但是在GY看到礼物之后，他就不这么认为了。某神牛有N个礼物，且异常沉重，但是GY的力气也异常的大(-_-b)，他一次可以搬动重量和在w(w&lt;=2^31-1)以下的任意多个物品。GY希望一次搬掉尽量重的一些物品，请你告诉他在他的力气范围内一次性能搬动的最大重量是多少。</p>
           <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/01/23/「CH2401」送礼物-解题报告/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/01/23/「CH2401」送礼物-解题报告/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
           <!--/noindex-->
         
       
@@ -1751,9 +1517,6 @@ tpwidget("show");</script>
 
     
 
-    
-      
-    
     
 
     
@@ -1810,7 +1573,7 @@ tpwidget("show");</script>
 
       
 
-      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -1967,6 +1730,7 @@ tpwidget("show");</script>
           
 
           
+          
 
           
           
@@ -1977,7 +1741,7 @@ tpwidget("show");</script>
           
 
         </div>
-      </div>
+      </section>
 
       
 
@@ -1994,7 +1758,7 @@ tpwidget("show");</script>
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love" id="animate">
+  <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">louhc</span>
@@ -2005,7 +1769,9 @@ tpwidget("show");</script>
 </div>
 
 
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 
 
@@ -2013,7 +1779,7 @@ tpwidget("show");</script>
 
 
 
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v6.7.0</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Muse</a> v6.0.6</div>
 
 
 
@@ -2040,14 +1806,11 @@ tpwidget("show");</script>
 
     
 
-    
-
-    
   </div>
 
   
 
-<script>
+<script type="text/javascript">
   if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
     window.Promise = null;
   }
@@ -2079,42 +1842,39 @@ tpwidget("show");</script>
 
 
   
-  <script src="/lib/jquery/index.js?v=2.1.3"></script>
-
   
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
   
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-
-  
-
-
-  <script src="/js/src/utils.js?v=6.7.0"></script>
-
-  <script src="/js/src/motion.js?v=6.7.0"></script>
-
-
 
   
   
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
 
-
-  <script src="/js/src/schemes/muse.js?v=6.7.0"></script>
-
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
 
 
   
 
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.0.6"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.0.6"></script>
+
+
+
+  
+  
+
+  
+
   
 
 
-  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
-
-
-
-  
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.6"></script>
 
 
 
@@ -2122,9 +1882,34 @@ tpwidget("show");</script>
 
 
 
+	
+
+
+
 
 
   
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
 
   
 
@@ -2165,49 +1950,30 @@ tpwidget("show");</script>
   
     
       <script type="text/x-mathjax-config">
-  
-
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true,
-      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    },
-    TeX: {
-      
-      equationNumbers: {
-        autoNumber: "AMS"
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
       }
-    }
-  });
+    });
 </script>
 
 <script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-      for (i = 0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-      }
-  });
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
 </script>
-<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-<style>
-.MathJax_Display {
-  overflow: auto hidden;
-}
-</style>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
     
   
 
 
   
-
-  
-
-  
-
   
 
   

@@ -2,15 +2,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
   
 
 
@@ -32,6 +23,8 @@
 
 
 
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -46,21 +39,6 @@
 
 
 
-<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
-
-<link rel="stylesheet" href="/css/main.css?v=6.7.0">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.7.0">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.7.0">
-
-
-  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.7.0">
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=6.7.0" color="#222">
 
 
 
@@ -68,12 +46,37 @@
 
 
 
-<script id="hexo.configurations">
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.0.6" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.0.6">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.0.6">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.0.6">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.0.6" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
     scheme: 'Muse',
-    version: '6.7.0',
+    version: '6.0.6',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: false,
     fastclick: false,
@@ -89,20 +92,7 @@
     }
   };
 </script>
-<script>(function(T,h,i,n,k,P,a,g,e){g=function(){P=h.createElement(i);a=h.getElementsByTagName(i)[0];P.src=k;P.charset="utf-8";P.async=1;a.parentNode.insertBefore(P,a)};T["ThinkPageWeatherWidgetObject"]=n;T[n]||(T[n]=function(){(T[n].q=T[n].q||[]).push(arguments)});T[n].l=+new Date();if(T.attachEvent){T.attachEvent("onload",g)}else{T.addEventListener("load",g,false)}}(window,document,"script","tpwidget","//widget.seniverse.com/widget/chameleon.js"))</script>
-<script>tpwidget("init", {
-    "flavor": "bubble",
-    "location": "WTJQSMBKCGCH",
-    "geolocation": "disabled",
-    "position": "top-left",
-    "margin": "10px 10px",
-    "language": "zh-chs",
-    "unit": "c",
-    "theme": "chameleon",
-    "uid": "UE3F3BC902",
-    "hash": "158200f84a057618ae8c69aed033a6b3"
-});
-tpwidget("show");</script>
+
 
   
 
@@ -140,7 +130,7 @@ tpwidget("show");</script>
 
 
 
-<script id="page.configurations">
+<script type="text/javascript" id="page.configurations">
   CONFIG.page = {
     sidebar: "",
   };
@@ -157,38 +147,36 @@ tpwidget("show");</script>
 
 
 
-
-
-
   <noscript>
-  <style>
-  .use-motion .motion-element,
-  .use-motion .brand,
-  .use-motion .menu-item,
-  .sidebar-inner,
-  .use-motion .post-block,
-  .use-motion .pagination,
-  .use-motion .comments,
-  .use-motion .post-header,
-  .use-motion .post-body,
-  .use-motion .collection-title { opacity: initial; }
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
 
-  .use-motion .logo,
-  .use-motion .site-title,
-  .use-motion .site-subtitle {
-    opacity: initial;
-    top: initial;
-  }
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
 
-  .use-motion .logo-line-before i { left: initial; }
-  .use-motion .logo-line-after i { right: initial; }
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
   </style>
 </noscript>
 
 </head>
 
 <body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
-
 
   
   
@@ -199,8 +187,10 @@ tpwidget("show");</script>
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta">
+      <div class="header-inner"> 
+
+<div class="site-brand-wrapper">
+  <div class="site-meta ">
     
 
     <div class="custom-logo-site-title">
@@ -210,8 +200,9 @@ tpwidget("show");</script>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
-    
-    
+      
+        <p class="site-subtitle"></p>
+      
   </div>
 
   <div class="site-nav-toggle">
@@ -223,48 +214,31 @@ tpwidget("show");</script>
   </div>
 </div>
 
-
-
 <nav class="site-nav">
+  
+
   
     <ul id="menu" class="menu">
       
         
         
-        
           
-          <li class="menu-item menu-item-home">
+  <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+</li>
 
-    
-    
-    
       
-    
-
-    
-
-    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
-
-  </li>
-        
         
         
           
-          <li class="menu-item menu-item-archives">
-
-    
-    
-    
-      
-    
-
-    
-
-    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
-
-  </li>
+  <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+</li>
 
       
+
       
     </ul>
   
@@ -278,12 +252,11 @@ tpwidget("show");</script>
 </nav>
 
 
-
   
 
 
 
-</div>
+ </div>
     </header>
 
     
@@ -329,20 +302,11 @@ tpwidget("show");</script>
 
         
         
-          <h1 class="post-title" itemprop="name headline">「整理」勾股数组
-
-              
-            
-          </h1>
+          <h1 class="post-title" itemprop="name headline">「整理」勾股数组</h1>
         
 
         <div class="post-meta">
           <span class="post-time">
-
-            
-            
-            
-
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -350,25 +314,18 @@ tpwidget("show");</script>
               
                 <span class="post-meta-item-text">发表于</span>
               
-
-              
-                
-              
-
-              <time title="创建时间：2019-01-23 08:09:42 / 修改时间：16:04:33" itemprop="dateCreated datePublished" datetime="2019-01-23T08:09:42+08:00">2019-01-23</time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-23T08:09:42+08:00">2019-01-23</time>
             
 
             
-              
+            
 
-              
             
           </span>
 
           
 
           
-            
             
           
 
@@ -617,9 +574,6 @@ tpwidget("show");</script>
     
 
     
-      
-    
-    
 
     
 
@@ -670,6 +624,10 @@ tpwidget("show");</script>
   </article>
 
 
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -709,7 +667,7 @@ tpwidget("show");</script>
         </ul>
       
 
-      <div class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -866,6 +824,7 @@ tpwidget("show");</script>
           
 
           
+          
 
           
           
@@ -876,16 +835,15 @@ tpwidget("show");</script>
           
 
         </div>
-      </div>
+      </section>
 
       
       <!--noindex-->
-        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
           <div class="post-toc">
 
             
-            
-            
+              
             
 
             
@@ -893,7 +851,7 @@ tpwidget("show");</script>
             
 
           </div>
-        </div>
+        </section>
       <!--/noindex-->
       
 
@@ -910,7 +868,7 @@ tpwidget("show");</script>
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love" id="animate">
+  <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">louhc</span>
@@ -921,7 +879,9 @@ tpwidget("show");</script>
 </div>
 
 
-  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 
 
@@ -929,7 +889,7 @@ tpwidget("show");</script>
 
 
 
-  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> v6.7.0</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Muse</a> v6.0.6</div>
 
 
 
@@ -956,14 +916,11 @@ tpwidget("show");</script>
 
     
 
-    
-
-    
   </div>
 
   
 
-<script>
+<script type="text/javascript">
   if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
     window.Promise = null;
   }
@@ -995,51 +952,56 @@ tpwidget("show");</script>
 
 
   
-  <script src="/lib/jquery/index.js?v=2.1.3"></script>
-
   
-  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
   
-  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-
-  
-
-
-  <script src="/js/src/utils.js?v=6.7.0"></script>
-
-  <script src="/js/src/motion.js?v=6.7.0"></script>
-
-
 
   
   
-
-
-  <script src="/js/src/schemes/muse.js?v=6.7.0"></script>
-
-
-
-  
-  <script src="/js/src/scrollspy.js?v=6.7.0"></script>
-<script src="/js/src/post-details.js?v=6.7.0"></script>
-
-
-
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
   
 
-
-  <script src="/js/src/bootstrap.js?v=6.7.0"></script>
-
-
-
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
   
 
 
   
 
 
+  <script type="text/javascript" src="/js/src/utils.js?v=6.0.6"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.0.6"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.6"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.6"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.6"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
   
 
 
@@ -1047,6 +1009,21 @@ tpwidget("show");</script>
 
 
   
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
 
   
 
@@ -1063,49 +1040,30 @@ tpwidget("show");</script>
   
     
       <script type="text/x-mathjax-config">
-  
-
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true,
-      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    },
-    TeX: {
-      
-      equationNumbers: {
-        autoNumber: "AMS"
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
       }
-    }
-  });
+    });
 </script>
 
 <script type="text/x-mathjax-config">
-  MathJax.Hub.Queue(function() {
-    var all = MathJax.Hub.getAllJax(), i;
-      for (i = 0; i < all.length; i += 1) {
-        all[i].SourceElement().parentNode.className += ' has-jax';
-      }
-  });
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
 </script>
-<script src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-<style>
-.MathJax_Display {
-  overflow: auto hidden;
-}
-</style>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
     
   
 
 
   
-
-  
-
-  
-
   
 
   
