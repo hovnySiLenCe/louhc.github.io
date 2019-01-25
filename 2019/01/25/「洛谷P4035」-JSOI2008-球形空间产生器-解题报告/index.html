@@ -99,25 +99,25 @@
 
 
 
-  <meta name="description" content="由于最大流=最小割这里不另起一博客但会标记">
-<meta name="keywords" content="网络流,网络最大流,最小割,题单">
+  <meta name="description" content="P4035 [JSOI2008]球形空间产生器题目描述有一个球形空间产生器能够在 $n$维空间中产生一个坚硬的球体。现在，你被困在了这个 $n$维球体中，你只知道球面上 $n+1$ 个点的坐标，你需要以最快的速度确定这个 $n$ 维球体的球心坐标，以便于摧毁这个球形空间产生器。">
+<meta name="keywords" content="解题报告,数学,数论,高斯消元">
 <meta property="og:type" content="article">
-<meta property="og:title" content="「题单」网络流『最大流&#x2F;最小割』">
-<meta property="og:url" content="https://louhc.github.io/2019/01/23/「题单」网络流『最大流-最小割』/index.html">
+<meta property="og:title" content="「洛谷P4035」[JSOI2008]球形空间产生器 解题报告">
+<meta property="og:url" content="https://louhc.github.io/2019/01/25/「洛谷P4035」-JSOI2008-球形空间产生器-解题报告/index.html">
 <meta property="og:site_name" content="Hello,I am louhc">
-<meta property="og:description" content="由于最大流=最小割这里不另起一博客但会标记">
+<meta property="og:description" content="P4035 [JSOI2008]球形空间产生器题目描述有一个球形空间产生器能够在 $n$维空间中产生一个坚硬的球体。现在，你被困在了这个 $n$维球体中，你只知道球面上 $n+1$ 个点的坐标，你需要以最快的速度确定这个 $n$ 维球体的球心坐标，以便于摧毁这个球形空间产生器。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-01-23T08:13:09.928Z">
+<meta property="og:updated_time" content="2019-01-25T04:32:58.163Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="「题单」网络流『最大流&#x2F;最小割』">
-<meta name="twitter:description" content="由于最大流=最小割这里不另起一博客但会标记">
+<meta name="twitter:title" content="「洛谷P4035」[JSOI2008]球形空间产生器 解题报告">
+<meta name="twitter:description" content="P4035 [JSOI2008]球形空间产生器题目描述有一个球形空间产生器能够在 $n$维空间中产生一个坚硬的球体。现在，你被困在了这个 $n$维球体中，你只知道球面上 $n+1$ 个点的坐标，你需要以最快的速度确定这个 $n$ 维球体的球心坐标，以便于摧毁这个球形空间产生器。">
 
 
 
 
 
 
-  <link rel="canonical" href="https://louhc.github.io/2019/01/23/「题单」网络流『最大流-最小割』/">
+  <link rel="canonical" href="https://louhc.github.io/2019/01/25/「洛谷P4035」-JSOI2008-球形空间产生器-解题报告/">
 
 
 
@@ -127,7 +127,7 @@
   };
 </script>
 
-  <title>「题单」网络流『最大流/最小割』 | Hello,I am louhc</title>
+  <title>「洛谷P4035」[JSOI2008]球形空间产生器 解题报告 | Hello,I am louhc</title>
   
 
 
@@ -321,7 +321,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://louhc.github.io/2019/01/23/「题单」网络流『最大流-最小割』/">
+    <link itemprop="mainEntityOfPage" href="https://louhc.github.io/2019/01/25/「洛谷P4035」-JSOI2008-球形空间产生器-解题报告/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="louhc">
@@ -338,7 +338,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">「题单」网络流『最大流/最小割』</h1>
+          <h1 class="post-title" itemprop="name headline">「洛谷P4035」[JSOI2008]球形空间产生器 解题报告</h1>
         
 
         <div class="post-meta">
@@ -350,7 +350,7 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-23T08:12:29+08:00">2019-01-23</time>
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-25T12:12:47+08:00">2019-01-25</time>
             
 
             
@@ -387,37 +387,25 @@
       
 
       
-        <blockquote>
-<p>由于最大流=最小割<br>这里不另起一博客<br>但会标记</p>
-</blockquote>
+        <h1 id="P4035-JSOI2008-球形空间产生器"><a href="#P4035-JSOI2008-球形空间产生器" class="headerlink" title="P4035 [JSOI2008]球形空间产生器"></a><a href="https://www.luogu.org/problemnew/show/P4035" target="_blank" rel="noopener">P4035 [JSOI2008]球形空间产生器</a></h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>有一个球形空间产生器能够在 $n$维空间中产生一个坚硬的球体。现在，你被困在了这个 $n$维球体中，你只知道球面上 $n+1$ 个点的坐标，你需要以最快的速度确定这个 $n$ 维球体的球心坐标，以便于摧毁这个球形空间产生器。</p>
 <a id="more"></a>
-<h1 id="模板-假模板"><a href="#模板-假模板" class="headerlink" title="模板/假模板"></a>模板/假模板</h1><blockquote>
-<p><a href="https://www.luogu.org/problemnew/show/P1343" target="_blank" rel="noopener">洛谷P1343 地震逃生</a>『提高+/省选-』『最大流』 <a href="https://www.cnblogs.com/louhancheng/p/10118566.html" target="_blank" rel="noopener">题解</a><br><a href="https://www.luogu.org/problemnew/show/P2740" target="_blank" rel="noopener">洛谷P2740 [USACO4.2]草地排水Drainage Ditches</a>『提高+/省选-』『最大流』<br><a href="https://www.luogu.org/problemnew/show/P2936" target="_blank" rel="noopener">洛谷P2936 [USACO09JAN]全流Total Flow</a>『提高+/省选-』『最大流』<br><a href="https://www.luogu.org/problemnew/show/P3376" target="_blank" rel="noopener">洛谷P3376 【模板】网络最大流</a>『提高+/省选-』『最大流』<br><a href="https://www.luogu.org/problemnew/show/P4001" target="_blank" rel="noopener">洛谷P4001 [BJOI2006]狼抓兔子</a>『省选+/NOI-』『最小割』<br><a href="https://www.luogu.org/problemnew/show/UVA820" target="_blank" rel="noopener">UVA820 因特网带宽 Internet Bandwidth</a>『省选+/NOI-』『最大流』</p>
-</blockquote>
-<h1 id="N倍经验系列"><a href="#N倍经验系列" class="headerlink" title="N倍经验系列"></a>N倍经验系列</h1><h2 id="I"><a href="#I" class="headerlink" title="I"></a>I</h2><blockquote>
-<p><a href="https://www.luogu.org/problemnew/show/P1402" target="_blank" rel="noopener">洛谷P1402 酒店之王</a>『省选+/NOI-』『最大流』<a href="https://www.cnblogs.com/louhancheng/p/10118878.html" target="_blank" rel="noopener">题解</a><br><a href="https://www.luogu.org/problemnew/show/P2891" target="_blank" rel="noopener">洛谷P2891 [USACO07OPEN]吃饭Dining</a>『提高+/省选-』『最大流』<a href="https://www.cnblogs.com/louhancheng/p/10118942.html" target="_blank" rel="noopener">题解</a><br><a href="https://www.luogu.org/problemnew/show/P1231" target="_blank" rel="noopener">洛谷P1231 教辅的组成</a>『提高+/省选-』『最大流』 <a href="https://www.cnblogs.com/louhancheng/p/10119080.html" target="_blank" rel="noopener">题解</a><br>大家会发现，三篇题解几乎一模一样，因为思路都一样<del>，博主就偷懒啦</del>。不过推荐大家看P1402 酒店之王 的题解，因为最初是给它打题解，后面修改修改当作另外两个的，不合理处相对较少，并且增加了<strong>拓展</strong>部分。</p>
-</blockquote>
-<h2 id="II"><a href="#II" class="headerlink" title="II"></a>II</h2><blockquote>
-<p><a href="https://www.luogu.org/problemnew/show/P2762" target="_blank" rel="noopener">洛谷P2762 太空飞行计划问题</a>『省选+/NOI-』『最小割』<br><a href="https://www.luogu.org/problemnew/show/P3410" target="_blank" rel="noopener">洛谷P3410 拍照</a>『提高+/省选-』『最小割』</p>
-</blockquote>
-<h2 id="III"><a href="#III" class="headerlink" title="III"></a>III</h2><blockquote>
-<p><a href="https://www.luogu.org/problemnew/show/P4474" target="_blank" rel="noopener">洛谷P4474 王者之剑</a>『省选+/NOI-』『最小割』<br><a href="https://www.luogu.org/problemnew/show/P2774" target="_blank" rel="noopener">洛谷P2774 方格取数问题</a>『省选+/NOI-』『最小割』</p>
-</blockquote>
-<h2 id="IV"><a href="#IV" class="headerlink" title="IV"></a>IV</h2><blockquote>
-<p> <a href="https://www.luogu.org/problemnew/show/SP300" target="_blank" rel="noopener">SPOJ300 CABLETV - Cable TV Network</a>『NOI/NOI+/CTSC』『最大流』 恶意评分黑题)<br><a href="https://www.luogu.org/problemnew/show/UVA1660" target="_blank" rel="noopener">UVA1660 电视网络 Cable TV Network</a>『省选+/NOI-』『最大流』</p>
-</blockquote>
-<h2 id="V"><a href="#V" class="headerlink" title="V"></a>V</h2><blockquote>
-<p><a href="https://www.luogu.org/problemnew/show/SP741" target="_blank" rel="noopener">SP741 STEAD - Steady Cow Assignment</a>『省选+/NOI-』『最大流』<br><a href="https://www.luogu.org/problemnew/show/P2857" target="_blank" rel="noopener">洛谷P2857 [USACO06FEB]稳定奶牛分配Steady Cow Assignment</a>『提高+/省选-』『最大流』感觉与下面对比可以有紫题难度呀QAQ)</p>
-</blockquote>
-<h2 id="VI"><a href="#VI" class="headerlink" title="VI"></a>VI</h2><blockquote>
-<p><a href="https://www.luogu.org/problemnew/show/SP1693" target="_blank" rel="noopener">SP1693 COCONUTS - Coconuts</a>『省选+/NOI-』『最小割』<br><a href="https://www.luogu.org/problemnew/show/P2057" target="_blank" rel="noopener">洛谷P2057 [SHOI2007]善意的投票</a>『省选+/NOI-』『最小割』</p>
-</blockquote>
-<h2 id="VII"><a href="#VII" class="headerlink" title="VII"></a>VII</h2><blockquote>
-<p><a href="https://www.luogu.org/problemnew/show/P2472" target="_blank" rel="noopener">洛谷P2472 [SCOI2007]蜥蜴</a>『省选+/NOI-』『最大流』<br><a href="https://www.luogu.org/problemnew/show/UVA563" target="_blank" rel="noopener">UVA563 Crimewave</a>『NOI/NOI+/CTSC』『最大流』恶意评分~)</p>
-</blockquote>
-<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><blockquote>
-<p>这里基本上按难度排序  当然指的是洛谷难度标签)<br><a href="https://www.luogu.org/problemnew/show/P2071" target="_blank" rel="noopener">洛谷P2071 座位安排</a>『提高+/省选-』『最大流』<br><a href="https://www.luogu.org/problemnew/show/UVA1184" target="_blank" rel="noopener">UVA1184 Air Raid</a>『提高+/省选-』『最大流』<br><a href="https://www.luogu.org/problemnew/show/P1345" target="_blank" rel="noopener">洛谷P1345 [USACO5.4]奶牛的电信Telecowmunication</a>『提高+/省选-』『最小割』<br><a href="https://www.luogu.org/problemnew/show/P2711" target="_blank" rel="noopener">洛谷P2711 小行星</a>『省选+/NOI-』『最小割』<br><a href="https://www.luogu.org/problemnew/show/P2763" target="_blank" rel="noopener">洛谷P2763 试题库问题</a>『省选+/NOI-』『最大流』<br><a href="https://www.luogu.org/problemnew/show/P3254" target="_blank" rel="noopener">洛谷P3254 圆桌问题</a>『省选+/NOI-』『最大流』<br><a href="https://www.luogu.org/problemnew/show/P3153" target="_blank" rel="noopener">洛谷P3153 [CQOI2009]跳舞</a>『省选+/NOI-』『最大流』<br><a href="https://www.luogu.org/problemnew/show/P4311" target="_blank" rel="noopener">洛谷P4311 士兵占领</a>『省选+/NOI-』『最大流』<br><a href="https://www.luogu.org/problemnew/show/P2944" target="_blank" rel="noopener">洛谷P2944 [USACO09MAR]地震损失2Earthquake Damage 2</a>『省选+/NOI-』『最大流』<br><a href="https://www.luogu.org/problemnew/show/P1344" target="_blank" rel="noopener">洛谷P1344 [USACO4.4]追查坏牛奶Pollutant Control</a>『省选+/NOI-』『最小割』<br><a href="https://www.luogu.org/problemnew/show/P3866" target="_blank" rel="noopener">洛谷P3866 [TJOI2009]战争游戏</a>『省选+/NOI-』『最小割』<br><a href="https://www.luogu.org/problemnew/show/P3171" target="_blank" rel="noopener">洛谷P3171 [CQOI2015]网络吞吐量</a>『省选+/NOI-』『最大流』<br><a href="https://www.luogu.org/problemnew/show/P2754" target="_blank" rel="noopener">洛谷P2754 [CTSC1999]家园</a>『省选+/NOI-』『最大流』<br><a href="https://www.luogu.org/problemnew/show/P2045" target="_blank" rel="noopener">洛谷P2045 方格取数加强版</a>『省选+/NOI-』『最大流』<br><a href="https://www.luogu.org/problemnew/show/P3033" target="_blank" rel="noopener">洛谷P3033 [USACO11NOV]牛的障碍Cow Steeplechase</a>『省选+/NOI-』『最小割』<br><a href="https://www.luogu.org/problemnew/show/P4174" target="_blank" rel="noopener">洛谷P4174 [NOI2006]最大获利</a>『省选+/NOI-』『最小割』<br><a href="https://www.luogu.org/problemnew/show/P3872" target="_blank" rel="noopener">洛谷P3872 [TJOI2010]电影迷</a>『省选+/NOI-』『最小割』<br><a href="https://www.luogu.org/problemnew/show/P3163" target="_blank" rel="noopener">洛谷P3163 [CQOI2014]危桥</a>『省选+/NOI-』『最大流』<br><a href="https://www.luogu.org/problemnew/show/P3355" target="_blank" rel="noopener">洛谷P3355 骑士共存问题</a>『省选+/NOI-』『最小割』<br><a href="https://www.luogu.org/problemnew/show/P4304" target="_blank" rel="noopener">洛谷P4304 [TJOI2013]攻击装置</a>『省选+/NOI-』『最小割』<br><a href="https://www.luogu.org/problemnew/show/P2764" target="_blank" rel="noopener">洛谷P2764 最小路径覆盖问题</a>『省选+/NOI-』『最大流』<br><a href="https://www.luogu.org/problemnew/show/P2598" target="_blank" rel="noopener">洛谷P2598 [ZJOI2009]狼和羊的故事</a>『省选+/NOI-』『最小割』<br><a href="https://www.luogu.org/problemnew/show/P2172" target="_blank" rel="noopener">洛谷P2172 [国家集训队]部落战争</a>『省选+/NOI-』『最大流』<br><a href="https://www.luogu.org/problemnew/show/P2805" target="_blank" rel="noopener">洛谷P2805 [NOI2009]植物大战僵尸</a>『省选+/NOI-』『最小割』<br><a href="https://www.luogu.org/problemnew/show/SP4063" target="_blank" rel="noopener">SP4063 MPIGS - Sell Pigs</a>『省选+/NOI-』『最大流』<br><a href="https://www.luogu.org/problemnew/show/P3701" target="_blank" rel="noopener">洛谷P3701 「伪模板」主席树</a>『NOI/NOI+/CTSC』『最大流』 假黑题)<br><a href="https://www.luogu.org/problemnew/show/P5030" target="_blank" rel="noopener">洛谷P5030 长脖子鹿放置</a>『NOI/NOI+/CTSC』『最小割』 又是假黑题)</p>
-</blockquote>
+<h2 id="输入输出格式"><a href="#输入输出格式" class="headerlink" title="输入输出格式"></a>输入输出格式</h2><h3 id="输入格式："><a href="#输入格式：" class="headerlink" title="输入格式："></a>输入格式：</h3><p>第一行是一个整数 $n$ ($1&lt;=N=10$)。接下来的 $n+1$ 行，每行有 $n$ 个实数，表示球面上一点的 $n$ 维坐标。每一个实数精确到小数点后 $6$ 位，且其绝对值都不超过 $20000$。</p>
+<h3 id="输出格式："><a href="#输出格式：" class="headerlink" title="输出格式："></a>输出格式：</h3><p>有且只有一行，依次给出球心的 $n$ 维坐标（ $n$ 个实数），两个实数之间用一个空格隔开。每个实数精确到小数点后 $3$ 位。数据保证有解。你的答案必须和标准输出一模一样才能够得分。</p>
+<h2 id="输入输出样例"><a href="#输入输出样例" class="headerlink" title="输入输出样例"></a>输入输出样例</h2><h3 id="输入样例-1："><a href="#输入样例-1：" class="headerlink" title="输入样例#1："></a>输入样例#1：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">2</span><br><span class="line">0.0 0.0</span><br><span class="line">-1.0 1.0</span><br><span class="line">1.0 0.0</span><br></pre></td></tr></table></figure>
+<h3 id="输出样例-1："><a href="#输出样例-1：" class="headerlink" title="输出样例#1："></a>输出样例#1：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">0.500 1.500</span><br></pre></td></tr></table></figure>
+<h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>提示：给出两个定义：</p>
+<ol>
+<li>球心：到球面上任意一点距离都相等的点。</li>
+<li>距离：设两个n为空间上的点A, B的坐标为$(a_1, a_2, \cdots , a_n), (b_1, b_2, \cdots , b_n)$，则AB的距离定义为：$dist = \sqrt{ (a_1-b_1)^2 + (a_2-b_2)^2 + \cdots + (a_n-b_n)^2 }$</li>
+</ol>
+<hr>
+<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>我们可以列出等式：($o_i$表示圆心坐标)</p>
+<script type="math/tex; mode=display">\sum(a_i-o_i)^2=R^2</script><script type="math/tex; mode=display">\sum(b_i-o_i)^2=R^2</script><script type="math/tex; mode=display">\sum(c_i-o_i)^2=R^2</script><p>…</p>
+<p>将式子全部展开。以第一个为例。</p>
+<script type="math/tex; mode=display">\sum(a_i-o_i)^2=\sum(a_i^2-2a_io_i+o_i^2)</script><script type="math/tex; mode=display">\therefore \sum(2a_io_i)=\sum(a_i^2)-(R^2-\sum o_i)</script><p>对于第$i$个式子($1\le i\le N$)，将其与$i+1$个式子相减(但是由于某种不可抗拒的力量，我代码中写成了第$i+1$个式子减第$i$个式子，但是效果是一样的，只不过两边都取反而已)。以第1个与第2个为例。（wow，$-(R^2-\sum o_i)$相互抵消啦</p>
+<script type="math/tex; mode=display">\sum(2(a_i-b_i)o_i)=\sum(a^2-b^2)</script><p>这样就得到了$N$个$N$元一次方程。</p>
+<p>然后？高斯消元！$o_i$就是$N$个未知数，$2(a_i-b_i)$就是系数，解$N$元一次方程组即可。</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> Re register</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXN 15</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LD long double</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> N;</span><br><span class="line">LD a[MAXN][MAXN], b[MAXN][MAXN];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>( <span class="string">"%d"</span>, &amp;N );</span><br><span class="line">	<span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= N + <span class="number">1</span>; ++i )</span><br><span class="line">		<span class="keyword">for</span> ( <span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= N; ++j )</span><br><span class="line">			<span class="built_in">scanf</span>( <span class="string">"%Lf"</span>, &amp;a[i][j] );</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= N; ++i )</span><br><span class="line">		<span class="keyword">for</span> ( <span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= N; ++j )</span><br><span class="line">			b[i][j] = <span class="number">2</span> * ( a[i + <span class="number">1</span>][j] - a[i][j] ), b[i][N + <span class="number">1</span>] += a[i + <span class="number">1</span>][j] * a[i + <span class="number">1</span>][j] - a[i][j] * a[i][j];</span><br><span class="line">	</span><br><span class="line">	</span><br><span class="line">	<span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= N; ++i )</span><br><span class="line">		<span class="keyword">for</span> ( <span class="keyword">int</span> j = i + <span class="number">1</span>; j &lt;= N; ++j )&#123;</span><br><span class="line">			<span class="function">LD <span class="title">t</span><span class="params">( b[j][i] / b[i][i] )</span></span>;</span><br><span class="line">			<span class="keyword">for</span> ( <span class="keyword">int</span> k = i; k &lt;= N + <span class="number">1</span>; ++k ) b[j][k] -= t * b[i][k];</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">	<span class="keyword">for</span> ( <span class="keyword">int</span> i = N; i &gt;= <span class="number">1</span>; --i )&#123;</span><br><span class="line">		b[i][N + <span class="number">1</span>] /= b[i][i];</span><br><span class="line">		<span class="keyword">for</span> ( <span class="keyword">int</span> j = i - <span class="number">1</span>; j &gt;= <span class="number">1</span>; --j ) b[j][N + <span class="number">1</span>] -= b[i][N + <span class="number">1</span>] * b[j][i];</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= N; ++i ) <span class="built_in">printf</span>( <span class="string">"%.3Lf "</span>, b[i][N + <span class="number">1</span>] );</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -438,13 +426,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/网络流/" rel="tag"># 网络流</a>
+            <a href="/tags/解题报告/" rel="tag"># 解题报告</a>
           
-            <a href="/tags/网络最大流/" rel="tag"># 网络最大流</a>
+            <a href="/tags/数学-数论/" rel="tag"># 数学,数论</a>
           
-            <a href="/tags/最小割/" rel="tag"># 最小割</a>
-          
-            <a href="/tags/题单/" rel="tag"># 题单</a>
+            <a href="/tags/高斯消元/" rel="tag"># 高斯消元</a>
           
         </div>
       
@@ -457,8 +443,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/01/23/「题单」网络流『费用流』/" rel="next" title="「题单」网络流『费用流』">
-                <i class="fa fa-chevron-left"></i> 「题单」网络流『费用流』
+              <a href="/2019/01/25/「整理」行列式/" rel="next" title="「整理」行列式">
+                <i class="fa fa-chevron-left"></i> 「整理」行列式
               </a>
             
           </div>
@@ -466,10 +452,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/01/23/「黑科技」玄学优化/" rel="prev" title="「黑科技」玄学优化">
-                「黑科技」玄学优化 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -724,7 +706,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#模板-假模板"><span class="nav-number">1.</span> <span class="nav-text">模板/假模板</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#N倍经验系列"><span class="nav-number">2.</span> <span class="nav-text">N倍经验系列</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#I"><span class="nav-number">2.1.</span> <span class="nav-text">I</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#II"><span class="nav-number">2.2.</span> <span class="nav-text">II</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#III"><span class="nav-number">2.3.</span> <span class="nav-text">III</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IV"><span class="nav-number">2.4.</span> <span class="nav-text">IV</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#V"><span class="nav-number">2.5.</span> <span class="nav-text">V</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VI"><span class="nav-number">2.6.</span> <span class="nav-text">VI</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#VII"><span class="nav-number">2.7.</span> <span class="nav-text">VII</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#其他"><span class="nav-number">3.</span> <span class="nav-text">其他</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#P4035-JSOI2008-球形空间产生器"><span class="nav-number">1.</span> <span class="nav-text">P4035 [JSOI2008]球形空间产生器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目描述"><span class="nav-number">1.1.</span> <span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输入输出格式"><span class="nav-number">1.2.</span> <span class="nav-text">输入输出格式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输入格式："><span class="nav-number">1.2.1.</span> <span class="nav-text">输入格式：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出格式："><span class="nav-number">1.2.2.</span> <span class="nav-text">输出格式：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#输入输出样例"><span class="nav-number">1.3.</span> <span class="nav-text">输入输出样例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#输入样例-1："><span class="nav-number">1.3.1.</span> <span class="nav-text">输入样例#1：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#输出样例-1："><span class="nav-number">1.3.2.</span> <span class="nav-text">输出样例#1：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#说明"><span class="nav-number">1.4.</span> <span class="nav-text">说明</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#思路"><span class="nav-number">2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li></ol></div>
             
 
           </div>
