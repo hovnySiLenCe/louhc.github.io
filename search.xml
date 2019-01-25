@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[「题单」高斯消元]]></title>
+    <url>%2F2019%2F01%2F25%2F%E3%80%8C%E9%A2%98%E5%8D%95%E3%80%8D%E9%AB%98%E6%96%AF%E6%B6%88%E5%85%83%2F</url>
+    <content type="text"><![CDATA[高斯消元的一些毒瘤题，我只会两道。 模板洛谷P3389 【模板】高斯消元法 OK 其他洛谷P4035 [JSOI2008]球形空间产生器 OK洛谷P3211 [HNOI2011]XOR和路径洛谷P3232 [HNOI2013]游走洛谷P3706 [SDOI2017]硬币游戏]]></content>
+      <tags>
+        <tag>数学,数论</tag>
+        <tag>高斯消元</tag>
+        <tag>题单</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[「洛谷P4035」[JSOI2008]球形空间产生器 解题报告]]></title>
     <url>%2F2019%2F01%2F25%2F%E3%80%8C%E6%B4%9B%E8%B0%B7P4035%E3%80%8D-JSOI2008-%E7%90%83%E5%BD%A2%E7%A9%BA%E9%97%B4%E4%BA%A7%E7%94%9F%E5%99%A8-%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A%2F</url>
     <content type="text"><![CDATA[P4035 [JSOI2008]球形空间产生器题目描述有一个球形空间产生器能够在 $n$维空间中产生一个坚硬的球体。现在，你被困在了这个 $n$维球体中，你只知道球面上 $n+1$ 个点的坐标，你需要以最快的速度确定这个 $n$ 维球体的球心坐标，以便于摧毁这个球形空间产生器。 输入输出格式输入格式：第一行是一个整数 $n$ ($1&lt;=N=10$)。接下来的 $n+1$ 行，每行有 $n$ 个实数，表示球面上一点的 $n$ 维坐标。每一个实数精确到小数点后 $6$ 位，且其绝对值都不超过 $20000$。 输出格式：有且只有一行，依次给出球心的 $n$ 维坐标（ $n$ 个实数），两个实数之间用一个空格隔开。每个实数精确到小数点后 $3$ 位。数据保证有解。你的答案必须和标准输出一模一样才能够得分。 输入输出样例输入样例#1：123420.0 0.0-1.0 1.01.0 0.0 输出样例#1：10.500 1.500 说明提示：给出两个定义： 球心：到球面上任意一点距离都相等的点。 距离：设两个n为空间上的点A, B的坐标为$(a_1, a_2, \cdots , a_n), (b_1, b_2, \cdots , b_n)$，则AB的距离定义为：$dist = \sqrt{ (a_1-b_1)^2 + (a_2-b_2)^2 + \cdots + (a_n-b_n)^2 }$ 思路我们可以列出等式：($o_i$表示圆心坐标) \sum(a_i-o_i)^2=R^2\sum(b_i-o_i)^2=R^2\sum(c_i-o_i)^2=R^2… 将式子全部展开。以第一个为例。 \sum(a_i-o_i)^2=\sum(a_i^2-2a_io_i+o_i^2)\therefore \sum(2a_io_i)=\sum(a_i^2)-(R^2-\sum o_i)对于第$i$个式子($1\le i\le N$)，将其与$i+1$个式子相减(但是由于某种不可抗拒的力量，我代码中写成了第$i+1$个式子减第$i$个式子，但是效果是一样的，只不过两边都取反而已)。以第1个与第2个为例。（wow，$-(R^2-\sum o_i)$相互抵消啦 \sum(2(a_i-b_i)o_i)=\sum(a^2-b^2)这样就得到了$N$个$N$元一次方程。 然后？高斯消元！$o_i$就是$N$个未知数，$2(a_i-b_i)$就是系数，解$N$元一次方程组即可。 代码123456789101112131415161718192021222324252627282930313233#include&lt;bits/stdc++.h&gt;using namespace std;#define Re register#define MAXN 15#define LD long doubleint N;LD a[MAXN][MAXN], b[MAXN][MAXN];int main()&#123; scanf( "%d", &amp;N ); for ( int i = 1; i &lt;= N + 1; ++i ) for ( int j = 1; j &lt;= N; ++j ) scanf( "%Lf", &amp;a[i][j] ); for ( int i = 1; i &lt;= N; ++i ) for ( int j = 1; j &lt;= N; ++j ) b[i][j] = 2 * ( a[i + 1][j] - a[i][j] ), b[i][N + 1] += a[i + 1][j] * a[i + 1][j] - a[i][j] * a[i][j]; for ( int i = 1; i &lt;= N; ++i ) for ( int j = i + 1; j &lt;= N; ++j )&#123; LD t( b[j][i] / b[i][i] ); for ( int k = i; k &lt;= N + 1; ++k ) b[j][k] -= t * b[i][k]; &#125; for ( int i = N; i &gt;= 1; --i )&#123; b[i][N + 1] /= b[i][i]; for ( int j = i - 1; j &gt;= 1; --j ) b[j][N + 1] -= b[i][N + 1] * b[j][i]; &#125; for ( int i = 1; i &lt;= N; ++i ) printf( "%.3Lf ", b[i][N + 1] ); return 0;&#125;]]></content>
