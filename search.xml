@@ -20,8 +20,8 @@
         <tag>解题报告</tag>
         <tag>水题</tag>
         <tag>CodeForces</tag>
-        <tag>贪心</tag>
         <tag>枚举</tag>
+        <tag>贪心</tag>
       </tags>
   </entry>
   <entry>
@@ -73,8 +73,8 @@
         <tag>暴力</tag>
         <tag>水题</tag>
         <tag>CodeForces</tag>
-        <tag>枚举</tag>
         <tag>全排列</tag>
+        <tag>枚举</tag>
       </tags>
   </entry>
   <entry>
@@ -84,8 +84,8 @@
       <tags>
         <tag>解题报告</tag>
         <tag>CodeForces</tag>
-        <tag>贪心</tag>
         <tag>枚举</tag>
+        <tag>贪心</tag>
         <tag>模拟</tag>
       </tags>
   </entry>
@@ -106,8 +106,8 @@
     <url>%2F2019%2F01%2F24%2F%E3%80%8C%E6%B4%9B%E8%B0%B7P4377%E3%80%8D-USACO18OPEN-Talent-Show-%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A%2F</url>
     <content type="text"><![CDATA[P4377 [USACO18OPEN]Talent Show题目描述Farmer John要带着他的NN头奶牛，方便起见编号为$1 \ldots N$，到农业展览会上去，参加每年的达牛秀！他的第$i$头奶牛重量为$w_i$，才艺水平为$t_i$，两者都是整数。 在到达时，Farmer John就被今年达牛秀的新规则吓到了： （一）参加比赛的一组奶牛必须总重量至少为WW（这是为了确保是强大的队伍在比赛，而不仅是强大的某头奶牛），并且 （二）总才艺值与总重量的比值最大的一组获得胜利。 FJ注意到他的所有奶牛的总重量不小于$W$，所以他能够派出符合规则（一）的队伍。帮助他确定这样的队伍中能够达到的最佳的才艺与重量的比值。 输入输出格式输入格式：输入的第一行包含$N$（$1 \leq N \leq 250$）和$W$（$1 \leq W \leq 1000$）。下面$N$行，每行用两个整数$w_i$（$1 \leq w_i \leq 10^6$）和$t_i$（$1 \leq t_i \leq 10^3$）描述了一头奶牛。 输出格式：请求出Farmer用一组总重量最少为WW的奶牛最大可能达到的总才艺值与总重量的比值。如果你的答案是AA，输出1000A1000A向下取整的值，以使得输出是整数（当问题中的数不是一个整数的时候，向下取整操作在向下舍入到整数的时候去除所有小数部分）。 输入输出样例输入样例#1：12343 1520 2110 1130 31 输出样例#1：11066 说明在这个例子中，总体来看最佳的才艺与重量的比值应该是仅用一头才艺值为11、重量为10的奶牛，但是由于我们需要至少15单位的重量，最优解最终为使用这头奶牛加上才艺值为21、重量为20的奶牛。这样的话才艺与重量的比值为(11+21)/(10+20) = 32/30 = 1.0666666…，乘以1000向下取整之后得到1066。 供题：Brian Dean 思路I很简单的0/1分数规划与背包DP结合。。。 0/1分数规划老套路（安利机房巨佬zzq博客_还上了洛谷日报$QAQ$_）——&gt;二分答案，条件$\sum (ti \times Ans - wi) \ge 0$ 但是，我们注意到$\sum wi$可能会很大，所以我们不能直接弄动态规划。 我们引入一些贪心的思想。 若$t\times Ans-w\ge 0$直接选来。因为这样只会更优化答案。 若1不满足，若$w\ge W$，只有$t\times Ans - w$最大的有可能成为答案。 若2再不满足，背包DP即可。只要把容量设为$2\times W$即可。（请自行思考 然后就是代码啦 代码I123456789101112131415161718192021222324252627282930313233343536373839#include&lt;bits/stdc++.h&gt;using namespace std;#define Re register#define MAXN 255#define LD long doubleint N, W, WW;int w[MAXN], T[MAXN];LD f[2005], v;bool check( LD t )&#123; int c(0); LD r(0), tmp(-1e12); for ( int i = 1; i &lt;= WW; ++i ) f[i] = -1e12; for ( int i = 1; i &lt;= N; ++i )&#123; v = T[i] - w[i] * t; if ( v &gt;= 0 ) c += w[i], r += v; else&#123; if ( w[i] &gt;= W )&#123; tmp = max( tmp, v ); continue; &#125; for ( int j = WW; j &gt;= w[i]; --j ) f[j] = max( f[j], f[j - w[i]] + v ); &#125; &#125; if ( c &gt;= W || r + tmp &gt;= 0 ) return 1; for ( int i = W - c; i &lt;= WW; ++i ) if ( f[i] + r &gt;= 0 ) return 1; return 0;&#125;int main()&#123; scanf( "%d%d", &amp;N, &amp;W ); WW = W &lt;&lt; 1; for ( int i = 1; i &lt;= N; ++i ) scanf( "%d%d", &amp;w[i], &amp;T[i] ); LD l(0), r(1000000), mid; for ( int i = 1; i &lt;= 40; ++i )&#123; mid = ( l + r ) / 2; if ( check( mid ) ) l = mid; else r = mid; &#125; printf( "%d\n", (int)floor(l * 1000) ); return 0;&#125; 思路II实际上，好像另一种写法更简洁？容量设为W空间还要更小？（我太弱了QAQ 把状态转移方程式写成+的形式，而不是上面那种-的形式。 只要大于等于W的，都缩成一种状态。这样写好简单呀$QAQ$ 代码123456789101112131415161718192021222324252627282930313233#include&lt;bits/stdc++.h&gt;using namespace std;#define Re register#define MAXN 255#define LD long doubleint N, W;int w[MAXN], T[MAXN];LD f[1005], v;bool check( LD t )&#123; for ( int i = 1; i &lt;= W; ++i ) f[i] = -1e12; for ( int i = 1; i &lt;= N; ++i )&#123; for ( int j = W; j &gt;= 0; --j )&#123; int k( min( j + w[i], W ) ); f[k] = max( f[k], f[j] + T[i] - w[i] * t ); &#125; &#125; return f[W] &gt;= 0;&#125;int main()&#123; scanf( "%d%d", &amp;N, &amp;W ); for ( int i = 1; i &lt;= N; ++i ) scanf( "%d%d", &amp;w[i], &amp;T[i] ); LD l(0), r(1000000), mid; for ( int i = 1; i &lt;= 40; ++i )&#123; mid = ( l + r ) / 2; if ( check( mid ) ) l = mid; else r = mid; &#125; printf( "%d\n", (int)floor(l * 1000) ); return 0;&#125;]]></content>
       <tags>
-        <tag>二分答案</tag>
         <tag>背包DP</tag>
+        <tag>二分答案</tag>
         <tag>0/1分数规划</tag>
       </tags>
   </entry>
@@ -137,8 +137,8 @@
     <url>%2F2019%2F01%2F23%2F%E3%80%8C%E6%B4%9B%E8%B0%B7P4322%E3%80%8D-JSOI2016-%E6%9C%80%E4%BD%B3%E5%9B%A2%E4%BD%93-%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A%2F</url>
     <content type="text"><![CDATA[P4322 [JSOI2016]最佳团体题目描述JSOI 信息学代表队一共有 $N$ 名候选人，这些候选人从 $1$ 到 $N$ 编号。方便起见，JYY 的编号是 $0$ 号。每个候选人都由一位编号比他小的候选人$R_i$推荐。如果 $R_i = 0$ ，则说明这个候选人是 JYY 自己看上的。为了保证团队的和谐，JYY 需要保证，如果招募了候选人 $i$，那么候选人 $R_i$也一定需要在团队中。当然了，JYY 自己总是在团队里的。每一个候选人都有一个战斗值 $P_i$ ，也有一个招募费用 $S_i$。JYY 希望招募 $K$ 个候选人（JYY 自己不算），组成一个性价比最高的团队。也就是，这 $K$ 个被 JYY 选择的候选人的总战斗值与总招募费用的比值最大。 输入输出格式输入格式：输入一行包含两个正整数 $K$ 和 $N$ 。接下来 $N$ 行，其中第 $i$ 行包含三个整数 $S_i$,$P_i$, $R_i$, 表示候选人$i$的招募费用，战斗值和推荐人编号。 输出格式：输出一行一个实数，表示最佳比值。答案保留三位小数。 输入输出样例输入样例#1：1231 21000 1 01 1000 1 输出样例#1：10.001 说明对于100%的数据满足$1 \le K \le N \le 2500,0 &lt; S_i,P_i≤10^4$ 前置芝士树形DP，背包DP，0/1分数规划 思路十分裸的0/1分数规划。 $\frac{P_1+P_2+..P_k}{S_1+S_2+..S_k}= Ans$转换成$\sum (P_i-S_i\times Ans) = 0$ 二分答案即可。条件判断可以使用树上分组背包DP解决。 代码12345678910111213141516171819202122232425262728293031323334353637383940414243444546474849505152#include&lt;bits/stdc++.h&gt;using namespace std;#define Re register#define MAXN 2505#define LD doubleint K, N; int S[MAXN], P[MAXN], R, sz[MAXN];int hd[MAXN], nxt[MAXN &lt;&lt; 1], to[MAXN &lt;&lt; 1], tot;LD f[MAXN][MAXN], v[MAXN];inline void Add( Re int x, Re int y )&#123; nxt[++tot] = hd[x]; hd[x] = tot; to[tot] = y; &#125;void DFS( Re int x )&#123; f[x][0] = 0; for ( Re int i = 1; i &lt;= K; ++i ) f[x][i] = -1e10; sz[x] = 1; for ( Re int i = hd[x]; i; i = nxt[i] )&#123; DFS(to[i]); sz[x] += sz[to[i]]; int t(min( sz[x], K )); for ( Re int k = t; k &gt;= 1; --k ) for ( Re int j = 1; j &lt;= sz[to[i]]; ++j ) if ( k - j &gt;= 0 ) f[x][k] = max( f[x][k], f[x][k - j] + f[to[i]][j] ); else break; &#125; for ( Re int i = min( K, sz[x] ); i &gt;= 1; --i ) f[x][i] = f[x][i - 1] + v[x];&#125;inline bool check( Re LD x )&#123; for ( Re int i = 1; i &lt;= N; ++i ) v[i] = (LD)P[i] - (LD)S[i] * x; DFS( 0 ); return f[0][K] &gt;= 0;&#125;int main()&#123; scanf( "%d%d", &amp;K, &amp;N ); K++; for ( Re int i = 1; i &lt;= N; ++i ) scanf( "%d%d%d", &amp;S[i], &amp;P[i], &amp;R ), Add( R, i ); Re LD l(0), r(10000), mid, ans(0); while ( r - l &gt; 0.0001 )&#123; mid = ( l + r ) / 2; if ( check( mid ) ) l = mid, ans = mid; else r = mid; &#125; printf( "%.3lf\n", ans ); return 0;&#125;]]></content>
       <tags>
-        <tag>解题报告</tag>
         <tag>背包DP</tag>
+        <tag>解题报告</tag>
         <tag>0/1分数规划</tag>
       </tags>
   </entry>
@@ -147,8 +147,8 @@
     <url>%2F2019%2F01%2F23%2F%E3%80%8C2015%E5%8D%97%E9%98%B3CCPC-D%E3%80%8D%E9%87%91%E7%A0%96-%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A%2F</url>
     <content type="text"><![CDATA[金砖Problem有一个长度为L的板凳，可以放一排金砖，金砖不能重叠。特别的，摆放的金砖可以超出板凳，前提是必须保证该金砖不会掉下去，即该金砖的重心必须在板凳上。每块金砖都一个长度和价值，且金砖是规则的长方体。请计算最多可以摆放多少价值的金砖。 Input Data第一行，两个整数N和L，分别表示金砖的数量和板凳的长度。接下来N行，每行两个整数，ai和vi，分别表示第i块金砖的长度和价值。 Output Data一行，一个整数，表示最大价值。 Input Sample 112343 74 12 18 1 Output Sample 112 Input Sample 212343 54 12 28 9 Output Sample 2111 Input Sample 3121 110 3 Output Sample 313 思路要做这道题，得先掌握背包的一般思路，这里就不细讲了。 先说下思路。 At first,处理奇数长度的情况（没考虑清楚会WA一个点），因为对于奇数长度金砖，重心位置会出现小数的情况，这就让人很难堪。不过，可以把所有相关长度都乘2，或理解为以0.5为单位长度，这样就不用管奇数长度的情况了。 Secondly,咋处理能长出板凳的情况？？？直接按题目思路不好考虑，就把它转换一下吧。首先，我们很容易得知，最边上的两块要最靠边，及刚好不掉下去，这样可以腾出更大的空间给放在中间的金砖s。然后呢？有些人可能会想预处理出所有不超过板凳长度能放多少价值，再枚举两边的金砖，最后取最大值。However,重复取金砖的情况怎么考虑？？？其实我们可以当做最靠边的金砖长度打五折，或者说有两个金砖长度折半，具体实现就是把f数组再开一维记录已经取了几个“半价“金砖，最后取最大值即可。 Finally,还要考虑长度远大于L的金砖（更严谨地说，就是指长度 &gt; 2 * L的金砖），它们即使“半价”处理也无法放上板凳，但是实际上可以把金砖的重心刚好放在板凳上，两边尽管长出去。好在这种情况会使金砖独占板凳，所以说直接用v来更新ans的值。 具体实现就在下面啦： 代码12345678910111213141516171819202122232425262728#include&lt;bits/stdc++.h&gt;using namespace std;#define MAXN 4005#define LL long longint N, L;LL f[MAXN];int main()&#123; scanf( "%d%d", &amp;N, &amp;L ); L *= 2; LL ans(0);//注意开long long !important for ( int i = 1; i &lt;= N; ++i )&#123; LL a, v; scanf( "%lld%lld", &amp;a, &amp;v ); a *= 2; if ( a &gt; L * 2 ) ans = max( ans, v ); else for ( int j = L; j &gt;= 1; --j )&#123;//注意零一背包要倒过来 for ( int k = 0; k &lt;= 2; ++k )&#123; if ( j &gt;= a ) f[j][k] = max( f[j][k], f[j - a][k] + v );//放在中间 if ( k &amp;&amp; j &gt;= a / 2 ) f[j][k] = max( f[j][k], f[j - a / 2][k - 1] + v );//放在两边，既“半价处理” ans = max( ans, f[j][k] );//更新ans的值 &#125; &#125; &#125; printf( "%lld", ans ); return 0;&#125; 撒花！（刚好下课）]]></content>
       <tags>
-        <tag>解题报告</tag>
         <tag>背包DP</tag>
+        <tag>解题报告</tag>
       </tags>
   </entry>
   <entry>
@@ -320,9 +320,9 @@
     <url>%2F2019%2F01%2F23%2F%E3%80%8C2018-12-02%E6%A8%A1%E6%8B%9F%E8%B5%9B%E3%80%8DT1-%E6%9C%80%E7%9F%AD%E8%B7%AF-%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A%2F</url>
     <content type="text"><![CDATA[1.最短路(short.pas/cpp/in/out)问题描述：小 C 终于被小 X 感动了，于是决定与他看电影，然而小 X 距离电影院非常远，现在假设每条道路需要花费小 X 的时间为 1，由于有数以万计的好朋友沿路祝贺，导致小 X 在通过某些路不得不耗费 1 的时间来和他们聊天，尽管他希望尽早见到小 C，所以他希望找到一条最快时间到达电影院的路。一开始小 X 在 1 号点，共有 N 个点，M 条路，电影院为 T 号点。 输入：第一行 3 个正整数，分别为 n，m 和 t。以下 m 行，每行 3 个数，表示连接的编号以及权值。（注意，可能会有重边） 输出：一行一个数，表示 1 到 t 的最短路。 样例输入：1234567891011121310 12 63 9 26 9 26 2 13 1 11 9 22 8 27 10 17 2 110 0 18 1 11 5 23 7 2 样例输出：14 数据范围：对于 30%的数据：n&lt;=10，m&lt;=20；对于 60%的数据：n&lt;=1 000，m&lt;=20 000；对于 100%的数据：n&lt;=5 000 000，m&lt;=10 000 000。 时空限制注意下这道题时间限制:$2.5ms$ 空间限制:$1024MB$ 好大呀 思路把因为边权只有可能是1和2，所以我们可以把边权为2的点拆成两条边，然后广搜~ 最大的测试点还是达到了1.3+s QAQ 无能为力嘤嘤嘤~ 代码1234567891011121314151617181920212223242526272829303132333435363738394041424344454647#include&lt;bits/stdc++.h&gt;using namespace std;#define MAXN 10000005#define MAXM 20000005#define INF 0x7f7f7f7fint N, M, T;int hd[MAXN], to[MAXM &lt;&lt; 1], nxt[MAXM &lt;&lt; 1], tot, dis[MAXN];int Q[MAXN], ph(1), pt(0);int x, y, z;char B[150&lt;&lt;20], *S = B;int read()&#123; int ans(0); while( !isdigit(*S) ) S++; while( isdigit(*S) ) ans = ans * 10 + ( (*S) ^ '0' ), S++; return ans; &#125;void Add( int x, int y )&#123; nxt[++tot] = hd[x]; to[tot] = y; hd[x] = tot; nxt[++tot] = hd[y]; to[tot] = x; hd[y] = tot;&#125;int main()&#123; freopen( "short.in", "r", stdin ); freopen( "short.out", "w", stdout ); fread( B, 1, 150 &lt;&lt; 20, stdin ); N = read(); M = read(); T = read(); for ( int i = 1; i &lt;= M; ++i )&#123; x = read(); y = read(); z = read(); if ( z &amp; 1 ) Add( x, y ); else Add( x, ++N ), Add( y, N ); &#125; Q[++pt] = 1; memset( dis, -1, sizeof dis ); dis[1] = 0; while( pt &gt;= ph )&#123; int t(Q[ph++]); for ( int i = hd[t]; i; i = nxt[i] ) if ( dis[to[i]] &lt; 0 )&#123; dis[to[i]] = dis[t] + 1, Q[++pt] = to[i]; if ( t == T ) break; &#125; &#125; printf( "%d\n", dis[T] ); return 0;&#125;]]></content>
       <tags>
+        <tag>解题报告</tag>
         <tag>最短路</tag>
         <tag>广搜</tag>
-        <tag>解题报告</tag>
       </tags>
   </entry>
   <entry>
@@ -368,8 +368,8 @@
     <url>%2F2019%2F01%2F23%2F%E3%80%8CVijos-1285%E3%80%8D%E3%80%8COIBH%E6%9D%AFNOIP2006%E7%AC%AC%E4%BA%8C%E6%AC%A1%E6%A8%A1%E6%8B%9F%E8%B5%9B%E3%80%8D%E4%BD%B3%E4%BD%B3%E7%9A%84%E9%AD%94%E6%B3%95%E8%8D%AF%E6%B0%B4%2F</url>
     <content type="text"><![CDATA[佳佳的魔法药水背景发完了k张照片，佳佳却得到了一个坏消息：他的MM得病了！佳佳和大家一样焦急万分！治好MM的病只有一种办法，那就是传说中的0号药水……怎么样才能得到0号药水呢？你要知道佳佳的家境也不是很好，成本得足够低才行…… 描述得到一种药水有两种方法：可以按照魔法书上的指导自己配置，也可以到魔法商店里去买——那里对于每种药水都有供应，虽然有可能价格很贵。在魔法书上有很多这样的记载：1份A药水混合1份B药水就可以得到1份C药水。（至于为什么1+1=1，因为……这是魔法世界）好了，现在你知道了需要得到某种药水，还知道所有可能涉及到的药水的价格以及魔法书上所有的配置方法，现在要问的就是：1.最少花多少钱可以配制成功这种珍贵的药水；2.共有多少种不同的花费最少的方案（两种可行的配置方案如果有任何一个步骤不同则视为不同的）。假定初始时你手中并没有任何可以用的药水。 输入格式第一行有一个整数$N(N \le 1000)$，表示一共涉及到的药水总数。药水从0~N-1顺序编号，0号药水就是最终要配制的药水。 第二行有N个整数，分别表示从0~N-1顺序编号的所有药水在魔法商店的价格（都表示1份的价格）。 第三行开始，每行有3个整数A、B、C，表示1份A药水混合1份B药水就可以得到1份C药水。注意，某两种特定的药水搭配如果能配成新药水的话，那么结果是唯一的。也就是说不会出现某两行的A、B相同但C不同的情况。 输出格式输出两个用空格隔开的整数，分别表示得到0号药水的最小花费以及花费最少的方案的个数。 样例1样例输入112345710 5 6 3 2 2 31 2 04 5 13 6 2 样例输出1110 3 限制1秒 提示最优方案有3种，分别是：直接买0号药水；买4号药水、5号药水配制成1号药水，直接买2号药水，然后配制成0号药水；买4号药水、5号药水配制成1号药水，买3号药水、6号药水配制成2，然后配制成0。 思路这道题，我扪可以使用类似于最短路的方法做。 与最短路类似，我们引入蓝点、白点的概念，即确定一些药品的最佳购买方案，并用它们来优化其他药品的方案。 很明显，目前购买价格(或制取价格)最低的是不可能再优化的，因此把它的价格确定，优化它能优化的所有方案。 然后继续以这种方式确定药水的最小购买(制取)价格，最后得到的就是每个药品的最低价。 由于数据范围较小，这里不必用堆优化，直接暴力就可以了。如果实在要卡你，就使用一个堆优化就好了。 至于方案数，可以再用一个数组记录，与最短路计数差不多，只要注意运用加法原理与乘法原理，这里不再赘述。 还有注意开long long(似乎不开也可以过，保险起见还是开起来吧)。 代码12345678910111213141516171819202122232425262728293031323334353637383940414243444546#include&lt;bits/stdc++.h&gt;using namespace std;#define MAXN 1005#define INF 1000000000000000000#define LL long longtypedef pair&lt;int, int&gt; pi;struct ppp&#123; int x, y, z;&#125;;ppp make( LL x, LL y, LL z )&#123; ppp t; t.x = x; t.y = y; t.z = z; return t;&#125;int N;int m[MAXN][MAXN];bool vis[MAXN];LL dis[MAXN], s[MAXN];void Dij()&#123; for ( int i = 0; i &lt; N; ++i )&#123; int t(-1); for ( int j = 0; j &lt; N; ++j ) if ( !vis[j] &amp;&amp; ( t == -1 || dis[t] &gt; dis[j] ) ) t = j; if ( t == -1 ) return; vis[t] = 1; for ( int j = 0; j &lt; N; ++j ) if ( m[t][j] &lt; N &amp;&amp; vis[t] &amp;&amp; vis[j] )&#123; if ( dis[m[t][j]] &gt; dis[t] + dis[j] )&#123; dis[m[t][j]] = dis[t] + dis[j]; s[m[t][j]] = s[t] * s[j]; &#125;else if ( dis[m[t][j]] == dis[t] + dis[j] ) s[m[t][j]] += s[t] * s[j]; &#125; &#125;&#125;int main()&#123; scanf( "%d", &amp;N ); for ( int i = 0; i &lt; N; ++i ) scanf( "%lld", &amp;dis[i] ), s[i] = 1; int x, y, z; memset( m, 0x3f, sizeof m ); while( ~scanf( "%d%d%d", &amp;x, &amp;y, &amp;z ) ) m[x][y] = m[y][x] = z; Dij(); printf( "%lld %lld\n", dis[0], s[0] ); return 0;&#125;]]></content>
       <tags>
-        <tag>最短路</tag>
         <tag>解题报告</tag>
+        <tag>最短路</tag>
       </tags>
   </entry>
   <entry>
@@ -397,8 +397,8 @@
     <url>%2F2019%2F01%2F23%2F%E3%80%8CBZOJ1722%E3%80%8D%E3%80%8CUsaco2006-Mar%E3%80%8DMilk-Team-Select%E4%BA%A7%E5%A5%B6%E6%AF%94%E8%B5%9B-%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A%2F</url>
     <content type="text"><![CDATA[Milk Team Select 产奶比赛DescriptionFarmer John’s N ($1 \le N \le 500$) cows are trying to select the milking team for the world-famous Multistate Milking Match-up (MMM) competition. As you probably know, any team that produces at least X ($1 \le X \le 1,000,000$) gallons of milk is a winner. Each cow has the potential of contributing between $-10,000$ and $10,000$ gallons of milk. (Sadly, some cows have a tendency to knock over jugs containing milk produced by other cows.) The MMM prides itself on promoting family values. FJ’s cows have no doubt that they can produce X gallons of milk and win the contest, but to support the contest’s spirit,they want to send a team with as many parent-child relationships as possible (while still producing at least X gallons of milk). Not surprisingly, all the cows on FJ’s farm are female. Given the family tree of FJ’s cows and the amount of milk that each would contribute, compute the maximum number of parent-child relationships that can exist in a winning team. Note that a set of cows with a grandmother-mother-daughter combination has two parent-child relationships (grandmother-mother, mother-daughter). 约翰的N($1 \le N \le 500$)头奶牛打算组队去参加一个世界级的产奶比赛(Multistate Milking Match-up，缩写为MMM)．她们很清楚其他队的实力，也就是说，她们派出的队只要能产出至少X($1 \le X \le 1000000$)加仑牛奶，就能赢得这场比赛． 每头牛都能为集体贡献一定量的牛奶，数值在$-10000$到$10000$之间（有些奶牛总是想弄翻装着其他奶牛产的奶的瓶子）． MMM的举办目的之一，是通过竞赛中的合作来增进家庭成员之间的默契．奶牛们认为她们总是能赢得这场比赛，但为了表示对比赛精神的支持，她们希望在选出的队伍里能有尽可能多的牛来自同一个家庭，也就是说，有尽可能多对的牛有直系血缘关系（当然，这支队伍必须能产出至少X加仑牛奶）．当然了，所有的奶牛都是女性，所以队伍里所有直系血亲都是母女关系． 约翰熟知所有奶牛之间的血缘关系．现在他想知道，如果在保证一支队伍能赢得比赛的情况下，队伍中最多能存在多少对血缘关系．注意，如果一支队伍由某头奶牛和她的母亲、她的外祖母组成，那这支队伍里一共有2对血缘关系（这头奶牛外祖母与她的母亲，以及她与她的母亲）． InputLine 1: Two space-separated integers, N and X. Lines 2..N+1: Line i+1 contains two space-separated integers describing cow i. The first integer is the number of gallons of milk cow i would contribute. The second integer (range 1..N) is the index of the cow’s mother. If the cow’s mother is unknown, the second number is 0. The family information has no cycles: no cow is her own mother, grandmother, etc. 第1行：两个用空格隔开的整数N和X. 第2到N+1行：每行包括两个用空格隔开的整数，第一个数为一只奶牛能贡献出的牛奶的加仑数，第二个数表示她的母亲的编号．如果她的母亲不在整个牛群里，那第二个数为0．并且，血缘信息不会出现循环，也就是说一头奶牛不会是自己的母亲或祖母，或者更高代的祖先． OutputLine 1: The maximum number of parent-child relationships possible on a winning team. Print -1 if no team can win. 输出在一个能获胜的队伍中，最多可能存在的有血缘关系的牛的对数．如果任何一支队伍都不可能获胜，输出-1. Sample Input1234565 8-1 03 15 1-3 32 0 第一个数字代表这头奶的产量,第二个数字代表其父亲点是哪一个. INPUT DETAILS: There are 5 cows. Cow 1 can produce -1 gallons and has two daughters, cow 2 and 3, who can produce 3 and 5 gallons, respectively. Cow 3 has a daughter (cow 4) who can produce -3 gallons. Then there’s cow 5, who can produce 2 gallons. Sample Output12 HINT约翰一共有5头奶牛．第1头奶牛能提供-1加仑的牛奶，且她是第2、第3头奶牛的母亲．第2、第3头奶牛的产奶量务别为3加仑和5加仑．第4头奶牛是第3头奶牛的女儿，她能提供-3加仑牛奶．还有与其他牛都没有关系的第5头奶牛，她的产奶量是2加仑．最好的一支队伍包括第1，2，3，5头奶牛．她们一共能产出$-1+3+5+2=9 \ge 8$加仑牛奶，并且这支队伍里有2对牛有血缘关系（1-2和1-3）．如果只选第2，3，5头奶牛，虽然总产奶量会更高（10加仑），但这支队伍里包含的血缘关系的对数比上一种组合少（队伍里没有血缘关系对）． SourceGold 思路很明显,这是一道动态规划题（看着很像背包嘛）那我们要用什么作为下标呢？ 以牛奶量：牛奶量的数据范围较大，最多只能开一维数组(除非你开滚动数组)。总体来说较难考虑。 以关系数：关系数最多只有 N - 1 对，可以给每头牛开一个 MAXN 的数组，看起来更行得通。。。 还有，因为要考虑关系数的转换问题，所以还有开一维[0/1]表示这头牛取不取。 我们发现，这些关系是无环的，或者说这是一个森林(本来我想用拓扑排序，后来还是放弃了。。。)，所以可以再建立一头“牛祖先”，连接原来所有祖先，构成一棵树(即无母亲的节点都认0为母亲)。 对于样例，可以构成如图的一棵树： 整理一下，刚才讲到建立一个 $int f[MAXN][MAXN][2];$ 的数组，$f[i][j][op]$表示以第 i 个节点为根的树 共有 j 对关系，op = 1 时表示取这个节点，op = 0 时表示不取。 可以把 关系数 作为背包容量，牛奶量 作为 价值 用分组背包的方法来考虑。 具体的部分自己慢慢理解吧。 上代码—— 代码123456789101112131415161718192021222324252627282930313233343536373839404142434445#include&lt;cstdio&gt;#include&lt;iostream&gt;using namespace std;#define MAXN 505#define INF 0x3f3f3f3fint N, X, ans;int c[MAXN], t;int head[MAXN], to[MAXN &lt;&lt; 1], nxt[MAXN &lt;&lt; 1], tot(0);int f[MAXN][MAXN][2];void Add( int x, int y )&#123; to[++tot] = y; nxt[tot] = head[x]; head[x] = tot; &#125;void DFS( int x, int fa )&#123; for ( int i = 1; i &lt;= N; i++ ) f[x][i][0] = f[x][i][1] = -INF;//初始值均为负无穷 for ( int i = head[x]; i; i = nxt[i] )&#123; if ( to[i] == fa ) continue; DFS( to[i], x );//先完成子节点 for ( int j = N; j &gt;= 0; --j )&#123;//分配的关系数 for ( int k = 0; k &lt;= j; ++k )&#123;//背包—— f[x][j][1] = max( f[x][j][1], f[x][j - k][1] + max( k == 0 ? -INF : f[to[i]][k - 1][1], f[to[i]][k][0] ) ); f[x][j][0] = max( f[x][j][0], f[x][j - k][0] + max( f[to[i]][k][1], f[to[i]][k][0] ) ); &#125; &#125; &#125; for ( int i = 0; i &lt;= N; ++i ) f[x][i][1] += c[x];//若取这个节点，加上这个点的价值&#125;int main()&#123; scanf( "%d%d", &amp;N, &amp;X ); for ( int i = 1; i &lt;= N; ++i )&#123; scanf( "%d%d", &amp;c[i], &amp;t ); Add( i, t ); Add( t, i );//链式前向星存边 &#125; DFS( 0, -1 ); int ans(N); while( ans &gt;= 0 )&#123; if ( f[0][ans][0] &gt;= X ) break; ans--; &#125; printf( "%d\n", ans ); return 0;&#125;]]></content>
       <tags>
-        <tag>解题报告</tag>
         <tag>背包DP</tag>
+        <tag>解题报告</tag>
       </tags>
   </entry>
   <entry>
@@ -490,8 +490,8 @@
     <url>%2F2019%2F01%2F23%2F%E3%80%8CCH2501%E3%80%8D%E7%9F%A9%E9%98%B5%E8%B7%9D%E7%A6%BB-%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A%2F</url>
     <content type="text"><![CDATA[CH2501 矩阵距离描述给定一个N行M列的01矩阵 A，$A[i][j]$ 与 $A[k][l]$ 之间的曼哈顿距离定义为：$dist(A[i][j],A[k][l])=|i-k|+|j-l|$ 输出一个N行M列的整数矩阵B，其中：$B[i][j]=min(1 \le x \le N,1 \le y \le M,A[x][y]=1)⁡{dist(A[i][j],A[x][y])}$即求与每个位置曼哈顿距离最近的1$N,M \le 1000$。 输入格式第一行两个整数N,M。 接下来一个N行M列的01矩阵，数字之间没有空格。 输出格式一个N行M列的矩阵B，相邻两个整数之间用一个空格隔开。 样例输入12343 4000100110110 样例输出1233 2 1 02 1 0 01 0 0 1 思路有没有觉得，有点像洪水填充？ 假设只有一个1，我们可以用广搜来实现。因为每次搜下一个位置，距离都会+1，所以队列里元素距起始点的距离是单调递增的。因此，当我们搜到一个没有被搜到的位置，直接记录最优答案即可。 但是这里有好几个1。不过这也无妨，我们把这几个1的ans初始值标记为0，把它们都push进队列，然后广搜即可。原理十分简单。 代码1234567891011121314151617181920212223242526272829303132333435#include&lt;bits/stdc++.h&gt;using namespace std;#define open(s) freopen( s".in", "r", stdin ), freopen( s".out", "w", stdout )#define MAXN 1005int N, M;bool a[MAXN][MAXN];int ans[MAXN][MAXN];queue&lt;int&gt; Qx, Qy;char t;int dir[4][2] = &#123; 1, 0, 0, 1, -1, 0, 0, -1 &#125;;int main()&#123; memset( ans, -1, sizeof ans ); scanf( "%d%d", &amp;N, &amp;M ); for ( int i = 1; i &lt;= N; ++i ) for ( int j = 1; j &lt;= M; ++j )&#123; while( ( t = getchar() ) != '1' &amp;&amp; t != '0' ); a[i][j] = t ^ '0'; if ( a[i][j] ) Qx.push(i), Qy.push(j), ans[i][j] = 0; &#125; int x, y, tx, ty; while( !Qx.empty() )&#123; x = Qx.front(); y = Qy.front(); Qx.pop(); Qy.pop(); for ( int i = 0; i &lt; 4; ++i )&#123; tx = x + dir[i][0]; ty = y + dir[i][1]; if ( tx &gt; 0 &amp;&amp; ty &gt; 0 &amp;&amp; tx &lt;= N &amp;&amp; ty &lt;= M &amp;&amp; ans[tx][ty] == -1 )&#123; ans[tx][ty] = ans[x][y] + 1; Qx.push(tx); Qy.push(ty); &#125; &#125; &#125; for ( int i = 1; i &lt;= N; ++i, putchar('\n') ) for ( int j = 1; j &lt;= M; ++j ) printf( "%d ", ans[i][j] ); return 0;&#125;]]></content>
       <tags>
-        <tag>广搜</tag>
         <tag>解题报告</tag>
+        <tag>广搜</tag>
         <tag>Flood Fill</tag>
       </tags>
   </entry>
@@ -509,8 +509,8 @@
     <url>%2F2019%2F01%2F23%2F%E3%80%8CCH2601%E3%80%8D%E7%94%B5%E8%B7%AF%E7%BB%B4%E4%BF%AE-%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A%2F</url>
     <content type="text"><![CDATA[CH2601 电路维修描述Ha’nyu是来自异世界的魔女，她在漫无目的地四处漂流的时候，遇到了善良的少女Rika，从而被收留在地球上。Rika的家里有一辆飞行车。有一天飞行车的电路板突然出现了故障，导致无法启动。电路板的整体结构是一个R行C列的网格（R,C≤500），如右图所示。每个格点都是电线的接点，每个格子都包含一个电子元件。电子元件的主要部分是一个可旋转的、连接一条对角线上的两个接点的短电缆。在旋转之后，它就可以连接另一条对角线的两个接点。电路板左上角的接点接入直流电源，右下角的接点接入飞行车的发动装置。 Ha’nyu发现因为某些元件的方向不小心发生了改变，电路板可能处于断路的状态。她准备通过计算，旋转最少数量的元件，使电源与发动装置通过若干条短缆相连。不过，电路的规模实在是太大了，Ha’nyu并不擅长编程，希望你能够帮她解决这个问题。 输入格式输入文件包含多组测试数据。第一行包含一个整数T 表示测试数据的数目。对于每组测试数据，第一行包含正整数R 和C，表示电路板的行数和列数。之后R 行，每行C 个字符，字符是”/“和”\”中的一个，表示标准件的方向。 输出格式对于每组测试数据，在单独的一行输出一个正整数，表示所需的缩小旋转次数。如果无论怎样都不能使得电源和发动机之间连通，输出NO SOLUTION。 样例输入1234513 5\\/\\\\////\\\\ 样例输出11 数据范围与约定 对于40% 的数据，R,C≤5。对于100% 的数据，R,C≤500，T≤5。 样例解释样例的输入对应于题目描述中的情况。只需要按照下面的方式旋转标准件，就可以使得电源和发动机之间连通。 来源杜宇飞，石家庄二中【Nescafé 5】杯NOIP模拟赛 思路我们在格点建边，构成一个无向图。如果不用旋转就能到达，边权为0，否则为1。 然后广搜~ but 纯粹的广搜（或者SPFA?）是会炸的。。。 我得了70分。。。T了3个点。。。 我们可以考虑使用双端队列BFS 即如果边权为0，直接放到队首，如果边权为1，就和普通BFS一样放到队尾。 有时会出现这样一种情况： 最优值相同的点A，B都能更新C，A在队列中的位置在B前面。AC=1 BC=0 这样会导致最优值出现错误。所以我们还要判断能不能更新已有的点。 像上述这种情况，A更新C后，C‘会到队尾，B更新C后，C到队首，比之前的C’更快更新，C’不能再更新其他点，也就不会影响结果。 代码12345678910111213141516171819202122232425262728293031323334353637383940#include&lt;bits/stdc++.h&gt;using namespace std;#define open(s) freopen( s".in", "r", stdin ), freopen( s".out", "w", stdout )#define MAXN 505int T;int R, C;char s[MAXN][MAXN];int dis[MAXN][MAXN];deque&lt;int&gt; Qx, Qy;int x, y, tx, ty, t1, t2; char t;int dir[4][2] = &#123; 1, 1, -1, -1, 1, -1, -1, 1 &#125;;int wh[4][2] = &#123; 1, 1, 0, 0, 1, 0, 0, 1 &#125;;int main()&#123; scanf( "%d", &amp;T ); while( T-- )&#123; scanf( "%d%d", &amp;R, &amp;C ); for ( int i = 1; i &lt;= R; ++i ) scanf( "%s", s[i] + 1 ); memset( dis, 0x7f, sizeof dis ); dis[0][0] = 0; Qx.push_back(0); Qy.push_back(0); while( !Qx.empty() )&#123; x = Qx.front(); y = Qy.front(); Qx.pop_front(); Qy.pop_front(); for ( int i = 0; i &lt; 4; ++i )&#123; tx = x + dir[i][0]; ty = y + dir[i][1]; t1 = x + wh[i][0]; t2 = y + wh[i][1]; t = i &lt;= 1 ? '\\' : '/'; if ( tx &gt;= 0 &amp;&amp; ty &gt;= 0 &amp;&amp; tx &lt;= R &amp;&amp; ty &lt;= C &amp;&amp; dis[tx][ty] &gt; dis[x][y] + ( s[t1][t2] != t ) )&#123; dis[tx][ty] = dis[x][y] + ( s[t1][t2] != t ); if ( s[t1][t2] != t ) Qx.push_back(tx), Qy.push_back(ty); else Qx.push_front(tx), Qy.push_front(ty); &#125; &#125; &#125; if ( dis[R][C] &gt;= 0x3f3f3f3f ) printf( "NO SOLUTION\n" ); else printf( "%d\n", dis[R][C] ); &#125; return 0;&#125;]]></content>
       <tags>
-        <tag>广搜</tag>
         <tag>解题报告</tag>
+        <tag>广搜</tag>
       </tags>
   </entry>
   <entry>
@@ -538,8 +538,8 @@
       <tags>
         <tag>网络流</tag>
         <tag>网络最大流</tag>
-        <tag>最小割</tag>
         <tag>题单</tag>
+        <tag>最小割</tag>
       </tags>
   </entry>
   <entry>
@@ -756,8 +756,8 @@
     <content type="text"><![CDATA[UVA12004 Bubble SortCheck the following code which counts the number of swaps of bubble sort. 123456789101112131415161718int findSwaps( int n, int a[] )&#123; int count = 0, i, j, temp, b[100000]; for( i = 0; i &lt; n; i++ ) &#123; b[i] = a[i]; &#125; for( i = 0; i &lt; n; i++ ) &#123; for( j = 0; j &lt; n - 1; j++ ) &#123; if( b[j] &gt; b[j+1] ) &#123; temp = b[j]; b[j] = b[j+1]; b[j+1] = temp; count++; &#125; &#125; &#125; return count;&#125; You have to find the average value of ’count’ in the given code if we run findSwaps()infinitely many times using constant ’n’ and each time some random integers (from 1 to n) are given in array a[]. You can assume that the input integers in array a[] are distinct. InputInput starts with an integer T (≤ 1000), denoting the number of test cases. Each test case contains an integer n (1 ≤ n ≤ 105) in a single line. OutputFor each case, print the case number and the desired result. If the result is an integer, print it. Otherwise print it in ‘p/q’ form, where p and q are relative prime. Sample Input123212 Sample Output12Case 1: 0Case 2: 1/2 思路一句话题意：求长度为n的排列的期望逆序对数。 很简单，$f(n)=f(n-1)+\frac{n-1}2=\frac{n\times(n-1)}4，f(1)=0$。 为什么呢？假设把$n$插入长度$(n-1)$的排列，有$n$种方法。期望增加的逆序对数就是$\frac{1+2+…n-1}n=\frac{n\times (n-1)}{2n}=\frac{n-1}2$ 所以$f(n)=f(n-1)+\frac{n-1}2$ 很简单吧？别忘了开long long 代码1234567891011121314151617#include&lt;bits/stdc++.h&gt;using namespace std;#define LL long longint T, i;LL n;int main()&#123; scanf( "%d", &amp;T ); for ( int i = 1; i &lt;= T; ++i )&#123; scanf( "%lld", &amp;n ); n = n * ( n - 1 ) / 2; if ( n &amp; 1 ) printf( "Case %d: %lld/2\n", i, n ); else printf( "Case %d: %lld\n", i, n / 2 ); &#125; return 0;&#125;]]></content>
       <tags>
         <tag>解题报告</tag>
-        <tag>逆序对</tag>
         <tag>期望,概率</tag>
+        <tag>逆序对</tag>
       </tags>
   </entry>
   <entry>
@@ -766,8 +766,8 @@
     <content type="text"><![CDATA[SP25784 BUBBLESORT - Bubble Sort题目描述One of the simplest sorting algorithms, the Bubble Sort, can be expressed as (0-based array):123456789101112131415161718192021222324252627procedure bubbleSort( A : list of sortable items )n = length(A)repeatswapped = falsefor i = 1 to n-1 inclusive do/* if this pair is out of order */if A[i-1] &gt; A[i] then/* swap them and remember something changed */swap( A[i-1], A[i] )swapped = trueend ifend foruntil not swappedend procedure Now, given an array of N integers, you have to find out how many swap opeartions occur if the Bubble Sort algorithm is used to sort the array. 输入输出格式输入格式：Input begins with a line containing an integer T(1&lt;=T&lt;=100), denoting the number of test cases. Then T test cases follow. Each test case begins with a line containing an integer N(1&lt;=N&lt;=10000), denoting the number of integers in the array, followed by a line containing N space separated 32-bit integers. 输出格式：For each test case, output a single line in the format Case X: Y, where X denotes the test case number and Y denotes the number of swap operations needed modulo 10000007. 输入输出样例输入样例#1：123143 2 1 4 输出样例#1：1Case 1: 3 思路题目虽然是冒泡排序，但不可能模拟吧？$O(N^2\times T)$的算法是很难卡过去的。 冒泡排序的基本原理就是交换两个元素。我们发现，每交换一次，就可以消去一个逆序对。 所以，我们可以得出结论：冒泡排序的交换次数就是该序列的逆序对数。（这个结论在逆序对题中十分常见） 因此，运用归并排序，求出逆序对即可。（当然也可以用树状数组）具体看代码注释。 代码12345678910111213141516171819202122232425262728293031323334#include&lt;bits/stdc++.h&gt;using namespace std;#define mod 10000007#define MAXN 10005int T, N, ans;int a[MAXN], b[MAXN];void Merge_sort( int l, int r )&#123; if ( l == r ) return;//只有一个元素不用排序 int mid((l + r) &gt;&gt; 1); Merge_sort( l, mid );//左边排序 Merge_sort( mid + 1, r );//右边排序 int i1(l), i2(mid + 1), c(l);//把左右两边归并 while( i1 &lt;= mid &amp;&amp; i2 &lt;= r )&#123; if ( a[i1] &lt;= a[i2] ) b[c++] = a[i1++];//必须写&lt;= else b[c++] = a[i2++], ans = ( ans + mid - i1 + 1 ) % mod;//顺便统计逆序对个数（右边元素之前有mid-i1+1个比它大的） &#125; while( i1 &lt;= mid ) b[c++] = a[i1++];//剩余的元素排到后面 while( i2 &lt;= r ) b[c++] = a[i2++]; for ( int i = l; i &lt;= r; ++i ) a[i] = b[i], b[i] = 0;//复制回原数组&#125;int main()&#123; scanf( "%d", &amp;T ); for ( int Ti = 1; Ti &lt;= T; ++Ti )&#123; scanf( "%d", &amp;N ); for ( int i = 1; i &lt;= N; ++i ) scanf( "%d", &amp;a[i] ); ans = 0;//初始化很重要 Merge_sort( 1, N ); printf( "Case %d: %d\n", Ti, ans ); &#125; return 0;&#125;]]></content>
       <tags>
         <tag>解题报告</tag>
-        <tag>归并排序</tag>
         <tag>逆序对</tag>
+        <tag>归并排序</tag>
       </tags>
   </entry>
   <entry>
