@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://louhc.github.io/diary/index.html</loc>
+    
+    <lastmod>2019-01-26T11:27:24.090Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://louhc.github.io/diary/2019.01.26/index.html</loc>
     
     <lastmod>2019-01-26T10:44:55.231Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>https://louhc.github.io/diary/menu/index.html</loc>
     
     <lastmod>2019-01-26T09:36:50.444Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://louhc.github.io/diary/index.html</loc>
-    
-    <lastmod>2019-01-26T08:52:09.966Z</lastmod>
     
   </url>
   
