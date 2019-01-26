@@ -471,8 +471,8 @@
     <url>%2F2019%2F01%2F23%2F%E3%80%8C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%8DST%E8%A1%A8%2F</url>
     <content type="text"><![CDATA[问题引入先让我们看一个简单的问题，有N个元素，Q次操作，每次操作需要求出一段区间内的最大/小值。 这就是著名的RMQ问题。 RMQ问题的解法有很多，如线段树、单调队列(某些情况下)、ST表等。这里主要探讨ST表 过程ST表是一种神奇的算法,它以倍增与二进制为基础，实现区间内最大/小值。话不多说，直接切入正题—— 我们这里以求区间最大值为例。 首先，我们可以用O($N lg N$)的时间复杂度预处理出以i开始，接下来2j个元素中的最大值。我们借助递推/DP的思想。 123for ( int i = 1; i &lt;= l; ++i ) for ( int j = 1; j + ( 1 &lt;&lt; i ) - 1 &lt;= n; ++j ) f[j][i] = max( f[j][i - 1], f[j + ( 1 &lt;&lt; ( i - 1 ) )][i - 1] ); 然后就可以以O(1)的复杂度求出任意两个区间的最大值辣。 假设要求[ x, y ] 区间内的最大值(因为区间相交对于最大值是没有影响的，所以可以直接把最接近区间长度的2的倍数设为2z，求出f[x][z]与f[y - ( 1 &lt;&lt; z ) + 1][z]的最大值即可)。 1printf( "%d\n", max( f[x][z], f[y - ( 1 &lt;&lt; z ) + 1][z] ) ); 为了保证复杂度为O(1) 我们采用一个数组预处理出1 ~ N 的log值 12lg[1] = 0;for ( int i = 2; i &lt;= N; ++i ) lg[i] = lg[i &gt;&gt; 1] + 1; 代码123456789101112131415161718192021222324252627#include&lt;cstdio&gt;#include&lt;iostream&gt;#include&lt;cctype&gt;#include&lt;queue&gt;using namespace std;int N, Q;int f[100005][30];int lg[100005];int main()&#123; scanf( "%d%d", &amp;N, &amp;Q ); for ( int i = 1; i &lt;= N; ++i ) scanf( "%d", &amp;f[i][0] );//从i开始2^0(就是1)个元素的最大值就是它自己 lg[1] = 0;//2 ^ 0 = 1 所以lg 1 = 0 for ( int i = 2; i &lt;= N; ++i ) lg[i] = lg[i &gt;&gt; 1] + 1; int l(lg[N]); for ( int i = 1; i &lt;= l; ++i )//按长度从小到大，以保证较小长度已经完成 for ( int j = 1; j + ( 1 &lt;&lt; i ) - 1 &lt;= N; ++j ) f[j][i] = max( f[j][i - 1], f[j + ( 1 &lt;&lt; ( i - 1 ) )][i - 1] );//如上所述 while( Q-- )&#123; int x, y, z; scanf( "%d%d", &amp;x, &amp;y ); z = lg[y - x + 1]; printf( "%d\n", max( f[x][z], f[y - ( 1 &lt;&lt; z ) + 1][z] ) );//如上所述 &#125; return 0;&#125; 推荐题目 洛谷 P3865【模板】ST表(等于Loj #10119. 「一本通 4.2 例 1」数列区间最大值 ) 洛谷 P2251 质量检测 Loj #10120. 「一本通 4.2 例 2」最敏捷的机器人 Loj #10121. 「一本通 4.2 例 3」与众不同 Loj #10122. 「一本通 4.2 练习 1」天才的记忆 Bzoj 1699: [Usaco2007 Jan]Balanced Lineup排队 (等于Loj #10123. 「一本通 4.2 练习 2」Balanced Lineup 洛谷 P2880 [USACO07JAN]平衡的阵容Balanced Lineup ) NOIP 2011 提高组 选择客栈 ：洛谷 P1311 选择客栈 Loj #2597. 「NOIP2011」选择客栈]]></content>
       <tags>
-        <tag>学习笔记</tag>
         <tag>ST表</tag>
+        <tag>学习笔记</tag>
       </tags>
   </entry>
   <entry>
@@ -538,8 +538,8 @@
       <tags>
         <tag>网络流</tag>
         <tag>网络最大流</tag>
-        <tag>题单</tag>
         <tag>最小割</tag>
+        <tag>题单</tag>
       </tags>
   </entry>
   <entry>
