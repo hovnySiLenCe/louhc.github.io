@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://louhc.github.io/diary/menu/index.html</loc>
+    
+    <lastmod>2019-01-28T14:11:07.520Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://louhc.github.io/diary/index.html</loc>
+    
+    <lastmod>2019-01-28T14:09:38.860Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://louhc.github.io/diary/2019.01.28/index.html</loc>
     
     <lastmod>2019-01-28T14:07:13.755Z</lastmod>
@@ -40,20 +54,6 @@
     <loc>https://louhc.github.io/diary/2019.01.26/index.html</loc>
     
     <lastmod>2019-01-26T14:57:44.923Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://louhc.github.io/diary/menu/index.html</loc>
-    
-    <lastmod>2019-01-26T13:06:13.001Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://louhc.github.io/diary/index.html</loc>
-    
-    <lastmod>2019-01-26T11:31:21.565Z</lastmod>
     
   </url>
   
