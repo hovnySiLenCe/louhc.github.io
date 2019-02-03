@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[「SP26368」PWRANDMOD - Power and Mod 解题报告]]></title>
+    <url>%2F2019%2F02%2F03%2F%E3%80%8CSP26368%E3%80%8DPWRANDMOD-Power-and-Mod-%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A%2F</url>
+    <content type="text"><![CDATA[很沙比的快速幂。。。。但是数据范围十分坑，刚好long long存不下。。。咋办？__int128！但是__int128不能直接用cin或scanf读入，要自己手写（习惯写快读的童鞋就没关系了）还有，不知道怎么回事__int128也WA了，于是还写了个龟速乘，然后就过了？？？个人认为不写龟速乘也不会爆。（可能写炸了吧？）下面就是代码辣该讲的都放在注释里 代码12345678910111213141516171819202122232425262728293031323334353637383940#include&lt;bits/stdc++.h&gt;using namespace std;#define LL __int128LL T, a, b, m, ans;char bf[1 &lt;&lt; 25], *p;LL read()&#123;//快读 LL x(0); while( !isdigit(*p) ) ++p; while( isdigit(*p) ) x = ( x * 10 ) + ( *p ^ '0' ), ++p; return x;&#125;void write( LL x, bool flg = 1 )&#123;//快写(懒得用fwrite if ( x == 0 )&#123; if ( flg ) putchar('0'); return; &#125; write( x / 10, 0 ); putchar( x % 10 + '0' );&#125;LL Mul( LL x, LL y )&#123; LL ans(0); for ( x %= m; y; x = ( x + x ) % m, y &gt;&gt;= 1 ) if ( y &amp; 1 ) ans = ( ans + x ) % m; return ans; &#125;//龟速乘LL Pow( LL x, LL y )&#123; LL ans(1); for ( x %= m; y; x = Mul( x, x ), y &gt;&gt;= 1 ) if ( y &amp; 1 ) ans = Mul( ans, x ); return ans; &#125;//快速幂//我这里用位运算方法实现，当然如果你喜欢二分也完全没有问题int main()&#123; bf[fread( bf, 1, 1 &lt;&lt; 25, stdin )] = '\0'; p = bf; T = read(); while( T-- )&#123; a = read(); b = read(); m = read(); ans = 1;//别忘了初值 write(Pow( a, b )); putchar('\n');//调用函数即可 &#125; return 0;&#125;]]></content>
+      <tags>
+        <tag>解题报告</tag>
+        <tag>数学,数论</tag>
+        <tag>快速幂</tag>
+        <tag>sb题</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[「Codeforces 1107B」Digital root 解题报告]]></title>
     <url>%2F2019%2F01%2F31%2F%E3%80%8CCodeforces1107B%E3%80%8DDigital-root-%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A%2F</url>
     <content type="text"><![CDATA[思路这题看上去很不可做的样子,实际上找到规律就炒鸡简单。 先打表找规律 12345678S(1)=1S(2)=2..S(10)=1S(11)=2..S(18)=9S(19)=1 不管怎么说吧,根据从1到1000所有的数(自己写个代码验证就好了)Digital root都是从1到9不断循环的。 咋证明呢？我们先来证明一个引理： 设$F(N)$表示$N$每位数的和。$F(N)\equiv N(\mod 9)$ 证明：($\LaTeX$打的手酸) \text{设N的各位数字为}a_1,a_2...a_p\text{(p表示N有几位数)} \\ \because N=a_1+a_2\times10+a_3\times10^2...+a_p\times10^{p-1}\\ \therefore N=a_1+a_2\times(9+1)+a_3\times(99+1)+..a_p\times(999..9+1)\\=a_1+a_2+a_3+...+a_p+(a_2\times9+a_3\times99+a_4\times999+...a_p\times999..9)\\ = F(N)+(a_2\times1+a_3\times11+a_4\times111+...a_p\times111..1)\\ \therefore N\equiv F(N)(\mod 9)\\QED.实际上,$S(N)$就是若干$F$运算嵌套在一起。 即$S(N)=F(F(F(…F(N))))$ 而根据上述结论来看$N\equiv F(N) \equiv F(F(N))\equiv F(F(F(N)))….(\mod 9)$ 所以,$S(N)\equiv N(\mod 9)$ 而$S(N)$不为0且为个位数,因此$S(N)=(N-1)\mod 9+1$ 代码123456789101112#include&lt;bits/stdc++.h&gt;using namespace std;#define LL long longint T;LL k; int x;int main()&#123; scanf( "%d", &amp;T ); while( T-- ) scanf( "%I64d%d", &amp;k, &amp;x ), printf( "%I64d\n", ( k - 1 ) * 9 + x ); return 0;&#125;]]></content>
@@ -48,8 +59,8 @@
         <tag>解题报告</tag>
         <tag>水题</tag>
         <tag>CodeForces</tag>
-        <tag>贪心</tag>
         <tag>枚举</tag>
+        <tag>贪心</tag>
       </tags>
   </entry>
   <entry>
@@ -101,8 +112,8 @@
         <tag>暴力</tag>
         <tag>水题</tag>
         <tag>CodeForces</tag>
-        <tag>枚举</tag>
         <tag>全排列</tag>
+        <tag>枚举</tag>
       </tags>
   </entry>
   <entry>
@@ -112,8 +123,8 @@
       <tags>
         <tag>解题报告</tag>
         <tag>CodeForces</tag>
-        <tag>贪心</tag>
         <tag>枚举</tag>
+        <tag>贪心</tag>
         <tag>模拟</tag>
       </tags>
   </entry>
@@ -499,8 +510,8 @@
     <url>%2F2019%2F01%2F23%2F%E3%80%8C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%8DST%E8%A1%A8%2F</url>
     <content type="text"><![CDATA[问题引入先让我们看一个简单的问题，有N个元素，Q次操作，每次操作需要求出一段区间内的最大/小值。 这就是著名的RMQ问题。 RMQ问题的解法有很多，如线段树、单调队列(某些情况下)、ST表等。这里主要探讨ST表 过程ST表是一种神奇的算法,它以倍增与二进制为基础，实现区间内最大/小值。话不多说，直接切入正题—— 我们这里以求区间最大值为例。 首先，我们可以用O($N lg N$)的时间复杂度预处理出以i开始，接下来2j个元素中的最大值。我们借助递推/DP的思想。 123for ( int i = 1; i &lt;= l; ++i ) for ( int j = 1; j + ( 1 &lt;&lt; i ) - 1 &lt;= n; ++j ) f[j][i] = max( f[j][i - 1], f[j + ( 1 &lt;&lt; ( i - 1 ) )][i - 1] ); 然后就可以以O(1)的复杂度求出任意两个区间的最大值辣。 假设要求[ x, y ] 区间内的最大值(因为区间相交对于最大值是没有影响的，所以可以直接把最接近区间长度的2的倍数设为2z，求出f[x][z]与f[y - ( 1 &lt;&lt; z ) + 1][z]的最大值即可)。 1printf( "%d\n", max( f[x][z], f[y - ( 1 &lt;&lt; z ) + 1][z] ) ); 为了保证复杂度为O(1) 我们采用一个数组预处理出1 ~ N 的log值 12lg[1] = 0;for ( int i = 2; i &lt;= N; ++i ) lg[i] = lg[i &gt;&gt; 1] + 1; 代码123456789101112131415161718192021222324252627#include&lt;cstdio&gt;#include&lt;iostream&gt;#include&lt;cctype&gt;#include&lt;queue&gt;using namespace std;int N, Q;int f[100005][30];int lg[100005];int main()&#123; scanf( "%d%d", &amp;N, &amp;Q ); for ( int i = 1; i &lt;= N; ++i ) scanf( "%d", &amp;f[i][0] );//从i开始2^0(就是1)个元素的最大值就是它自己 lg[1] = 0;//2 ^ 0 = 1 所以lg 1 = 0 for ( int i = 2; i &lt;= N; ++i ) lg[i] = lg[i &gt;&gt; 1] + 1; int l(lg[N]); for ( int i = 1; i &lt;= l; ++i )//按长度从小到大，以保证较小长度已经完成 for ( int j = 1; j + ( 1 &lt;&lt; i ) - 1 &lt;= N; ++j ) f[j][i] = max( f[j][i - 1], f[j + ( 1 &lt;&lt; ( i - 1 ) )][i - 1] );//如上所述 while( Q-- )&#123; int x, y, z; scanf( "%d%d", &amp;x, &amp;y ); z = lg[y - x + 1]; printf( "%d\n", max( f[x][z], f[y - ( 1 &lt;&lt; z ) + 1][z] ) );//如上所述 &#125; return 0;&#125; 推荐题目 洛谷 P3865【模板】ST表(等于Loj #10119. 「一本通 4.2 例 1」数列区间最大值 ) 洛谷 P2251 质量检测 Loj #10120. 「一本通 4.2 例 2」最敏捷的机器人 Loj #10121. 「一本通 4.2 例 3」与众不同 Loj #10122. 「一本通 4.2 练习 1」天才的记忆 Bzoj 1699: [Usaco2007 Jan]Balanced Lineup排队 (等于Loj #10123. 「一本通 4.2 练习 2」Balanced Lineup 洛谷 P2880 [USACO07JAN]平衡的阵容Balanced Lineup ) NOIP 2011 提高组 选择客栈 ：洛谷 P1311 选择客栈 Loj #2597. 「NOIP2011」选择客栈]]></content>
       <tags>
-        <tag>学习笔记</tag>
         <tag>ST表</tag>
+        <tag>学习笔记</tag>
       </tags>
   </entry>
   <entry>
@@ -566,8 +577,8 @@
       <tags>
         <tag>网络流</tag>
         <tag>网络最大流</tag>
-        <tag>题单</tag>
         <tag>最小割</tag>
+        <tag>题单</tag>
       </tags>
   </entry>
   <entry>
