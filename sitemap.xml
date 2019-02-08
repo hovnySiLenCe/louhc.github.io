@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://louhc.github.io/about/index.html</loc>
+    
+    <lastmod>2019-02-08T13:49:20.269Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://louhc.github.io/diary/index.html</loc>
     
     <lastmod>2019-02-08T12:11:21.879Z</lastmod>
@@ -103,13 +110,6 @@
     <loc>https://louhc.github.io/2019/01/25/%E3%80%8CCodeForces-260C%E3%80%8DBalls-and-Boxes-%E8%A7%A3%E9%A2%98%E6%8A%A5%E5%91%8A/</loc>
     
     <lastmod>2019-01-25T10:36:56.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://louhc.github.io/about/index.html</loc>
-    
-    <lastmod>2019-01-25T06:14:12.000Z</lastmod>
     
   </url>
   
