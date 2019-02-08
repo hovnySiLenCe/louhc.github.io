@@ -1823,7 +1823,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #46ff53;
+  background: #3977db;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2967,11 +2967,14 @@ ul.breadcrumb li+li:last-child {
     margin: 8px 0 0;
   }
 }
-.hidden-text {
+.hidden-text,
+.hidden-text a {
   background-color: #000;
   color: #000;
+  border: none;
 }
-.hidden-text:hover {
+.hidden-text:hover,
+.hidden-text a:hover {
   transition: color 0.13s linear;
   color: #fff;
 }
