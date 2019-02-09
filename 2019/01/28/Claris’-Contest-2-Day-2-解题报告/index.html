@@ -993,7 +993,7 @@
   
   <script type="text/javascript">
     var GUEST = ['nick','mail','link'];
-    var guest = '';
+    var guest = 'nick,mail,link';
     guest = guest.split(',').filter(function (item) {
       return GUEST.indexOf(item)>-1;
     });
@@ -1001,12 +1001,12 @@
         el: '#comments' ,
         verify: false,
         notify: false,
-        app_id: 'id1WtI9SNc7HXlRHwHVrO9NH-gzGzoHsz',
-        app_key: 'ovbPQoGuLirDhLbmPAHl4dA4',
+        appId: 'id1WtI9SNc7HXlRHwHVrO9NH-gzGzoHsz',
+        appKey: 'ovbPQoGuLirDhLbmPAHl4dA4',
         placeholder: 'ヾﾉ≧∀≦)o来啊，快活啊!',
-        avatar:'',
+        avatar:'mm',
         guest_info:guest,
-        pageSize:'' || 10,
+        pageSize:'10' || 10,
     });
   </script>
 
