@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[「学习笔记」欧几里得算法gcd/扩展欧几里得算法exgcd]]></title>
+    <url>%2F2019%2F02%2F09%2F%E3%80%8C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%8D%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95gcd-%E6%89%A9%E5%B1%95%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E7%AE%97%E6%B3%95exgcd%2F</url>
+    <content type="text"><![CDATA[前面部分面向初学者,会gcd的跳过 如果让你求两个数的公约数,你会怎么做?枚举?这显然太慢了。如果数据规模达到1e9就完蛋。这有2种方法解决。我们用gcd(x,y)表示x与y的最大公约数,lcm(x,y)表示x,y的最小公倍数。 九章算术·更相减损术$\forall a,b \in N, a \ge b,\text{有} \gcd(a,b) = \gcd(a-b,a) = \gcd(a-b,b)$这个定理很好证明,这里就省略了。其实是我懒然后利用这个定理,就可以写出代码了。 递归写法1int gcd( int x, int y )&#123; return x == y ? x : ( x &gt; y ? gcd( y, x - y ) : gcd( x, y - x ) ) &#125; 非递归写法1int gcd( int x, int y )&#123; while ( x != y ) if ( x &gt; y ) x -= y; else y -= x; return x; &#125; 这种算法的缺陷是显而易见的。当两个数相差较大时,这种算法就吃不消了。比如这组数据11 1000000 能卡掉递归写法(爆栈) 这组数据11 1000000000 连非递归写法也会TLE 不过有一个小优化:当x % 2 == 0 &amp;&amp; y % 2 == 0可以同除以2,并最后结果乘2。 123456int gcd( int x, int y )&#123; int ans(1); while( !(x &amp; 1) &amp;&amp; !( y &amp; 1 ) ) x &gt;&gt;= 1, y &gt;&gt;= 1, ans &lt;&lt;= 1; while ( x != y ) if ( x &gt; y ) x -= y; else y -= x; return x * ans;&#125; 不过还是通不过上面那组数据。我们要引入更niubi的算法。 欧几里得算法/辗转相除法根据更相减损术,我们可以进行变形。$\gcd(x,y)=\gcd(y,x%y)$看看上面那组数据,能卡掉更相减损术的原因就是1000000000连续减了999999999次1,这可以简化成1步——取余不过我们发现有一个会变成0,这时候直接返回另一个就行了。 直接上代码。1int gcd( int x, int y )&#123; return y ? gcd( y, x % y ) : x; &#125; 好像它的复杂度是log级别的,具体我也不会证明。反正快得多就行了。一般我们都用这种方法。由于递归层数也是log级别的,没必要改成非递归。 Stein算法如果要求高精度最大公约数咋办?用Python或Java 高精度取余十分麻烦。这意味着不能方便地使用欧几里得算法。 一般我们可以用更相减损术,但是如果遇上毒瘤出题人咋办？直接把你卡到O(N)级别。 由J. Stein 1961年提出的Stein算法很好的解决了以上算法中的缺陷,Stein算法只有整数的移位和加减法。]]></content>
+      <tags>
+        <tag>数学,数论</tag>
+        <tag>同余</tag>
+        <tag>学习笔记</tag>
+        <tag>gcd,exgcd</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[「学习笔记」中国剩余定理crt/扩展中国剩余定理excrt]]></title>
+    <url>%2F2019%2F02%2F09%2F%E3%80%8C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%8D%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86crt-%E6%89%A9%E5%B1%95%E4%B8%AD%E5%9B%BD%E5%89%A9%E4%BD%99%E5%AE%9A%E7%90%86excrt%2F</url>
+    <content type="text"><![CDATA[学了好久才会QAQ 我真的好菜呀]]></content>
+      <tags>
+        <tag>数学,数论</tag>
+        <tag>同余</tag>
+        <tag>学习笔记</tag>
+        <tag>crt,excrt</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[「HEXO插件」嵌入pdf文件 hexo-pdf]]></title>
     <url>%2F2019%2F02%2F09%2F%E3%80%8CHEXO%E6%8F%92%E4%BB%B6%E3%80%8D%E5%B5%8C%E5%85%A5pdf%E6%96%87%E4%BB%B6-hexo-pdf%2F</url>
     <content type="text"><![CDATA[闲着没事逛了逛hexo插件,偶然发现hexo-pdf,就顺便整了个…. 如果你需要在你的博客里加入pdf文件,怎么办?当然,你可以用&lt;iframe&gt;标签,但那一串东西实在记不住QAQ…. 不扯了,直接进入正题吧。 先下载下来1npm install hexo-pdf 在_post中加入一个md文件test.md(或者根据喜好随便取名,当然后缀还得是md) 如果是在网上的pdf文件,就例如 http://XXX.com/...../test.pdf 这样的,可以这么干——1&#123;% pdf http://XXX.com/...../test.pdf %&#125; 如果要本地上传,可以自己找个位置一起上传就好了。(注意我在source新建一个images的文件专门用来放图片等东西) 1&#123;% pdf \images\test.pdf %&#125; 效果是这样的手动滑稽 没了。。。。]]></content>
@@ -13,7 +35,7 @@
   <entry>
     <title><![CDATA[my aims]]></title>
     <url>%2F2019%2F02%2F09%2Fmy-aims%2F</url>
-    <content type="text"><![CDATA[U2FsdGVkX1+mblGHbBjezww3Go8EZYsM2sF7s9GHiDyIWxjAptlFIHham40IaQc9UFm1faGlHWe2MYIl3lJkE3RmFoQwypypfw0vxHjJwyeS+Qa7ZyNovIDjlzSX+o85pC2ZaiFzB4wuKN0S+v85fOL1CpLg3g9oWP9jqgRG1Nr3yMTj1LfXE8/TfnFIV8m9Wy8nUVuqffshBVpWEtelE5EkPlNoJm3xnRVnFkJrATOWmUe+5xdLUbijOzuswt2L/XjH/+QfqhC+NKdu67sfpzQepkOH28TOXId6xeVDRkzBDeoubBBXtsqVSbf66147sBLpuQZoSoBM1+KEDy9iAHc93+VzBsOmS1pJYJIvLMLKN9mc7aNTLcbztdSRo3EmuFP3WQETWoaA/+il/cPGilKKPR5CR3j5/XYp/c6eBMHXUKMLM4NTyoObgXgK8OdoNFMt3LnzWBF6r5IGNzdvzQAuZEyWEY86zQiWiPlAxl4wKzEkbV5MSESzxnuHF/yO6aBmv5/4bxW4HmNymbKx2jkey1mTf/e22fTEYtCsx8+Vll8751PIdKVBqns7lm4r/dv5EjGj9hJBAlhgCai6bd2fzbBEVfQ6NdM3AfoTqwDgannsJpjE1RGNnUaWzysgllGAafGRZWO6dYkfrPFVGUGjJHNC8gqtIGy9/8kIhH6UCZMRSkhw5bFDYllsJQJqqSAo6+LjnD1Z6fSGo5vYb77EeGCT817/iuSgMsVKIWktUTiUK5KpAxEnVxQXlCQUbdq/+9syrTvPAWCoYrpwezrOycsWwWvMQvamr0i6+hBoY3NROsplOgl06OgMuDZAbIfK1yLe69UJVqKHX/RtmFeufa4QDcdW8qLH9XEQGVvBVAVOj6FhwMsrs4r/3w02Ctb23+HDoDKAkmOiQ7MG2MofTJF3SsFsN1/FKX5cyQqGZXcReCMKmDmc7GD0nEqhhVti440p7ShqOwhxIRNaxg==var pwd = window.prompt("please input password","");var txt = document.getElementById("enc_content").innerHTML;var bytes = CryptoJS.AES.decrypt(txt, pwd);var plaintext = bytes.toString(CryptoJS.enc.Utf8);document.getElementById("enc_content").innerHTML = plaintext]]></content>
+    <content type="text"><![CDATA[U2FsdGVkX18vTAn2MKudpBM53krcLEGlK6NiDRm1Kn0YC2U8tFbnU+/bLtt5nqb9QWZrYzd5ugyeooxJGrcWs7MIwj0zIzpS6kIciJJlo6Cyxv2dglWM78mRW2W2rbIiwl3KuayO42eeIzq+kvV0FJRfEkLk1pen0EJTU+W8xQnlCXG2IrtMvPCYqVj8inl/huXjnsFwrmzmKunlYTbLXJIxZzA8sHUe4TCi9Oa3bkzrhpFHHg/RwyiuUbZUJhkNkpHuVetL9IDR3QRRnib1GyqUpe8zeObdzjvBEedUsHK9R5LnXdcs89kC8Z131eat+d3XypuIJRqd7uiFiIlbboMdK/OPTBFAcWaU+vAJ/8+ivluT8Q3EvCDQS5YMnr9G+fVIFji2CFB6BJoa06ABBn2dtjz+PPHveSVRDpDc/1Kv00fH4UOCZQQh22Nld4Y2M6nWFpMDbv4A4DyWXY72Td4pAS9XkcUybTYy3/IG8AWl7OpkgOguotuPjlWLptCdUZJPpGpVCBrdg5JLPANcmd8YZ5+m05r6YzWaF6R19Vo4/PoQhWWauGHpoh4UzB0mGvevbZiZlZhwBlu09yI4aUxLWQg81EIS8ekwWDcniSsPZvZeLbmZrP3qRdnewrZjGLnq5LbCDIpb7T+vuu2940QT8rgQ8RbHtbzCBt3cGEwiEg3gSsJ52H9Qe86qjw1MkjRzz/dNO26QecXW2QBKmWDmfmk5UPK+rLtZyY3Nir2NZtkNqmA0xNWTzDHyuKaNsrN7Vfq9CZxl96Ma10Rn1M04JHf5fBTfed70dwgJ3M8eyDdM4KFkeGiJLoc5Kq1/xUp6hmexstndg2I4DlMHJl1UjQoFZ/tFbOwmmg6SK3JoLfDyyIeXeY8aCCRdDHVKDIpuqtzjpBCWl3U4+GCAAtHeOHYcRAsLktByqUr04EYH6w1sOg39QpD+pTILkb0BPscyFxrz5z/mXx5j0IQD2w==var pwd = window.prompt("please input password","");var txt = document.getElementById("enc_content").innerHTML;var bytes = CryptoJS.AES.decrypt(txt, pwd);var plaintext = bytes.toString(CryptoJS.enc.Utf8);document.getElementById("enc_content").innerHTML = plaintext]]></content>
       <tags>
         <tag>你看不得</tag>
       </tags>
@@ -136,8 +158,8 @@
     <content type="text"><![CDATA[CF1108C Nice Garland题目描述You have a garland consisting of $n$ lamps. Each lamp is colored red, green or blue. The color of the $i$ -th lamp is $s_i$ (‘R’, ‘G’ and ‘B’ — colors of lamps in the garland). You have to recolor some lamps in this garland (recoloring a lamp means changing its initial color to another) in such a way that the obtained garland is nice. A garland is called nice if any two lamps of the same color have distance divisible by three between them. I.e. if the obtained garland is $t$ , then for each $i, j$ such that $t_i = t_j$ should be satisfied $|i-j|~ mod~ 3 = 0$ . The value $|x|$ means absolute value of $x$, the operation $x~ mod~ y$ means remainder of $x$ when divided by $y$ . For example, the following garlands are nice: “RGBRGBRG”, “GB”, “R”, “GRBGRBG”, “BRGBRGB”. The following garlands are not nice: “RR”, “RGBG”. Among all ways to recolor the initial garland to make it nice you have to choose one with the minimum number of recolored lamps. If there are multiple optimal solutions, print any of them. 输入输出格式输入格式：The first line of the input contains one integer $n$ ( $1 \le n \le 2 \cdot 10^5$ ) — the number of lamps.The second line of the input contains the string $s$ consisting of $n$ characters ‘R’, ‘G’ and ‘B’ — colors of lamps in the garland. 输出格式：In the first line of the output print one integer $r$ — the minimum number of recolors needed to obtain a nice garland from the given one. In the second line of the output print one string $t$ of length $n$ — a nice garland obtained from the initial one with minimum number of recolors. If there are multiple optimal solutions, print any of them. 输入输出样例输入样例#1：123BRB 输出样例#1：121GRB 输入样例#2：127RGBGRBB 输出样例#2：123RGBRGBR 题意简述给定一个长度为N的字符串（只包含’R’,’G’,’B’），修改最少的字符，使字符串满足当$s[i]=s[j]$时必有$i \equiv j(\mod 3)$ 思路我们可以想到，要满足条件，必须要有$s[0]\ne s[1]\ne s[2]$，$s[i]=s[i\% 3]$（很好理解吧？） 所以$s[0],s[1],s[2]$分别选取$’R’,’G’,’B’$（可打乱顺序），这可以用全排列解决；然后处理出要修改的个数，记录最优答案即可。时间复杂度为$O(3!\times n)$，稳得很。 代码123456789101112131415161718192021222324252627#include&lt;bits/stdc++.h&gt;using namespace std;#define Re register#define MAXN 200005int N;char s[MAXN], cur[MAXN], ans[MAXN];int res(INT_MAX);int m[] = &#123; 1, 2, 3 &#125;;char a1, a2, a3;int main()&#123; scanf( "%d", &amp;N ); scanf( "%s", s ); do&#123; int c(0); a1 = m[0] == 1 ? 'R' : ( m[0] == 2 ? 'G' : 'B' ); a2 = m[1] == 1 ? 'R' : ( m[1] == 2 ? 'G' : 'B' ); a3 = m[2] == 1 ? 'R' : ( m[2] == 2 ? 'G' : 'B' ); for ( int i = 0; i &lt; N; i += 3 )&#123; cur[i] = a1; if ( s[i] != a1 ) c++; &#125; for ( int i = 1; i &lt; N; i += 3 )&#123; cur[i] = a2; if ( s[i] != a2 ) c++; &#125; for ( int i = 2; i &lt; N; i += 3 )&#123; cur[i] = a3; if ( s[i] != a3 ) c++; &#125; if ( c &lt; res )&#123; res = c; memcpy( ans, cur, sizeof ans ); &#125; &#125;while( next_permutation( m, m + 3 ) ); printf( "%d\n%s\n", res, ans ); return 0;&#125;]]></content>
       <tags>
         <tag>解题报告</tag>
-        <tag>水题</tag>
         <tag>暴力</tag>
+        <tag>水题</tag>
         <tag>CodeForces</tag>
         <tag>全排列</tag>
         <tag>枚举</tag>
@@ -537,8 +559,8 @@
     <url>%2F2019%2F01%2F23%2F%E3%80%8C%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%E3%80%8DST%E8%A1%A8%2F</url>
     <content type="text"><![CDATA[问题引入先让我们看一个简单的问题，有N个元素，Q次操作，每次操作需要求出一段区间内的最大/小值。 这就是著名的RMQ问题。 RMQ问题的解法有很多，如线段树、单调队列(某些情况下)、ST表等。这里主要探讨ST表 过程ST表是一种神奇的算法,它以倍增与二进制为基础，实现区间内最大/小值。话不多说，直接切入正题—— 我们这里以求区间最大值为例。 首先，我们可以用O($N lg N$)的时间复杂度预处理出以i开始，接下来2j个元素中的最大值。我们借助递推/DP的思想。 123for ( int i = 1; i &lt;= l; ++i ) for ( int j = 1; j + ( 1 &lt;&lt; i ) - 1 &lt;= n; ++j ) f[j][i] = max( f[j][i - 1], f[j + ( 1 &lt;&lt; ( i - 1 ) )][i - 1] ); 然后就可以以O(1)的复杂度求出任意两个区间的最大值辣。 假设要求[ x, y ] 区间内的最大值(因为区间相交对于最大值是没有影响的，所以可以直接把最接近区间长度的2的倍数设为2z，求出f[x][z]与f[y - ( 1 &lt;&lt; z ) + 1][z]的最大值即可)。 1printf( "%d\n", max( f[x][z], f[y - ( 1 &lt;&lt; z ) + 1][z] ) ); 为了保证复杂度为O(1) 我们采用一个数组预处理出1 ~ N 的log值 12lg[1] = 0;for ( int i = 2; i &lt;= N; ++i ) lg[i] = lg[i &gt;&gt; 1] + 1; 代码123456789101112131415161718192021222324252627#include&lt;cstdio&gt;#include&lt;iostream&gt;#include&lt;cctype&gt;#include&lt;queue&gt;using namespace std;int N, Q;int f[100005][30];int lg[100005];int main()&#123; scanf( "%d%d", &amp;N, &amp;Q ); for ( int i = 1; i &lt;= N; ++i ) scanf( "%d", &amp;f[i][0] );//从i开始2^0(就是1)个元素的最大值就是它自己 lg[1] = 0;//2 ^ 0 = 1 所以lg 1 = 0 for ( int i = 2; i &lt;= N; ++i ) lg[i] = lg[i &gt;&gt; 1] + 1; int l(lg[N]); for ( int i = 1; i &lt;= l; ++i )//按长度从小到大，以保证较小长度已经完成 for ( int j = 1; j + ( 1 &lt;&lt; i ) - 1 &lt;= N; ++j ) f[j][i] = max( f[j][i - 1], f[j + ( 1 &lt;&lt; ( i - 1 ) )][i - 1] );//如上所述 while( Q-- )&#123; int x, y, z; scanf( "%d%d", &amp;x, &amp;y ); z = lg[y - x + 1]; printf( "%d\n", max( f[x][z], f[y - ( 1 &lt;&lt; z ) + 1][z] ) );//如上所述 &#125; return 0;&#125; 推荐题目 洛谷 P3865【模板】ST表(等于Loj #10119. 「一本通 4.2 例 1」数列区间最大值 ) 洛谷 P2251 质量检测 Loj #10120. 「一本通 4.2 例 2」最敏捷的机器人 Loj #10121. 「一本通 4.2 例 3」与众不同 Loj #10122. 「一本通 4.2 练习 1」天才的记忆 Bzoj 1699: [Usaco2007 Jan]Balanced Lineup排队 (等于Loj #10123. 「一本通 4.2 练习 2」Balanced Lineup 洛谷 P2880 [USACO07JAN]平衡的阵容Balanced Lineup ) NOIP 2011 提高组 选择客栈 ：洛谷 P1311 选择客栈 Loj #2597. 「NOIP2011」选择客栈]]></content>
       <tags>
-        <tag>ST表</tag>
         <tag>学习笔记</tag>
+        <tag>ST表</tag>
       </tags>
   </entry>
   <entry>
@@ -604,8 +626,8 @@
       <tags>
         <tag>网络流</tag>
         <tag>网络最大流</tag>
-        <tag>最小割</tag>
         <tag>题单</tag>
+        <tag>最小割</tag>
       </tags>
   </entry>
   <entry>
