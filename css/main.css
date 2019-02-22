@@ -1826,7 +1826,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #53ab41;
+  background: #a22aff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2977,4 +2977,15 @@ ul.breadcrumb li+li:last-child {
 .hidden-text a:hover {
   transition: color 0.13s linear;
   color: #fff;
+}
+.legendary-user-first-letter {
+  color: #000 !important;
+  font-weight: bold;
+}
+.user-legendary {
+  color: #f00 !important;
+  font-weight: bold;
+}
+div a {
+  border: none;
 }
