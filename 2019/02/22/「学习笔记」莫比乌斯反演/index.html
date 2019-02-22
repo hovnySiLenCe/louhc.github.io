@@ -97,17 +97,18 @@
 
 
 
-  <meta name="description" content="蒟蒻一枚，请多关照">
+  <meta name="description" content="懵逼钨丝莫比乌斯反演可猥琐了QwQ 莫比乌斯反演可以用来计算一些难以用其他方法转换,数据又特别大的式子,就像下面这种——  \sum^N_i\sum^M_j \gcd(i, j)(洛谷P1447 [NOI2010]能量采集) 通过莫比乌斯反演,就可以把它变成一道可做题。">
+<meta name="keywords" content="数学,数论,学习笔记,莫比乌斯反演">
 <meta property="og:type" content="article">
 <meta property="og:title" content="「学习笔记」莫比乌斯反演">
 <meta property="og:url" content="https://louhc.github.io/2019/02/22/「学习笔记」莫比乌斯反演/index.html">
 <meta property="og:site_name" content="Hello,I am louhc">
-<meta property="og:description" content="蒟蒻一枚，请多关照">
+<meta property="og:description" content="懵逼钨丝莫比乌斯反演可猥琐了QwQ 莫比乌斯反演可以用来计算一些难以用其他方法转换,数据又特别大的式子,就像下面这种——  \sum^N_i\sum^M_j \gcd(i, j)(洛谷P1447 [NOI2010]能量采集) 通过莫比乌斯反演,就可以把它变成一道可做题。">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-22T03:01:53.558Z">
+<meta property="og:updated_time" content="2019-02-22T11:33:15.049Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="「学习笔记」莫比乌斯反演">
-<meta name="twitter:description" content="蒟蒻一枚，请多关照">
+<meta name="twitter:description" content="懵逼钨丝莫比乌斯反演可猥琐了QwQ 莫比乌斯反演可以用来计算一些难以用其他方法转换,数据又特别大的式子,就像下面这种——  \sum^N_i\sum^M_j \gcd(i, j)(洛谷P1447 [NOI2010]能量采集) 通过莫比乌斯反演,就可以把它变成一道可做题。">
 
 
 
@@ -380,7 +381,114 @@
       
 
       
-        
+        <p><del>懵逼钨丝</del>莫比乌斯反演可猥琐了QwQ</p>
+<p>莫比乌斯反演可以用来计算一些难以用其他方法转换,数据又特别大的式子,就像下面这种——</p>
+<script type="math/tex; mode=display">
+\sum^N_i\sum^M_j \gcd(i, j)</script><p>(<a href="https://www.luogu.org/problemnew/show/P1447" target="_blank" rel="noopener">洛谷P1447 [NOI2010]能量采集</a>)</p>
+<p>通过莫比乌斯反演,就可以把它变成一道可做题。</p>
+<a id="more"></a>
+<h1 id="前置芝士"><a href="#前置芝士" class="headerlink" title="前置芝士"></a>前置芝士</h1><p>请先学习以下芝士</p>
+<p><a href="louhc.github.io/2019/02/22/%E3%80%8C%E6%95%B4%E7%90%86%E3%80%8D%E6%95%B0%E5%AD%A6%E6%9D%82%E9%A1%B9/]">数论分块</a><br>线性筛</p>
+<h1 id="积性函数"><a href="#积性函数" class="headerlink" title="积性函数"></a>积性函数</h1><p>如果函数$f$满足$\forall \gcd(i,j) = 1, f(i\times j) = f(i)\times f(j)$,那么$f$为积性函数。</p>
+<p>积性函数还可以分出一类完全积性函数。即满足$\forall i,j, f(i\times j)=f(i)\times f(j)$。</p>
+<p>常见的积性函数有</p>
+<script type="math/tex; mode=display">
+\qquad
+\begin{array}
+\text{约数个数函数}&d(n)=\displaystyle\sum_{d\mid n}1 \\
+\text{约数和函数}&\displaystyle\sigma(n)=\sum_{d\mid n}d \\
+\text{约数 $k$ 次幂函数}&\displaystyle\sigma_k(n)=\sum_{d\mid n}d^k \\
+\text{欧拉函数}&\displaystyle\varphi(n)=\sum_{i=1}^n [\gcd(i,n)=1] \\
+\text{莫比乌斯函数}&\displaystyle\mu(n)\text{下面会介绍} \\
+\end{array}</script><script type="math/tex; mode=display">
+P.S.[\text{逻辑表达式}]\text{表示当逻辑表达式为真,值为1,否则为0}</script><p>常见完全积性函数有</p>
+<script type="math/tex; mode=display">
+\qquad
+\begin{array}
+\text{1函数}&1(n)=1 \\
+\text{ID函数}&ID(n)=n \\
+\epsilon\text{函数}&\epsilon(n)=[n=1] \\
+\end{array}</script><p>若 $f$ 和 $g$ 均为积性函数，则以下函数也为积性函数：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+h(x)&=f(x^p)\\
+h(x)&=f^p(x)\\
+h(x)&=f(x)g(x)\\
+h(x)&=\sum_{d\mid x}f(d)g(\frac{x}{d})
+\end{aligned}</script><p>积性函数一般都可以用线性筛筛出。(这个比较简单,请自行查找资料)</p>
+<h1 id="莫比乌斯函数"><a href="#莫比乌斯函数" class="headerlink" title="莫比乌斯函数"></a>莫比乌斯函数</h1><script type="math/tex; mode=display">
+\mu(n)=
+\begin{cases}
+1 & n=1\\
+(-1)^k & c_{1,2,\cdots,k}=1\quad(n=\displaystyle\prod_{i=1}^k {p_i}^{c_i})\\
+0 & c_i>1
+\end{cases}</script><p>简单地说,就是当$n$为1,函数值为1;当$n&gt;1$,若$n$为某数的平方的倍数,函数值为0;否则设$k$为$n$的质因数个数,函数值为$(-1)^k$</p>
+<h1 id="Dirichlet卷积-狄利克雷卷积"><a href="#Dirichlet卷积-狄利克雷卷积" class="headerlink" title="Dirichlet卷积(狄利克雷卷积)"></a>Dirichlet卷积(狄利克雷卷积)</h1><p>Dirichlet卷积可以看成函数之间的一种运算。对于两个数论函数(即定义域为正整数的函数)$f$,$g$,它们的Dirichlet卷积为</p>
+<script type="math/tex; mode=display">
+(f * g)(n) = \sum_{d|n}f(d) \times g(\frac nd)</script><p>$\varepsilon$为Dirichlet卷积的单位元,即$f * \varepsilon = f$</p>
+<p>若$f$,$g$为积性函数,$f * g$也为积性函数。</p>
+<p>证明:</p>
+<script type="math/tex; mode=display">
+\text{设n,m,gcd(n,m)=1} \\
+(f * g)(n)\times (f * g)(m) = \sum_{i|n}f(i) \times g(\frac ni) \times ( \sum_{j|m}f(j) \times g(\frac mj) ) \\
+\text{变换循环顺序} \\
+(f * g)(n)\times (f * g)(m) = \sum_{i|n}\sum_{j|m}f(i) \times g(\frac ni) \times f(j) \times g(\frac mj)\\
+= \sum_{i|n}\sum_{j|m}f(ij) \times g(\frac {nm}{ij})\\
+\text{由于n,m互质,i|n,j|m,则nm的所有因数都可以表示成ij,设k=ij}\\
+(f * g)(n)\times (f * g)(m) = \sum_{k|(nm)}f(k) \times g(\frac {nm}{k}) = (f * g)(nm)</script><p>Dirichlet卷积满足交换律和结合律。</p>
+<p>前者很好证,这里省略。后者全部展开就好了,这里省略。</p>
+<p>常见的Dirichlet卷积:</p>
+<script type="math/tex; mode=display">
+\epsilon=\mu * 1 \\
+d=1 * 1 \\
+\varphi=\mu * ID \\</script><p>我们先证明第一个,第三个(第二个这么简单就算了)也给出来,但是建议先看莫比乌斯反演。</p>
+<ul>
+<li>证明$\epsilon=\mu * 1$:</li>
+</ul>
+<script type="math/tex; mode=display">
+\epsilon(n)=\sum_{d|n}\mu(d)</script><p>根据唯一分解定理,我们可以用$n$的质因数($p_1,p_2,p_3…$)来组成$d$。</p>
+<p>很明显,每个$p_i$取两个或以上对答案是没有影响的(根据定义,$\mu$函数值为0)。<br>可以得出以下式子</p>
+<script type="math/tex; mode=display">
+\text{设n有t个质因数} \\
+\epsilon(n)=\sum_{i=0}^t (-1)^i \times C_t^i</script><p><del>根据二项式定理,如果n为1,值为1,否则为0</del><br>说实话我从二项式定理看不出这点。(大概是我太菜了吧)<br>我们可以从排列组合方面考虑。<br>我们设$f(i,j)=(-1)^i \times C_i^j$<br>则$f(i,j) = f(i - 1,j) - f(i - 1, j - 1)$</p>
+<script type="math/tex; mode=display">
+\sum_{i=0}^t f(t,i) = f(t - 1, 0) + ( \sum_{i=1}^{t-1}(f(t-1,i)-f(t-1,i-1))) - f(t - 1,t - 1)</script><p>很明显这是可以两两消去的。(当然,t = 0时除外)</p>
+<p>可以得出</p>
+<script type="math/tex; mode=display">
+\epsilon(n)=\sum_{i=0}^t (-1)^i \times C_t^i = [n = 1]</script><p>接下来的证明请先学习莫比乌斯反演。</p>
+<ul>
+<li>证明$\varphi=\mu * ID$:</li>
+</ul>
+<p>可以利用欧拉函数的定义+莫比乌斯反演来证。</p>
+<p>我们先在等式两边同时卷1</p>
+<script type="math/tex; mode=display">
+\varphi * 1 = 1 * \mu * ID \\
+\varphi * 1 = \varepsilon * ID \\
+\varphi * 1 = ID \\
+(\varphi * 1)(n) = \sum_{d|n}\varphi(d) = \sum_{d|n}\varphi(n / d)</script><p>可以认为上面柿子中$\varphi(n / d)$表示$\sum_i=1^n[gcd(n,i)=d]$,很明显,每个数与$n$的公约数不变,对答案有且仅有$1$的贡献,最终的值即为$n$</p>
+<h1 id="莫比乌斯反演"><a href="#莫比乌斯反演" class="headerlink" title="莫比乌斯反演"></a>莫比乌斯反演</h1><p>总算写到这里了(掩面痛哭</p>
+<p>对于两个数论函数$f$,$g$</p>
+<script type="math/tex; mode=display">
+f = g * 1 \Leftrightarrow f * \mu = g</script><p>直接用Dirichlet卷积即可。</p>
+<script type="math/tex; mode=display">
+f = g * 1 \\
+\text{两边同时卷} \mu \\
+f * \mu = g * 1 * \mu \\
+f * \mu = g * \varepsilon \\
+f * \mu = g</script><h1 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h1><p><a href="https://www.luogu.org/problemnew/show/P2522" target="_blank" rel="noopener">洛谷P2522 [HAOI2011]Problem b</a></p>
+<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>对于给出的$n$个询问,每次求有多少个数对$(x,y)$,满足$a\le x\le b,c\le y\le d$,且$\gcd(x,y)=k$,$\gcd(x,y)$函数为$x$和$y$的最大公约数。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>我们可以求$x \le n,y \le m$,差分处理即可。<br>我们认为n &lt; m,否则交换即可。以下/均表示整除</p>
+<script type="math/tex; mode=display">
+Ans = \sum_{i=1}^n\sum_{j=1}^m[gcd(i, j) = k] \\
+Ans = \sum_{i=1}^{n/k}\sum_{j=1}^{m/k}[gcd(i,j)=1] \\
+\text{设n/k=a,m/k=b} \\
+Ans = \sum_{i=1}^{a}\sum_{j=1}^{b}\varepsilon(gcd(i,j)) \\
+Ans = \sum_{i=1}^{a}\sum_{j=1}^{b}(\mu * 1)(gcd(i,j)) \\
+Ans = \sum_{i=1}^{a}\sum_{j=1}^{b}\sum_{d|gcd(i,j)}\mu(d) \\
+Ans = \sum_{i=1}^{a}\sum_{j=1}^{b}\sum_{d|i,d|j}\mu(d) \\
+Ans = \sum_{d=1}^{a}\sum_{i=1}^{a/d}\sum_{j=1}^{b/d}\mu(d) \\
+Ans = \sum_{d=1}^{a}\mu(d) \times (a/d) \times (b/d)</script><p>然后我们就可以筛出$\mu$ -&gt; 前缀和 -&gt; 数论分块啦</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXN 50000</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> T, a, b, c, d, k;</span><br><span class="line"><span class="keyword">int</span> mu[MAXN + <span class="number">5</span>], p[MAXN + <span class="number">5</span>], tot;</span><br><span class="line"><span class="keyword">bool</span> vis[MAXN + <span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Work</span><span class="params">( <span class="keyword">int</span> N, <span class="keyword">int</span> M )</span></span>&#123; <span class="function"><span class="keyword">int</span> <span class="title">ans</span><span class="params">(<span class="number">0</span>)</span></span>; <span class="keyword">if</span> ( N &gt; M ) swap( N, M );</span><br><span class="line">	<span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>, j; i &lt;= N; i = j + <span class="number">1</span> )&#123;</span><br><span class="line">		j = min( N / ( N / i ), M / ( M / i ) );</span><br><span class="line">		ans += ( N / i ) * ( M / i ) * ( mu[j] - mu[i - <span class="number">1</span>] );</span><br><span class="line">	&#125; <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>( <span class="string">"%d"</span>, &amp;T ); mu[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= MAXN; ++i )&#123;</span><br><span class="line">		<span class="keyword">if</span> ( !vis[i] ) p[++tot] = i, mu[i] = <span class="number">-1</span>;</span><br><span class="line">		<span class="keyword">for</span> ( <span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= tot &amp;&amp; p[j] * i &lt;= MAXN; ++j )&#123;</span><br><span class="line">			vis[p[j] * i] = <span class="number">1</span>;</span><br><span class="line">			<span class="keyword">if</span> ( i % p[j] ) mu[p[j] * i] = -mu[i]; <span class="keyword">else</span> &#123; mu[p[j] * i] = <span class="number">0</span>; <span class="keyword">break</span>; &#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125; <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= MAXN; ++i ) mu[i] += mu[i - <span class="number">1</span>];</span><br><span class="line">	<span class="keyword">while</span>( T-- )&#123;</span><br><span class="line">		<span class="built_in">scanf</span>( <span class="string">"%d%d%d%d%d"</span>, &amp;a, &amp;b, &amp;c, &amp;d, &amp;k );</span><br><span class="line">		--a; --c; a /= k; b /= k; c /= k; d /= k; </span><br><span class="line">		<span class="built_in">printf</span>( <span class="string">"%d\n"</span>, Work( b, d ) - Work( a, d ) - Work( c, b ) + Work( a, c ) );</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -397,6 +505,16 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数学-数论/" rel="tag"># 数学,数论</a>
+          
+            <a href="/tags/学习笔记/" rel="tag"># 学习笔记</a>
+          
+            <a href="/tags/莫比乌斯反演/" rel="tag"># 莫比乌斯反演</a>
+          
+        </div>
       
 
       
@@ -416,6 +534,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/02/22/「整理」数学杂项/" rel="prev" title="「整理」数学杂项">
+                「整理」数学杂项 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -465,8 +587,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -656,7 +787,17 @@
                     
                       
                     
-                    <span class="site-state-item-count">79</span>
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">84</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -701,6 +842,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前置芝士"><span class="nav-number">1.</span> <span class="nav-text">前置芝士</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#积性函数"><span class="nav-number">2.</span> <span class="nav-text">积性函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#莫比乌斯函数"><span class="nav-number">3.</span> <span class="nav-text">莫比乌斯函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Dirichlet卷积-狄利克雷卷积"><span class="nav-number">4.</span> <span class="nav-text">Dirichlet卷积(狄利克雷卷积)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#莫比乌斯反演"><span class="nav-number">5.</span> <span class="nav-text">莫比乌斯反演</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#例题"><span class="nav-number">6.</span> <span class="nav-text">例题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题意"><span class="nav-number">6.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路"><span class="nav-number">6.2.</span> <span class="nav-text">思路</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1017,6 +1174,29 @@
   
   
 
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
   
 
 
