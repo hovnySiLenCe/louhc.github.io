@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.0.6" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.0.6">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/my-icon.ico?v=6.0.6">
+
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.0.6" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.0.6',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="懵逼钨丝莫比乌斯反演可猥琐了QwQ 莫比乌斯反演可以用来计算一些难以用其他方法转换,数据又特别大的式子,就像下面这种——  \sum^N_i\sum^M_j \gcd(i, j)(洛谷P1447 [NOI2010]能量采集) 通过莫比乌斯反演,就可以把它变成一道可做题。">
+<meta name="keywords" content="数学,数论,学习笔记,莫比乌斯反演">
+<meta property="og:type" content="article">
+<meta property="og:title" content="「学习笔记」莫比乌斯反演">
+<meta property="og:url" content="https://louhc.github.io/2019/02/22/notes-mobius-inversion-formula/index.html">
+<meta property="og:site_name" content="Hello,I am louhc">
+<meta property="og:description" content="懵逼钨丝莫比乌斯反演可猥琐了QwQ 莫比乌斯反演可以用来计算一些难以用其他方法转换,数据又特别大的式子,就像下面这种——  \sum^N_i\sum^M_j \gcd(i, j)(洛谷P1447 [NOI2010]能量采集) 通过莫比乌斯反演,就可以把它变成一道可做题。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-02-22T11:43:55.687Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="「学习笔记」莫比乌斯反演">
+<meta name="twitter:description" content="懵逼钨丝莫比乌斯反演可猥琐了QwQ 莫比乌斯反演可以用来计算一些难以用其他方法转换,数据又特别大的式子,就像下面这种——  \sum^N_i\sum^M_j \gcd(i, j)(洛谷P1447 [NOI2010]能量采集) 通过莫比乌斯反演,就可以把它变成一道可做题。">
+
+
+
+
+
+
+  <link rel="canonical" href="https://louhc.github.io/2019/02/22/notes-mobius-inversion-formula/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>「学习笔记」莫比乌斯反演 | Hello,I am louhc</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <!--fork me on github-->
+    <a href="https://github.com/louhc" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style></a>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> 
+
+<div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hello,I am louhc</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">An OIer From Zhejiang</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+          
+  <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-contest">
+    <a href="/contest/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>contest</a>
+</li>
+
+      
+
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+  
+
+
+
+ </div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://louhc.github.io/2019/02/22/notes-mobius-inversion-formula/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="louhc">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hello,I am louhc">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">「学习笔记」莫比乌斯反演</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-02-22T11:01:53+08:00">2019-02-22</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/02/22/notes-mobius-inversion-formula/" class="leancloud_visitors" data-flag-title="「学习笔记」莫比乌斯反演">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><del>懵逼钨丝</del>莫比乌斯反演可猥琐了QwQ</p>
+<p>莫比乌斯反演可以用来计算一些难以用其他方法转换,数据又特别大的式子,就像下面这种——</p>
+<script type="math/tex; mode=display">
+\sum^N_i\sum^M_j \gcd(i, j)</script><p>(<a href="https://www.luogu.org/problemnew/show/P1447" target="_blank" rel="noopener">洛谷P1447 [NOI2010]能量采集</a>)</p>
+<p>通过莫比乌斯反演,就可以把它变成一道可做题。</p>
+<a id="more"></a>
+<h1 id="前置芝士"><a href="#前置芝士" class="headerlink" title="前置芝士"></a>前置芝士</h1><p>请先学习以下芝士</p>
+<p><a href="/2019/02/22/「整理」数学杂项/">数论分块</a><br>线性筛</p>
+<h1 id="积性函数"><a href="#积性函数" class="headerlink" title="积性函数"></a>积性函数</h1><p>如果函数$f$满足$\forall \gcd(i,j) = 1, f(i\times j) = f(i)\times f(j)$,那么$f$为积性函数。</p>
+<p>积性函数还可以分出一类完全积性函数。即满足$\forall i,j, f(i\times j)=f(i)\times f(j)$。</p>
+<p>常见的积性函数有</p>
+<script type="math/tex; mode=display">
+\qquad
+\begin{array}
+\text{约数个数函数}&d(n)=\displaystyle\sum_{d\mid n}1 \\
+\text{约数和函数}&\displaystyle\sigma(n)=\sum_{d\mid n}d \\
+\text{约数 $k$ 次幂函数}&\displaystyle\sigma_k(n)=\sum_{d\mid n}d^k \\
+\text{欧拉函数}&\displaystyle\varphi(n)=\sum_{i=1}^n [\gcd(i,n)=1] \\
+\text{莫比乌斯函数}&\displaystyle\mu(n)\text{下面会介绍} \\
+\end{array}</script><script type="math/tex; mode=display">
+P.S.[\text{逻辑表达式}]\text{表示当逻辑表达式为真,值为1,否则为0}</script><p>常见完全积性函数有</p>
+<script type="math/tex; mode=display">
+\qquad
+\begin{array}
+\text{1函数}&1(n)=1 \\
+\text{ID函数}&ID(n)=n \\
+\epsilon\text{函数}&\epsilon(n)=[n=1] \\
+\end{array}</script><p>若 $f$ 和 $g$ 均为积性函数，则以下函数也为积性函数：</p>
+<script type="math/tex; mode=display">
+\begin{aligned}
+h(x)&=f(x^p)\\
+h(x)&=f^p(x)\\
+h(x)&=f(x)g(x)\\
+h(x)&=\sum_{d\mid x}f(d)g(\frac{x}{d})
+\end{aligned}</script><p>积性函数一般都可以用线性筛筛出。(这个比较简单,请自行查找资料)</p>
+<h1 id="莫比乌斯函数"><a href="#莫比乌斯函数" class="headerlink" title="莫比乌斯函数"></a>莫比乌斯函数</h1><script type="math/tex; mode=display">
+\mu(n)=
+\begin{cases}
+1 & n=1\\
+(-1)^k & c_{1,2,\cdots,k}=1\quad(n=\displaystyle\prod_{i=1}^k {p_i}^{c_i})\\
+0 & c_i>1
+\end{cases}</script><p>简单地说,就是当$n$为1,函数值为1;当$n&gt;1$,若$n$为某数的平方的倍数,函数值为0;否则设$k$为$n$的质因数个数,函数值为$(-1)^k$</p>
+<h1 id="Dirichlet卷积-狄利克雷卷积"><a href="#Dirichlet卷积-狄利克雷卷积" class="headerlink" title="Dirichlet卷积(狄利克雷卷积)"></a>Dirichlet卷积(狄利克雷卷积)</h1><p>Dirichlet卷积可以看成函数之间的一种运算。对于两个数论函数(即定义域为正整数的函数)$f$,$g$,它们的Dirichlet卷积为</p>
+<script type="math/tex; mode=display">
+(f * g)(n) = \sum_{d|n}f(d) \times g(\frac nd)</script><p>$\varepsilon$为Dirichlet卷积的单位元,即$f * \varepsilon = f$</p>
+<p>若$f$,$g$为积性函数,$f * g$也为积性函数。</p>
+<p>证明:</p>
+<script type="math/tex; mode=display">
+\text{设n,m,gcd(n,m)=1} \\
+(f * g)(n)\times (f * g)(m) = \sum_{i|n}f(i) \times g(\frac ni) \times ( \sum_{j|m}f(j) \times g(\frac mj) ) \\
+\text{变换循环顺序} \\
+(f * g)(n)\times (f * g)(m) = \sum_{i|n}\sum_{j|m}f(i) \times g(\frac ni) \times f(j) \times g(\frac mj)\\
+= \sum_{i|n}\sum_{j|m}f(ij) \times g(\frac {nm}{ij})\\
+\text{由于n,m互质,i|n,j|m,则nm的所有因数都可以表示成ij,设k=ij}\\
+(f * g)(n)\times (f * g)(m) = \sum_{k|(nm)}f(k) \times g(\frac {nm}{k}) = (f * g)(nm)</script><p>Dirichlet卷积满足交换律和结合律。</p>
+<p>前者很好证,这里省略。后者全部展开就好了,这里省略。</p>
+<p>常见的Dirichlet卷积:</p>
+<script type="math/tex; mode=display">
+\epsilon=\mu * 1 \\
+d=1 * 1 \\
+\varphi=\mu * ID \\</script><p>我们先证明第一个,第三个(第二个这么简单就算了)也给出来,但是建议先看莫比乌斯反演。</p>
+<ul>
+<li>证明$\epsilon=\mu * 1$:</li>
+</ul>
+<script type="math/tex; mode=display">
+\epsilon(n)=\sum_{d|n}\mu(d)</script><p>根据唯一分解定理,我们可以用$n$的质因数($p_1,p_2,p_3…$)来组成$d$。</p>
+<p>很明显,每个$p_i$取两个或以上对答案是没有影响的(根据定义,$\mu$函数值为0)。<br>可以得出以下式子</p>
+<script type="math/tex; mode=display">
+\text{设n有t个质因数} \\
+\epsilon(n)=\sum_{i=0}^t (-1)^i \times C_t^i</script><p><del>根据二项式定理,如果n为1,值为1,否则为0</del><br>说实话我从二项式定理看不出这点。(大概是我太菜了吧)<br>我们可以从排列组合方面考虑。<br>我们设$f(i,j)=(-1)^i \times C_i^j$<br>则$f(i,j) = f(i - 1,j) - f(i - 1, j - 1)$</p>
+<script type="math/tex; mode=display">
+\sum_{i=0}^t f(t,i) = f(t - 1, 0) + ( \sum_{i=1}^{t-1}(f(t-1,i)-f(t-1,i-1))) - f(t - 1,t - 1)</script><p>很明显这是可以两两消去的。(当然,t = 0时除外)</p>
+<p>可以得出</p>
+<script type="math/tex; mode=display">
+\epsilon(n)=\sum_{i=0}^t (-1)^i \times C_t^i = [n = 1]</script><p>接下来的证明请先学习莫比乌斯反演。</p>
+<ul>
+<li>证明$\varphi=\mu * ID$:</li>
+</ul>
+<p>可以利用欧拉函数的定义+莫比乌斯反演来证。</p>
+<p>我们先在等式两边同时卷1</p>
+<script type="math/tex; mode=display">
+\varphi * 1 = 1 * \mu * ID \\
+\varphi * 1 = \varepsilon * ID \\
+\varphi * 1 = ID \\
+(\varphi * 1)(n) = \sum_{d|n}\varphi(d) = \sum_{d|n}\varphi(n / d)</script><p>可以认为上面柿子中$\varphi(n / d)$表示$\sum_i=1^n[gcd(n,i)=d]$,很明显,每个数与$n$的公约数不变,对答案有且仅有$1$的贡献,最终的值即为$n$</p>
+<h1 id="莫比乌斯反演"><a href="#莫比乌斯反演" class="headerlink" title="莫比乌斯反演"></a>莫比乌斯反演</h1><p>总算写到这里了(掩面痛哭</p>
+<p>对于两个数论函数$f$,$g$</p>
+<script type="math/tex; mode=display">
+f = g * 1 \Leftrightarrow f * \mu = g</script><p>直接用Dirichlet卷积即可。</p>
+<script type="math/tex; mode=display">
+f = g * 1 \\
+\text{两边同时卷} \mu \\
+f * \mu = g * 1 * \mu \\
+f * \mu = g * \varepsilon \\
+f * \mu = g</script><h1 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h1><p><a href="https://www.luogu.org/problemnew/show/P2522" target="_blank" rel="noopener">洛谷P2522 [HAOI2011]Problem b</a></p>
+<h2 id="题意"><a href="#题意" class="headerlink" title="题意"></a>题意</h2><p>对于给出的$n$个询问,每次求有多少个数对$(x,y)$,满足$a\le x\le b,c\le y\le d$,且$\gcd(x,y)=k$,$\gcd(x,y)$函数为$x$和$y$的最大公约数。</p>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>我们可以求$x \le n,y \le m$,差分处理即可。<br>我们认为n &lt; m,否则交换即可。以下/均表示整除</p>
+<script type="math/tex; mode=display">
+Ans = \sum_{i=1}^n\sum_{j=1}^m[gcd(i, j) = k] \\
+Ans = \sum_{i=1}^{n/k}\sum_{j=1}^{m/k}[gcd(i,j)=1] \\
+\text{设n/k=a,m/k=b} \\
+Ans = \sum_{i=1}^{a}\sum_{j=1}^{b}\varepsilon(gcd(i,j)) \\
+Ans = \sum_{i=1}^{a}\sum_{j=1}^{b}(\mu * 1)(gcd(i,j)) \\
+Ans = \sum_{i=1}^{a}\sum_{j=1}^{b}\sum_{d|gcd(i,j)}\mu(d) \\
+Ans = \sum_{i=1}^{a}\sum_{j=1}^{b}\sum_{d|i,d|j}\mu(d) \\
+Ans = \sum_{d=1}^{a}\sum_{i=1}^{a/d}\sum_{j=1}^{b/d}\mu(d) \\
+Ans = \sum_{d=1}^{a}\mu(d) \times (a/d) \times (b/d)</script><p>然后我们就可以筛出$\mu$ -&gt; 前缀和 -&gt; 数论分块啦</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXN 50000</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> T, a, b, c, d, k;</span><br><span class="line"><span class="keyword">int</span> mu[MAXN + <span class="number">5</span>], p[MAXN + <span class="number">5</span>], tot;</span><br><span class="line"><span class="keyword">bool</span> vis[MAXN + <span class="number">5</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">Work</span><span class="params">( <span class="keyword">int</span> N, <span class="keyword">int</span> M )</span></span>&#123; <span class="function"><span class="keyword">int</span> <span class="title">ans</span><span class="params">(<span class="number">0</span>)</span></span>; <span class="keyword">if</span> ( N &gt; M ) swap( N, M );</span><br><span class="line">	<span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>, j; i &lt;= N; i = j + <span class="number">1</span> )&#123;</span><br><span class="line">		j = min( N / ( N / i ), M / ( M / i ) );</span><br><span class="line">		ans += ( N / i ) * ( M / i ) * ( mu[j] - mu[i - <span class="number">1</span>] );</span><br><span class="line">	&#125; <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>( <span class="string">"%d"</span>, &amp;T ); mu[<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= MAXN; ++i )&#123;</span><br><span class="line">		<span class="keyword">if</span> ( !vis[i] ) p[++tot] = i, mu[i] = <span class="number">-1</span>;</span><br><span class="line">		<span class="keyword">for</span> ( <span class="keyword">int</span> j = <span class="number">1</span>; j &lt;= tot &amp;&amp; p[j] * i &lt;= MAXN; ++j )&#123;</span><br><span class="line">			vis[p[j] * i] = <span class="number">1</span>;</span><br><span class="line">			<span class="keyword">if</span> ( i % p[j] ) mu[p[j] * i] = -mu[i]; <span class="keyword">else</span> &#123; mu[p[j] * i] = <span class="number">0</span>; <span class="keyword">break</span>; &#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125; <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= MAXN; ++i ) mu[i] += mu[i - <span class="number">1</span>];</span><br><span class="line">	<span class="keyword">while</span>( T-- )&#123;</span><br><span class="line">		<span class="built_in">scanf</span>( <span class="string">"%d%d%d%d%d"</span>, &amp;a, &amp;b, &amp;c, &amp;d, &amp;k );</span><br><span class="line">		--a; --c; a /= k; b /= k; c /= k; d /= k; </span><br><span class="line">		<span class="built_in">printf</span>( <span class="string">"%d\n"</span>, Work( b, d ) - Work( a, d ) - Work( c, b ) + Work( a, c ) );</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/数学-数论/" rel="tag"># 数学,数论</a>
+          
+            <a href="/tags/学习笔记/" rel="tag"># 学习笔记</a>
+          
+            <a href="/tags/莫比乌斯反演/" rel="tag"># 莫比乌斯反演</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/02/16/2019-02-16-contest-solution/" rel="next" title="2019-02-16模拟赛 解题报告">
+                <i class="fa fa-chevron-left"></i> 2019-02-16模拟赛 解题报告
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/02/22/notes-maths-miscellaneous/" rel="prev" title="「整理」数学杂项">
+                「整理」数学杂项 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="louhc">
+            
+              <p class="site-author-name" itemprop="name">louhc</p>
+              <p class="site-description motion-element" itemprop="description">蒟蒻一枚，请多关照</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">98</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">84</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/louhc" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i></a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://twitter.com/louhc1" target="_blank" title="Twitter"><i class="fa fa-fw fa-twitter"></i></a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.facebook.com/dennis.lou.1466" target="_blank" title="FB Page"><i class="fa fa-fw fa-facebook"></i></a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#前置芝士"><span class="nav-number">1.</span> <span class="nav-text">前置芝士</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#积性函数"><span class="nav-number">2.</span> <span class="nav-text">积性函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#莫比乌斯函数"><span class="nav-number">3.</span> <span class="nav-text">莫比乌斯函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Dirichlet卷积-狄利克雷卷积"><span class="nav-number">4.</span> <span class="nav-text">Dirichlet卷积(狄利克雷卷积)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#莫比乌斯反演"><span class="nav-number">5.</span> <span class="nav-text">莫比乌斯反演</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#例题"><span class="nav-number">6.</span> <span class="nav-text">例题</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题意"><span class="nav-number">6.1.</span> <span class="nav-text">题意</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#思路"><span class="nav-number">6.2.</span> <span class="nav-text">思路</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">louhc</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Gemini</a> v6.0.6</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.0.6"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.0.6"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.0.6"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.0.6"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.6"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.6"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.6"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("hLHRxQGXPYFighUdcDfgo90u-gzGzoHsz", "h3zywmfrwKJlNWNSXodQEkrW");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            
+            counter.save(null, {
+              success: function(counter) {
+                
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.get('time'));
+                
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            
+              var newcounter = new Counter();
+              /* Set ACL */
+              var acl = new AV.ACL();
+              acl.setPublicReadAccess(true);
+              acl.setPublicWriteAccess(true);
+              newcounter.setACL(acl);
+              /* End Set ACL */
+              newcounter.set("title", title);
+              newcounter.set("url", url);
+              newcounter.set("time", 1);
+              newcounter.save(null, {
+                success: function(newcounter) {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+                },
+                error: function(newcounter, error) {
+                  console.log('Failed to create');
+                }
+              });
+            
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"log":false});</script></body>
+</html>

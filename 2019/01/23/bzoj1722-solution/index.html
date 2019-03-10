@@ -1,0 +1,1138 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=6.0.6" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.0.6">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/my-icon.ico?v=6.0.6">
+
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.0.6" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '6.0.6',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Milk Team Select 产奶比赛DescriptionFarmer John’s N ($1 \le N \le 500$) cows are trying to select the milking team for the world-famous Multistate Milking Match-up (MMM) competition. As you probably know,">
+<meta name="keywords" content="解题报告,背包DP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="「BZOJ1722」「Usaco2006 Mar」Milk Team Select产奶比赛 解题报告">
+<meta property="og:url" content="https://louhc.github.io/2019/01/23/bzoj1722-solution/index.html">
+<meta property="og:site_name" content="Hello,I am louhc">
+<meta property="og:description" content="Milk Team Select 产奶比赛DescriptionFarmer John’s N ($1 \le N \le 500$) cows are trying to select the milking team for the world-famous Multistate Milking Match-up (MMM) competition. As you probably know,">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://images2018.cnblogs.com/blog/1431616/201808/1431616-20180821115813792-530126048.jpg">
+<meta property="og:updated_time" content="2019-01-24T10:04:50.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="「BZOJ1722」「Usaco2006 Mar」Milk Team Select产奶比赛 解题报告">
+<meta name="twitter:description" content="Milk Team Select 产奶比赛DescriptionFarmer John’s N ($1 \le N \le 500$) cows are trying to select the milking team for the world-famous Multistate Milking Match-up (MMM) competition. As you probably know,">
+<meta name="twitter:image" content="https://images2018.cnblogs.com/blog/1431616/201808/1431616-20180821115813792-530126048.jpg">
+
+
+
+
+
+
+  <link rel="canonical" href="https://louhc.github.io/2019/01/23/bzoj1722-solution/">
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>「BZOJ1722」「Usaco2006 Mar」Milk Team Select产奶比赛 解题报告 | Hello,I am louhc</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+    <!--fork me on github-->
+    <a href="https://github.com/louhc" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style></a>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"> 
+
+<div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hello,I am louhc</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">An OIer From Zhejiang</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+          
+  <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+</li>
+
+      
+        
+        
+          
+  <li class="menu-item menu-item-contest">
+    <a href="/contest/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>contest</a>
+</li>
+
+      
+
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+  
+
+
+
+ </div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://louhc.github.io/2019/01/23/bzoj1722-solution/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="louhc">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hello,I am louhc">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">「BZOJ1722」「Usaco2006 Mar」Milk Team Select产奶比赛 解题报告</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-23T08:16:38+08:00">2019-01-23</time>
+            
+
+            
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/01/23/bzoj1722-solution/" class="leancloud_visitors" data-flag-title="「BZOJ1722」「Usaco2006 Mar」Milk Team Select产奶比赛 解题报告">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">热度&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+                 <span>℃</span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Milk-Team-Select-产奶比赛"><a href="#Milk-Team-Select-产奶比赛" class="headerlink" title="Milk Team Select 产奶比赛"></a><a href="https://www.lydsy.com/JudgeOnline/problem.php?id=1722" target="_blank" rel="noopener">Milk Team Select 产奶比赛</a></h1><h2 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h2><p>Farmer John’s N ($1 \le N \le 500$) cows are trying to select the milking team for the world-famous Multistate Milking Match-up (MMM) competition. As you probably know, any team that produces at least X ($1 \le X \le 1,000,000$) gallons of milk is a winner. Each cow has the potential of contributing between $-10,000$ and $10,000$ gallons of milk. (Sadly, some cows have a tendency to knock over jugs containing milk produced by other cows.) The MMM prides itself on promoting family values. FJ’s cows have no doubt that they can produce X gallons of milk and win the contest, but to support the contest’s spirit,<br><a id="more"></a><br>they want to send a team with as many parent-child relationships as possible (while still producing at least X gallons of milk). Not surprisingly, all the cows on FJ’s farm are female. Given the family tree of FJ’s cows and the amount of milk that each would contribute, compute the maximum number of parent-child relationships that can exist in a winning team. Note that a set of cows with a grandmother-mother-daughter combination has two parent-child relationships (grandmother-mother, mother-daughter).</p>
+<p>约翰的N($1 \le N \le 500$)头奶牛打算组队去参加一个世界级的产奶比赛(Multistate Milking Match-up，缩写为MMM)．她们很清楚其他队的实力，也就是说，她们派出的队只要能产出至少X($1 \le X \le 1000000$)加仑牛奶，就能赢得这场比赛．    每头牛都能为集体贡献一定量的牛奶，数值在$-10000$到$10000$之间（有些奶牛总是想弄翻装着其他奶牛产的奶的瓶子）．</p>
+<p>MMM的举办目的之一，是通过竞赛中的合作来增进家庭成员之间的默契．奶牛们认为她们总是能赢得这场比赛，但为了表示对比赛精神的支持，她们希望在选出的队伍里能有尽可能多的牛来自同一个家庭，也就是说，有尽可能多对的牛有直系血缘关系（当然，这支队伍必须能产出至少X加仑牛奶）．当然了，所有的奶牛都是女性，所以队伍里所有直系血亲都是母女关系．    约翰熟知所有奶牛之间的血缘关系．现在他想知道，如果在保证一支队伍能赢得比赛的情况下，队伍中最多能存在多少对血缘关系．注意，如果一支队伍由某头奶牛和她的母亲、她的外祖母组成，那这支队伍里一共有2对血缘关系（这头奶牛外祖母与她的母亲，以及她与她的母亲）．</p>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>Line 1: Two space-separated integers, N and X.</p>
+<p>Lines 2..N+1: Line i+1 contains two space-separated integers describing cow i. The first integer is the number of gallons of milk cow i would contribute. The second integer (range 1..N) is the index of the cow’s mother. If the cow’s mother is unknown, the second number is 0. The family information has no cycles: no cow is her own mother, grandmother, etc.</p>
+<p>第1行：两个用空格隔开的整数N和X.</p>
+<p>第2到N+1行：每行包括两个用空格隔开的整数，第一个数为一只奶牛能贡献出的牛奶的加仑数，第二个数表示她的母亲的编号．如果她的母亲不在整个牛群里，那第二个数为0．并且，血缘信息不会出现循环，也就是说一头奶牛不会是自己的母亲或祖母，或者更高代的祖先．</p>
+<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>Line 1: The maximum number of parent-child relationships possible on a winning team. Print -1 if no team can win.</p>
+<p>输出在一个能获胜的队伍中，最多可能存在的有血缘关系的牛的对数．如果任何一支队伍都不可能获胜，输出-1.</p>
+<h2 id="Sample-Input"><a href="#Sample-Input" class="headerlink" title="Sample Input"></a>Sample Input</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">5</span> <span class="number">8</span></span><br><span class="line"><span class="number">-1</span> <span class="number">0</span></span><br><span class="line"><span class="number">3</span> <span class="number">1</span></span><br><span class="line"><span class="number">5</span> <span class="number">1</span></span><br><span class="line"><span class="number">-3</span> <span class="number">3</span></span><br><span class="line"><span class="number">2</span> <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<p>第一个数字代表这头奶的产量,第二个数字代表其父亲点是哪一个.</p>
+<p>INPUT DETAILS: There are 5 cows. Cow 1 can produce -1 gallons and has two daughters, cow 2 and 3, who can produce 3 and 5 gallons, respectively. Cow 3 has a daughter (cow 4) who can produce -3 gallons. Then there’s cow 5, who can produce 2 gallons.</p>
+<h2 id="Sample-Output"><a href="#Sample-Output" class="headerlink" title="Sample Output"></a>Sample Output</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2</span><br></pre></td></tr></table></figure>
+<h2 id="HINT"><a href="#HINT" class="headerlink" title="HINT"></a>HINT</h2><p>约翰一共有5头奶牛．第1头奶牛能提供-1加仑的牛奶，且她是第2、第3头奶牛的母亲．第2、第3头奶牛的产奶量务别为3加仑和5加仑．第4头奶牛是第3头奶牛的女儿，她能提供-3加仑牛奶．还有与其他牛都没有关系的第5头奶牛，她的产奶量是2加仑．<br>最好的一支队伍包括第1，2，3，5头奶牛．她们一共能产出$-1+3+5+2=9 \ge 8$加仑牛奶，并且这支队伍里有2对牛有血缘关系（1-2和1-3）．如果只选第2，3，5头奶牛，虽然总产奶量会更高（10加仑），但这支队伍里包含的血缘关系的对数比上一种组合少（队伍里没有血缘关系对）．</p>
+<h2 id="Source"><a href="#Source" class="headerlink" title="Source"></a>Source</h2><p><a href="http://www.lydsy.com/JudgeOnline/problemset.php?search=Gold" target="_blank" rel="noopener">Gold</a></p>
+<hr>
+<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p><strong>很明显</strong>,这是一道动态规划题（看着很像背包嘛）那我们要用什么作为下标呢？</p>
+<ol>
+<li>以牛奶量：牛奶量的数据范围较大，最多只能开一维数组(除非你开滚动数组)。总体来说较难考虑。</li>
+<li>以关系数：关系数最多只有 N - 1 对，可以给每头牛开一个 MAXN 的数组，看起来更行得通。。。</li>
+</ol>
+<p>还有，因为要考虑关系数的转换问题，所以还有开一维[0/1]表示这头牛取不取。</p>
+<p>我们发现，这些关系是无环的，或者说这是一个森林(本来我想用拓扑排序，后来还是放弃了。。。)，所以可以再建立一头“牛祖先”，连接原来所有祖先，构成一棵树(即无母亲的节点都认0为母亲)。</p>
+<p>对于样例，可以构成如图的一棵树：</p>
+<p><img src="https://images2018.cnblogs.com/blog/1431616/201808/1431616-20180821115813792-530126048.jpg" alt="img"></p>
+<p>整理一下，刚才讲到建立一个 $int f[MAXN][MAXN][2];$ 的数组，$f[i][j][op]$表示以第 i 个节点为根的树 共有 j 对关系，op = 1 时表示取这个节点，op = 0 时表示不取。</p>
+<p>可以把 关系数 作为背包容量，牛奶量 作为 价值</p>
+<p>用分组背包的方法来考虑。</p>
+<p>具体的部分自己慢慢理解吧。</p>
+<p>上代码——</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXN 505</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> INF 0x3f3f3f3f</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> N, X, ans;</span><br><span class="line"><span class="keyword">int</span> c[MAXN], t;</span><br><span class="line"><span class="keyword">int</span> head[MAXN], to[MAXN &lt;&lt; <span class="number">1</span>], nxt[MAXN &lt;&lt; <span class="number">1</span>], tot(<span class="number">0</span>);</span><br><span class="line"><span class="keyword">int</span> f[MAXN][MAXN][<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Add</span><span class="params">( <span class="keyword">int</span> x, <span class="keyword">int</span> y )</span></span>&#123;</span><br><span class="line">    to[++tot] = y; nxt[tot] = head[x]; head[x] = tot; </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS</span><span class="params">( <span class="keyword">int</span> x, <span class="keyword">int</span> fa )</span></span>&#123;</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= N; i++ ) f[x][i][<span class="number">0</span>] = f[x][i][<span class="number">1</span>] = -INF;<span class="comment">//初始值均为负无穷</span></span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = head[x]; i; i = nxt[i] )&#123;</span><br><span class="line">        <span class="keyword">if</span> ( to[i] == fa ) <span class="keyword">continue</span>;</span><br><span class="line">        DFS( to[i], x );<span class="comment">//先完成子节点</span></span><br><span class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span> j = N; j &gt;= <span class="number">0</span>; --j )&#123;<span class="comment">//分配的关系数</span></span><br><span class="line">            <span class="keyword">for</span> ( <span class="keyword">int</span> k = <span class="number">0</span>; k &lt;= j; ++k )&#123;<span class="comment">//背包——</span></span><br><span class="line">                f[x][j][<span class="number">1</span>] = max( f[x][j][<span class="number">1</span>], f[x][j - k][<span class="number">1</span>] + max( k == <span class="number">0</span> ? -INF : f[to[i]][k - <span class="number">1</span>][<span class="number">1</span>], f[to[i]][k][<span class="number">0</span>] ) );</span><br><span class="line">                f[x][j][<span class="number">0</span>] = max( f[x][j][<span class="number">0</span>], f[x][j - k][<span class="number">0</span>] + max( f[to[i]][k][<span class="number">1</span>], f[to[i]][k][<span class="number">0</span>] ) );</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= N; ++i ) f[x][i][<span class="number">1</span>] += c[x];<span class="comment">//若取这个节点，加上这个点的价值</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="built_in">scanf</span>( <span class="string">"%d%d"</span>, &amp;N, &amp;X );</span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= N; ++i )&#123;</span><br><span class="line">        <span class="built_in">scanf</span>( <span class="string">"%d%d"</span>, &amp;c[i], &amp;t );</span><br><span class="line">        Add( i, t ); Add( t, i );<span class="comment">//链式前向星存边</span></span><br><span class="line">    &#125;</span><br><span class="line">    DFS( <span class="number">0</span>, <span class="number">-1</span> );</span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">ans</span><span class="params">(N)</span></span>;</span><br><span class="line">    <span class="keyword">while</span>( ans &gt;= <span class="number">0</span> )&#123;</span><br><span class="line">        <span class="keyword">if</span> ( f[<span class="number">0</span>][ans][<span class="number">0</span>] &gt;= X ) <span class="keyword">break</span>;</span><br><span class="line">        ans--;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="built_in">printf</span>( <span class="string">"%d\n"</span>, ans );</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/解题报告/" rel="tag"># 解题报告</a>
+          
+            <a href="/tags/背包DP/" rel="tag"># 背包DP</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/23/bzoj1385-solution/" rel="next" title="「BZOJ1385」「Baltic2000」Division expression 解题报告">
+                <i class="fa fa-chevron-left"></i> 「BZOJ1385」「Baltic2000」Division expression 解题报告
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/01/23/「CodeForces-546B」Soldier-and-Badges-解题报告/" rel="prev" title="「CodeForces 546B」Soldier and Badges 解题报告">
+                「CodeForces 546B」Soldier and Badges 解题报告 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="louhc">
+            
+              <p class="site-author-name" itemprop="name">louhc</p>
+              <p class="site-description motion-element" itemprop="description">蒟蒻一枚，请多关照</p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">98</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">84</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/louhc" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i></a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://twitter.com/louhc1" target="_blank" title="Twitter"><i class="fa fa-fw fa-twitter"></i></a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.facebook.com/dennis.lou.1466" target="_blank" title="FB Page"><i class="fa fa-fw fa-facebook"></i></a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Milk-Team-Select-产奶比赛"><span class="nav-number">1.</span> <span class="nav-text">Milk Team Select 产奶比赛</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Description"><span class="nav-number">1.1.</span> <span class="nav-text">Description</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Input"><span class="nav-number">1.2.</span> <span class="nav-text">Input</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Output"><span class="nav-number">1.3.</span> <span class="nav-text">Output</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sample-Input"><span class="nav-number">1.4.</span> <span class="nav-text">Sample Input</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sample-Output"><span class="nav-number">1.5.</span> <span class="nav-text">Sample Output</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HINT"><span class="nav-number">1.6.</span> <span class="nav-text">HINT</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Source"><span class="nav-number">1.7.</span> <span class="nav-text">Source</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#思路"><span class="nav-number">2.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码"><span class="nav-number">3.</span> <span class="nav-text">代码</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">louhc</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Gemini</a> v6.0.6</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three.min.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.0.6"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.0.6"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.0.6"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.0.6"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.0.6"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.0.6"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.6"></script>
+
+
+
+  
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("hLHRxQGXPYFighUdcDfgo90u-gzGzoHsz", "h3zywmfrwKJlNWNSXodQEkrW");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            
+            counter.save(null, {
+              success: function(counter) {
+                
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(counter.get('time'));
+                
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            
+              var newcounter = new Counter();
+              /* Set ACL */
+              var acl = new AV.ACL();
+              acl.setPublicReadAccess(true);
+              acl.setPublicWriteAccess(true);
+              newcounter.setACL(acl);
+              /* End Set ACL */
+              newcounter.set("title", title);
+              newcounter.set("url", url);
+              newcounter.set("time", 1);
+              newcounter.save(null, {
+                success: function(newcounter) {
+                  var $element = $(document.getElementById(url));
+                  $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+                },
+                error: function(newcounter, error) {
+                  console.log('Failed to create');
+                }
+              });
+            
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+<script src="/live2dw/lib/L2Dwidget.min.js?0c58a1486de42ac6cc1c59c7d98ae887"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/z16.model.json"},"log":false});</script></body>
+</html>
