@@ -2,6 +2,15 @@
 
 
 
+
+
+
+
+
+
+
+
+
   
 
 
@@ -23,8 +32,6 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -39,6 +46,21 @@
 
 
 
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
 
 
 
@@ -46,36 +68,15 @@
 
 
 
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
-
-<link href="/css/main.css?v=6.0.6" rel="stylesheet" type="text/css">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.0.6">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/my-icon.ico?v=6.0.6">
-
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=6.0.6" color="#222">
-
-
-
-
-
-
-
-
-
-<script type="text/javascript" id="hexo.configurations">
+<script id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
     scheme: 'Gemini',
-    version: '6.0.6',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
     fancybox: false,
     fastclick: false,
     lazyload: false,
@@ -117,7 +118,7 @@
 
 
 
-<script type="text/javascript" id="page.configurations">
+<script id="page.configurations">
   CONFIG.page = {
     sidebar: "",
   };
@@ -134,30 +135,31 @@
 
 
 
+
+
+
   <noscript>
-  <style type="text/css">
-    .use-motion .motion-element,
-    .use-motion .brand,
-    .use-motion .menu-item,
-    .sidebar-inner,
-    .use-motion .post-block,
-    .use-motion .pagination,
-    .use-motion .comments,
-    .use-motion .post-header,
-    .use-motion .post-body,
-    .use-motion .collection-title { opacity: initial; }
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
 
-    .use-motion .logo,
-    .use-motion .site-title,
-    .use-motion .site-subtitle {
-      opacity: initial;
-      top: initial;
-    }
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
 
-    .use-motion {
-      .logo-line-before i { left: initial; }
-      .logo-line-after i { right: initial; }
-    }
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
   </style>
 </noscript>
 
@@ -173,14 +175,10 @@
   <div class="container sidebar-position-left 
   page-home">
     <div class="headband"></div>
-    <!--fork me on github-->
-    <a href="https://github.com/louhc" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style></a>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"> 
-
-<div class="site-brand-wrapper">
-  <div class="site-meta ">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
     
 
     <div class="custom-logo-site-title">
@@ -190,9 +188,12 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+    
       
         <p class="site-subtitle">An OIer From Zhejiang</p>
       
+    
+    
   </div>
 
   <div class="site-nav-toggle">
@@ -204,58 +205,82 @@
   </div>
 </div>
 
-<nav class="site-nav">
-  
 
+
+<nav class="site-nav">
   
     <ul id="menu" class="menu">
       
         
         
-          
-  <li class="menu-item menu-item-home">
-    <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
-</li>
-
-      
-        
         
           
-  <li class="menu-item menu-item-about">
-    <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
-</li>
+          <li class="menu-item menu-item-home">
 
+    
+    
+    
       
-        
-        
-          
-  <li class="menu-item menu-item-tags">
-    <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
-</li>
+    
 
-      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
         
         
           
-  <li class="menu-item menu-item-archives">
-    <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
-</li>
+          <li class="menu-item menu-item-about">
 
+    
+    
+    
       
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
         
         
           
-  <li class="menu-item menu-item-contest">
-    <a href="/contest/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>contest</a>
-</li>
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
 
       
-
       
     </ul>
   
@@ -266,11 +291,12 @@
 </nav>
 
 
+
   
 
 
 
- </div>
+</div>
     </header>
 
     
@@ -306,8 +332,8 @@
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="louhc">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="description" content="蒟蒻一枚，请多关照">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
@@ -321,11 +347,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/01/23/notes-leftist-tree/" itemprop="url">「学习笔记」左偏树</a></h1>
+                
+                <a href="/2019/01/23/notes-leftist-tree/" class="post-title-link" itemprop="url">「学习笔记」左偏树</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -333,12 +368,30 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-23T08:08:34+08:00">2019-01-23</time>
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-23 08:08:34" itemprop="dateCreated datePublished" datetime="2019-01-23T08:08:34+08:00">2019-01-23</time>
             
 
             
-            
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-02-22 16:01:52" itemprop="dateModified" datetime="2019-02-22T16:01:52+08:00">2019-02-22</time>
+              
             
           </span>
 
@@ -346,21 +399,10 @@
 
           
             
+            
           
 
           
-          
-             <span id="/2019/01/23/notes-leftist-tree/" class="leancloud_visitors" data-flag-title="「学习笔记」左偏树">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-                 <span>℃</span>
-             </span>
           
 
           
@@ -385,11 +427,13 @@
         
           <p>左偏树是一种可以合并的“堆”。这里打了引号，是因为左偏树<strong>并不是堆</strong>，但是能完成与堆类似的功能。<strong>而且还能支持可持久化</strong>。</p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/01/23/notes-leftist-tree/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/01/23/notes-leftist-tree/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
@@ -403,6 +447,9 @@
 
     
 
+    
+      
+    
     
 
     
@@ -446,8 +493,8 @@
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="louhc">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="description" content="蒟蒻一枚，请多关照">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
@@ -461,11 +508,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/01/23/notes-old-driver-tree/" itemprop="url">「学习笔记」珂朵莉树 ODT</a></h1>
+                
+                <a href="/2019/01/23/notes-old-driver-tree/" class="post-title-link" itemprop="url">「学习笔记」珂朵莉树 ODT</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -473,12 +529,18 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-23T08:08:26+08:00">2019-01-23</time>
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-23 08:08:26 / 修改时间：16:03:08" itemprop="dateCreated datePublished" datetime="2019-01-23T08:08:26+08:00">2019-01-23</time>
             
 
             
-            
+              
 
+              
             
           </span>
 
@@ -486,21 +548,10 @@
 
           
             
+            
           
 
           
-          
-             <span id="/2019/01/23/notes-old-driver-tree/" class="leancloud_visitors" data-flag-title="「学习笔记」珂朵莉树 ODT">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-                 <span>℃</span>
-             </span>
           
 
           
@@ -528,11 +579,13 @@
 <p>从前有一天，珂朵莉出现了。。。<br>然后有一天，珂朵莉树出现了。。。</p>
 </blockquote>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/01/23/notes-old-driver-tree/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/01/23/notes-old-driver-tree/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
@@ -546,6 +599,9 @@
 
     
 
+    
+      
+    
     
 
     
@@ -589,8 +645,8 @@
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="louhc">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="description" content="蒟蒻一枚，请多关照">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
@@ -604,11 +660,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/01/23/luogu2397-solution/" itemprop="url">「洛谷P2397」 yyy loves Maths VI (mode) 解题报告</a></h1>
+                
+                <a href="/2019/01/23/luogu2397-solution/" class="post-title-link" itemprop="url">「洛谷P2397」 yyy loves Maths VI (mode) 解题报告</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -616,12 +681,18 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-23T08:08:13+08:00">2019-01-23</time>
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-23 08:08:13 / 修改时间：16:08:50" itemprop="dateCreated datePublished" datetime="2019-01-23T08:08:13+08:00">2019-01-23</time>
             
 
             
-            
+              
 
+              
             
           </span>
 
@@ -629,21 +700,10 @@
 
           
             
+            
           
 
           
-          
-             <span id="/2019/01/23/luogu2397-solution/" class="leancloud_visitors" data-flag-title="「洛谷P2397」 yyy loves Maths VI (mode) 解题报告">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-                 <span>℃</span>
-             </span>
           
 
           
@@ -668,11 +728,13 @@
         
           <h1 id="P2397-yyy-loves-Maths-VI-mode"><a href="#P2397-yyy-loves-Maths-VI-mode" class="headerlink" title="P2397 yyy loves Maths VI (mode)"></a><a href="https://www.luogu.org/problemnew/show/P2397" target="_blank" rel="noopener">P2397 yyy loves Maths VI (mode)</a></h1><h2 id="题目背景"><a href="#题目背景" class="headerlink" title="题目背景"></a>题目背景</h2><p>自动上次redbag用加法好好的刁难过了yyy同学以后,yyy十分愤怒.他还击给了redbag一题,但是这题他惊讶的发现自己居然也不会,所以只好找你</p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/01/23/luogu2397-solution/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/01/23/luogu2397-solution/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
@@ -686,6 +748,9 @@
 
     
 
+    
+      
+    
     
 
     
@@ -729,8 +794,8 @@
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="louhc">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="description" content="蒟蒻一枚，请多关照">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
@@ -744,11 +809,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/01/23/uva12004-solution/" itemprop="url">「UVA12004」 Bubble Sort 解题报告</a></h1>
+                
+                <a href="/2019/01/23/uva12004-solution/" class="post-title-link" itemprop="url">「UVA12004」 Bubble Sort 解题报告</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -756,12 +830,18 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-23T08:08:00+08:00">2019-01-23</time>
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-23 08:08:00 / 修改时间：15:57:02" itemprop="dateCreated datePublished" datetime="2019-01-23T08:08:00+08:00">2019-01-23</time>
             
 
             
-            
+              
 
+              
             
           </span>
 
@@ -769,21 +849,10 @@
 
           
             
+            
           
 
           
-          
-             <span id="/2019/01/23/uva12004-solution/" class="leancloud_visitors" data-flag-title="「UVA12004」 Bubble Sort 解题报告">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-                 <span>℃</span>
-             </span>
           
 
           
@@ -808,11 +877,13 @@
         
           <h1 id="UVA12004-Bubble-Sort"><a href="#UVA12004-Bubble-Sort" class="headerlink" title="UVA12004 Bubble Sort"></a><a href="https://www.luogu.org/problemnew/show/UVA12004" target="_blank" rel="noopener">UVA12004 Bubble Sort</a></h1><p>Check the following code which counts the number of swaps of bubble sort.</p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/01/23/uva12004-solution/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/01/23/uva12004-solution/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
@@ -826,6 +897,9 @@
 
     
 
+    
+      
+    
     
 
     
@@ -869,8 +943,8 @@
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="louhc">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="description" content="蒟蒻一枚，请多关照">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
@@ -884,11 +958,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/01/23/spoj25784-solution/" itemprop="url">「SP25784」BUBBLESORT - Bubble Sort 解题报告</a></h1>
+                
+                <a href="/2019/01/23/spoj25784-solution/" class="post-title-link" itemprop="url">「SP25784」BUBBLESORT - Bubble Sort 解题报告</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -896,12 +979,18 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-23T08:07:48+08:00">2019-01-23</time>
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-23 08:07:48 / 修改时间：15:56:24" itemprop="dateCreated datePublished" datetime="2019-01-23T08:07:48+08:00">2019-01-23</time>
             
 
             
-            
+              
 
+              
             
           </span>
 
@@ -909,21 +998,10 @@
 
           
             
+            
           
 
           
-          
-             <span id="/2019/01/23/spoj25784-solution/" class="leancloud_visitors" data-flag-title="「SP25784」BUBBLESORT - Bubble Sort 解题报告">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-                 <span>℃</span>
-             </span>
           
 
           
@@ -948,11 +1026,13 @@
         
           <h1 id="SP25784-BUBBLESORT-Bubble-Sort"><a href="#SP25784-BUBBLESORT-Bubble-Sort" class="headerlink" title="SP25784 BUBBLESORT - Bubble Sort"></a><a href="https://www.luogu.org/problemnew/show/SP25784" target="_blank" rel="noopener">SP25784 BUBBLESORT - Bubble Sort</a></h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>One of the simplest sorting algorithms, the Bubble Sort, can be expressed as (0-based array):<br>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/01/23/spoj25784-solution/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/01/23/spoj25784-solution/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
@@ -966,6 +1046,9 @@
 
     
 
+    
+      
+    
     
 
     
@@ -1009,8 +1092,8 @@
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="louhc">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="description" content="蒟蒻一枚，请多关照">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
@@ -1024,11 +1107,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/01/23/luogu1306-solution/" itemprop="url">「洛谷P1306」斐波那契公约数 解题报告</a></h1>
+                
+                <a href="/2019/01/23/luogu1306-solution/" class="post-title-link" itemprop="url">「洛谷P1306」斐波那契公约数 解题报告</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1036,12 +1128,18 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-23T08:07:34+08:00">2019-01-23</time>
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-23 08:07:34 / 修改时间：16:07:54" itemprop="dateCreated datePublished" datetime="2019-01-23T08:07:34+08:00">2019-01-23</time>
             
 
             
-            
+              
 
+              
             
           </span>
 
@@ -1049,21 +1147,10 @@
 
           
             
+            
           
 
           
-          
-             <span id="/2019/01/23/luogu1306-solution/" class="leancloud_visitors" data-flag-title="「洛谷P1306」斐波那契公约数 解题报告">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-                 <span>℃</span>
-             </span>
           
 
           
@@ -1088,11 +1175,13 @@
         
           <h1 id="P1306-斐波那契公约数"><a href="#P1306-斐波那契公约数" class="headerlink" title="P1306 斐波那契公约数"></a><a href="https://www.luogu.org/problemnew/show/P1306" target="_blank" rel="noopener">P1306 斐波那契公约数</a></h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>对于Fibonacci数列：1,1,2,3,5,8,13……大家应该很熟悉吧~~~但是现在有一个很“简单”问题：第n项和第m项的最大公约数是多少？</p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/01/23/luogu1306-solution/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/01/23/luogu1306-solution/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
@@ -1106,6 +1195,9 @@
 
     
 
+    
+      
+    
     
 
     
@@ -1149,8 +1241,8 @@
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="louhc">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="description" content="蒟蒻一枚，请多关照">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
@@ -1164,11 +1256,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/01/23/luogu2906-solution/" itemprop="url">「洛谷P2906」[USACO08OPEN]牛的街区Cow Neighborhoods 解题报告</a></h1>
+                
+                <a href="/2019/01/23/luogu2906-solution/" class="post-title-link" itemprop="url">「洛谷P2906」[USACO08OPEN]牛的街区Cow Neighborhoods 解题报告</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1176,12 +1277,18 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-23T08:07:17+08:00">2019-01-23</time>
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-23 08:07:17 / 修改时间：16:10:22" itemprop="dateCreated datePublished" datetime="2019-01-23T08:07:17+08:00">2019-01-23</time>
             
 
             
-            
+              
 
+              
             
           </span>
 
@@ -1189,21 +1296,10 @@
 
           
             
+            
           
 
           
-          
-             <span id="/2019/01/23/luogu2906-solution/" class="leancloud_visitors" data-flag-title="「洛谷P2906」[USACO08OPEN]牛的街区Cow Neighborhoods 解题报告">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-                 <span>℃</span>
-             </span>
           
 
           
@@ -1228,11 +1324,13 @@
         
           <h1 id="P2906-USACO08OPEN-牛的街区Cow-Neighborhoods"><a href="#P2906-USACO08OPEN-牛的街区Cow-Neighborhoods" class="headerlink" title="P2906 [USACO08OPEN]牛的街区Cow Neighborhoods"></a><a href="https://www.luogu.org/problemnew/show/P2906" target="_blank" rel="noopener">P2906 [USACO08OPEN]牛的街区Cow Neighborhoods</a></h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>Those Who Know About Cows are aware of the way cows group into ‘Cow Neighborhoods’. They have observed Farmer John’s N (1 &lt;= N &lt;= 100,000) cows (conveniently numbered 1..N) as they graze, each at her own unique integer rectilinear coordinate, on a pasture whose X and Y coordinates are in the range 1..1,000,000,000.</p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/01/23/luogu2906-solution/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/01/23/luogu2906-solution/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
@@ -1246,6 +1344,9 @@
 
     
 
+    
+      
+    
     
 
     
@@ -1289,8 +1390,8 @@
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="louhc">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="description" content="蒟蒻一枚，请多关照">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
@@ -1304,11 +1405,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/01/23/luogu3202-solution/" itemprop="url">「洛谷P3202」[HNOI2010]弹飞绵羊 解题报告</a></h1>
+                
+                <a href="/2019/01/23/luogu3202-solution/" class="post-title-link" itemprop="url">「洛谷P3202」[HNOI2010]弹飞绵羊 解题报告</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1316,12 +1426,18 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-23T08:05:53+08:00">2019-01-23</time>
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-23 08:05:53 / 修改时间：16:10:24" itemprop="dateCreated datePublished" datetime="2019-01-23T08:05:53+08:00">2019-01-23</time>
             
 
             
-            
+              
 
+              
             
           </span>
 
@@ -1329,21 +1445,10 @@
 
           
             
+            
           
 
           
-          
-             <span id="/2019/01/23/luogu3202-solution/" class="leancloud_visitors" data-flag-title="「洛谷P3202」[HNOI2010]弹飞绵羊 解题报告">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-                 <span>℃</span>
-             </span>
           
 
           
@@ -1368,11 +1473,13 @@
         
           <h1 id="P3203-HNOI2010-弹飞绵羊"><a href="#P3203-HNOI2010-弹飞绵羊" class="headerlink" title="P3203 [HNOI2010]弹飞绵羊"></a><a href="https://www.luogu.org/problemnew/show/P3203" target="_blank" rel="noopener">P3203 [HNOI2010]弹飞绵羊</a></h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>某天，Lostmonkey发明了一种超级弹力装置，为了在他的绵羊朋友面前显摆，他邀请小绵羊一起玩个游戏。游戏一开始，Lostmonkey在地上沿着一条直线摆上n个装置，每个装置设定初始弹力系数ki，当绵羊达到第i个装置时，它会往后弹ki步，达到第i+ki个装置，若不存在第i+ki个装置，则绵羊被弹飞。绵羊想知道当它从第i个装置起步时，被弹几次后会被弹飞。为了使得游戏更有趣，Lostmonkey可以修改某个弹力装置的弹力系数，任何时候弹力系数均为正整数。</p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/01/23/luogu3202-solution/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/01/23/luogu3202-solution/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
@@ -1386,6 +1493,9 @@
 
     
 
+    
+      
+    
     
 
     
@@ -1429,8 +1539,8 @@
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="louhc">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="description" content="蒟蒻一枚，请多关照">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
@@ -1444,11 +1554,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/01/23/uva1185-solution/" itemprop="url">「UVA1185」Big Number 解题报告</a></h1>
+                
+                <a href="/2019/01/23/uva1185-solution/" class="post-title-link" itemprop="url">「UVA1185」Big Number 解题报告</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1456,12 +1575,18 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-23T08:05:38+08:00">2019-01-23</time>
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-23 08:05:38 / 修改时间：16:09:18" itemprop="dateCreated datePublished" datetime="2019-01-23T08:05:38+08:00">2019-01-23</time>
             
 
             
-            
+              
 
+              
             
           </span>
 
@@ -1469,21 +1594,10 @@
 
           
             
+            
           
 
           
-          
-             <span id="/2019/01/23/uva1185-solution/" class="leancloud_visitors" data-flag-title="「UVA1185」Big Number 解题报告">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-                 <span>℃</span>
-             </span>
           
 
           
@@ -1508,11 +1622,13 @@
         
           <h1 id="UVA1185-Big-Number"><a href="#UVA1185-Big-Number" class="headerlink" title="UVA1185 Big Number"></a><a href="https://www.luogu.org/problemnew/show/UVA1185" target="_blank" rel="noopener">UVA1185 Big Number</a></h1><p>In many applications very large integers numbers are required. Some of these applications are using keys for secure transmission of data, encryption, etc. In this problem you are given a number, you have to determine the number of digits in the factorial of the number.</p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/01/23/uva1185-solution/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/01/23/uva1185-solution/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
@@ -1526,6 +1642,9 @@
 
     
 
+    
+      
+    
     
 
     
@@ -1561,9 +1680,6 @@
 
           </div>
           
- <div id="gitalk-container"></div>
-
-
 
         </div>
         
@@ -1578,22 +1694,18 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
-    
     <div class="sidebar-inner">
 
-
       
 
       
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="louhc">
-            
               <p class="site-author-name" itemprop="name">louhc</p>
-              <p class="site-description motion-element" itemprop="description">蒟蒻一枚，请多关照</p>
+              <div class="site-description motion-element" itemprop="description">蒟蒻一枚，请多关照</div>
           </div>
 
           
@@ -1615,7 +1727,11 @@
                 
                 
                 <div class="site-state-item site-state-tags">
-                  <a href="/tags/index.html">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
                     
                     
                       
@@ -1799,27 +1915,7 @@
           
 
           
-            <div class="links-of-author motion-element">
-              
-                <span class="links-of-author-item">
-                  <a href="https://github.com/louhc" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i></a>
-                  
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="https://twitter.com/louhc1" target="_blank" title="Twitter"><i class="fa fa-fw fa-twitter"></i></a>
-                  
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="https://www.facebook.com/dennis.lou.1466" target="_blank" title="FB Page"><i class="fa fa-fw fa-facebook"></i></a>
-                  
-                </span>
-              
-            </div>
-          
 
-          
           
 
           
@@ -1831,7 +1927,7 @@
           
 
         </div>
-      </section>
+      </div>
 
       
 
@@ -1839,6 +1935,7 @@
 
     </div>
   </aside>
+  
 
 
         
@@ -1848,7 +1945,7 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
+  <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">louhc</span>
@@ -1859,9 +1956,7 @@
 </div>
 
 
-
-
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
 
 
 
@@ -1869,7 +1964,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Gemini</a> v6.0.6</div>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.0.1</div>
 
 
 
@@ -1896,11 +1991,14 @@
 
     
 
+    
+
+    
   </div>
 
   
 
-<script type="text/javascript">
+<script>
   if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
     window.Promise = null;
   }
@@ -1921,91 +2019,6 @@
 
 
 
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/three/three.min.js"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=6.0.6"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=6.0.6"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=6.0.6"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.0.6"></script>
-
-
-
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.6"></script>
-
-
-
-  
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
-
 
 
 
@@ -2017,7 +2030,31 @@
 
 
   
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
 
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.1"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.1"></script>
 
 
 
@@ -2025,114 +2062,23 @@
   
 
   
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
-  <script>AV.initialize("hLHRxQGXPYFighUdcDfgo90u-gzGzoHsz", "h3zywmfrwKJlNWNSXodQEkrW");</script>
-  <script>
-    function showTime(Counter) {
-      var query = new AV.Query(Counter);
-      var entries = [];
-      var $visitors = $(".leancloud_visitors");
 
-      $visitors.each(function () {
-        entries.push( $(this).attr("id").trim() );
-      });
 
-      query.containedIn('url', entries);
-      query.find()
-        .done(function (results) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+  <script src="/js/src/next-boot.js?v=7.0.1"></script>
 
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
 
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.get('url');
-            var time = item.get('time');
-            var element = document.getElementById(url);
+  
 
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for(var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if( countSpan.text() == '') {
-              countSpan.text(0);
-            }
-          }
-        })
-        .fail(function (object, error) {
-          console.log("Error: " + error.code + " " + error.message);
-        });
-    }
+  
 
-    function addCount(Counter) {
-      var $visitors = $(".leancloud_visitors");
-      var url = $visitors.attr('id').trim();
-      var title = $visitors.attr('data-flag-title').trim();
-      var query = new AV.Query(Counter);
+  
 
-      query.equalTo("url", url);
-      query.find({
-        success: function(results) {
-          if (results.length > 0) {
-            var counter = results[0];
-            counter.fetchWhenSave(true);
-            counter.increment("time");
-            
-            counter.save(null, {
-              success: function(counter) {
-                
-                  var $element = $(document.getElementById(url));
-                  $element.find('.leancloud-visitors-count').text(counter.get('time'));
-                
-              },
-              error: function(counter, error) {
-                console.log('Failed to save Visitor num, with error message: ' + error.message);
-              }
-            });
-          } else {
-            
-              var newcounter = new Counter();
-              /* Set ACL */
-              var acl = new AV.ACL();
-              acl.setPublicReadAccess(true);
-              acl.setPublicWriteAccess(true);
-              newcounter.setACL(acl);
-              /* End Set ACL */
-              newcounter.set("title", title);
-              newcounter.set("url", url);
-              newcounter.set("time", 1);
-              newcounter.save(null, {
-                success: function(newcounter) {
-                  var $element = $(document.getElementById(url));
-                  $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-                },
-                error: function(newcounter, error) {
-                  console.log('Failed to create');
-                }
-              });
-            
-          }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
-    }
+  
 
-    $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
-        addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
-        showTime(Counter);
-      }
-    });
-  </script>
+
+
+  
+
 
 
 
@@ -2141,60 +2087,15 @@
   
 
   
+
   
 
   
-  
-    
-      
-        
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
+
   
 
   
-    
-      <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
-</script>
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-      var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-    
-  
-
-
-  
   
 
   

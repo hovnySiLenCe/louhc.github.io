@@ -2,6 +2,15 @@
 
 
 
+
+
+
+
+
+
+
+
+
   
 
 
@@ -23,8 +32,6 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -39,6 +46,21 @@
 
 
 
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.0.1">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=7.0.1">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=7.0.1">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.0.1" color="#222">
 
 
 
@@ -46,36 +68,15 @@
 
 
 
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
-
-<link href="/css/main.css?v=6.0.6" rel="stylesheet" type="text/css">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.0.6">
-
-
-  <link rel="icon" type="image/png" sizes="32x32" href="/images/my-icon.ico?v=6.0.6">
-
-
-
-  <link rel="mask-icon" href="/images/logo.svg?v=6.0.6" color="#222">
-
-
-
-
-
-
-
-
-
-<script type="text/javascript" id="hexo.configurations">
+<script id="hexo.configurations">
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
     scheme: 'Gemini',
-    version: '6.0.6',
-    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    version: '7.0.1',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
     fancybox: false,
     fastclick: false,
     lazyload: false,
@@ -117,7 +118,7 @@
 
 
 
-<script type="text/javascript" id="page.configurations">
+<script id="page.configurations">
   CONFIG.page = {
     sidebar: "",
   };
@@ -134,30 +135,31 @@
 
 
 
+
+
+
   <noscript>
-  <style type="text/css">
-    .use-motion .motion-element,
-    .use-motion .brand,
-    .use-motion .menu-item,
-    .sidebar-inner,
-    .use-motion .post-block,
-    .use-motion .pagination,
-    .use-motion .comments,
-    .use-motion .post-header,
-    .use-motion .post-body,
-    .use-motion .collection-title { opacity: initial; }
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
 
-    .use-motion .logo,
-    .use-motion .site-title,
-    .use-motion .site-subtitle {
-      opacity: initial;
-      top: initial;
-    }
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
 
-    .use-motion {
-      .logo-line-before i { left: initial; }
-      .logo-line-after i { right: initial; }
-    }
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
   </style>
 </noscript>
 
@@ -173,14 +175,10 @@
   <div class="container sidebar-position-left 
   page-home">
     <div class="headband"></div>
-    <!--fork me on github-->
-    <a href="https://github.com/louhc" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewbox="0 0 250 250" style="fill:#151513; color:#fff; position: absolute; top: 0; border: 0; left: 0; transform: scale(-1, 1);" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"/><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"/><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"/></svg><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style></a>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"> 
-
-<div class="site-brand-wrapper">
-  <div class="site-meta ">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
     
 
     <div class="custom-logo-site-title">
@@ -190,9 +188,12 @@
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
+    
       
         <p class="site-subtitle">An OIer From Zhejiang</p>
       
+    
+    
   </div>
 
   <div class="site-nav-toggle">
@@ -204,58 +205,82 @@
   </div>
 </div>
 
-<nav class="site-nav">
-  
 
+
+<nav class="site-nav">
   
     <ul id="menu" class="menu">
       
         
         
-          
-  <li class="menu-item menu-item-home">
-    <a href="/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
-</li>
-
-      
-        
         
           
-  <li class="menu-item menu-item-about">
-    <a href="/about/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
-</li>
+          <li class="menu-item menu-item-home">
 
+    
+    
+    
       
-        
-        
-          
-  <li class="menu-item menu-item-tags">
-    <a href="/tags/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
-</li>
+    
 
-      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
         
         
           
-  <li class="menu-item menu-item-archives">
-    <a href="/archives/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
-</li>
+          <li class="menu-item menu-item-about">
 
+    
+    
+    
       
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
         
         
           
-  <li class="menu-item menu-item-contest">
-    <a href="/contest/" rel="section">
-      <i class="menu-item-icon fa fa-fw fa-th"></i> <br>contest</a>
-</li>
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
 
       
-
       
     </ul>
   
@@ -266,11 +291,12 @@
 </nav>
 
 
+
   
 
 
 
- </div>
+</div>
     </header>
 
     
@@ -306,8 +332,8 @@
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="louhc">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="description" content="蒟蒻一枚，请多关照">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
@@ -321,11 +347,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/01/23/luogu1233-solution/" itemprop="url">「洛谷P1233」木棍加工 解题报告</a></h1>
+                
+                <a href="/2019/01/23/luogu1233-solution/" class="post-title-link" itemprop="url">「洛谷P1233」木棍加工 解题报告</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -333,12 +368,18 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-23T08:23:05+08:00">2019-01-23</time>
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-23 08:23:05 / 修改时间：16:06:38" itemprop="dateCreated datePublished" datetime="2019-01-23T08:23:05+08:00">2019-01-23</time>
             
 
             
-            
+              
 
+              
             
           </span>
 
@@ -346,21 +387,10 @@
 
           
             
+            
           
 
           
-          
-             <span id="/2019/01/23/luogu1233-solution/" class="leancloud_visitors" data-flag-title="「洛谷P1233」木棍加工 解题报告">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-                 <span>℃</span>
-             </span>
           
 
           
@@ -385,11 +415,13 @@
         
           <h1 id="P1233-木棍加工"><a href="#P1233-木棍加工" class="headerlink" title="P1233 木棍加工"></a><a href="https://www.luogu.org/problemnew/show/P1233" target="_blank" rel="noopener">P1233 木棍加工</a></h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>一堆木头棍子共有n根，每根棍子的长度和宽度都是已知的。棍子可以被一台机器一个接一个地加工。机器处理一根棍子之前需要准备时间。准备时间是这样定义的：</p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/01/23/luogu1233-solution/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/01/23/luogu1233-solution/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
@@ -403,6 +435,9 @@
 
     
 
+    
+      
+    
     
 
     
@@ -446,8 +481,8 @@
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="louhc">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="description" content="蒟蒻一枚，请多关照">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
@@ -461,11 +496,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/01/23/2018-11-02-sontest-T3-solution/" itemprop="url">「2018-11-02模拟赛」t3 老大 解题报告</a></h1>
+                
+                <a href="/2019/01/23/2018-11-02-sontest-T3-solution/" class="post-title-link" itemprop="url">「2018-11-02模拟赛」t3 老大 解题报告</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -473,12 +517,30 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-23T08:22:54+08:00">2019-01-23</time>
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-23 08:22:54" itemprop="dateCreated datePublished" datetime="2019-01-23T08:22:54+08:00">2019-01-23</time>
             
 
             
-            
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-01-24 18:05:10" itemprop="dateModified" datetime="2019-01-24T18:05:10+08:00">2019-01-24</time>
+              
             
           </span>
 
@@ -486,21 +548,10 @@
 
           
             
+            
           
 
           
-          
-             <span id="/2019/01/23/2018-11-02-sontest-T3-solution/" class="leancloud_visitors" data-flag-title="「2018-11-02模拟赛」t3 老大 解题报告">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-                 <span>℃</span>
-             </span>
           
 
           
@@ -525,11 +576,13 @@
         
           <h1 id="老大"><a href="#老大" class="headerlink" title="老大"></a>老大</h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>因为 OB 今年拿下 4 块金牌，学校赞助扩建劳模办公室为劳模办公室群，为了体现 OI 的特色，办公室群被设计成了树形（n 个点 n − 1 条边的无向连通图），由于新建的办公室太大以至于要将奖杯要分放在两个不同的地方以便同学们丢硬币进去开光，OB 想请你帮帮他看看奖杯放在哪两个办公室使得在任意一个在劳模办公室做题的小朋友能最快地找到奖杯来开光。<br>一句话题意：给出一个 n 个点的树，在两个合适且不同的点放上奖杯，使得每个点到最近的奖杯距离最大值最小。</p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/01/23/2018-11-02-sontest-T3-solution/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/01/23/2018-11-02-sontest-T3-solution/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
@@ -543,6 +596,9 @@
 
     
 
+    
+      
+    
     
 
     
@@ -586,8 +642,8 @@
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="louhc">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="description" content="蒟蒻一枚，请多关照">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
@@ -601,11 +657,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/01/23/luogu1080-solution/" itemprop="url">「洛谷P1080」「NOIP2012提高组」国王游戏 解题报告</a></h1>
+                
+                <a href="/2019/01/23/luogu1080-solution/" class="post-title-link" itemprop="url">「洛谷P1080」「NOIP2012提高组」国王游戏 解题报告</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -613,12 +678,18 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-23T08:22:23+08:00">2019-01-23</time>
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-23 08:22:23 / 修改时间：16:05:16" itemprop="dateCreated datePublished" datetime="2019-01-23T08:22:23+08:00">2019-01-23</time>
             
 
             
-            
+              
 
+              
             
           </span>
 
@@ -626,21 +697,10 @@
 
           
             
+            
           
 
           
-          
-             <span id="/2019/01/23/luogu1080-solution/" class="leancloud_visitors" data-flag-title="「洛谷P1080」「NOIP2012提高组」国王游戏 解题报告">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-                 <span>℃</span>
-             </span>
           
 
           
@@ -665,11 +725,13 @@
         
           <h1 id="P1080-国王游戏"><a href="#P1080-国王游戏" class="headerlink" title="P1080 国王游戏"></a><a href="https://www.luogu.org/problemnew/show/P1080" target="_blank" rel="noopener">P1080 国王游戏</a></h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>恰逢 $H$国国庆，国王邀请$n$位大臣来玩一个有奖游戏。首先，他让每个大臣在左、右手上面分别写下一个整数，国王自己也在左、右手上各写一个整数。然后，让这 $n$ 位大臣排成一排，国王站在队伍的最前面。排好队后，所有的大臣都会获得国王奖赏的若干金币，每位大臣获得的金币数分别是：排在该大臣前面的所有人的左手上的数的乘积除以他自己右手上的数，然后向下取整得到的结果。</p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/01/23/luogu1080-solution/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/01/23/luogu1080-solution/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
@@ -683,6 +745,9 @@
 
     
 
+    
+      
+    
     
 
     
@@ -726,8 +791,8 @@
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="louhc">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="description" content="蒟蒻一枚，请多关照">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
@@ -741,11 +806,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/01/23/noip-2018-pj-solution/" itemprop="url">NOIP 2018 普及组 解题报告</a></h1>
+                
+                <a href="/2019/01/23/noip-2018-pj-solution/" class="post-title-link" itemprop="url">NOIP 2018 普及组 解题报告</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -753,12 +827,30 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-23T08:22:13+08:00">2019-01-23</time>
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-23 08:22:13" itemprop="dateCreated datePublished" datetime="2019-01-23T08:22:13+08:00">2019-01-23</time>
             
 
             
-            
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-01-24 18:05:16" itemprop="dateModified" datetime="2019-01-24T18:05:16+08:00">2019-01-24</time>
+              
             
           </span>
 
@@ -766,21 +858,10 @@
 
           
             
+            
           
 
           
-          
-             <span id="/2019/01/23/noip-2018-pj-solution/" class="leancloud_visitors" data-flag-title="NOIP 2018 普及组 解题报告">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-                 <span>℃</span>
-             </span>
           
 
           
@@ -808,11 +889,13 @@
 <p><strong>不过实际上没有这么难</strong></p>
 <p>T3、T4 一个DP 一个暴力（虽然不是正解） 也就可以过了</p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/01/23/noip-2018-pj-solution/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/01/23/noip-2018-pj-solution/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
@@ -826,6 +909,9 @@
 
     
 
+    
+      
+    
     
 
     
@@ -869,8 +955,8 @@
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="louhc">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="description" content="蒟蒻一枚，请多关照">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
@@ -884,11 +970,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/01/23/2018-11-05-contest-T5-solution/" itemprop="url">「2018-11-05模拟赛」T5 传送机 解题报告</a></h1>
+                
+                <a href="/2019/01/23/2018-11-05-contest-T5-solution/" class="post-title-link" itemprop="url">「2018-11-05模拟赛」T5 传送机 解题报告</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -896,12 +991,30 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-23T08:20:28+08:00">2019-01-23</time>
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-23 08:20:28" itemprop="dateCreated datePublished" datetime="2019-01-23T08:20:28+08:00">2019-01-23</time>
             
 
             
-            
+              
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-01-24 18:05:06" itemprop="dateModified" datetime="2019-01-24T18:05:06+08:00">2019-01-24</time>
+              
             
           </span>
 
@@ -909,21 +1022,10 @@
 
           
             
+            
           
 
           
-          
-             <span id="/2019/01/23/2018-11-05-contest-T5-solution/" class="leancloud_visitors" data-flag-title="「2018-11-05模拟赛」T5 传送机 解题报告">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-                 <span>℃</span>
-             </span>
           
 
           
@@ -948,11 +1050,13 @@
         
           <h1 id="5、传送机-sent"><a href="#5、传送机-sent" class="headerlink" title="5、传送机(sent.*)"></a>5、传送机(sent.*)</h1><h1 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述:"></a>问题描述:</h1><p>黄黄同学要到清华大学上学去了。黄黄同学很喜欢清华大学的校园，每次去上课时总喜欢把校园里面的每条路都走一遍，当然，黄黄同学想每条路也只走一遍。<br>我们一般人很可能对一些地图是办不到每条路走一遍且仅走一遍的，但是黄黄同学有个传送机，他可以任意地将一个人从一个路口传送到任意一个路口。<br>可是，每传送一次是需要耗费巨大的内力的，黄黄同学希望可以用最少的传送次数完成游遍校园，你帮助他吗？因为黄黄同学只是游历校园，于是我们可以认为黄黄同学可以从任意点开始，到任意点结束。<br>注意：不必经过所有的点。输入格式：输入第一行一个整数N，表示黄黄的校园里一共有多少路口。第二行一个整数M，表示路口之间有M条路。后面M行，每行两个整数a、b，表示a与b之间有一条路，且路是双向的。输出格式：输出一行一个整数S，表示黄黄同学最少的传送次数。</p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/01/23/2018-11-05-contest-T5-solution/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/01/23/2018-11-05-contest-T5-solution/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
@@ -966,6 +1070,9 @@
 
     
 
+    
+      
+    
     
 
     
@@ -1009,8 +1116,8 @@
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="louhc">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="description" content="蒟蒻一枚，请多关照">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
@@ -1024,11 +1131,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/01/23/luogu1196-solution/" itemprop="url">「洛谷P1196」「NOI2002」银河英雄传说 解题报告</a></h1>
+                
+                <a href="/2019/01/23/luogu1196-solution/" class="post-title-link" itemprop="url">「洛谷P1196」「NOI2002」银河英雄传说 解题报告</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1036,12 +1152,18 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-23T08:20:18+08:00">2019-01-23</time>
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-23 08:20:18 / 修改时间：16:05:34" itemprop="dateCreated datePublished" datetime="2019-01-23T08:20:18+08:00">2019-01-23</time>
             
 
             
-            
+              
 
+              
             
           </span>
 
@@ -1049,21 +1171,10 @@
 
           
             
+            
           
 
           
-          
-             <span id="/2019/01/23/luogu1196-solution/" class="leancloud_visitors" data-flag-title="「洛谷P1196」「NOI2002」银河英雄传说 解题报告">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-                 <span>℃</span>
-             </span>
           
 
           
@@ -1088,11 +1199,13 @@
         
           <h1 id="P1196-NOI2002-银河英雄传说"><a href="#P1196-NOI2002-银河英雄传说" class="headerlink" title="P1196 [NOI2002]银河英雄传说"></a><a href="https://www.luogu.org/problemnew/show/P1196" target="_blank" rel="noopener">P1196 [NOI2002]银河英雄传说</a></h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>公元五八○一年，地球居民迁至金牛座α第二行星，在那里发表银河联邦创立宣言，同年改元为宇宙历元年，并开始向银河系深处拓展。</p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/01/23/luogu1196-solution/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/01/23/luogu1196-solution/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
@@ -1106,6 +1219,9 @@
 
     
 
+    
+      
+    
     
 
     
@@ -1149,8 +1265,8 @@
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="louhc">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="description" content="蒟蒻一枚，请多关照">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
@@ -1164,11 +1280,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/01/23/black-technology-duipai/" itemprop="url">「黑科技」查错神器——对拍</a></h1>
+                
+                <a href="/2019/01/23/black-technology-duipai/" class="post-title-link" itemprop="url">「黑科技」查错神器——对拍</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1176,12 +1301,18 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-23T08:20:09+08:00">2019-01-23</time>
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-23 08:20:09 / 修改时间：16:13:04" itemprop="dateCreated datePublished" datetime="2019-01-23T08:20:09+08:00">2019-01-23</time>
             
 
             
-            
+              
 
+              
             
           </span>
 
@@ -1189,21 +1320,10 @@
 
           
             
+            
           
 
           
-          
-             <span id="/2019/01/23/black-technology-duipai/" class="leancloud_visitors" data-flag-title="「黑科技」查错神器——对拍">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-                 <span>℃</span>
-             </span>
           
 
           
@@ -1232,11 +1352,13 @@
 <p>对拍的的确确是个好东西。</p>
 </blockquote>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/01/23/black-technology-duipai/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/01/23/black-technology-duipai/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
@@ -1250,6 +1372,9 @@
 
     
 
+    
+      
+    
     
 
     
@@ -1293,8 +1418,8 @@
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="louhc">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="description" content="蒟蒻一枚，请多关照">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
@@ -1308,11 +1433,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/01/23/block-I-solution/" itemprop="url">「分块系列」数列分块入门1 解题报告</a></h1>
+                
+                <a href="/2019/01/23/block-I-solution/" class="post-title-link" itemprop="url">「分块系列」数列分块入门1 解题报告</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1320,12 +1454,18 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-23T08:20:00+08:00">2019-01-23</time>
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-23 08:20:00 / 修改时间：15:59:48" itemprop="dateCreated datePublished" datetime="2019-01-23T08:20:00+08:00">2019-01-23</time>
             
 
             
-            
+              
 
+              
             
           </span>
 
@@ -1333,21 +1473,10 @@
 
           
             
+            
           
 
           
-          
-             <span id="/2019/01/23/block-I-solution/" class="leancloud_visitors" data-flag-title="「分块系列」数列分块入门1 解题报告">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-                 <span>℃</span>
-             </span>
           
 
           
@@ -1372,11 +1501,13 @@
         
           <h1 id="数列分块入门1"><a href="#数列分块入门1" class="headerlink" title="数列分块入门1"></a><a href="https://loj.ac/problem/6277" target="_blank" rel="noopener">数列分块入门1</a></h1><h1 id="题意概括"><a href="#题意概括" class="headerlink" title="题意概括"></a>题意概括</h1><p>区间加法，单点求值。</p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/01/23/block-I-solution/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/01/23/block-I-solution/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
@@ -1390,6 +1521,9 @@
 
     
 
+    
+      
+    
     
 
     
@@ -1433,8 +1567,8 @@
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="louhc">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="description" content="蒟蒻一枚，请多关照">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
@@ -1448,11 +1582,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/01/23/block-II-solution/" itemprop="url">「分块系列」数列分块入门2 解题报告</a></h1>
+                
+                <a href="/2019/01/23/block-II-solution/" class="post-title-link" itemprop="url">「分块系列」数列分块入门2 解题报告</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1460,12 +1603,18 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-23T08:19:50+08:00">2019-01-23</time>
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-23 08:19:50 / 修改时间：16:00:02" itemprop="dateCreated datePublished" datetime="2019-01-23T08:19:50+08:00">2019-01-23</time>
             
 
             
-            
+              
 
+              
             
           </span>
 
@@ -1473,21 +1622,10 @@
 
           
             
+            
           
 
           
-          
-             <span id="/2019/01/23/block-II-solution/" class="leancloud_visitors" data-flag-title="「分块系列」数列分块入门2 解题报告">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-                 <span>℃</span>
-             </span>
           
 
           
@@ -1512,11 +1650,13 @@
         
           <h1 id="数列分块入门2"><a href="#数列分块入门2" class="headerlink" title="数列分块入门2"></a><a href="https://loj.ac/problem/6278" target="_blank" rel="noopener">数列分块入门2</a></h1><h1 id="题意概括"><a href="#题意概括" class="headerlink" title="题意概括"></a>题意概括</h1><p>区间加法，区间询问小于一个数的个数。</p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/01/23/block-II-solution/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/01/23/block-II-solution/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
@@ -1530,6 +1670,9 @@
 
     
 
+    
+      
+    
     
 
     
@@ -1573,8 +1716,8 @@
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="louhc">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="description" content="蒟蒻一枚，请多关照">
+      <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
     <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
@@ -1588,11 +1731,20 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/01/23/block-III-solution/" itemprop="url">「分块系列」数列分块入门3 解题报告</a></h1>
+                
+                <a href="/2019/01/23/block-III-solution/" class="post-title-link" itemprop="url">「分块系列」数列分块入门3 解题报告</a>
+              
+            
+          </h1>
         
 
         <div class="post-meta">
           <span class="post-time">
+
+            
+            
+            
+
             
               <span class="post-meta-item-icon">
                 <i class="fa fa-calendar-o"></i>
@@ -1600,12 +1752,18 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-23T08:19:40+08:00">2019-01-23</time>
+
+              
+                
+              
+
+              <time title="创建时间：2019-01-23 08:19:40 / 修改时间：16:00:12" itemprop="dateCreated datePublished" datetime="2019-01-23T08:19:40+08:00">2019-01-23</time>
             
 
             
-            
+              
 
+              
             
           </span>
 
@@ -1613,21 +1771,10 @@
 
           
             
+            
           
 
           
-          
-             <span id="/2019/01/23/block-III-solution/" class="leancloud_visitors" data-flag-title="「分块系列」数列分块入门3 解题报告">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">热度&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-                 <span>℃</span>
-             </span>
           
 
           
@@ -1652,11 +1799,13 @@
         
           <h1 id="数列分块入门3"><a href="#数列分块入门3" class="headerlink" title="数列分块入门3"></a><a href="https://loj.ac/problem/6279" target="_blank" rel="noopener">数列分块入门3</a></h1><h1 id="题意概括"><a href="#题意概括" class="headerlink" title="题意概括"></a>题意概括</h1><p>区间加法，区间求前驱。</p>
           <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/01/23/block-III-solution/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/01/23/block-III-solution/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
           <!--/noindex-->
         
       
@@ -1670,6 +1819,9 @@
 
     
 
+    
+      
+    
     
 
     
@@ -1705,9 +1857,6 @@
 
           </div>
           
- <div id="gitalk-container"></div>
-
-
 
         </div>
         
@@ -1722,22 +1871,18 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
-    
     <div class="sidebar-inner">
 
-
       
 
       
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <div class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="louhc">
-            
               <p class="site-author-name" itemprop="name">louhc</p>
-              <p class="site-description motion-element" itemprop="description">蒟蒻一枚，请多关照</p>
+              <div class="site-description motion-element" itemprop="description">蒟蒻一枚，请多关照</div>
           </div>
 
           
@@ -1759,7 +1904,11 @@
                 
                 
                 <div class="site-state-item site-state-tags">
-                  <a href="/tags/index.html">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
                     
                     
                       
@@ -1943,27 +2092,7 @@
           
 
           
-            <div class="links-of-author motion-element">
-              
-                <span class="links-of-author-item">
-                  <a href="https://github.com/louhc" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i></a>
-                  
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="https://twitter.com/louhc1" target="_blank" title="Twitter"><i class="fa fa-fw fa-twitter"></i></a>
-                  
-                </span>
-              
-                <span class="links-of-author-item">
-                  <a href="https://www.facebook.com/dennis.lou.1466" target="_blank" title="FB Page"><i class="fa fa-fw fa-facebook"></i></a>
-                  
-                </span>
-              
-            </div>
-          
 
-          
           
 
           
@@ -1975,7 +2104,7 @@
           
 
         </div>
-      </section>
+      </div>
 
       
 
@@ -1983,6 +2112,7 @@
 
     </div>
   </aside>
+  
 
 
         
@@ -1992,7 +2122,7 @@
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
-  <span class="with-love">
+  <span class="with-love" id="animate">
     <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">louhc</span>
@@ -2003,9 +2133,7 @@
 </div>
 
 
-
-
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
 
 
 
@@ -2013,7 +2141,7 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/theme-next/hexo-theme-next">NexT.Gemini</a> v6.0.6</div>
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.0.1</div>
 
 
 
@@ -2040,11 +2168,14 @@
 
     
 
+    
+
+    
   </div>
 
   
 
-<script type="text/javascript">
+<script>
   if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
     window.Promise = null;
   }
@@ -2065,91 +2196,6 @@
 
 
 
-  
-  
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/three/three.min.js"></script>
-  
-
-  
-  
-    <script type="text/javascript" src="/lib/three/three-waves.min.js"></script>
-  
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=6.0.6"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=6.0.6"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=6.0.6"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.0.6"></script>
-
-
-
-  
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.0.6"></script>
-
-
-
-  
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
-
 
 
 
@@ -2161,7 +2207,31 @@
 
 
   
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
 
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/src/utils.js?v=7.0.1"></script>
+
+  <script src="/js/src/motion.js?v=7.0.1"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/src/affix.js?v=7.0.1"></script>
+
+  <script src="/js/src/schemes/pisces.js?v=7.0.1"></script>
 
 
 
@@ -2169,114 +2239,23 @@
   
 
   
-  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
-  <script>AV.initialize("hLHRxQGXPYFighUdcDfgo90u-gzGzoHsz", "h3zywmfrwKJlNWNSXodQEkrW");</script>
-  <script>
-    function showTime(Counter) {
-      var query = new AV.Query(Counter);
-      var entries = [];
-      var $visitors = $(".leancloud_visitors");
 
-      $visitors.each(function () {
-        entries.push( $(this).attr("id").trim() );
-      });
 
-      query.containedIn('url', entries);
-      query.find()
-        .done(function (results) {
-          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+  <script src="/js/src/next-boot.js?v=7.0.1"></script>
 
-          if (results.length === 0) {
-            $visitors.find(COUNT_CONTAINER_REF).text(0);
-            return;
-          }
 
-          for (var i = 0; i < results.length; i++) {
-            var item = results[i];
-            var url = item.get('url');
-            var time = item.get('time');
-            var element = document.getElementById(url);
+  
 
-            $(element).find(COUNT_CONTAINER_REF).text(time);
-          }
-          for(var i = 0; i < entries.length; i++) {
-            var url = entries[i];
-            var element = document.getElementById(url);
-            var countSpan = $(element).find(COUNT_CONTAINER_REF);
-            if( countSpan.text() == '') {
-              countSpan.text(0);
-            }
-          }
-        })
-        .fail(function (object, error) {
-          console.log("Error: " + error.code + " " + error.message);
-        });
-    }
+  
 
-    function addCount(Counter) {
-      var $visitors = $(".leancloud_visitors");
-      var url = $visitors.attr('id').trim();
-      var title = $visitors.attr('data-flag-title').trim();
-      var query = new AV.Query(Counter);
+  
 
-      query.equalTo("url", url);
-      query.find({
-        success: function(results) {
-          if (results.length > 0) {
-            var counter = results[0];
-            counter.fetchWhenSave(true);
-            counter.increment("time");
-            
-            counter.save(null, {
-              success: function(counter) {
-                
-                  var $element = $(document.getElementById(url));
-                  $element.find('.leancloud-visitors-count').text(counter.get('time'));
-                
-              },
-              error: function(counter, error) {
-                console.log('Failed to save Visitor num, with error message: ' + error.message);
-              }
-            });
-          } else {
-            
-              var newcounter = new Counter();
-              /* Set ACL */
-              var acl = new AV.ACL();
-              acl.setPublicReadAccess(true);
-              acl.setPublicWriteAccess(true);
-              newcounter.setACL(acl);
-              /* End Set ACL */
-              newcounter.set("title", title);
-              newcounter.set("url", url);
-              newcounter.set("time", 1);
-              newcounter.save(null, {
-                success: function(newcounter) {
-                  var $element = $(document.getElementById(url));
-                  $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
-                },
-                error: function(newcounter, error) {
-                  console.log('Failed to create');
-                }
-              });
-            
-          }
-        },
-        error: function(error) {
-          console.log('Error:' + error.code + " " + error.message);
-        }
-      });
-    }
+  
 
-    $(function() {
-      var Counter = AV.Object.extend("Counter");
-      if ($('.leancloud_visitors').length == 1) {
-        addCount(Counter);
-      } else if ($('.post-title-link').length > 1) {
-        showTime(Counter);
-      }
-    });
-  </script>
+
+
+  
+
 
 
 
@@ -2285,62 +2264,15 @@
   
 
   
+
   
 
   
-  
-    
-      
-        
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
+
   
 
   
-    
-      <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-        processEscapes: true,
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
-</script>
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-      var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-
-    
-  
-
-
-  
   
 
   
