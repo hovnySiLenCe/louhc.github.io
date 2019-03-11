@@ -482,6 +482,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2019/03/11/black-technology-transparency/" rel="prev" title="「黑科技」透明化应用程序">
+                「黑科技」透明化应用程序 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -505,6 +509,9 @@
 
           </div>
           
+
+  
+ <div id="gitalk-container"></div>
 
   
 
@@ -557,7 +564,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">98</span>
+                    <span class="site-state-item-count">99</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -987,6 +994,22 @@
 
 
 
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: 'Client ID',
+          clientSecret: 'Client Secret',
+          repo: 'louhc.github.io',
+          owner: 'louhc',
+          admin: ['louhc'],
+          id: location.pathname,
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')           
+       </script>
 
 
   

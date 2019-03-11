@@ -564,6 +564,9 @@ Ans = \sum_{d=1}^{a}\mu(d) \times (a/d) \times (b/d)</script><p>然后我们就�
           
 
   
+ <div id="gitalk-container"></div>
+
+  
 
 
 
@@ -614,7 +617,7 @@ Ans = \sum_{d=1}^{a}\mu(d) \times (a/d) \times (b/d)</script><p>然后我们就�
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">98</span>
+                    <span class="site-state-item-count">99</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -1044,6 +1047,22 @@ Ans = \sum_{d=1}^{a}\mu(d) \times (a/d) \times (b/d)</script><p>然后我们就�
 
 
 
+
+
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+   <script type="text/javascript">
+        var gitalk = new Gitalk({
+          clientID: 'Client ID',
+          clientSecret: 'Client Secret',
+          repo: 'louhc.github.io',
+          owner: 'louhc',
+          admin: ['louhc'],
+          id: location.pathname,
+          distractionFreeMode: 'true'
+        })
+        gitalk.render('gitalk-container')           
+       </script>
 
 
   

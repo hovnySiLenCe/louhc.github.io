@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://louhc.github.io/2019/02/09/my-aims/</loc>
+    <lastmod>2019-03-11</lastmod>
+  </url>  <url>
+    <loc>https://louhc.github.io/2019/03/11/black-technology-transparency/</loc>
+    <lastmod>2019-03-11</lastmod>
+  </url>  <url>
     <loc>https://louhc.github.io/2019/03/10/spoj19985-solution/</loc>
     <lastmod>2019-03-11</lastmod>
   </url>  <url>
@@ -36,9 +42,6 @@
   </url>  <url>
     <loc>https://louhc.github.io/2019/02/11/2019-02-11-contest-solution/</loc>
     <lastmod>2019-02-11</lastmod>
-  </url>  <url>
-    <loc>https://louhc.github.io/2019/02/09/my-aims/</loc>
-    <lastmod>2019-02-10</lastmod>
   </url>  <url>
     <loc>https://louhc.github.io/2019/02/09/notes-gcd-exgcd/</loc>
     <lastmod>2019-02-10</lastmod>
