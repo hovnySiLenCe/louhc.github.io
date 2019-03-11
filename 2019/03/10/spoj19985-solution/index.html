@@ -97,17 +97,18 @@
 
 
 
-  <meta name="description" content="蒟蒻一枚，请多关照">
+  <meta name="description" content="SP19985 GCDEX2 - GCD Extreme (hard)">
+<meta name="keywords" content="解题报告,数学,数论,莫比乌斯反演,杜教筛">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SP19985-solution">
+<meta property="og:title" content="「SP19985」GCDEX2 - GCD Extreme (hard) 解题报告">
 <meta property="og:url" content="https://louhc.github.io/2019/03/10/spoj19985-solution/index.html">
 <meta property="og:site_name" content="Hello,I am louhc">
-<meta property="og:description" content="蒟蒻一枚，请多关照">
+<meta property="og:description" content="SP19985 GCDEX2 - GCD Extreme (hard)">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-03-10T04:34:01.177Z">
+<meta property="og:updated_time" content="2019-03-11T12:28:55.255Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SP19985-solution">
-<meta name="twitter:description" content="蒟蒻一枚，请多关照">
+<meta name="twitter:title" content="「SP19985」GCDEX2 - GCD Extreme (hard) 解题报告">
+<meta name="twitter:description" content="SP19985 GCDEX2 - GCD Extreme (hard)">
 
 
 
@@ -124,7 +125,7 @@
   };
 </script>
 
-  <title>SP19985-solution | Hello,I am louhc</title>
+  <title>「SP19985」GCDEX2 - GCD Extreme (hard) 解题报告 | Hello,I am louhc</title>
   
 
 
@@ -319,7 +320,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">SP19985-solution</h1>
+          <h1 class="post-title" itemprop="name headline">「SP19985」GCDEX2 - GCD Extreme (hard) 解题报告</h1>
         
 
         <div class="post-meta">
@@ -348,7 +349,7 @@
 
           
           
-             <span id="/2019/03/10/spoj19985-solution/" class="leancloud_visitors" data-flag-title="SP19985-solution">
+             <span id="/2019/03/10/spoj19985-solution/" class="leancloud_visitors" data-flag-title="「SP19985」GCDEX2 - GCD Extreme (hard) 解题报告">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -380,7 +381,59 @@
       
 
       
-        
+        <h1 id="SP19985-GCDEX2-GCD-Extreme-hard"><a href="#SP19985-GCDEX2-GCD-Extreme-hard" class="headerlink" title="SP19985 GCDEX2 - GCD Extreme (hard)"></a><a href="https://www.luogu.org/problemnew/show/SP19985" target="_blank" rel="noopener">SP19985 GCDEX2 - GCD Extreme (hard)</a></h1><a id="more"></a>
+<p>This problem is a harder version of GCDEX.</p>
+<p>Let</p>
+<script type="math/tex; mode=display">G(n) = \sum_ {i=1}^{n} \sum_ {j=i+1}^{n} \gcd(i, j).</script><p>For example, $G(1) = 0$, $G(2) = \gcd(1, 2) = 1$, $G(3) = \gcd(1, 2) + \gcd(1, 3) + \gcd(2, 3) = 3$.</p>
+<p>Given $N$, find $G(N)$ modulo 2^{64}.​</p>
+<h2 id="Input"><a href="#Input" class="headerlink" title="Input"></a>Input</h2><p>First line of contains $T$ ($1 \le T \le 10000$), the number of test cases.</p>
+<p>Each of the next $T$ lines contains a single integer $N$. ($1 \le N \le 235711131719$)</p>
+<h2 id="Output"><a href="#Output" class="headerlink" title="Output"></a>Output</h2><p>For each number $N$, output a single line containing $G(N)$ modulo $2^{64}$.</p>
+<h2 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h2><h3 id="Input-1"><a href="#Input-1" class="headerlink" title="Input"></a>Input</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">5</span><br><span class="line">1</span><br><span class="line">4</span><br><span class="line">100</span><br><span class="line">1000000</span><br><span class="line">100000000000</span><br></pre></td></tr></table></figure>
+<h3 id="Output-1"><a href="#Output-1" class="headerlink" title="Output"></a>Output</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">0</span><br><span class="line">7</span><br><span class="line">13015</span><br><span class="line">4071628673912</span><br><span class="line">5482289417216306300</span><br></pre></td></tr></table></figure>
+<p>Explanation for Input</p>
+<ul>
+<li><p>$G(4) = \gcd(1, 2) + \gcd(1, 3) + \gcd(1, 4) + \gcd(2, 3) + \gcd(2, 4) + \gcd(3, 4) = 7$</p>
+</li>
+<li><p>$G(10^{11}) = 75710919967921216138364 \equiv 5482289417216306300 \pmod{2^{64}}$</p>
+</li>
+</ul>
+<p>Information<br>There are 7 Input files.</p>
+<ul>
+<li><p>Input #0: $1 \le T \le 10000$, $1 \le N \le 10000$, TL = 1s.</p>
+</li>
+<li><p>Input #1: $1 \le T \le 1000$, $1 \le N \le 10^{7}$, TL = 20s.</p>
+</li>
+<li><p>Input #2: $1 \le T \le 200$, $1 \le N \le 10^{8}$, TL = 20s.</p>
+</li>
+<li><p>Input #3: $1 \le T \le 40$, $1 \le N \le 10^{9}$, TL = 20s.</p>
+</li>
+<li><p>Input #4: $1 \le T \le 10$, $1 \le N \le 10^{10}$, TL = 20s.</p>
+</li>
+<li><p>Input #5: $1 \le T \le 2$, $1 \le N \le 10^{11}$, TL = 20s.</p>
+</li>
+<li><p>Input #6: $T = 1$, $1 \le N \le 235711131719$, TL = 20s.</p>
+</li>
+</ul>
+<p>My solution runs in 10.7 sec. (total time)</p>
+<p><strong>Source Limit is 10 KB.</strong></p>
+<hr>
+<p>First of all,建议去康康SPOJ原题的数据范围,洛谷没把数据范围搬上来。<br>如果你是大佬但是没有看见原题数据范围,不用往下看我瞎<code>**</code>了,直接秒了这题。</p>
+<h1 id="做这道题前你需要的"><a href="#做这道题前你需要的" class="headerlink" title="做这道题前你需要的"></a>做这道题前你需要的</h1><blockquote>
+<p>脑子<br>电脑及其配件<br>线性筛<br>莫比乌斯反演<br>杜教筛<br>数论分块  </p>
+</blockquote>
+<p>然后你就会发现这是很裸的杜教筛。。。。  </p>
+<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>(由于题目需要 这里$\varphi(1)=0$)</p>
+<script type="math/tex; mode=display">
+\sum^n_{i=1}\sum^n_{j=i+1}\gcd(i,j)
+=\sum^n_{i=1}\sum^{i-1}_ {j=1}\gcd(i,j)
+=\sum^n_{d=1}d\sum^{n/d}_ {i=1}\sum^{i-1}_ {j=1}[\gcd(i,j)=1]
+=\sum^n_{d=1}d\sum^{n/d}_ {i=1}\varphi(i)</script><p>然后就可以愉快地杜教筛+数论分块辣</p>
+<p>$\varphi * 1=ID$不用我说了吧。。</p>
+<p>接下来是代码(C++14)——<br>(SPOJ的C++似乎不能tr1,也没有C++11,所以就用C++14算了)</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LMT 20000000</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> ULL unsigned long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> UI unsigned int</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rgt register</span></span><br><span class="line"></span><br><span class="line">UI T;</span><br><span class="line"><span class="function">UI <span class="title">n</span><span class="params">(LMT)</span></span>;</span><br><span class="line">UI p[LMT / <span class="number">10</span> + <span class="number">5</span>], tot;</span><br><span class="line">ULL phi[LMT + <span class="number">5</span>], N; <span class="keyword">bool</span> vis[LMT + <span class="number">5</span>];</span><br><span class="line"><span class="built_in">unordered_map</span>&lt;ULL, ULL&gt; mp;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> ULL <span class="title">sum</span><span class="params">( ULL x )</span></span>&#123; <span class="keyword">return</span> ( x &amp; <span class="number">1</span> ) ? ( ( x + <span class="number">1</span> ) / <span class="number">2</span> * x ) : ( x / <span class="number">2</span> * ( x + <span class="number">1</span> ) ); &#125;</span><br><span class="line"><span class="comment">//由于2^64与2不互质,不方便用乘法逆元,直接乘再取余会爆,所以就来一波玄学操作。。。。</span></span><br><span class="line"></span><br><span class="line"><span class="function">ULL <span class="title">GetSum</span><span class="params">( ULL x )</span></span>&#123;</span><br><span class="line">	<span class="keyword">if</span> ( x &lt;= n ) <span class="keyword">return</span> phi[x];</span><br><span class="line">	<span class="keyword">if</span> ( mp.count(x) ) <span class="keyword">return</span> mp[x];</span><br><span class="line">	<span class="function">rgt ULL <span class="title">ans</span><span class="params">(sum(x))</span></span>;</span><br><span class="line">	<span class="keyword">for</span> ( rgt ULL i = <span class="number">2</span>, j; i &lt;= x; i = j + <span class="number">1</span> )</span><br><span class="line">		j = x / ( x / i ), ans -= ( j - i + <span class="number">1</span> ) * GetSum( x / i );</span><br><span class="line">	<span class="keyword">return</span> mp.insert( make_pair( x, ans ) ), ans;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>( <span class="string">"%u"</span>, &amp;T );</span><br><span class="line">	<span class="keyword">if</span> ( T &gt; <span class="number">200</span> ) n = <span class="number">10000000</span>;<span class="comment">//避免数据小而时限小时筛完耗费太多时间</span></span><br><span class="line">	<span class="keyword">if</span> ( T &gt; <span class="number">1000</span> ) n = <span class="number">10000</span>;</span><br><span class="line">	phi[<span class="number">1</span>] = <span class="number">1</span>; <span class="comment">//不要直接0了。。。否则就不是积性函数了。。。鬼知道会发生啥</span></span><br><span class="line">	<span class="keyword">for</span> ( rgt UI i = <span class="number">2</span>; i &lt;= n; ++i )&#123;</span><br><span class="line">		<span class="keyword">if</span> ( !vis[i] ) p[++tot] = i, phi[i] = i - <span class="number">1</span>;</span><br><span class="line">		<span class="keyword">for</span> ( rgt UI j = <span class="number">1</span>; j &lt;= tot &amp;&amp; i * p[j] &lt;= n; ++j )&#123;</span><br><span class="line">			vis[i * p[j]] = <span class="number">1</span>;</span><br><span class="line">			<span class="keyword">if</span> ( i % p[j] ) phi[i * p[j]] = phi[i] * phi[p[j]];</span><br><span class="line">			<span class="keyword">else</span> &#123; phi[i * p[j]] = phi[i] * p[j]; <span class="keyword">break</span>; &#125; </span><br><span class="line">		&#125;</span><br><span class="line">	&#125; <span class="keyword">for</span> ( rgt UI i = <span class="number">2</span>; i &lt;= n; ++i ) phi[i] += phi[i - <span class="number">1</span>];</span><br><span class="line">	<span class="keyword">while</span>( T-- )&#123;</span><br><span class="line">		<span class="built_in">scanf</span>( <span class="string">"%lld"</span>, &amp;N ); <span class="function">ULL <span class="title">ans</span><span class="params">(<span class="number">0</span>)</span></span>;</span><br><span class="line">		<span class="keyword">for</span> ( rgt ULL i = <span class="number">1</span>, j; i &lt;= N; i = j + <span class="number">1</span> )</span><br><span class="line">			j = N / ( N / i ),<span class="comment">//由于我们这里的phi(1)=0,前缀和要减去1</span></span><br><span class="line">			ans += ( GetSum( N / i ) - <span class="number">1</span> ) * ( sum(j) - sum(i - <span class="number">1</span>) );</span><br><span class="line">		<span class="built_in">printf</span>( <span class="string">"%llu\n"</span>, ans );</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>有兴趣的童鞋可以康康<a href="https://projecteuler.net/problem=625" target="_blank" rel="noopener">https://projecteuler.net/problem=625</a> (除了膜数几乎一样。。。。。。。。)</p>
+
       
     </div>
 
@@ -397,6 +450,18 @@
     
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/解题报告/" rel="tag"># 解题报告</a>
+          
+            <a href="/tags/数学-数论/" rel="tag"># 数学,数论</a>
+          
+            <a href="/tags/莫比乌斯反演/" rel="tag"># 莫比乌斯反演</a>
+          
+            <a href="/tags/杜教筛/" rel="tag"># 杜教筛</a>
+          
+        </div>
       
 
       
@@ -465,8 +530,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -666,7 +740,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">84</span>
+                      
+                    
+                    <span class="site-state-item-count">85</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
@@ -711,6 +787,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SP19985-GCDEX2-GCD-Extreme-hard"><span class="nav-number">1.</span> <span class="nav-text">SP19985 GCDEX2 - GCD Extreme (hard)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Input"><span class="nav-number">1.1.</span> <span class="nav-text">Input</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Output"><span class="nav-number">1.2.</span> <span class="nav-text">Output</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Example"><span class="nav-number">1.3.</span> <span class="nav-text">Example</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Input-1"><span class="nav-number">1.3.1.</span> <span class="nav-text">Input</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Output-1"><span class="nav-number">1.3.2.</span> <span class="nav-text">Output</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#做这道题前你需要的"><span class="nav-number">2.</span> <span class="nav-text">做这道题前你需要的</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#思路"><span class="nav-number">3.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码"><span class="nav-number">4.</span> <span class="nav-text">代码</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1027,6 +1119,29 @@
   
   
 
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
   
 
 
