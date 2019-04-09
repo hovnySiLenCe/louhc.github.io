@@ -2,14 +2,35 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>https://louhc.github.io/2019/01/23/notes-congruence-modulo/</loc>
+    <loc>https://louhc.github.io/contests/2019-04-07/index.html</loc>
     
-    <lastmod>2019-03-31T01:13:03.414Z</lastmod>
+    <lastmod>2019-04-09T13:35:37.293Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://louhc.github.io/2019/03/20/2019-03-19-contest-solution/</loc>
+    <loc>https://louhc.github.io/contests/index.html</loc>
+    
+    <lastmod>2019-04-09T13:30:24.348Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://louhc.github.io/contests/2019-04-08/index.html</loc>
+    
+    <lastmod>2019-04-09T11:04:09.427Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://louhc.github.io/2019/01/23/notes-congruence-modulo/</loc>
+    
+    <lastmod>2019-03-31T02:06:23.893Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://louhc.github.io/contests/2019-03-19/index.html</loc>
     
     <lastmod>2019-03-20T14:43:48.842Z</lastmod>
     
@@ -86,28 +107,21 @@
   </url>
   
   <url>
-    <loc>https://louhc.github.io/2019/02/16/2019-02-16-contest-solution/</loc>
+    <loc>https://louhc.github.io/contests/2019-02-16/index.html</loc>
     
     <lastmod>2019-02-16T15:53:18.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://louhc.github.io/2019/02/14/2019-02-14-contest-solution/</loc>
+    <loc>https://louhc.github.io/contests/2019-02-14/2019-02-14.html</loc>
     
     <lastmod>2019-02-14T11:33:06.000Z</lastmod>
     
   </url>
   
   <url>
-    <loc>https://louhc.github.io/contest/index.html</loc>
-    
-    <lastmod>2019-02-13T12:08:42.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://louhc.github.io/2019/02/11/2019-02-11-contest-solution/</loc>
+    <loc>https://louhc.github.io/contests/2019-02-11/index.html</loc>
     
     <lastmod>2019-02-11T13:30:46.000Z</lastmod>
     
@@ -177,30 +191,9 @@
   </url>
   
   <url>
-    <loc>https://louhc.github.io/diary/index.html</loc>
-    
-    <lastmod>2019-02-08T12:11:22.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://louhc.github.io/diary/menu/index.html</loc>
-    
-    <lastmod>2019-02-08T10:11:32.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://louhc.github.io/2019/02/03/spoj26368-solution/</loc>
     
     <lastmod>2019-02-03T14:29:12.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://louhc.github.io/diary/2019.02.03/index.html</loc>
-    
-    <lastmod>2019-02-03T13:25:52.000Z</lastmod>
     
   </url>
   
@@ -212,13 +205,6 @@
   </url>
   
   <url>
-    <loc>https://louhc.github.io/diary/2019.01.29/index.html</loc>
-    
-    <lastmod>2019-01-29T15:09:42.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://louhc.github.io/2019/01/28/Claris'-Contest-2-Day-2-solution/</loc>
     
     <lastmod>2019-01-29T14:59:54.000Z</lastmod>
@@ -226,30 +212,9 @@
   </url>
   
   <url>
-    <loc>https://louhc.github.io/diary/2019.01.28/index.html</loc>
-    
-    <lastmod>2019-01-28T14:07:14.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://louhc.github.io/diary/2019.01.27/index.html</loc>
-    
-    <lastmod>2019-01-28T13:52:58.000Z</lastmod>
-    
-  </url>
-  
-  <url>
     <loc>https://louhc.github.io/2019/01/27/Claris'-Contest-2-Day-1-solution/</loc>
     
     <lastmod>2019-01-28T05:00:08.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://louhc.github.io/diary/2019.01.26/index.html</loc>
-    
-    <lastmod>2019-01-26T14:57:46.000Z</lastmod>
     
   </url>
   
