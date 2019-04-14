@@ -97,7 +97,7 @@
 
 
   <meta name="description" content="CH2601 电路维修描述Ha’nyu是来自异世界的魔女，她在漫无目的地四处漂流的时候，遇到了善良的少女Rika，从而被收留在地球上。Rika的家里有一辆飞行车。有一天飞行车的电路板突然出现了故障，导致无法启动。">
-<meta name="keywords" content="解题报告,广搜">
+<meta name="keywords" content="广搜,解题报告">
 <meta property="og:type" content="article">
 <meta property="og:title" content="「CH2601」电路维修 解题报告">
 <meta property="og:url" content="https://louhc.github.io/2019/01/23/ch2601-solution/index.html">
@@ -318,26 +318,20 @@
   
     <div class="site-search">
       
-  
-  <div class="algolia-popup popup search-popup">
-    <div class="algolia-search">
-      <div class="algolia-search-input-icon">
-        <i class="fa fa-search"></i>
-      </div>
-      <div class="algolia-search-input" id="algolia-search-input"></div>
-    </div>
-
-    <div class="algolia-results">
-      <div id="algolia-stats"></div>
-      <div id="algolia-hits"></div>
-      <div id="algolia-pagination" class="algolia-pagination"></div>
-    </div>
-
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
     <span class="popup-btn-close">
       <i class="fa fa-times-circle"></i>
     </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
   </div>
-
+  <div id="local-search-result"></div>
+</div>
 
 
 
@@ -537,9 +531,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/解题报告/" rel="tag"># 解题报告</a>
-          
             <a href="/tags/广搜/" rel="tag"># 广搜</a>
+          
+            <a href="/tags/解题报告/" rel="tag"># 解题报告</a>
           
         </div>
       
@@ -1424,19 +1418,6 @@
   </script>
 
 
-
-
-  
-  
-  
-  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
-
-  
-  
-  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
-  
-
-  <script src="/js/algolia-search.js?v=7.1.0"></script>
 
 
 

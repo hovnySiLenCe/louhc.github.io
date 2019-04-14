@@ -314,26 +314,20 @@
   
     <div class="site-search">
       
-  
-  <div class="algolia-popup popup search-popup">
-    <div class="algolia-search">
-      <div class="algolia-search-input-icon">
-        <i class="fa fa-search"></i>
-      </div>
-      <div class="algolia-search-input" id="algolia-search-input"></div>
-    </div>
-
-    <div class="algolia-results">
-      <div id="algolia-stats"></div>
-      <div id="algolia-hits"></div>
-      <div id="algolia-pagination" class="algolia-pagination"></div>
-    </div>
-
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
     <span class="popup-btn-close">
       <i class="fa fa-times-circle"></i>
     </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
   </div>
-
+  <div id="local-search-result"></div>
+</div>
 
 
 
@@ -451,7 +445,7 @@
 <div id="decryptionError" style="display: none;">Incorrect Password!</div>
 <div id="noContentError" style="display: none;">No content to display!</div>
 <div id="encrypt-blog" style="display:none">
-U2FsdGVkX1+5gPUGVxBYbHYluTpGgDAIBfZdHMOozAiZ97vPPmGJYa9amVrlXHM+g2jJ4oYf7HemfqHok+mVQtHem+/WyHF26q31xZaIXwFKecvhuZvjFqoIObPjQWlWoSzrumaazKPlJ5f2lC6c7HtmNB7t71mtWSZN3OXl9pXWuUEWrxcGjgX0pHqF7lbZU2sBHlwGSBH4X5judRhJ8Zrr5Sk6glmardEOf7/CwmivmsW1IrG2N0fNmYWQNac39zg87gF3d9YptFQbdUNaGHW+UFn6RACOyFCfi5Q6xsZ6ZJVvGz4MeDiDUZRBisQRPZ/0UMNtP/aIFwV1nA1Q/2AcULmzzG1Rjke7TczyOSyKOv85AVQnnBcn0B1xqroojxWTB4h4kN6cNZ92ONreJPSk2xnQRphaA92ss66MLW457DQhLgBtDIdAuvxivBxV3dq2286KdH3IIGzINdKQM3tYQx0WyiISUPm2e6rzp/cvNyBRdycqeMpG6a0kEe1ewMi/sDVajJqVaBmWRw6ThBNIWFUXsBPpwpGxp+fa7XxzobokKQD1HmYE/qXPxIBrmxGWcMWKFuiFVWMQOAmO16FJ4eqLT0BQbToYq8r+Q1FnV/3dCK/IsAFc1G/FP64cyAytNGYt3ULJjjq31GTVh47p53jt+paQM/B9sIuuR5c=
+U2FsdGVkX186LUHBt3ggnjGKfIbOdU7DhP2/MYTAAeTk6SqRHtZl1ILtB7S+tXvRx2JZKeL2Jq+ZDjaL9M1g998s0fgImSOmonkUComJPvaiJt2hy2BxkSytcfxXdZDr26aMidx1z497621ENoKWoKmaiSbSrT/40AERbx2lCgQObLdnSfJqYyAHYrwqXc3oKJMOh88YgWgCvvyfTJDVqVb/EsegXjOBHt4JEJF5Eav5+1czITpArMw0aXpIhrwkWfxMextD1RvAqDU1jxk6Lz8T9sgnF/QkMWn45BQhDAhs/Q/1zcJ0Hs2R9tpDFbY65JgYySNe/AuxhIiLL8C6aJasGK5pYa1MGKPvGQMpHYcqdi+RAZHh1o44n/33LP4DesFAzD42RcJgbTobTYqEO2pBD+auoyDg7/IEkN/ALNWOAX1lwc3C01RXdWVtL8OtSHtb5NidApaD5MqLW5khEAZR4sXKFY6Zfn6gw9VTU0wnM1mhG80C6VKuoxi08oL5pjMhndThucOQ+fpCB2/e+kaML/fhpz15Kzzusni9FiOfmq4eVQgmZuNXUeC9hSyUY9gGDwWOJMWdxIAGHbJcC9n9ijd+9isRznmVjZSCbpf/pq75dgxeiuIjVm8L9wLR4tn1LmjuIKf6B+5suQgFwWlp8jrR6oAI4TF4DPxu4yo=
 </div>
 <script src="/lib/crypto-js.js"></script><script src="/lib/blog-encrypt.js"></script><link href="/css/blog-encrypt.css" rel="stylesheet" type="text/css">
         
@@ -1273,19 +1267,6 @@ U2FsdGVkX1+5gPUGVxBYbHYluTpGgDAIBfZdHMOozAiZ97vPPmGJYa9amVrlXHM+g2jJ4oYf7HemfqHo
   </script>
 
 
-
-
-  
-  
-  
-  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
-
-  
-  
-  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
-  
-
-  <script src="/js/algolia-search.js?v=7.1.0"></script>
 
 
 

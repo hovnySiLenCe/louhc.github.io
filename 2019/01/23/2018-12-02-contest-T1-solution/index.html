@@ -97,7 +97,7 @@
 
 
   <meta name="description" content="1.最短路(short.pas/cpp/in/out)问题描述：小 C 终于被小 X 感动了，于是决定与他看电影，然而小 X 距离电影院非常远，现在假设每条道路需要花费小 X 的时间为 1，由于有数以万计的好朋友沿路祝贺，导致小 X 在通过某些路不得不耗费 1 的时间来和他们聊天，尽管他希望尽早见到小 C，所以他希望找到一条最快时间到达电影院的路。一开始小 X 在 1 号点，共有 N 个点，M 条">
-<meta name="keywords" content="解题报告,最短路,广搜">
+<meta name="keywords" content="最短路,广搜,解题报告">
 <meta property="og:type" content="article">
 <meta property="og:title" content="「2018-12-02模拟赛」T1 最短路 解题报告">
 <meta property="og:url" content="https://louhc.github.io/2019/01/23/2018-12-02-contest-T1-solution/index.html">
@@ -315,26 +315,20 @@
   
     <div class="site-search">
       
-  
-  <div class="algolia-popup popup search-popup">
-    <div class="algolia-search">
-      <div class="algolia-search-input-icon">
-        <i class="fa fa-search"></i>
-      </div>
-      <div class="algolia-search-input" id="algolia-search-input"></div>
-    </div>
-
-    <div class="algolia-results">
-      <div id="algolia-stats"></div>
-      <div id="algolia-hits"></div>
-      <div id="algolia-pagination" class="algolia-pagination"></div>
-    </div>
-
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
     <span class="popup-btn-close">
       <i class="fa fa-times-circle"></i>
     </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
   </div>
-
+  <div id="local-search-result"></div>
+</div>
 
 
 
@@ -532,11 +526,11 @@
       
         <div class="post-tags">
           
-            <a href="/tags/解题报告/" rel="tag"># 解题报告</a>
-          
             <a href="/tags/最短路/" rel="tag"># 最短路</a>
           
             <a href="/tags/广搜/" rel="tag"># 广搜</a>
+          
+            <a href="/tags/解题报告/" rel="tag"># 解题报告</a>
           
         </div>
       
@@ -1421,19 +1415,6 @@
   </script>
 
 
-
-
-  
-  
-  
-  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
-
-  
-  
-  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
-  
-
-  <script src="/js/algolia-search.js?v=7.1.0"></script>
 
 
 
