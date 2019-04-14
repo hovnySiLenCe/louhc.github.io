@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.jpg?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/avatar.jpg?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/avatar.jpg?v=7.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="GCDMAT2 - GCD OF MATRIX (hard)题意简述求  \sum_{i=a1}^{a2} \sum_{j=b1}^{b2} \gcd(i,j) 这大概是我做过的最毒瘤的卡常题了。。。">
+<meta name="keywords" content="解题报告,数学,数论,莫比乌斯反演,卡常数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="「SP26045」GCDMAT2 - GCD OF MATRIX (hard) 解题报告">
+<meta property="og:url" content="https://louhc.github.io/2019/04/13/spoj26045-solution/index.html">
+<meta property="og:site_name" content="Hello,I am louhc">
+<meta property="og:description" content="GCDMAT2 - GCD OF MATRIX (hard)题意简述求  \sum_{i=a1}^{a2} \sum_{j=b1}^{b2} \gcd(i,j) 这大概是我做过的最毒瘤的卡常题了。。。">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://cdn.luogu.org/upload/pic/56377.png">
+<meta property="og:updated_time" content="2019-04-14T01:17:23.416Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="「SP26045」GCDMAT2 - GCD OF MATRIX (hard) 解题报告">
+<meta name="twitter:description" content="GCDMAT2 - GCD OF MATRIX (hard)题意简述求  \sum_{i=a1}^{a2} \sum_{j=b1}^{b2} \gcd(i,j) 这大概是我做过的最毒瘤的卡常题了。。。">
+<meta name="twitter:image" content="https://cdn.luogu.org/upload/pic/56377.png">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="https://louhc.github.io/2019/04/13/spoj26045-solution/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>「SP26045」GCDMAT2 - GCD OF MATRIX (hard) 解题报告 | Hello,I am louhc</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hello,I am louhc</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">An OIer From Zhejiang</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-contests">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/contests/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>contests</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://louhc.github.io/2019/04/13/spoj26045-solution/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="louhc">
+      <meta itemprop="description" content="蒟蒻一枚，请多关照">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hello,I am louhc">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">「SP26045」GCDMAT2 - GCD OF MATRIX (hard) 解题报告
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-04-13 08:16:29" itemprop="dateCreated datePublished" datetime="2019-04-13T08:16:29+08:00">2019-04-13</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-04-14 09:17:23" itemprop="dateModified" datetime="2019-04-14T09:17:23+08:00">2019-04-14</time>
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/04/13/spoj26045-solution/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/13/spoj26045-solution/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2019/04/13/spoj26045-solution/" class="leancloud_visitors" data-flag-title="「SP26045」GCDMAT2 - GCD OF MATRIX (hard) 解题报告">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="GCDMAT2-GCD-OF-MATRIX-hard"><a href="#GCDMAT2-GCD-OF-MATRIX-hard" class="headerlink" title="GCDMAT2 - GCD OF MATRIX (hard)"></a><a href="https://www.spoj.com/problems/GCDMAT2/" target="_blank" rel="noopener">GCDMAT2 - GCD OF MATRIX (hard)</a></h1><h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>求</p>
+<script type="math/tex; mode=display">
+\sum_{i=a1}^{a2} \sum_{j=b1}^{b2} \gcd(i,j)</script><hr>
+<p>这大概是我做过的最毒瘤的卡常题了。。。</p>
+<a id="more"></a>
+<h1 id="膜拜区"><a href="#膜拜区" class="headerlink" title="膜拜区"></a>膜拜区</h1><p>膜一发Min_25跑得最快 orz</p>
+<p>膜一发liouzhou_101跑得第二快 orz</p>
+<p>膜一发@Judge_Cheung 洛谷此题一血 orz</p>
+<h1 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h1><p>为了方便叙述,先进行以下处理:</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">--a1,--b1</span><br></pre></td></tr></table></figure>
+<p>如果你来做这道题,说明你已经把GCDMAT简单版切了。</p>
+<p>你会得到这样的柿子——</p>
+<script type="math/tex; mode=display">s(x,y)=\sum^{x}_{i=1} \sum_{j=1}^{y}\gcd(i,j)=\sum_{i=1}^{\min(x,y)}\varphi(i)\times\lfloor x/i\rfloor\times\lfloor y/i \rfloor</script><script type="math/tex; mode=display">ans=s(a2,b2)+s(a1,b1)-s(a2,b1)-s(a1,b2)</script><p>这是$O(T\sqrt n)$的算法,但是常数呢？</p>
+<p>首先做一次$s$有4倍常数。</p>
+<p>然后调用4次就是4倍常数。</p>
+<p>这16倍常数谁顶得住啊,还进行那么多次除法运算,常数当然得高到爆炸。</p>
+<p>我们先来进行最基础的优化,优化掉一半的常数。</p>
+<script type="math/tex; mode=display">n=\min(a2, b2)</script><script type="math/tex; mode=display">ans=\sum_{i=1}^{n}\varphi(i)\times(\lfloor a2/i \rfloor-\lfloor a1/i \rfloor)\times(\lfloor b2/i \rfloor-\lfloor b1/i \rfloor)</script><p>算一算可以发现,这样常数已经减少到8倍常数了。</p>
+<p>但是仍然高到爆炸。/ll</p>
+<p>先放个代码——</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">dec</span><span class="params">( rgt <span class="keyword">int</span> x )</span></span>&#123; <span class="keyword">return</span> x &gt;= mod ? x - mod : x; &#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">rec</span><span class="params">( rgt <span class="keyword">int</span> x )</span></span>&#123; <span class="keyword">return</span> x &lt; <span class="number">0</span> ? x + mod : x; &#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">get</span><span class="params">( <span class="keyword">int</span> n, <span class="keyword">int</span> x )</span></span>&#123; <span class="keyword">return</span> ( n / x ) ? n / ( n / x ) : INT_MAX; &#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    rgt <span class="keyword">int</span> i, j;</span><br><span class="line">    <span class="keyword">for</span> ( <span class="built_in">scanf</span>( <span class="string">"%d%d%d"</span>, &amp;T, &amp;N, &amp;M ), N = max( N, M ), phi[<span class="number">1</span>] = <span class="number">1</span>, i = <span class="number">2</span>; i &lt;= N; ++i )&#123;</span><br><span class="line">        !phi[i] ? p[++tot] = i, phi[i] = i - <span class="number">1</span> : <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> ( j = <span class="number">1</span>; j &lt;= tot &amp;&amp; i * p[j] &lt;= N; ++j )&#123;</span><br><span class="line">            phi[i * p[j]] = i % p[j] ? phi[i] * phi[p[j]] : phi[i] * p[j];</span><br><span class="line">            <span class="keyword">if</span> ( i % p[j] == <span class="number">0</span> ) <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">for</span> ( rgt <span class="keyword">int</span> i = <span class="number">2</span>; i &lt;= N; ++i ) phi[i] = dec( phi[i - <span class="number">1</span>] + phi[i] );</span><br><span class="line">    rgt <span class="keyword">int</span> a1, b1, a2, b2, n, ans(<span class="number">0</span>);</span><br><span class="line">    <span class="keyword">while</span>( T-- ) <span class="keyword">for</span> ( ans = <span class="number">0</span>, <span class="built_in">scanf</span>( <span class="string">"%d%d%d%d"</span>, &amp;a1, &amp;b1, &amp;a2, &amp;b2 ), --a1, --b1, n = max( a2, b2 ), i = <span class="number">1</span>; i &gt; n ? <span class="built_in">printf</span>( <span class="string">"%d\n"</span>, ans ), <span class="number">0</span> : <span class="number">1</span>; i = j + <span class="number">1</span> )</span><br><span class="line">        j = min( min( get( a1, i ), get( b1, i ) ), min( get( a2, i ), get( b2, i ) ) ),</span><br><span class="line">        ans = dec( ans + rec( phi[j] - phi[i - <span class="number">1</span>] ) * (LL)rec( a2 / i - a1 / i ) % mod * (LL)rec( b2 / i - b1 / i ) % mod );</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这份代码的卡常程度还是十分naive的,极限数据大概要跑<code>10s~20s</code>左右,根本不能卡进时限。</p>
+<p>咋办？</p>
+<p>SPOJ上跑的最快的两位神仙——<code>Min_25</code>与<code>liouzhou_101</code></p>
+<p>我在推特问了<code>Min_25</code>,Judge用QQ问了<code>liouzhou_101</code>,得到两种神奇的卡常方式(都是优化除法的)——</p>
+<ol>
+<li><code>liouzhou_101</code>每次先预处理出所有除法,归并排序、去重,可以减少很多次除法运算。</li>
+<li><code>Min_25</code>最开始预处理出<code>1~N</code>的倒数,然后把除法改成乘法。<br><img src="https://cdn.luogu.org/upload/pic/56377.png" alt=""><br>然后再尽量减小运算的次数就OK了。(为了卡常数码风变得十分鬼畜,我都认不出我的代码了/xk)</li>
+</ol>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(<span class="meta-string">"Ofast"</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cctype&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mod 1000000007</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LL long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rgt register</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//常数能咋省就咋省，代码不能看不是问题，常数小就行</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> bf[<span class="number">1500000</span>],*p;<span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">(rgt <span class="keyword">int</span>&amp;x)</span></span>&#123;<span class="keyword">for</span> (x=<span class="number">0</span>;!<span class="built_in">isdigit</span>(*p);++p);<span class="keyword">for</span> (;<span class="built_in">isdigit</span>(*p);++p)x=x*<span class="number">10</span>+(*p&amp;<span class="number">15</span>);&#125;</span><br><span class="line"><span class="comment">//减小一点快读的常数</span></span><br><span class="line"><span class="comment">//感觉快写没必要</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> T, N, M, pr[<span class="number">100005</span>], tot, t;</span><br><span class="line">LL s[<span class="number">1000005</span>], phi[<span class="number">1000005</span>];</span><br><span class="line"><span class="keyword">double</span> invs[<span class="number">1000005</span>];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">min</span><span class="params">( rgt <span class="keyword">int</span> x, rgt <span class="keyword">int</span> y )</span></span>&#123; <span class="keyword">return</span> x &gt; y ? y : x; &#125;<span class="comment">//手写min(位运算似乎还不如三元运算符</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> div(x,y) (int)(x*invs[y])<span class="comment">//改成乘法优化除法</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">signed</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    bf[fread(bf,<span class="number">1</span>,<span class="number">1500000</span>,<span class="built_in">stdin</span>)]=<span class="string">'\0'</span>,p=bf; rgt <span class="keyword">int</span> i, j;</span><br><span class="line">    <span class="keyword">for</span> ( invs[<span class="number">1</span>] = <span class="number">1</span>, read(T), read(N), read(M), N = N &gt; M ? N : M, phi[<span class="number">1</span>] = <span class="number">1</span>, i = <span class="number">2</span>; i &lt;= N; ++i )&#123;</span><br><span class="line">        !phi[i] ? pr[++tot] = i, phi[i] = i - <span class="number">1</span> : <span class="number">0</span>, invs[i] = <span class="number">1.</span> / i * ( <span class="number">1</span> + <span class="number">1e-15</span> );</span><br><span class="line">        <span class="keyword">for</span> ( j = <span class="number">1</span>; j &lt;= tot &amp;&amp; i * pr[j] &lt;= N; ++j ) phi[i * pr[j]] = i % pr[j] ? phi[i] * phi[pr[j]] : phi[i] * pr[j], ( i % pr[j] == <span class="number">0</span> ) ? j = <span class="number">2000000000</span> : <span class="number">0</span>;</span><br><span class="line">    &#125; rgt int n, m, a1, b1, a2, b2, at1, ta1, at2, ta2, bt1, tb1, bt2, tb2; rgt LL ans(0), tmp, *pt;</span><br><span class="line">    <span class="keyword">for</span> ( i = <span class="number">1</span>, tmp = <span class="number">0</span>, pt = s; i &lt;= N; ++i ) tmp = *++pt = tmp + phi[i];</span><br><span class="line">    <span class="keyword">while</span>( T-- )&#123; ans = at1 = ta1 = at2 = ta2 = bt1 = tb1 = bt2 = tb2 = <span class="number">0</span>, read(a1), read(b1), read(a2), read(b2), --a1, --b1, n = a2 &lt; b2 ? a2 : b2, m = <span class="built_in">sqrt</span>(n);</span><br><span class="line">        <span class="keyword">for</span> ( i = <span class="number">1</span>, pt = phi; i &lt;= m; ++i ) ans += *++pt *(div(a2,i)-div(a1,i))*(div(b2,i)-div(b1,i));<span class="comment">//前sqrt(n)直接循环,因为数论分块得到的区间长度也都是1,直接算可以减少0.3~0.4的常数</span></span><br><span class="line">        <span class="keyword">for</span> ( i = m + <span class="number">1</span>, tmp = s[m]; i &lt;= n;</span><br><span class="line">            at1 &lt; i ? ta1 = div(a1,i), at1 = ta1 ? div(a1,ta1) : <span class="number">2000000000</span>, <span class="number">0</span> : <span class="number">0</span>,<span class="comment">//没必要重新算的千万不要重新算</span></span><br><span class="line">            at2 &lt; i ? ta2 = div(a2,i), at2 = ta2 ? div(a2,ta2) : <span class="number">2000000000</span>, <span class="number">0</span> : <span class="number">0</span>,</span><br><span class="line">            bt1 &lt; i ? tb1 = div(b1,i), bt1 = tb1 ? div(b1,tb1) : <span class="number">2000000000</span>, <span class="number">0</span> : <span class="number">0</span>,</span><br><span class="line">            bt2 &lt; i ? tb2 = div(b2,i), bt2 = tb2 ? div(b2,tb2) : <span class="number">2000000000</span>, <span class="number">0</span> : <span class="number">0</span>,</span><br><span class="line">            j = min(min(at1,at2),min(bt1,bt2)), ans+=(s[j]-tmp)*(ta2-ta1)*(tb2-tb1),</span><br><span class="line">        tmp=s[j], i = j + <span class="number">1</span> ); <span class="built_in">printf</span>( <span class="string">"%lld\n"</span>, ans % mod );<span class="comment">//最后取模减小常数</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>写完这道题,你就能体会到将常数从20s卡到2.5s内的乐趣。<br>但是我还是卡不到<code>Min_25</code>和<code>liouzhou_101</code>那么快 /ll</p>
+<h1 id="Update-on-2019-4-13"><a href="#Update-on-2019-4-13" class="headerlink" title="Update on 2019.4.13"></a>Update on 2019.4.13</h1><p>发现一种更神奇的卡常方式,再加上原先的代码,可以跑得比Min_25还快!<br>直接说出来没意思对不对。。。。 来意会一下<br><del>免得那么多人来抢rk1</del><br>这是一份检验某个性质是否成立的代码。</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> N = <span class="number">1000000</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="comment">//  freopen( "out", "w", stdout );</span></span><br><span class="line">    <span class="keyword">for</span> ( <span class="keyword">int</span> n = <span class="number">1</span>, m; n &lt;= N; ++n )&#123;</span><br><span class="line">        m = <span class="built_in">sqrt</span>(n) + <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">for</span> ( <span class="keyword">int</span> i = m, j, cur(n / i); i &lt;= n; i = j + <span class="number">1</span>, --cur )&#123;</span><br><span class="line">            <span class="keyword">if</span> ( n / i != cur ) <span class="keyword">return</span> <span class="built_in">printf</span>( <span class="string">"Wrong on %d!\n"</span>, n ), <span class="number">0</span>;</span><br><span class="line">            j = n / ( n / i );</span><br><span class="line">        &#125;</span><br><span class="line"><span class="comment">//      printf( "%d is OK\n", n );</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如果发现了什么,您就可以跑到1.5s左右,甚至可以直接抢到rk1</p>
+<p><del>然后不要说出来,然别人意会去吧qwq</del></p>
+<p><strong>がんばれ!</strong></p>
+<h1 id="结尾彩蛋"><a href="#结尾彩蛋" class="headerlink" title="结尾彩蛋"></a>结尾彩蛋</h1><p>最后放上目前我最快的代码</p>
+<figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(<span class="meta-string">"Ofast"</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cctype&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;ctime&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mod 1000000007</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LL long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rgt register</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> div(x,y) (int)(x*invs[y])</span></span><br><span class="line"><span class="keyword">double</span> invs[<span class="number">1000005</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> bf[<span class="number">1500000</span>],*p;<span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">(rgt <span class="keyword">int</span>&amp;x)</span></span>&#123;<span class="keyword">for</span> (x=<span class="number">0</span>;!<span class="built_in">isdigit</span>(*p);++p);<span class="keyword">for</span> (;<span class="built_in">isdigit</span>(*p);++p)x=x*<span class="number">10</span>+(*p&amp;<span class="number">15</span>);&#125;</span><br><span class="line"><span class="keyword">char</span> ot[<span class="number">600000</span>],*pp=ot; <span class="keyword">char</span> stk[<span class="number">100</span>], tp;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">write</span><span class="params">( rgt <span class="keyword">int</span> x )</span></span>&#123; tp = <span class="number">0</span>; rgt <span class="keyword">int</span> t;</span><br><span class="line">    <span class="keyword">while</span>( t=div(x,<span class="number">10</span>), stk[++tp]=x<span class="number">-10</span>*t, x=t );</span><br><span class="line">    <span class="keyword">while</span>( *pp = stk[tp] | <span class="number">48</span>, ++pp, --tp );</span><br><span class="line">    *pp = <span class="string">'\n'</span>, ++pp;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> T, N, M, pr[<span class="number">100005</span>], tot, t;</span><br><span class="line">LL s[<span class="number">1000005</span>], phi[<span class="number">1000005</span>];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">min</span><span class="params">( rgt <span class="keyword">int</span> x, rgt <span class="keyword">int</span> y )</span></span>&#123; <span class="keyword">return</span> x &gt; y ? y : x; &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> bg, ed;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">signed</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"><span class="comment">//  freopen( "data", "r", stdin );</span></span><br><span class="line"><span class="comment">//  freopen( "out", "w", stdout );</span></span><br><span class="line">    bg = clock();</span><br><span class="line">    bf[fread(bf,<span class="number">1</span>,<span class="number">1500000</span>,<span class="built_in">stdin</span>)]=<span class="string">'\0'</span>,p=bf; rgt <span class="keyword">int</span> i, j;</span><br><span class="line">    <span class="keyword">for</span> ( invs[<span class="number">1</span>] = <span class="number">1</span>, read(T), read(N), read(M), N = N &gt; M ? N : M, phi[<span class="number">1</span>] = <span class="number">1</span>, i = <span class="number">2</span>; i &lt;= N; ++i )&#123;</span><br><span class="line">        !phi[i] ? pr[++tot] = i, phi[i] = i - <span class="number">1</span> : <span class="number">0</span>, invs[i] = <span class="number">1.</span> / i * ( <span class="number">1</span> + <span class="number">1e-15</span> );</span><br><span class="line">        <span class="keyword">for</span> ( j = <span class="number">1</span>; j &lt;= tot &amp;&amp; i * pr[j] &lt;= N; ++j ) phi[i * pr[j]] = i % pr[j] ? phi[i] * phi[pr[j]] : phi[i] * pr[j], ( i % pr[j] == <span class="number">0</span> ) ? j = <span class="number">2000000000</span> : <span class="number">0</span>;</span><br><span class="line">    &#125; rgt int n, m, a1, b1, a2, b2, at1, ta1, at2, ta2, bt1, tb1, bt2, tb2; rgt LL ans(0), tmp, *pt;</span><br><span class="line">    <span class="keyword">for</span> ( i = <span class="number">1</span>, tmp = <span class="number">0</span>, pt = s; i &lt;= N; ++i ) tmp = *++pt = tmp + phi[i];</span><br><span class="line">    <span class="keyword">while</span>( T-- )&#123;</span><br><span class="line">        ans = at1 = ta1 = at2 = ta2 = bt1 = tb1 = bt2 = tb2 = <span class="number">0</span>,</span><br><span class="line">        read(a1), read(b1), read(a2), read(b2), --a1, --b1,</span><br><span class="line">        n = a2 &lt; b2 ? a2 : b2, m = <span class="built_in">sqrt</span>(a2 &gt; b2 ? a2 : b2);</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> ( i = <span class="number">1</span>, pt = phi; i &lt;= m; ++i ) ans += *++pt *(div(a2,i)-div(a1,i))*(div(b2,i)-div(b1,i));</span><br><span class="line">        </span><br><span class="line">        ta1 = div(a1,m), at1 = ta1 ? div(a1,ta1) : <span class="number">2000000000</span>,</span><br><span class="line">        ta2 = div(a2,m), at2 = ta2 ? div(a2,ta2) : <span class="number">2000000000</span>,</span><br><span class="line">        tb1 = div(b1,m), bt1 = tb1 ? div(b1,tb1) : <span class="number">2000000000</span>,</span><br><span class="line">        tb2 = div(b2,m), bt2 = tb2 ? div(b2,tb2) : <span class="number">2000000000</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">for</span> ( i = m + <span class="number">1</span>, tmp = s[m]; i &lt;= n;</span><br><span class="line">            at1 &lt; i ? --ta1, at1 = ta1 ? div(a1,ta1) : <span class="number">2000000000</span> : <span class="number">0</span>,</span><br><span class="line">            at2 &lt; i ? --ta2, at2 = ta2 ? div(a2,ta2) : <span class="number">2000000000</span> : <span class="number">0</span>,</span><br><span class="line">            bt1 &lt; i ? --tb1, bt1 = tb1 ? div(b1,tb1) : <span class="number">2000000000</span> : <span class="number">0</span>,</span><br><span class="line">            bt2 &lt; i ? --tb2, bt2 = tb2 ? div(b2,tb2) : <span class="number">2000000000</span> : <span class="number">0</span>,</span><br><span class="line">            j = min(min(at1,at2),min(bt1,bt2)), ans+=(s[j]-tmp)*(ta2-ta1)*(tb2-tb1),</span><br><span class="line">        tmp=s[j], i = j + <span class="number">1</span> ); write( ans % mod );</span><br><span class="line">    &#125;</span><br><span class="line">    ed = clock();</span><br><span class="line">    <span class="built_in">fprintf</span>( <span class="built_in">stderr</span>, <span class="string">"%d ms"</span>, ed - bg );</span><br><span class="line">    <span class="keyword">return</span> fwrite(ot,<span class="number">1</span>,pp-ot,<span class="built_in">stdout</span>),<span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/解题报告/" rel="tag"># 解题报告</a>
+          
+            <a href="/tags/数学-数论/" rel="tag"># 数学,数论</a>
+          
+            <a href="/tags/莫比乌斯反演/" rel="tag"># 莫比乌斯反演</a>
+          
+            <a href="/tags/卡常数/" rel="tag"># 卡常数</a>
+          
+        </div>
+      
+
+      
+      
+        <div class="post-widgets">
+        
+
+        
+
+        
+          
+          <div class="social_share">
+            
+              <div>
+                
+
+<script src="//cdn.jsdelivr.net/npm/ilyabirman-likely@2/release/likely.js"></script>
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/ilyabirman-likely@2/release/likely.css">
+
+
+  
+
+
+<div class="likely">
+	
+ 	 	<div class="twitter">Tweet</div>
+	
+ 	 	<div class="facebook">Share</div>
+	
+ 	 	<div class="gplus">Plus</div>
+	
+</div>
+
+              </div>
+            
+            
+            
+          </div>
+        
+        </div>
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/03/11/black-technology-transparency/" rel="next" title="「黑科技」透明化应用程序">
+                <i class="fa fa-chevron-left"></i> 「黑科技」透明化应用程序
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="louhc">
+            
+              <p class="site-author-name" itemprop="name">louhc</p>
+              <div class="site-description motion-element" itemprop="description">蒟蒻一枚，请多关照</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">97</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">86</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#GCDMAT2-GCD-OF-MATRIX-hard"><span class="nav-number">1.</span> <span class="nav-text">GCDMAT2 - GCD OF MATRIX (hard)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题意简述"><span class="nav-number">1.1.</span> <span class="nav-text">题意简述</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#膜拜区"><span class="nav-number">2.</span> <span class="nav-text">膜拜区</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#思路"><span class="nav-number">3.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码"><span class="nav-number">4.</span> <span class="nav-text">代码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Update-on-2019-4-13"><span class="nav-number">5.</span> <span class="nav-text">Update on 2019.4.13</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#结尾彩蛋"><span class="nav-number">6.</span> <span class="nav-text">结尾彩蛋</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">louhc</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.1.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <script id="ribbon" size="300" alpha="0.6" zindex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.0"></script>
+
+  <script src="/js/motion.js?v=7.1.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+  
+
+<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'fsQVO1X0eIJHcp0HPluTWvl1-gzGzoHsz',
+    appKey: 'zi5uU2gcU5Ng8x2WSb2JIWdo',
+    placeholder: '骚年,既然来了,就留下些什么吧QwQ',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true,
+    lang: 'zh-cn' || 'zh-cn'
+  });
+</script>
+
+
+
+
+  
+
+
+  
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/algolia-search.js?v=7.1.0"></script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      document.getElementById(all[i].inputID + '-Frame').parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
