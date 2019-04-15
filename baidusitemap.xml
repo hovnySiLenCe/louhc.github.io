@@ -1,6 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://louhc.github.io/2019/04/15/luogu2167-solution/</loc>
+    <lastmod>2019-04-15</lastmod>
+  </url>  <url>
+    <loc>https://louhc.github.io/2019/04/15/bzoj1417-solution/</loc>
+    <lastmod>2019-04-15</lastmod>
+  </url>  <url>
+    <loc>https://louhc.github.io/2019/01/26/luogu4879-solution/</loc>
+    <lastmod>2019-04-15</lastmod>
+  </url>  <url>
+    <loc>https://louhc.github.io/2019/04/15/bzoj4716-solution/</loc>
+    <lastmod>2019-04-15</lastmod>
+  </url>  <url>
+    <loc>https://louhc.github.io/2019/04/15/luogu3911-solution/</loc>
+    <lastmod>2019-04-15</lastmod>
+  </url>  <url>
+    <loc>https://louhc.github.io/2019/01/23/luogu3931-solution/</loc>
+    <lastmod>2019-04-15</lastmod>
+  </url>  <url>
+    <loc>https://louhc.github.io/2019/02/22/notes-maths-miscellaneous/</loc>
+    <lastmod>2019-04-14</lastmod>
+  </url>  <url>
     <loc>https://louhc.github.io/2019/04/13/spoj26045-solution/</loc>
     <lastmod>2019-04-14</lastmod>
   </url>  <url>
@@ -15,9 +36,6 @@
   </url>  <url>
     <loc>https://louhc.github.io/2019/03/10/spoj19985-solution/</loc>
     <lastmod>2019-03-11</lastmod>
-  </url>  <url>
-    <loc>https://louhc.github.io/2019/02/22/notes-maths-miscellaneous/</loc>
-    <lastmod>2019-03-04</lastmod>
   </url>  <url>
     <loc>https://louhc.github.io/2019/02/22/notes-mobius-inversion-formula/</loc>
     <lastmod>2019-02-22</lastmod>
@@ -57,9 +75,6 @@
   </url>  <url>
     <loc>https://louhc.github.io/2019/01/27/Claris'-Contest-2-Day-1-solution/</loc>
     <lastmod>2019-01-28</lastmod>
-  </url>  <url>
-    <loc>https://louhc.github.io/2019/01/26/luogu4879-solution/</loc>
-    <lastmod>2019-01-26</lastmod>
   </url>  <url>
     <loc>https://louhc.github.io/2019/01/25/spoj104-solution/</loc>
     <lastmod>2019-01-25</lastmod>
@@ -131,9 +146,6 @@
     <lastmod>2019-01-23</lastmod>
   </url>  <url>
     <loc>https://louhc.github.io/2019/01/23/black-technology-optimize/</loc>
-    <lastmod>2019-01-23</lastmod>
-  </url>  <url>
-    <loc>https://louhc.github.io/2019/01/23/luogu3931-solution/</loc>
     <lastmod>2019-01-23</lastmod>
   </url>  <url>
     <loc>https://louhc.github.io/2019/01/23/problemset-network-flow-I/</loc>

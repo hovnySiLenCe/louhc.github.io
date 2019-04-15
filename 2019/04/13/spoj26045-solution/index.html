@@ -105,7 +105,7 @@
 <meta property="og:description" content="GCDMAT2 - GCD OF MATRIX (hard)题意简述求  \sum_{i=a1}^{a2} \sum_{j=b1}^{b2} \gcd(i,j) 这大概是我做过的最毒瘤的卡常题了。。。">
 <meta property="og:locale" content="zh-CN">
 <meta property="og:image" content="https://cdn.luogu.org/upload/pic/56377.png">
-<meta property="og:updated_time" content="2019-04-14T01:17:23.416Z">
+<meta property="og:updated_time" content="2019-04-14T02:57:58.421Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="「SP26045」GCDMAT2 - GCD OF MATRIX (hard) 解题报告">
 <meta name="twitter:description" content="GCDMAT2 - GCD OF MATRIX (hard)题意简述求  \sum_{i=a1}^{a2} \sum_{j=b1}^{b2} \gcd(i,j) 这大概是我做过的最毒瘤的卡常题了。。。">
@@ -436,7 +436,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-04-14 09:17:23" itemprop="dateModified" datetime="2019-04-14T09:17:23+08:00">2019-04-14</time>
+                <time title="修改时间：2019-04-14 10:57:58" itemprop="dateModified" datetime="2019-04-14T10:57:58+08:00">2019-04-14</time>
               
             
           </span>
@@ -523,6 +523,8 @@
 <li><code>liouzhou_101</code>每次先预处理出所有除法,归并排序、去重,可以减少很多次除法运算。</li>
 <li><code>Min_25</code>最开始预处理出<code>1~N</code>的倒数,然后把除法改成乘法。<br><img src="https://cdn.luogu.org/upload/pic/56377.png" alt=""><br>然后再尽量减小运算的次数就OK了。(为了卡常数码风变得十分鬼畜,我都认不出我的代码了/xk)</li>
 </ol>
+<script src="https://ideone.com/e.js/muZUDQ" type="text/javascript"></script>
+
 <h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimize(<span class="meta-string">"Ofast"</span>)</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cstdio&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cmath&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;cctype&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mod 1000000007</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LL long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rgt register</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//常数能咋省就咋省，代码不能看不是问题，常数小就行</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> bf[<span class="number">1500000</span>],*p;<span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">(rgt <span class="keyword">int</span>&amp;x)</span></span>&#123;<span class="keyword">for</span> (x=<span class="number">0</span>;!<span class="built_in">isdigit</span>(*p);++p);<span class="keyword">for</span> (;<span class="built_in">isdigit</span>(*p);++p)x=x*<span class="number">10</span>+(*p&amp;<span class="number">15</span>);&#125;</span><br><span class="line"><span class="comment">//减小一点快读的常数</span></span><br><span class="line"><span class="comment">//感觉快写没必要</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> T, N, M, pr[<span class="number">100005</span>], tot, t;</span><br><span class="line">LL s[<span class="number">1000005</span>], phi[<span class="number">1000005</span>];</span><br><span class="line"><span class="keyword">double</span> invs[<span class="number">1000005</span>];</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">int</span> <span class="title">min</span><span class="params">( rgt <span class="keyword">int</span> x, rgt <span class="keyword">int</span> y )</span></span>&#123; <span class="keyword">return</span> x &gt; y ? y : x; &#125;<span class="comment">//手写min(位运算似乎还不如三元运算符</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> div(x,y) (int)(x*invs[y])<span class="comment">//改成乘法优化除法</span></span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">signed</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">    bf[fread(bf,<span class="number">1</span>,<span class="number">1500000</span>,<span class="built_in">stdin</span>)]=<span class="string">'\0'</span>,p=bf; rgt <span class="keyword">int</span> i, j;</span><br><span class="line">    <span class="keyword">for</span> ( invs[<span class="number">1</span>] = <span class="number">1</span>, read(T), read(N), read(M), N = N &gt; M ? N : M, phi[<span class="number">1</span>] = <span class="number">1</span>, i = <span class="number">2</span>; i &lt;= N; ++i )&#123;</span><br><span class="line">        !phi[i] ? pr[++tot] = i, phi[i] = i - <span class="number">1</span> : <span class="number">0</span>, invs[i] = <span class="number">1.</span> / i * ( <span class="number">1</span> + <span class="number">1e-15</span> );</span><br><span class="line">        <span class="keyword">for</span> ( j = <span class="number">1</span>; j &lt;= tot &amp;&amp; i * pr[j] &lt;= N; ++j ) phi[i * pr[j]] = i % pr[j] ? phi[i] * phi[pr[j]] : phi[i] * pr[j], ( i % pr[j] == <span class="number">0</span> ) ? j = <span class="number">2000000000</span> : <span class="number">0</span>;</span><br><span class="line">    &#125; rgt int n, m, a1, b1, a2, b2, at1, ta1, at2, ta2, bt1, tb1, bt2, tb2; rgt LL ans(0), tmp, *pt;</span><br><span class="line">    <span class="keyword">for</span> ( i = <span class="number">1</span>, tmp = <span class="number">0</span>, pt = s; i &lt;= N; ++i ) tmp = *++pt = tmp + phi[i];</span><br><span class="line">    <span class="keyword">while</span>( T-- )&#123; ans = at1 = ta1 = at2 = ta2 = bt1 = tb1 = bt2 = tb2 = <span class="number">0</span>, read(a1), read(b1), read(a2), read(b2), --a1, --b1, n = a2 &lt; b2 ? a2 : b2, m = <span class="built_in">sqrt</span>(n);</span><br><span class="line">        <span class="keyword">for</span> ( i = <span class="number">1</span>, pt = phi; i &lt;= m; ++i ) ans += *++pt *(div(a2,i)-div(a1,i))*(div(b2,i)-div(b1,i));<span class="comment">//前sqrt(n)直接循环,因为数论分块得到的区间长度也都是1,直接算可以减少0.3~0.4的常数</span></span><br><span class="line">        <span class="keyword">for</span> ( i = m + <span class="number">1</span>, tmp = s[m]; i &lt;= n;</span><br><span class="line">            at1 &lt; i ? ta1 = div(a1,i), at1 = ta1 ? div(a1,ta1) : <span class="number">2000000000</span>, <span class="number">0</span> : <span class="number">0</span>,<span class="comment">//没必要重新算的千万不要重新算</span></span><br><span class="line">            at2 &lt; i ? ta2 = div(a2,i), at2 = ta2 ? div(a2,ta2) : <span class="number">2000000000</span>, <span class="number">0</span> : <span class="number">0</span>,</span><br><span class="line">            bt1 &lt; i ? tb1 = div(b1,i), bt1 = tb1 ? div(b1,tb1) : <span class="number">2000000000</span>, <span class="number">0</span> : <span class="number">0</span>,</span><br><span class="line">            bt2 &lt; i ? tb2 = div(b2,i), bt2 = tb2 ? div(b2,tb2) : <span class="number">2000000000</span>, <span class="number">0</span> : <span class="number">0</span>,</span><br><span class="line">            j = min(min(at1,at2),min(bt1,bt2)), ans+=(s[j]-tmp)*(ta2-ta1)*(tb2-tb1),</span><br><span class="line">        tmp=s[j], i = j + <span class="number">1</span> ); <span class="built_in">printf</span>( <span class="string">"%lld\n"</span>, ans % mod );<span class="comment">//最后取模减小常数</span></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>写完这道题,你就能体会到将常数从20s卡到2.5s内的乐趣。<br>但是我还是卡不到<code>Min_25</code>和<code>liouzhou_101</code>那么快 /ll</p>
 <h1 id="Update-on-2019-4-13"><a href="#Update-on-2019-4-13" class="headerlink" title="Update on 2019.4.13"></a>Update on 2019.4.13</h1><p>发现一种更神奇的卡常方式,再加上原先的代码,可以跑得比Min_25还快!<br>直接说出来没意思对不对。。。。 来意会一下<br><del>免得那么多人来抢rk1</del><br>这是一份检验某个性质是否成立的代码。</p>
@@ -623,6 +625,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2019/04/15/luogu3911-solution/" rel="prev" title="「洛谷P3911」最小公倍数之和 解题报告">
+                「洛谷P3911」最小公倍数之和 解题报告 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -696,7 +702,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">97</span>
+                    <span class="site-state-item-count">101</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -887,7 +893,9 @@
                     
                       
                     
-                    <span class="site-state-item-count">86</span>
+                      
+                    
+                    <span class="site-state-item-count">87</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
