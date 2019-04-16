@@ -1821,7 +1821,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #e31aff;
+  background: #fffffb;
 }
 .feed-link,
 .chat {
@@ -3016,4 +3016,31 @@ ul.breadcrumb li+li:last-child {
   .pagination {
     margin: 8px 0 0;
   }
+}
+.legendary-user-first-letter {
+  color: #000 !important;
+}
+.user-legendary {
+  color: #f00 !important;
+}
+.friends a {
+  font-size: 20px;
+  border: none;
+  font-family: "微软雅黑";
+}
+.friends a:hover {
+  text-shadow: 0px 0px 10px #ff0;
+  transition: 0.5s linear;
+}
+.hidden-text,
+.hidden-text a {
+  background-color: #252525;
+  color: #252525;
+  text-shadow: none;
+  border: none;
+}
+.hidden-text:hover,
+.hidden-text a:hover {
+  transition: color 0.13s linear;
+  color: #fff;
 }
