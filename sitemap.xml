@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://louhc.github.io/about/index.html</loc>
+    
+    <lastmod>2019-04-16T11:52:32.458Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://louhc.github.io/contests/index.html</loc>
     
     <lastmod>2019-04-15T10:53:38.749Z</lastmod>
@@ -222,13 +229,6 @@
     <loc>https://louhc.github.io/2019/02/09/notes-gcd-exgcd/</loc>
     
     <lastmod>2019-02-10T06:56:22.000Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://louhc.github.io/about/index.html</loc>
-    
-    <lastmod>2019-02-10T06:55:16.000Z</lastmod>
     
   </url>
   
