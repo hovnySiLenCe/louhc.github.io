@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>https://louhc.github.io/2019/01/23/notes-fhq-treap/</loc>
+    <lastmod>2019-04-21</lastmod>
+  </url>  <url>
     <loc>https://louhc.github.io/2019/04/15/luogu2167-solution/</loc>
     <lastmod>2019-04-15</lastmod>
   </url>  <url>
@@ -224,9 +227,6 @@
     <lastmod>2019-01-23</lastmod>
   </url>  <url>
     <loc>https://louhc.github.io/2019/01/23/notes-sparse-table/</loc>
-    <lastmod>2019-01-23</lastmod>
-  </url>  <url>
-    <loc>https://louhc.github.io/2019/01/23/notes-fhq-treap/</loc>
     <lastmod>2019-01-23</lastmod>
   </url>  <url>
     <loc>https://louhc.github.io/2019/01/23/block-IX-solution/</loc>

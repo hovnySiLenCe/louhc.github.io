@@ -110,7 +110,7 @@
 <meta property="og:image" content="https://img2018.cnblogs.com/blog/1431616/201901/1431616-20190118093750638-1293532403.png">
 <meta property="og:image" content="https://img2018.cnblogs.com/blog/1431616/201901/1431616-20190118093732132-368160436.png">
 <meta property="og:image" content="https://img2018.cnblogs.com/blog/1431616/201901/1431616-20190118093736386-672676713.png">
-<meta property="og:updated_time" content="2019-01-23T08:01:58.000Z">
+<meta property="og:updated_time" content="2019-04-21T12:09:44.244Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="「学习笔记」 FHQ Treap">
 <meta name="twitter:description" content="FHQ TreapFHQ Treap （%%%发明者范浩强年年NOI金牌）是一种神奇的数据结构，也叫非旋Treap，它不像Treap zig zag搞不清楚（所以叫非旋嘛），也不像Splay完全看不懂，而且它能完成Treap与Splay能完成的所有事，代码短，理解也容易。">
@@ -424,12 +424,24 @@
                 
               
 
-              <time title="创建时间：2019-01-23 08:08:52 / 修改时间：16:01:58" itemprop="dateCreated datePublished" datetime="2019-01-23T08:08:52+08:00">2019-01-23</time>
+              <time title="创建时间：2019-01-23 08:08:52" itemprop="dateCreated datePublished" datetime="2019-01-23T08:08:52+08:00">2019-01-23</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-04-21 20:09:44" itemprop="dateModified" datetime="2019-04-21T20:09:44+08:00">2019-04-21</time>
               
             
           </span>
@@ -529,7 +541,7 @@
 <h2 id="插入操作"><a href="#插入操作" class="headerlink" title="插入操作"></a>插入操作</h2><p>直接把它分成$\le v$的树和$&gt; v$的树，将新建的节点与$\le v$的树合并，再与$&gt;y$树合并即可。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//opt 1</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Ins</span><span class="params">( <span class="keyword">int</span> v )</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> x, y, z(New(v));</span><br><span class="line">	Split( root, v, x, y );</span><br><span class="line">	Merge( x, x, z );</span><br><span class="line">	Merge( root, x, y );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
-<h2 id="删除操作"><a href="#删除操作" class="headerlink" title="删除操作"></a>删除操作</h2><p>分成$\le k$和$&gt; k$两颗树，再分成$<k$、$=k$、$> k$三棵树，将$=k$左右子树合并，相当于删去$=k$的一个节点，然后将三棵树重新合并即可。</k$、$=k$、$></p>
+<h2 id="删除操作"><a href="#删除操作" class="headerlink" title="删除操作"></a>删除操作</h2><p>分成$\le k$和$&gt; k$两颗树，再分成 $&lt; k$、 $=k$、 $&gt; k$三棵树，将$=k$左右子树合并，相当于删去$=k$的一个节点，然后将三棵树重新合并即可。</p>
 <figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// opt 2</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">Del</span><span class="params">( <span class="keyword">int</span> v )</span></span>&#123;</span><br><span class="line">	<span class="keyword">int</span> x, y, z;</span><br><span class="line">	Split( root, v, x, y );</span><br><span class="line">	Split( x, v - <span class="number">1</span>, x, z );</span><br><span class="line">	Merge( z, L[z], R[z] );</span><br><span class="line">	Merge( x, x, z );</span><br><span class="line">	Merge( root, x, y );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <hr>
 <h2 id="查询排名"><a href="#查询排名" class="headerlink" title="查询排名"></a>查询排名</h2><p>其实可以用<code>while</code>循环，，，但是，，，我，，，懒，，，所，，，以，，，直，，，接，，，，，，，</p>
