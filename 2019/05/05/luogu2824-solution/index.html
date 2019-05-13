@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="Hello,I am louhc">
 <meta property="og:description" content="P2824 [HEOI2016/TJOI2016]排序题目描述在2016年，佳媛姐姐喜欢上了数字序列。因而他经常研究关于序列的一些奇奇怪怪的问题，现在他在研究一个难题，需要你来帮助他。这个难题是这样子的：给出一个1到n的全排列，现在对这个全排列序列进行m次局部排序，排序分为两种：1:(0,l,r)表示将区间[l,r]的数字升序排序2:(1,l,r)表示将区间[l,r]的数字降序排序最后询问第q位置">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-13T13:34:05.490Z">
+<meta property="og:updated_time" content="2019-05-13T13:35:12.424Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="「洛谷P2824」 [HEOI2016&#x2F;TJOI2016]排序 解题报告">
 <meta name="twitter:description" content="P2824 [HEOI2016/TJOI2016]排序题目描述在2016年，佳媛姐姐喜欢上了数字序列。因而他经常研究关于序列的一些奇奇怪怪的问题，现在他在研究一个难题，需要你来帮助他。这个难题是这样子的：给出一个1到n的全排列，现在对这个全排列序列进行m次局部排序，排序分为两种：1:(0,l,r)表示将区间[l,r]的数字升序排序2:(1,l,r)表示将区间[l,r]的数字降序排序最后询问第q位置">
@@ -434,7 +434,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2019-05-13 21:34:05" itemprop="dateModified" datetime="2019-05-13T21:34:05+08:00">2019-05-13</time>
+                <time title="修改时间：2019-05-13 21:35:12" itemprop="dateModified" datetime="2019-05-13T21:35:12+08:00">2019-05-13</time>
               
             
           </span>
@@ -504,8 +504,9 @@
 <p>先二分答案$x$(至于为什么等下说)，然后对所有数进行如下操作：</p>
 <ol>
 <li>$&lt; x$的，修改成0</li>
-<li>$\ge x$的，修改成1<br>然后对0/1串进行排序，最后第$q$位为1的check函数返回true,否则返回false。</li>
+<li>$\ge x$的，修改成1</li>
 </ol>
+<p>然后对0/1串进行排序，最后第$q$位为1的check函数返回true,否则返回false。</p>
 <p>为什么这样做是正确的呢？<br>因为二分找到$ans$的一定是最小的能使第$q$位为1,或者说$check(ans)$为true的数。<br>也就是说，当取到$ans-1$时，第$q$位为0，$check(ans-1)$返回的肯定是false。<br>可以看出，$x$取值从$ans-1$转变为$ans$的结果是排序后第$q$位的值，换句话讲就是第$q$位原来就是$ans$。<br>然后二分+线段树就OK啦。</p>
 <p>还有一个问题，对0/1串排序。<br>这个其实也很简单，直接查询区间内1的个数，区间覆盖即可。<br>（如果你想用珂朵莉树的话我也没办法qwq</p>
 <p>P.S. 这题还可以实现$O(nlgn)$的复杂度qwq,是线段树合并/分裂 + set/线段树，看起来代码有点长qwq.<br>P.S. 似乎这题桶排暴力都能过，但是还是资瓷正解的啦qwq.</p>
