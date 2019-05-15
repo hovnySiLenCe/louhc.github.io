@@ -7,8 +7,8 @@
       <tags>
         <tag>解题报告</tag>
         <tag>CodeForces</tag>
-        <tag>哥德巴赫猜想</tag>
         <tag>数学,数论</tag>
+        <tag>哥德巴赫猜想</tag>
       </tags>
   </entry>
   <entry>
@@ -102,8 +102,8 @@
     <content type="text"><![CDATA[懵逼钨丝莫比乌斯反演可猥琐了QwQ 莫比乌斯反演可以用来计算一些难以用其他方法转换,数据又特别大的式子,就像下面这种—— \sum^N_i\sum^M_j \gcd(i, j)(洛谷P1447 [NOI2010]能量采集) 通过莫比乌斯反演,就可以把它变成一道可做题。 前置芝士请先学习以下芝士 数论分块线性筛 积性函数如果函数$f$满足$\forall \gcd(i,j) = 1, f(i\times j) = f(i)\times f(j)$,那么$f$为积性函数。 积性函数还可以分出一类完全积性函数。即满足$\forall i,j, f(i\times j)=f(i)\times f(j)$。 常见的积性函数有 \qquad \begin{array} \text{约数个数函数}&d(n)=\displaystyle\sum_{d\mid n}1 \\ \text{约数和函数}&\displaystyle\sigma(n)=\sum_{d\mid n}d \\ \text{约数 $k$ 次幂函数}&\displaystyle\sigma_k(n)=\sum_{d\mid n}d^k \\ \text{欧拉函数}&\displaystyle\varphi(n)=\sum_{i=1}^n [\gcd(i,n)=1] \\ \text{莫比乌斯函数}&\displaystyle\mu(n)\text{下面会介绍} \\ \end{array} P.S.[\text{逻辑表达式}]\text{表示当逻辑表达式为真,值为1,否则为0}常见完全积性函数有 \qquad \begin{array} \text{1函数}&1(n)=1 \\ \text{ID函数}&ID(n)=n \\ \epsilon\text{函数}&\epsilon(n)=[n=1] \\ \end{array}若 $f$ 和 $g$ 均为积性函数，则以下函数也为积性函数： \begin{aligned} h(x)&=f(x^p)\\ h(x)&=f^p(x)\\ h(x)&=f(x)g(x)\\ h(x)&=\sum_{d\mid x}f(d)g(\frac{x}{d}) \end{aligned}积性函数一般都可以用线性筛筛出。(这个比较简单,请自行查找资料) 莫比乌斯函数 \mu(n)= \begin{cases} 1 & n=1\\ (-1)^k & c_{1,2,\cdots,k}=1\quad(n=\displaystyle\prod_{i=1}^k {p_i}^{c_i})\\ 0 & c_i>1 \end{cases}简单地说,就是当$n$为1,函数值为1;当$n&gt;1$,若$n$为某数的平方的倍数,函数值为0;否则设$k$为$n$的质因数个数,函数值为$(-1)^k$ Dirichlet卷积(狄利克雷卷积)Dirichlet卷积可以看成函数之间的一种运算。对于两个数论函数(即定义域为正整数的函数)$f$,$g$,它们的Dirichlet卷积为 (f * g)(n) = \sum_{d|n}f(d) \times g(\frac nd)$\varepsilon$为Dirichlet卷积的单位元,即$f * \varepsilon = f$ 若$f$,$g$为积性函数,$f * g$也为积性函数。 证明: \text{设n,m,gcd(n,m)=1} \\ (f * g)(n)\times (f * g)(m) = \sum_{i|n}f(i) \times g(\frac ni) \times ( \sum_{j|m}f(j) \times g(\frac mj) ) \\ \text{变换循环顺序} \\ (f * g)(n)\times (f * g)(m) = \sum_{i|n}\sum_{j|m}f(i) \times g(\frac ni) \times f(j) \times g(\frac mj)\\ = \sum_{i|n}\sum_{j|m}f(ij) \times g(\frac {nm}{ij})\\ \text{由于n,m互质,i|n,j|m,则nm的所有因数都可以表示成ij,设k=ij}\\ (f * g)(n)\times (f * g)(m) = \sum_{k|(nm)}f(k) \times g(\frac {nm}{k}) = (f * g)(nm)Dirichlet卷积满足交换律和结合律。 前者很好证,这里省略。后者全部展开就好了,这里省略。 常见的Dirichlet卷积: \epsilon=\mu * 1 \\ d=1 * 1 \\ \varphi=\mu * ID \\我们先证明第一个,第三个(第二个这么简单就算了)也给出来,但是建议先看莫比乌斯反演。 证明$\epsilon=\mu * 1$: \epsilon(n)=\sum_{d|n}\mu(d)根据唯一分解定理,我们可以用$n$的质因数($p_1,p_2,p_3…$)来组成$d$。 很明显,每个$p_i$取两个或以上对答案是没有影响的(根据定义,$\mu$函数值为0)。可以得出以下式子 \text{设n有t个质因数} \\ \epsilon(n)=\sum_{i=0}^t (-1)^i \times C_t^i根据二项式定理,如果n为1,值为1,否则为0说实话我从二项式定理看不出这点。(大概是我太菜了吧)我们可以从排列组合方面考虑。我们设$f(i,j)=(-1)^i \times C_i^j$则$f(i,j) = f(i - 1,j) - f(i - 1, j - 1)$ \sum_{i=0}^t f(t,i) = f(t - 1, 0) + ( \sum_{i=1}^{t-1}(f(t-1,i)-f(t-1,i-1))) - f(t - 1,t - 1)很明显这是可以两两消去的。(当然,t = 0时除外) 可以得出 \epsilon(n)=\sum_{i=0}^t (-1)^i \times C_t^i = [n = 1]接下来的证明请先学习莫比乌斯反演。 证明$\varphi=\mu * ID$: 可以利用欧拉函数的定义+莫比乌斯反演来证。 我们先在等式两边同时卷1 \varphi * 1 = 1 * \mu * ID \\ \varphi * 1 = \varepsilon * ID \\ \varphi * 1 = ID \\ (\varphi * 1)(n) = \sum_{d|n}\varphi(d) = \sum_{d|n}\varphi(n / d)可以认为上面柿子中$\varphi(n / d)$表示$\sum_i=1^n[gcd(n,i)=d]$,很明显,每个数与$n$的公约数不变,对答案有且仅有$1$的贡献,最终的值即为$n$ 莫比乌斯反演总算写到这里了(掩面痛哭 对于两个数论函数$f$,$g$ f = g * 1 \Leftrightarrow f * \mu = g直接用Dirichlet卷积即可。 f = g * 1 \\ \text{两边同时卷} \mu \\ f * \mu = g * 1 * \mu \\ f * \mu = g * \varepsilon \\ f * \mu = g例题洛谷P2522 [HAOI2011]Problem b 题意对于给出的$n$个询问,每次求有多少个数对$(x,y)$,满足$a\le x\le b,c\le y\le d$,且$\gcd(x,y)=k$,$\gcd(x,y)$函数为$x$和$y$的最大公约数。 思路我们可以求$x \le n,y \le m$,差分处理即可。我们认为n &lt; m,否则交换即可。以下/均表示整除 Ans = \sum_{i=1}^n\sum_{j=1}^m[gcd(i, j) = k] \\ Ans = \sum_{i=1}^{n/k}\sum_{j=1}^{m/k}[gcd(i,j)=1] \\ \text{设n/k=a,m/k=b} \\ Ans = \sum_{i=1}^{a}\sum_{j=1}^{b}\varepsilon(gcd(i,j)) \\ Ans = \sum_{i=1}^{a}\sum_{j=1}^{b}(\mu * 1)(gcd(i,j)) \\ Ans = \sum_{i=1}^{a}\sum_{j=1}^{b}\sum_{d|gcd(i,j)}\mu(d) \\ Ans = \sum_{i=1}^{a}\sum_{j=1}^{b}\sum_{d|i,d|j}\mu(d) \\ Ans = \sum_{d=1}^{a}\sum_{i=1}^{a/d}\sum_{j=1}^{b/d}\mu(d) \\ Ans = \sum_{d=1}^{a}\mu(d) \times (a/d) \times (b/d)然后我们就可以筛出$\mu$ -&gt; 前缀和 -&gt; 数论分块啦 12345678910111213141516171819202122232425262728293031#include&lt;bits/stdc++.h&gt;using namespace std;#define MAXN 50000int T, a, b, c, d, k;int mu[MAXN + 5], p[MAXN + 5], tot;bool vis[MAXN + 5];int Work( int N, int M )&#123; int ans(0); if ( N &gt; M ) swap( N, M ); for ( int i = 1, j; i &lt;= N; i = j + 1 )&#123; j = min( N / ( N / i ), M / ( M / i ) ); ans += ( N / i ) * ( M / i ) * ( mu[j] - mu[i - 1] ); &#125; return ans;&#125;int main()&#123; scanf( "%d", &amp;T ); mu[1] = 1; for ( int i = 2; i &lt;= MAXN; ++i )&#123; if ( !vis[i] ) p[++tot] = i, mu[i] = -1; for ( int j = 1; j &lt;= tot &amp;&amp; p[j] * i &lt;= MAXN; ++j )&#123; vis[p[j] * i] = 1; if ( i % p[j] ) mu[p[j] * i] = -mu[i]; else &#123; mu[p[j] * i] = 0; break; &#125; &#125; &#125; for ( int i = 1; i &lt;= MAXN; ++i ) mu[i] += mu[i - 1]; while( T-- )&#123; scanf( "%d%d%d%d%d", &amp;a, &amp;b, &amp;c, &amp;d, &amp;k ); --a; --c; a /= k; b /= k; c /= k; d /= k; printf( "%d\n", Work( b, d ) - Work( a, d ) - Work( c, b ) + Work( a, c ) ); &#125; return 0;&#125;]]></content>
       <tags>
         <tag>数学,数论</tag>
-        <tag>莫比乌斯反演</tag>
         <tag>学习笔记</tag>
+        <tag>莫比乌斯反演</tag>
       </tags>
   </entry>
   <entry>
@@ -113,8 +113,8 @@
       <tags>
         <tag>数学,数论</tag>
         <tag>同余</tag>
-        <tag>gcd,exgcd</tag>
         <tag>学习笔记</tag>
+        <tag>gcd,exgcd</tag>
       </tags>
   </entry>
   <entry>
@@ -124,8 +124,8 @@
       <tags>
         <tag>数学,数论</tag>
         <tag>同余</tag>
-        <tag>crt,excrt</tag>
         <tag>学习笔记</tag>
+        <tag>crt,excrt</tag>
       </tags>
   </entry>
   <entry>
@@ -133,15 +133,15 @@
     <url>%2F2019%2F02%2F09%2Fhexo-pdf%2F</url>
     <content type="text"><![CDATA[闲着没事逛了逛hexo插件,偶然发现hexo-pdf,就顺便整了个…. 如果你需要在你的博客里加入pdf文件,怎么办?当然,你可以用&lt;iframe&gt;标签,但那一串东西实在记不住QAQ…. 不扯了,直接进入正题吧。 先下载下来1npm install hexo-pdf 在_post中加入一个md文件test.md(或者根据喜好随便取名,当然后缀还得是md) 如果是在网上的pdf文件,就例如 http://XXX.com/...../test.pdf 这样的,可以这么干——1&#123;% pdf http://XXX.com/...../test.pdf %&#125; 如果要本地上传,可以自己找个位置一起上传就好了。(注意我在source新建一个images的文件专门用来放图片等东西) 1&#123;% pdf \images\test.pdf %&#125; 效果是这样的手动滑稽 没了。。。。]]></content>
       <tags>
-        <tag>hexo</tag>
         <tag>博客美化</tag>
+        <tag>hexo</tag>
         <tag>插件</tag>
       </tags>
   </entry>
   <entry>
     <title><![CDATA[my aims]]></title>
     <url>%2F2019%2F02%2F09%2Fmy-aims%2F</url>
-    <content type="text"><![CDATA[猜猜看密码吧,我才不告诉你 Incorrect Password! No content to display! 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]]></content>
+    <content type="text"><![CDATA[猜猜看密码吧,我才不告诉你 Incorrect Password! No content to display! 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]]></content>
       <tags>
         <tag>你看不得</tag>
       </tags>
@@ -151,8 +151,8 @@
     <url>%2F2019%2F02%2F09%2Fhexo-live2d%2F</url>
     <content type="text"><![CDATA[在cmd中先进入博客根目录(以我自己的博客为例)1cd louhc 安装npm包1npm install --save hexo-helper-live2d 再选择一个喜欢的看板娘！预览可以看这里。我用的是z16啦 如果你玩过碧蓝航线肯定知道(好吧我刚开始也不知道) 123456789101112131415161718192021npm install live2d-widget-model-chitosenpm install live2d-widget-model-epsilon2_1npm install live2d-widget-model-gfnpm install live2d-widget-model-harunpm install live2d-widget-model-harutonpm install live2d-widget-model-hibikinpm install live2d-widget-model-hijikinpm install live2d-widget-model-izuminpm install live2d-widget-model-koharunpm install live2d-widget-model-mikunpm install live2d-widget-model-ni-jnpm install live2d-widget-model-niconpm install live2d-widget-model-nietzschenpm install live2d-widget-model-nipsilonnpm install live2d-widget-model-nitonpm install live2d-widget-model-shizukunpm install live2d-widget-model-tororonpm install live2d-widget-model-tsumikinpm install live2d-widget-model-unitychannpm install live2d-widget-model-wankonpm install live2d-widget-model-z16 然后在根目录中的_config.yml文件中改一改。在最后面把下面这些复制进去就好了 12345678910111213141516171819# Live2D## https://github.com/EYHN/hexo-helper-live2dlive2d: enable: true # enable: false scriptFrom: local # 默认 pluginRootPath: live2dw/ # 插件在站点上的根目录(相对路径) pluginJsPath: lib/ # 脚本文件相对与插件根目录路径 pluginModelPath: assets/ # 模型文件相对与插件根目录路径 # scriptFrom: jsdelivr # jsdelivr CDN # scriptFrom: unpkg # unpkg CDN # scriptFrom: https://cdn.jsdelivr.net/npm/live2d-widget@3.x/lib/L2Dwidget.min.js # 你的自定义 url tagMode: false # 标签模式, 是否仅替换 live2d tag标签而非插入到所有页面中 debug: false # 调试, 是否在控制台输出日志 model: use: live2d-widget-model-z16 # &lt;-把你喜欢的看板娘名称复制到这里 # use: wanko # 博客根目录/live2d_models/ 下的目录名 # use: ./wives/wanko # 相对于博客根目录的路径 # use: https://cdn.jsdelivr.net/npm/live2d-widget-model-wanko@1.0.5/assets/wanko.model.json # 你的自定义 url 如果你想自定义的话(很烦的QAQ)右转百度我也不会 然后就完了。简单吧。。。。]]></content>
       <tags>
-        <tag>hexo</tag>
         <tag>博客美化</tag>
+        <tag>hexo</tag>
       </tags>
   </entry>
   <entry>
@@ -858,8 +858,8 @@
     <url>%2F2019%2F01%2F23%2Fnotes-graph-theory-miscellaneous%2F</url>
     <content type="text"><![CDATA[待填坑目标：下个学期开学前填完坑！ I 网络流1 关于双向边当要求边是双向时，我们可以将正边、反向边的权值都赋为流量，而不必赋为0。这一点很明显，因为对于两条边，起始点fr、终点to相同，我们可以把这两条边合并。即变成一条权值为这两条边权之和的边。本来是这样——1234567void Add( int x, int y, int z )&#123; nxt[++tot] = hd[x]; hd[x] = tot; to[tot] = y; val[tot] = z; nxt[++tot] = hd[y]; hd[y] = tot; to[tot] = x; val[tot] = 0;&#125;Add( x, y, z );//step 1Add( y, x, z );//step 2 很明显，step 1建的正边与step 2建的反向边可以合并。合并后权值即为z。可以简写成这样——123456void Add( int x, int y, int z )&#123; nxt[++tot] = hd[x]; hd[x] = tot; to[tot] = y; val[tot] = z; nxt[++tot] = hd[y]; hd[y] = tot; to[tot] = x; val[tot] = z;&#125;Add( x, y, z ); 这样可以省一半空间，而达到的效果是相同的。]]></content>
       <tags>
-        <tag>待填坑</tag>
         <tag>技巧</tag>
+        <tag>待填坑</tag>
       </tags>
   </entry>
   <entry>
@@ -867,8 +867,8 @@
     <url>%2F2019%2F01%2F23%2Fnotes-miscellaneous%2F</url>
     <content type="text"><![CDATA[壹对于一个坐标系中的两个矩形，左下角、右上角的坐标分别为(X1, Y1)(X2, Y2)(X3, Y3)(X4, Y4)。那么，如果这两个矩形相交，它们重叠部分矩形的左下角、右上角必为(min_2{X1~4}, min_2(Y1~4)),(min_3{X1~4}, min_3{Y1~Y4} )。其中，min_i表示第i小的数。 题目：CF1080C Masha and two friends 目标：30~50行代码之内解决了！@hovny童鞋弄了100多行）]]></content>
       <tags>
-        <tag>待填坑</tag>
         <tag>技巧</tag>
+        <tag>待填坑</tag>
       </tags>
   </entry>
   <entry>
@@ -887,12 +887,12 @@
       <tags>
         <tag>数学,数论</tag>
         <tag>同余</tag>
-        <tag>gcd,exgcd</tag>
         <tag>crt,excrt</tag>
+        <tag>gcd,exgcd</tag>
+        <tag>待填坑</tag>
         <tag>BSGS,exBSGS</tag>
         <tag>原根</tag>
         <tag>乘法逆元</tag>
-        <tag>待填坑</tag>
       </tags>
   </entry>
   <entry>
