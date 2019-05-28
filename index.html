@@ -603,12 +603,24 @@
                 
               
 
-              <time title="创建时间：2019-05-21 22:13:22 / 修改时间：22:19:46" itemprop="dateCreated datePublished" datetime="2019-05-21T22:13:22+08:00">2019-05-21</time>
+              <time title="创建时间：2019-05-21 22:13:22" itemprop="dateCreated datePublished" datetime="2019-05-21T22:13:22+08:00">2019-05-21</time>
             
 
             
               
 
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2019-05-28 22:16:10" itemprop="dateModified" datetime="2019-05-28T22:16:10+08:00">2019-05-28</time>
               
             
           </span>
@@ -667,20 +679,19 @@
 
       
         
-          
-            <h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>康托展开是啥？<br>康托展开是一种奇技淫巧，用于计算一个排列在其全排列的位置，也就是字典序排第几位，一般用于哈希。</p>
+          <h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><p>康托展开是啥？<br>康托展开是一种奇技淫巧，用于计算一个排列在其全排列的位置，也就是字典序排第几位，一般用于哈希。</p>
 <blockquote>
 <p>康托展开是一个全排列到一个自然数的双射，常用于构建哈希表时的空间压缩。 康托展开的实质是计算当前排列在所有由小到大全排列中的顺序，因此是可逆的。 —-百度百科</p>
 </blockquote>
-<p><a href="https://www.luogu.org/problemnew/show/P5367" target="_blank" rel="noopener">模板</a></p>
-<h1 id="康托展开"><a href="#康托展开" class="headerlink" title="康托展开"></a>康托展开</h1><p>先给你柿子。</p>
-<script type="math/tex; mode=display">ans=1+\sum_{i=1}^{n} A[i]\times(n-i)!</script><p>其中$A[i]$代表$\sum_{j=i}^{n}[a[j] &lt; a[i]]$<br>怎么来理解这个柿子呢？想象构造出字典序比当前排列小的有几个排列<br>枚举到$i$表示 1到i-1和原来的排列一样，i位肯定不一样，之后咋样都行。<br>既然到i位不一样，那么字典序大小其实就是取决于i位。很明显，第i位肯定要小于a[i]。然后只要把i后面小于a[i]的数交换到i位，后面随便排就行了。<br>很明显，这样枚举可以做到不重不漏。因为要求的是排名，所以ans+=1。<br>当然要用树状数组优化一下，复杂度是O(nlgn)的。</p>
-<h2 id="双语代码（滑稽"><a href="#双语代码（滑稽" class="headerlink" title="双语代码（滑稽"></a>双语代码（滑稽</h2><p><del>写Pascal就是为了卡常数,加O2秒杀C++)</del></p>
-<h3 id="C-98-11-14-17"><a href="#C-98-11-14-17" class="headerlink" title="C++98/11/14/17"></a>C++98/11/14/17</h3><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXN 1000005</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rgt register</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mod 998244353</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> N, a[MAXN], fac, c[MAXN], ans;</span><br><span class="line"><span class="keyword">char</span> *p;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">( rgt <span class="keyword">int</span> &amp;x )</span></span>&#123;</span><br><span class="line">	x = <span class="number">0</span>; <span class="keyword">while</span>( !<span class="built_in">isdigit</span>(*p) ) ++p;</span><br><span class="line">	<span class="keyword">while</span>( <span class="built_in">isdigit</span>(*p) ) x = x * <span class="number">10</span> + ( *p &amp; <span class="number">15</span> ), ++p;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="built_in">scanf</span>( <span class="string">"%d"</span>, &amp;N ), fac = <span class="number">1</span>;</span><br><span class="line">	p = <span class="keyword">new</span> <span class="keyword">char</span>[N * <span class="number">8</span> + <span class="number">100</span>],</span><br><span class="line">	fread( p, <span class="number">1</span>, N * <span class="number">8</span> + <span class="number">100</span>, <span class="built_in">stdin</span> );</span><br><span class="line">	<span class="keyword">for</span> ( rgt <span class="keyword">int</span> i = N; i; --i ) read(a[i]);</span><br><span class="line">	<span class="keyword">for</span> ( rgt <span class="keyword">int</span> i = <span class="number">1</span>, s, j; i &lt;= N; ++i )&#123;</span><br><span class="line">		<span class="keyword">for</span> ( s = <span class="number">0</span>, j = a[i]; j; j -= j &amp; -j ) s += c[j];</span><br><span class="line">		ans = ( ans + <span class="number">1l</span>l * fac * s ) % mod, fac = <span class="number">1l</span>l * fac * i % mod;</span><br><span class="line">		<span class="keyword">for</span> ( j = a[i]; j &lt;= N; j += j &amp; -j ) ++c[j];</span><br><span class="line">	&#125; <span class="built_in">printf</span>( <span class="string">"%d\n"</span>, ans + <span class="number">1</span> );</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="Pascal"><a href="#Pascal" class="headerlink" title="Pascal"></a>Pascal</h3><figure class="highlight pascal"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span></span><br><span class="line">n, fac, s, ans, i, j:longint;</span><br><span class="line">a, c:<span class="keyword">array</span>[<span class="number">1</span>..<span class="number">1000000</span>] <span class="keyword">of</span> longint;</span><br><span class="line"><span class="keyword">begin</span></span><br><span class="line">    <span class="keyword">read</span>(n); fac := <span class="number">1</span>; ans := <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">for</span> i := n <span class="keyword">downto</span> <span class="number">1</span> <span class="keyword">do</span></span><br><span class="line">    <span class="keyword">begin</span></span><br><span class="line">        <span class="keyword">read</span>(a[i]);</span><br><span class="line">        c[i] := <span class="number">0</span>;</span><br><span class="line">    <span class="keyword">end</span>;</span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">1</span> <span class="keyword">to</span> n <span class="keyword">do</span></span><br><span class="line">    <span class="keyword">begin</span></span><br><span class="line">        j := a[i]; s := <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">while</span> j &gt; <span class="number">0</span> <span class="keyword">do</span></span><br><span class="line">        <span class="keyword">begin</span></span><br><span class="line">            s := s + c[j];</span><br><span class="line">            j := j - ( j <span class="keyword">and</span> -j ); </span><br><span class="line">        <span class="keyword">end</span>;</span><br><span class="line">        ans := ( QWORD(ans) + QWORD(fac) * QWORD(s) ) <span class="keyword">mod</span> <span class="number">998244353</span>;</span><br><span class="line">        fac := QWORD(fac) * QWORD(i) <span class="keyword">mod</span> <span class="number">998244353</span>;</span><br><span class="line">        j := a[i];</span><br><span class="line">        <span class="keyword">while</span> j &lt;= n <span class="keyword">do</span></span><br><span class="line">        <span class="keyword">begin</span></span><br><span class="line">            c[j] := c[j] + <span class="number">1</span>;</span><br><span class="line">            j := j + ( j <span class="keyword">and</span> -j );</span><br><span class="line">        <span class="keyword">end</span>;</span><br><span class="line">    <span class="keyword">end</span>;</span><br><span class="line">    writeln((ans + <span class="number">1</span>) <span class="keyword">mod</span> <span class="number">998244353</span>);</span><br><span class="line"><span class="keyword">end</span>.</span><br></pre></td></tr></table></figure>
-<h1 id="逆康托展开"><a href="#逆康托展开" class="headerlink" title="逆康托展开"></a>逆康托展开</h1><p>类似于进制转换，不断 % (n-i)!, /(n-1)!就可以得到A数组，然后就可以还原出原排列。<br>由于暂时不方便验证我的代码的正确性，代码就不放上来了（免得误人子弟<br><del>代码的话相信我会回来填坑的，如果暑假还在咕的话记得私信提醒我，我八成忘了这事了</del></p>
-
+          <!--noindex-->
           
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/05/21/notes-cantor-expansion/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
         
       
     </div>
