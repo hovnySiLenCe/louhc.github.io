@@ -1,0 +1,1385 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/avatar.png?v=7.1.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/avatar.png?v=7.1.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.0" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.1.0',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="题目、数据已经全部整理在一起并搬至模拟赛主页Orz 出题人 @Judge T1 关平 如果将所有角色当做树上的 n 个点，然后用 n-1 条边将它们相连，那么如果要把这棵树弄的支离破碎，即每条边的两个端点上的武将至少有一个被击杀，llx 和关二爷可以有多少种杀敌方案呢？（虽然凭 llx 的脚气并不一定杀得掉）  思路怎么看都是模板级别的树形DP把。。。。定义二维数组$f[i][0/1]$表示在以节">
+<meta name="keywords" content="模拟赛,解题报告">
+<meta property="og:type" content="website">
+<meta property="og:title" content="2019-06-06模拟赛 解题报告">
+<meta property="og:url" content="https://louhc.github.io/contests/2019-06-06/index.html">
+<meta property="og:site_name" content="Hello,I am louhc">
+<meta property="og:description" content="题目、数据已经全部整理在一起并搬至模拟赛主页Orz 出题人 @Judge T1 关平 如果将所有角色当做树上的 n 个点，然后用 n-1 条边将它们相连，那么如果要把这棵树弄的支离破碎，即每条边的两个端点上的武将至少有一个被击杀，llx 和关二爷可以有多少种杀敌方案呢？（虽然凭 llx 的脚气并不一定杀得掉）  思路怎么看都是模板级别的树形DP把。。。。定义二维数组$f[i][0/1]$表示在以节">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-06-06T10:55:52.062Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2019-06-06模拟赛 解题报告">
+<meta name="twitter:description" content="题目、数据已经全部整理在一起并搬至模拟赛主页Orz 出题人 @Judge T1 关平 如果将所有角色当做树上的 n 个点，然后用 n-1 条边将它们相连，那么如果要把这棵树弄的支离破碎，即每条边的两个端点上的武将至少有一个被击杀，llx 和关二爷可以有多少种杀敌方案呢？（虽然凭 llx 的脚气并不一定杀得掉）  思路怎么看都是模板级别的树形DP把。。。。定义二维数组$f[i][0/1]$表示在以节">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="https://louhc.github.io/contests/2019-06-06/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>2019-06-06模拟赛 解题报告 | Hello,I am louhc</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Hello,I am louhc</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">An OIer From Zhejiang</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-contests menu-item-active">
+
+    
+    
+    
+      
+    
+
+    
+
+    <a href="/contests/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>contests</a>
+
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+    
+
+  
+
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+    
+    
+    <div class="post-block page">
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">2019-06-06模拟赛 解题报告
+
+</h1>
+
+<div class="post-meta">
+  
+  
+
+
+  
+  
+  <ul class="breadcrumb">
+    
+      
+      
+        
+          
+            
+          
+          
+            <li><a href="/contests/">CONTESTS</a></li>
+          
+        
+      
+    
+      
+      
+        
+          <li>2019-06-06</li>
+        
+      
+    
+      
+      
+    
+  </ul>
+
+
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+        
+        
+          <p><a href="..">题目、数据已经全部整理在一起并搬至模拟赛主页</a><br>Orz 出题人 @<a href="https://www.cnblogs.com/judge" target="_blank" rel="noopener">Judge</a></p>
+<h1 id="T1-关平"><a href="#T1-关平" class="headerlink" title="T1 关平"></a>T1 关平</h1><blockquote>
+<p>如果将所有角色当做树上的 n 个点，然后用 n-1 条边将它们相连，<br>那么如果要把这棵树弄的支离破碎，即每条边的两个端点上的武将至少有一个被击杀，<br>llx 和关二爷可以有多少种杀敌方案呢？（虽然凭 llx 的脚气并不一定杀得掉）</p>
+</blockquote>
+<h2 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h2><p>怎么看都是模板级别的树形DP把。。。。<br>定义二维数组$f[i][0/1]$表示在以节点$i$为根的子树中，击杀/不击杀$i$的方案数。<br>很明显，如果不击杀$i$，其子节点全部都得取，也就是说$f_{i,0} = \prod f_{i,1}$<br>如果击杀$i$，其子节点取不取都行，即$f{i,1} = \prod (f_{i,0}+f_{i,1})$<br>然后输出$f_{1,0}+f_{1,1}$就OK了。</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> getchar() ( p1 == p2 &amp;&amp; ( p2 = bf + fread( bf, 1, 1 &lt;&lt; 21, stdin ), p1 = bf, p1 == p2 ) ? EOF : *p1++ )</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> open(s) freopen( s<span class="meta-string">".in"</span>, <span class="meta-string">"r"</span>, stdin ), freopen( s<span class="meta-string">".out"</span>, <span class="meta-string">"w"</span>, stdout )</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rgt register</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> mod 19260817</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXN 1000005</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> bf[<span class="number">1</span> &lt;&lt; <span class="number">21</span>], *p1, *p2;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">inline</span> <span class="title">void</span> <span class="title">read</span>( <span class="title">T</span> &amp;<span class="title">x</span> )&#123;</span> <span class="function"><span class="keyword">char</span> <span class="title">t</span><span class="params">(getchar())</span></span>; x = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>( !<span class="built_in">isdigit</span>(t) ) t = getchar();</span><br><span class="line">	<span class="keyword">while</span>( <span class="built_in">isdigit</span>(t) ) x = x * <span class="number">10</span> + ( t &amp; <span class="number">15</span> ), t = getchar();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> N, hd[MAXN], nxt[MAXN &lt;&lt; <span class="number">1</span>], to[MAXN &lt;&lt; <span class="number">1</span>], tot;</span><br><span class="line"><span class="keyword">int</span> f[MAXN][<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">( rgt <span class="keyword">int</span> x, rgt <span class="keyword">int</span> y )</span></span>&#123;</span><br><span class="line">	nxt[++tot] = hd[x], hd[x] = tot, to[tot] = y,</span><br><span class="line">	nxt[++tot] = hd[y], hd[y] = tot, to[tot] = x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS</span><span class="params">( <span class="keyword">int</span> x, <span class="keyword">int</span> fa )</span></span>&#123;</span><br><span class="line">	f[x][<span class="number">0</span>] = f[x][<span class="number">1</span>] = <span class="number">1</span>;</span><br><span class="line">	<span class="keyword">for</span> ( rgt <span class="keyword">int</span> i = hd[x]; i; i = nxt[i] ) <span class="keyword">if</span> ( to[i] != fa )</span><br><span class="line">		DFS( to[i], x ), f[x][<span class="number">0</span>] = <span class="number">1l</span>l * f[x][<span class="number">0</span>] * f[to[i]][<span class="number">1</span>] % mod,</span><br><span class="line">		f[x][<span class="number">1</span>] = <span class="number">1l</span>l * f[x][<span class="number">1</span>] * ( f[to[i]][<span class="number">0</span>] + f[to[i]][<span class="number">1</span>] ) % mod;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	open(<span class="string">"guanping"</span>), read(N);</span><br><span class="line">	<span class="keyword">for</span> ( rgt <span class="keyword">int</span> i = <span class="number">1</span>, x, y; i &lt; N; ++i )</span><br><span class="line">		read(x), read(y), add( x, y );</span><br><span class="line">	DFS(<span class="number">1</span>, <span class="number">0</span>); <span class="built_in">printf</span>( <span class="string">"%d\n"</span>, ( f[<span class="number">1</span>][<span class="number">0</span>] + f[<span class="number">1</span>][<span class="number">1</span>] ) % mod );</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="T2-糜竺"><a href="#T2-糜竺" class="headerlink" title="T2 糜竺"></a>T2 糜竺</h1><blockquote>
+<p>如果将所有武将视作有权值的节点，并在武将间两两连边构成一棵树，边有权值，<br>那么 llx 要在这棵树上选出任意条边，且边的总权值不小于给定的 W ，并且每个点只能与选出的一条边相<br>连，这样如何选才能使 所有选出的边的点权和 除以 选出的边的总权值 最大呢？</p>
+</blockquote>
+<h2 id="思路-1"><a href="#思路-1" class="headerlink" title="思路"></a>思路</h2><p>都看得出来是0/1分数规划吧。。。。没错就是先套一个0/1分数规划。<br>设$get(i,j)=a_i+a_j-mid \times value(i,j)$,$value(i,j)$即为边权,$a_i$即为点权。<br>下文中为了叙述方便将$get(i,j)$称为权值。然后难点就在于在二分时如何判断满足条件。<br>当然大家都看得出来是树上背包。需要三维数组$f[i][j][0/1]$表示以$i$为根的子树中，选取边的权值为$j$(为了节约空间与时间，我们把$\ge W$的全部压缩到状态$W$上)，0/1表示是否会取到$u$与子节点之间的边。<br>我们枚举$u$的每一个子节点$v$。$v$之前枚举的节点状态已经转移到$f[u]$中，然后要考虑如何将$v$的状态转移到$u$中。<br>先考虑$f[u][?][0]$如何转移。因为不会向子节点连边，因此直接把$f[v][?][0/1]$全都分组背包转移到$f[u][?][0]$中即可。<br>然后考虑略为复杂的$f[u][0][1]$。一种情况是在之前枚举过的点已经选过一条边，此时不能再选边$(u,v)$，于是直接把$f[v][?][0/1]$全都分组背包转移到$f[u][?][1]$中即可。另外一种情况是之前枚举过的点没有选过边，这样就选择边$(u,v)$，并且把$f[v][?][0]$分组背包转移到$f[u][?][1]$中就好了。但是如果直接用一个数组滚动转移，不方便去除后效型，所以直接另开一个数组g，copy原数组的所有元素，用g转移即可。</p>
+<h2 id="代码-1"><a href="#代码-1" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> getchar() ( p1 == p2 &amp;&amp; ( p2 = bf + fread( bf, 1, 1 &lt;&lt; 21, stdin ), p1 = bf, p1 == p2 ) ? EOF : *p1++ )</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> open(s) freopen( s<span class="meta-string">".in"</span>, <span class="meta-string">"r"</span>, stdin ), freopen( s<span class="meta-string">".out"</span>, <span class="meta-string">"w"</span>, stdout )</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rgt register</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXN 505</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">pragma</span> GCC optimzi(3)</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> bf[<span class="number">1</span> &lt;&lt; <span class="number">21</span>], *p1, *p2;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="class"><span class="keyword">class</span> <span class="title">T</span>&gt;</span></span><br><span class="line"><span class="class"><span class="title">inline</span> <span class="title">void</span> <span class="title">read</span>( <span class="title">T</span> &amp;<span class="title">x</span> )&#123;</span> <span class="function"><span class="keyword">char</span> <span class="title">t</span><span class="params">(getchar())</span></span>; x = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">while</span>( !<span class="built_in">isdigit</span>(t) ) t = getchar();</span><br><span class="line">	<span class="keyword">while</span>( <span class="built_in">isdigit</span>(t) ) x = x * <span class="number">10</span> + ( t &amp; <span class="number">15</span> ), t = getchar();</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="keyword">int</span> N, W, a[MAXN], hd[MAXN], nxt[MAXN &lt;&lt; <span class="number">1</span>], to[MAXN &lt;&lt; <span class="number">1</span>], val[MAXN &lt;&lt; <span class="number">1</span>], tot;</span><br><span class="line"><span class="keyword">double</span> f[MAXN][<span class="number">105</span>][<span class="number">2</span>], g[<span class="number">105</span>][<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">( rgt <span class="keyword">int</span> x, rgt <span class="keyword">int</span> y, rgt <span class="keyword">int</span> z )</span></span>&#123;</span><br><span class="line">	nxt[++tot] = hd[x], hd[x] = tot, to[tot] = y, val[tot] = z,</span><br><span class="line">	nxt[++tot] = hd[y], hd[y] = tot, to[tot] = x, val[tot] = z;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">double</span> l, r, mid, ans;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">double</span> <span class="title">get</span><span class="params">( <span class="keyword">int</span> x, <span class="keyword">int</span> y, <span class="keyword">int</span> v )</span></span>&#123; <span class="keyword">return</span> a[x] + a[y] - v * mid; &#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">cmax</span><span class="params">( <span class="keyword">double</span> &amp;x, <span class="keyword">double</span> y )</span></span>&#123; x &lt; y ? x = y : <span class="number">0</span>; &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">typedef</span> <span class="keyword">double</span> DA[<span class="number">2</span>];</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS</span><span class="params">( <span class="keyword">int</span> u, <span class="keyword">int</span> fa )</span></span>&#123;</span><br><span class="line">	rgt DA *fu(f[u]), *fv;</span><br><span class="line">	<span class="keyword">for</span> ( rgt <span class="keyword">int</span> i = <span class="number">0</span>; i &lt;= W; ++i ) fu[i][<span class="number">0</span>] = fu[i][<span class="number">1</span>] = <span class="number">-1e15</span>;</span><br><span class="line">	<span class="keyword">double</span> vl; fu[<span class="number">0</span>][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line">	<span class="keyword">for</span> ( rgt <span class="keyword">int</span> i = hd[u], v, j; i; i = nxt[i] ) <span class="keyword">if</span> ( to[i] != fa )</span><br><span class="line">		<span class="keyword">for</span> ( v = to[i], fv = f[v], vl = get( u, v, val[i] ), DFS( v, u ), j = <span class="number">0</span>, <span class="built_in">memcpy</span>( g, fu, <span class="keyword">sizeof</span> g ); j &lt;= W; ++j )&#123;</span><br><span class="line">			<span class="keyword">if</span> ( g[j][<span class="number">0</span>] &gt; <span class="number">-1e15</span> ) <span class="keyword">for</span> ( rgt <span class="keyword">int</span> k = <span class="number">0</span>; k &lt;= W; ++k ) cmax( fu[min( j + k + val[i], W )][<span class="number">1</span>], g[j][<span class="number">0</span>] + fv[k][<span class="number">0</span>] + vl );</span><br><span class="line">			<span class="keyword">if</span> ( g[j][<span class="number">1</span>] &gt; <span class="number">-1e15</span> ) <span class="keyword">for</span> ( rgt <span class="keyword">int</span> k = <span class="number">0</span>; k &lt;= W; ++k ) cmax( fu[min( j + k, W )][<span class="number">1</span>], g[j][<span class="number">1</span>] + max( fv[k][<span class="number">1</span>], fv[k][<span class="number">0</span>] ) );</span><br><span class="line">			<span class="keyword">if</span> ( g[j][<span class="number">0</span>] &gt; <span class="number">-1e15</span> ) <span class="keyword">for</span> ( rgt <span class="keyword">int</span> k = <span class="number">0</span>; k &lt;= W; ++k ) cmax( fu[min( j + k, W )][<span class="number">0</span>], g[j][<span class="number">0</span>] + max( fv[k][<span class="number">1</span>], fv[k][<span class="number">0</span>] ) );</span><br><span class="line">		&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	open(<span class="string">"mizhu"</span>); read(N), read(W);</span><br><span class="line">	<span class="keyword">for</span> ( rgt <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= N; ++i ) read(a[i]), r += a[i];</span><br><span class="line">	<span class="keyword">for</span> ( rgt <span class="keyword">int</span> i = <span class="number">1</span>, x, y, z; i &lt; N; ++i ) read(x), read(y), read(z), add( x, y, z );</span><br><span class="line">	<span class="keyword">while</span> ( r - l &gt;= <span class="number">1e-4</span> )</span><br><span class="line">		mid = ( l + r ) / <span class="number">2</span>, DFS( <span class="number">1</span>, <span class="number">0</span> ),</span><br><span class="line">		( max( f[<span class="number">1</span>][W][<span class="number">0</span>], f[<span class="number">1</span>][W][<span class="number">1</span>] ) &gt; <span class="number">0</span> ? l : r ) = mid;</span><br><span class="line">	<span class="built_in">printf</span>( <span class="string">"%.2lf\n"</span>, r );</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="T3-司马懿"><a href="#T3-司马懿" class="headerlink" title="T3 司马懿"></a>T3 司马懿</h1><blockquote>
+<p>如果将 $n$ 个武将串成一棵树, 每名角色头上都有道闪电, llx 满手黑桃 $2~9$ (…),并且大于 $n$ 张<br>每名武将被 P 死都会令 llx 获得 $a_i$的愉悦度, 那么我们姑且称 $a_i$ 为 $i$ 号武将的权值<br>llx 可以选择树上的一条链, 使得 这条链上的武将依次判定, 判定成功(必然成功)后 llx 会获得相应愉悦度 $a_i$<br>现在 llx 想知道他能否恰好获得 k 点愉悦度</p>
+</blockquote>
+<h2 id="思路-2"><a href="#思路-2" class="headerlink" title="思路"></a>思路</h2><p>此题思路真的神奇qwq。先讲做法。 定义链的长度为该链上所有点的权值和。<br>先树形DP，记录使长度为偶数的最长链$ans[0]$与长度为奇数的最长链$ans[1]$。<br>然后每次询问$k$,若$k\ge ans[k \&amp; 1]$则判定成功，否则判定失败。<br>至于为什么，我们需要充分利用点权只可能为0,1,2。</p>
+<p>假设当前有一条链，最两边的点权为$x$,$y$。<br>我们尝试进行如下操作。<br>首先，先把两边的0全部忽略。<br>然后，若$x$,$y$中有一个是2，则丢弃2，若$x$,$y$都是1，则两边同时丢弃。<br>我们可以发现，每次操作都可以使该链长度减2。<br>所以如果存在长度为$l$的链，所有属于${x|x\le l, x \equiv l (\mod 2)}$的长度都能取到。</p>
+<h2 id="代码-2"><a href="#代码-2" class="headerlink" title="代码"></a>代码</h2><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span><span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> u32 unsigned</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> i64 long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> u64 unsigned long long</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> f80 long double</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> rgt register</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> MAXN 100005</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> open(s) freopen( s<span class="meta-string">".in"</span>, <span class="meta-string">"r"</span>, stdin ), freopen( s<span class="meta-string">".out"</span>, <span class="meta-string">"w"</span>, stdout )</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> getchar() ( p1 == p2 &amp;&amp; ( p2 = bf + fread( bf, 1, 1 &lt;&lt; 21, stdin ), p1 = bf ) == p2 ? EOF : *p1++ )</span></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> bf[<span class="number">1</span> &lt;&lt; <span class="number">21</span>], *p1, *p2;</span><br><span class="line"><span class="keyword">template</span>&lt;<span class="keyword">typename</span> T&gt;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">read</span><span class="params">( rgt T &amp;x )</span></span>&#123; x = <span class="number">0</span>; rgt <span class="keyword">char</span> t, flg(<span class="number">0</span>);</span><br><span class="line">	<span class="keyword">for</span> ( t = getchar(); !<span class="built_in">isdigit</span>(t); t = getchar() ) flg = t == <span class="string">'-'</span>;</span><br><span class="line">	<span class="keyword">for</span> ( ; <span class="built_in">isdigit</span>(t); t = getchar() ) x = x * <span class="number">10</span> + ( t &amp; <span class="number">15</span> ); x = flg ? -x : x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">clock_t</span> __t_bg, __t_ed;</span><br><span class="line"><span class="keyword">int</span> N, M, K, a[MAXN], hd[MAXN], nxt[MAXN &lt;&lt; <span class="number">1</span>], to[MAXN &lt;&lt; <span class="number">1</span>], tot;</span><br><span class="line"><span class="keyword">int</span> f[MAXN][<span class="number">2</span>], ans[<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">cmax</span><span class="params">( <span class="keyword">int</span> &amp;a, <span class="keyword">int</span> b )</span></span>&#123; a &lt; b ? a = b : <span class="number">0</span>; &#125;</span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">add</span><span class="params">( <span class="keyword">int</span> x, <span class="keyword">int</span> y )</span></span>&#123;</span><br><span class="line">	nxt[++tot] = hd[x], hd[x] = tot, to[tot] = y,</span><br><span class="line">	nxt[++tot] = hd[y], hd[y] = tot, to[tot] = x;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">DFS</span><span class="params">( <span class="keyword">int</span> x, <span class="keyword">int</span> fa )</span></span>&#123;</span><br><span class="line">	f[x][a[x] &amp; <span class="number">1</span>] = a[x], cmax( ans[a[x] &amp; <span class="number">1</span>], a[x] );</span><br><span class="line">	<span class="keyword">for</span> ( rgt <span class="keyword">int</span> i = hd[x], y; i; i = nxt[i] ) <span class="keyword">if</span> ( ( y = to[i] ) != fa ) DFS( y, x ),</span><br><span class="line">		cmax( ans[<span class="number">0</span>], f[x][<span class="number">0</span>] + f[y][<span class="number">0</span>] ), cmax( ans[<span class="number">0</span>], f[x][<span class="number">1</span>] + f[y][<span class="number">1</span>] ),</span><br><span class="line">		cmax( ans[<span class="number">1</span>], f[x][<span class="number">0</span>] + f[y][<span class="number">1</span>] ), cmax( ans[<span class="number">1</span>], f[x][<span class="number">1</span>] + f[y][<span class="number">0</span>] ),</span><br><span class="line">		cmax( f[x][<span class="number">0</span>], a[x] + f[y][a[x] &amp; <span class="number">1</span>] ), cmax( f[x][<span class="number">1</span>], a[x] + f[y][a[x] != <span class="number">1</span>] );</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">signed</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line">	__t_bg = clock();</span><br><span class="line">	open(<span class="string">"simayi"</span>);</span><br><span class="line">	read(N), read(M);</span><br><span class="line">	<span class="keyword">for</span> ( rgt <span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= N; ++i ) read(a[i]);</span><br><span class="line">	<span class="keyword">for</span> ( rgt <span class="keyword">int</span> i = <span class="number">1</span>, x, y; i &lt; N; ++i ) read(x), read(y), add( x, y );</span><br><span class="line">	DFS( <span class="number">1</span>, <span class="number">0</span> );</span><br><span class="line">	<span class="keyword">while</span>( M-- )</span><br><span class="line">		read(K), <span class="built_in">printf</span>( ans[K &amp; <span class="number">1</span>] &gt;= K ? <span class="string">"YES\n"</span> : <span class="string">"NO\n"</span> );	</span><br><span class="line">	__t_ed = clock(), <span class="built_in">fprintf</span>( <span class="built_in">stderr</span>, <span class="string">"time: %.5lfs\n"</span>, <span class="keyword">double</span>( __t_ed - __t_bg ) / CLOCKS_PER_SEC );</span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        
+      </div>
+      
+      
+      
+    </div>
+    
+
+
+  
+  
+  <ul class="breadcrumb">
+    
+      
+      
+        
+          
+            
+          
+          
+            <li><a href="/contests/">CONTESTS</a></li>
+          
+        
+      
+    
+      
+      
+        
+          <li>2019-06-06</li>
+        
+      
+    
+      
+      
+    
+  </ul>
+
+
+    
+    
+    
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpg" alt="louhc">
+            
+              <p class="site-author-name" itemprop="name">louhc</p>
+              <div class="site-description motion-element" itemprop="description">蒟蒻一枚，请多关照</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">104</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">89</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#T1-关平"><span class="nav-number">1.</span> <span class="nav-text">T1 关平</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#思路"><span class="nav-number">1.1.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码"><span class="nav-number">1.2.</span> <span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#T2-糜竺"><span class="nav-number">2.</span> <span class="nav-text">T2 糜竺</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#思路-1"><span class="nav-number">2.1.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码-1"><span class="nav-number">2.2.</span> <span class="nav-text">代码</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#T3-司马懿"><span class="nav-number">3.</span> <span class="nav-text">T3 司马懿</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#思路-2"><span class="nav-number">3.1.</span> <span class="nav-text">思路</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码-2"><span class="nav-number">3.2.</span> <span class="nav-text">代码</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">louhc</span>
+
+  
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a href="https://hexo.io" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v3.8.0</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 – <a href="https://theme-next.org" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.1.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <script id="ribbon" size="300" alpha="0.6" zindex="-1" src="/lib/canvas-ribbon/canvas-ribbon.js"></script>
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.0"></script>
+
+  <script src="/js/motion.js?v=7.1.0"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.0"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.0"></script>
+
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.0"></script>
+<script src="/js/post-details.js?v=7.1.0"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.0"></script>
+
+
+  
+
+  
+
+  
+
+  
+  
+
+<script src="//cdn1.lncld.net/static/js/3.11.1/av-min.js"></script>
+
+
+
+<script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+
+<script>
+  var GUEST = ['nick', 'mail', 'link'];
+  var guest = 'nick,mail,link';
+  guest = guest.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#comments',
+    verify: false,
+    notify: false,
+    appId: 'fsQVO1X0eIJHcp0HPluTWvl1-gzGzoHsz',
+    appKey: 'zi5uU2gcU5Ng8x2WSb2JIWdo',
+    placeholder: '骚年,既然来了,就留下些什么吧QwQ',
+    avatar: 'mm',
+    meta: guest,
+    pageSize: '10' || 10,
+    visitor: true,
+    lang: 'zh-cn' || 'zh-cn'
+  });
+</script>
+
+
+
+
+  
+
+
+  
+  <script>
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url).replace(/\/{2,}/g, '/');
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x"></i></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x"></i></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+  
+
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$', '$'], ['\\(', '\\)'] ],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+      
+      equationNumbers: {
+        autoNumber: 'AMS'
+      }
+    }
+  });
+  MathJax.Hub.Register.StartupHook('TeX Jax Ready', function() {
+    MathJax.InputJax.TeX.prefilterHooks.Add(function(data) {
+      if (data.display) {
+        var next = data.script.nextSibling;
+        while (next && next.nodeName.toLowerCase() === '#text') { next = next.nextSibling }
+        if (next && next.nodeName.toLowerCase() === 'br') { next.parentNode.removeChild(next) }
+      }
+    });
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for (i = 0; i < all.length; i += 1) {
+      document.getElementById(all[i].inputID + '-Frame').parentNode.className += ' has-jax';
+    }
+  });
+</script>
+<script src="//cdn.jsdelivr.net/npm/mathjax@2/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
