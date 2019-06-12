@@ -603,7 +603,7 @@
                 
               
 
-              <time title="创建时间：2019-06-12 21:31:40 / 修改时间：21:31:45" itemprop="dateCreated datePublished" datetime="2019-06-12T21:31:40+08:00">2019-06-12</time>
+              <time title="创建时间：2019-06-12 21:31:40 / 修改时间：21:37:21" itemprop="dateCreated datePublished" datetime="2019-06-12T21:31:40+08:00">2019-06-12</time>
             
 
             
@@ -667,35 +667,16 @@
 
       
         
+          <p>由于这篇博客只是为了自己以后复习用，所以不会很详细。。。。<br>可以来看看OI-wiki的。。。(Orz xuxing)<br><a href="https://oi-wiki.org/geometry/distance" target="_blank" rel="noopener">https://oi-wiki.org/geometry/distance</a></p>
+          <!--noindex-->
           
-            <p>成功埋下打算咕很久的坑</p>
-<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>为了方便，这里$ed$表示欧式距离，$md$表示曼哈顿距离，$cd$表示切比雪夫距离。</p>
-<h1 id="欧氏距离"><a href="#欧氏距离" class="headerlink" title="欧氏距离"></a>欧氏距离</h1><script type="math/tex; mode=display">
-ed((x_1,y_1),(x_2,y_2))=\sqrt{(x_1-x_2)^2+(y_1-y_2)^2}</script><h2 id="平面上最近点对"><a href="#平面上最近点对" class="headerlink" title="平面上最近点对"></a>平面上最近点对</h2><p>这里是未填的坑</p>
-<h1 id="曼哈顿距离"><a href="#曼哈顿距离" class="headerlink" title="曼哈顿距离"></a>曼哈顿距离</h1><script type="math/tex; mode=display">
-md((x_1,y_1),(x_2,y_2))=\left|x_1-x_2\right|+\left|y_1-y_2\right|</script><h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h2><p><a href="https://www.luogu.org/problemnew/show/P5098" target="_blank" rel="noopener">USACO2004OPEN Cave Cows 3 洞穴里的牛之三</a></p>
-<h1 id="切比雪夫距离"><a href="#切比雪夫距离" class="headerlink" title="切比雪夫距离"></a>切比雪夫距离</h1><script type="math/tex; mode=display">
-cd((x_1,y_1),(x_2,y_2))=\max\{\left|x_1-x_2\right|,\left|y_1-y_2\right|\}</script><h1 id="曼哈顿距离与切比雪夫距离相互转化"><a href="#曼哈顿距离与切比雪夫距离相互转化" class="headerlink" title="曼哈顿距离与切比雪夫距离相互转化"></a>曼哈顿距离与切比雪夫距离相互转化</h1><script type="math/tex; mode=display">
-\begin{align}
-md((x_1,y_1),(x_2,y_2))=max\{&x_1-x_2+y_1-y_2,\\
-&x_2-x_1+y_1-y_2,\\
-&x_1-x_2+y_2-y_1,\\
-&x_2-x_1+y_2-y_1\}
-\end{align}</script><p>转换一下，变成</p>
-<script type="math/tex; mode=display">
-\begin{align}
-md((x_1,y_1),(x_2,y_2))&=\max\{\left|(x_1+y_1)-(x_2+y_2)\right|,\left|(x_1-y_1)-(x_2-y_2)\right|\}\\
-&=cd((x_1+y_1,x_1-y_1),(x_2+y_2,x_2-y_2))
-\end{align}</script><p>也就是说</p>
-<script type="math/tex; mode=display">
-cd((x_1,y_1),(x_2,y_2))=md((\frac{x_1+y_1}2,\frac{x_1-y_1}2),(\frac{x_2+y_2}2,\frac{x_2-y_2}2))</script><p>整理一下</p>
-<script type="math/tex; mode=display">
-\begin{cases}
-md((x_1,y_1),(x_2,y_2))=cd((x_1+y_1,x_1-y_1),(x_2+y_2,x_2-y_2))\\
-cd((x_1,y_1),(x_2,y_2))=md((\frac{x_1+y_1}2,\frac{x_1-y_1}2),(\frac{x_2+y_2}2,\frac{x_2-y_2}2))\\
-\end{cases}</script><p>把点经过如上的变换，就可以实现曼哈顿距离与切比雪夫距离之间的转换。</p>
-
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/06/12/notes-distance/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
           
+          <!--/noindex-->
         
       
     </div>
