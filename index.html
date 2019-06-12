@@ -558,6 +558,371 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://louhc.github.io/2019/06/12/notes-distance/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="louhc">
+      <meta itemprop="description" content="蒟蒻一枚，请多关照">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hello,I am louhc">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/06/12/notes-distance/" class="post-title-link" itemprop="url">「学习笔记」浅谈各种距离</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-06-12 21:31:40 / 修改时间：21:31:45" itemprop="dateCreated datePublished" datetime="2019-06-12T21:31:40+08:00">2019-06-12</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/06/12/notes-distance/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/06/12/notes-distance/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2019/06/12/notes-distance/" class="leancloud_visitors" data-flag-title="「学习笔记」浅谈各种距离">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>成功埋下打算咕很久的坑</p>
+<h1 id="写在前面"><a href="#写在前面" class="headerlink" title="写在前面"></a>写在前面</h1><p>为了方便，这里$ed$表示欧式距离，$md$表示曼哈顿距离，$cd$表示切比雪夫距离。</p>
+<h1 id="欧氏距离"><a href="#欧氏距离" class="headerlink" title="欧氏距离"></a>欧氏距离</h1><script type="math/tex; mode=display">
+ed((x_1,y_1),(x_2,y_2))=\sqrt{(x_1-x_2)^2+(y_1-y_2)^2}</script><h2 id="平面上最近点对"><a href="#平面上最近点对" class="headerlink" title="平面上最近点对"></a>平面上最近点对</h2><p>这里是未填的坑</p>
+<h1 id="曼哈顿距离"><a href="#曼哈顿距离" class="headerlink" title="曼哈顿距离"></a>曼哈顿距离</h1><script type="math/tex; mode=display">
+md((x_1,y_1),(x_2,y_2))=\left|x_1-x_2\right|+\left|y_1-y_2\right|</script><h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h2><p><a href="https://www.luogu.org/problemnew/show/P5098" target="_blank" rel="noopener">USACO2004OPEN Cave Cows 3 洞穴里的牛之三</a></p>
+<h1 id="切比雪夫距离"><a href="#切比雪夫距离" class="headerlink" title="切比雪夫距离"></a>切比雪夫距离</h1><script type="math/tex; mode=display">
+cd((x_1,y_1),(x_2,y_2))=\max\{\left|x_1-x_2\right|,\left|y_1-y_2\right|\}</script><h1 id="曼哈顿距离与切比雪夫距离相互转化"><a href="#曼哈顿距离与切比雪夫距离相互转化" class="headerlink" title="曼哈顿距离与切比雪夫距离相互转化"></a>曼哈顿距离与切比雪夫距离相互转化</h1><script type="math/tex; mode=display">
+\begin{align}
+md((x_1,y_1),(x_2,y_2))=max\{&x_1-x_2+y_1-y_2,\\
+&x_2-x_1+y_1-y_2,\\
+&x_1-x_2+y_2-y_1,\\
+&x_2-x_1+y_2-y_1\}
+\end{align}</script><p>转换一下，变成</p>
+<script type="math/tex; mode=display">
+\begin{align}
+md((x_1,y_1),(x_2,y_2))&=\max\{\left|(x_1+y_1)-(x_2+y_2)\right|,\left|(x_1-y_1)-(x_2-y_2)\right|\}\\
+&=cd((x_1+y_1,x_1-y_1),(x_2+y_2,x_2-y_2))
+\end{align}</script><p>也就是说</p>
+<script type="math/tex; mode=display">
+cd((x_1,y_1),(x_2,y_2))=md((\frac{x_1+y_1}2,\frac{x_1-y_1}2),(\frac{x_2+y_2}2,\frac{x_2-y_2}2))</script><p>整理一下</p>
+<script type="math/tex; mode=display">
+\begin{cases}
+md((x_1,y_1),(x_2,y_2))=cd((x_1+y_1,x_1-y_1),(x_2+y_2,x_2-y_2))\\
+cd((x_1,y_1),(x_2,y_2))=md((\frac{x_1+y_1}2,\frac{x_1-y_1}2),(\frac{x_2+y_2}2,\frac{x_2-y_2}2))\\
+\end{cases}</script><p>把点经过如上的变换，就可以实现曼哈顿距离与切比雪夫距离之间的转换。</p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="https://louhc.github.io/2019/06/11/notes-vector/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="louhc">
+      <meta itemprop="description" content="蒟蒻一枚，请多关照">
+      <meta itemprop="image" content="/images/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hello,I am louhc">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2019/06/11/notes-vector/" class="post-title-link" itemprop="url">「学习笔记」向量</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-06-11 22:04:59 / 修改时间：22:10:40" itemprop="dateCreated datePublished" datetime="2019-06-11T22:04:59+08:00">2019-06-11</time>
+            
+
+            
+              
+
+              
+            
+          </span>
+
+          
+
+          
+            
+            
+              
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+            
+                <span class="post-meta-item-text">评论数：</span>
+                <a href="/2019/06/11/notes-vector/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/06/11/notes-vector/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+            <span id="/2019/06/11/notes-vector/" class="leancloud_visitors" data-flag-title="「学习笔记」向量">
+              <span class="post-meta-divider">|</span>
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              
+                <span class="post-meta-item-text">阅读次数：</span>
+              
+                <span class="leancloud-visitors-count"></span>
+            </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>前面高中学的不多说了，请参考人教版高中数学必修四内容。</p>
+          <!--noindex-->
+          
+            <div class="post-button text-center">
+              <a class="btn" href="/2019/06/11/notes-vector/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="https://louhc.github.io/2019/06/07/notes-gauss/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -1782,367 +2147,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://louhc.github.io/2019/04/15/luogu3911-solution/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="louhc">
-      <meta itemprop="description" content="蒟蒻一枚，请多关照">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hello,I am louhc">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/04/15/luogu3911-solution/" class="post-title-link" itemprop="url">「洛谷P3911」最小公倍数之和 解题报告</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-04-15 17:25:37 / 修改时间：17:30:55" itemprop="dateCreated datePublished" datetime="2019-04-15T17:25:37+08:00">2019-04-15</time>
-            
-
-            
-              
-
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2019/04/15/luogu3911-solution/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/15/luogu3911-solution/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-            <span id="/2019/04/15/luogu3911-solution/" class="leancloud_visitors" data-flag-title="「洛谷P3911」最小公倍数之和 解题报告">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="P3911-最小公倍数之和"><a href="#P3911-最小公倍数之和" class="headerlink" title="P3911 最小公倍数之和"></a><a href="https://www.luogu.org/problemnew/show/P3911" target="_blank" rel="noopener">P3911 最小公倍数之和</a></h1><h2 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h2><p>对于$A_1,A_2,\cdots,A_N$求</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/04/15/luogu3911-solution/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="https://louhc.github.io/2019/04/13/spoj26045-solution/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="louhc">
-      <meta itemprop="description" content="蒟蒻一枚，请多关照">
-      <meta itemprop="image" content="/images/avatar.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Hello,I am louhc">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2019/04/13/spoj26045-solution/" class="post-title-link" itemprop="url">「SP26045」GCDMAT2 - GCD OF MATRIX (hard) 解题报告</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2019-04-13 08:16:29" itemprop="dateCreated datePublished" datetime="2019-04-13T08:16:29+08:00">2019-04-13</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2019-04-14 10:57:58" itemprop="dateModified" datetime="2019-04-14T10:57:58+08:00">2019-04-14</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-            
-              
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-            
-                <span class="post-meta-item-text">评论数：</span>
-                <a href="/2019/04/13/spoj26045-solution/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/04/13/spoj26045-solution/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-            <span id="/2019/04/13/spoj26045-solution/" class="leancloud_visitors" data-flag-title="「SP26045」GCDMAT2 - GCD OF MATRIX (hard) 解题报告">
-              <span class="post-meta-divider">|</span>
-              <span class="post-meta-item-icon">
-                <i class="fa fa-eye"></i>
-              </span>
-              
-                <span class="post-meta-item-text">阅读次数：</span>
-              
-                <span class="leancloud-visitors-count"></span>
-            </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h1 id="GCDMAT2-GCD-OF-MATRIX-hard"><a href="#GCDMAT2-GCD-OF-MATRIX-hard" class="headerlink" title="GCDMAT2 - GCD OF MATRIX (hard)"></a><a href="https://www.spoj.com/problems/GCDMAT2/" target="_blank" rel="noopener">GCDMAT2 - GCD OF MATRIX (hard)</a></h1><h2 id="题意简述"><a href="#题意简述" class="headerlink" title="题意简述"></a>题意简述</h2><p>求</p>
-<script type="math/tex; mode=display">
-\sum_{i=a1}^{a2} \sum_{j=b1}^{b2} \gcd(i,j)</script><hr>
-<p>这大概是我做过的最毒瘤的卡常题了。。。</p>
-          <!--noindex-->
-          
-            <div class="post-button text-center">
-              <a class="btn" href="/2019/04/13/spoj26045-solution/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-      
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2191,7 +2195,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">105</span>
+                    <span class="site-state-item-count">107</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
@@ -2388,7 +2392,11 @@
                     
                       
                     
-                    <span class="site-state-item-count">89</span>
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">91</span>
                     <span class="site-state-item-name">标签</span>
                   </a>
                 </div>
