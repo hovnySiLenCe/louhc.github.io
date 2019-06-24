@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://louhc.github.io/2019/06/11/notes-vector/</loc>
+    <loc>https://louhc.github.io/2019/06/23/notes-pick/</loc>
+    <lastmod>2019-06-24</lastmod>
+  </url>  <url>
+    <loc>https://louhc.github.io/2019/06/11/notes-convex-hull/</loc>
+    <lastmod>2019-06-24</lastmod>
+  </url>  <url>
+    <loc>https://louhc.github.io/2019/01/23/notes-discretization/</loc>
     <lastmod>2019-06-23</lastmod>
   </url>  <url>
-    <loc>https://louhc.github.io/2019/06/23/notes-pick/</loc>
+    <loc>https://louhc.github.io/2019/06/11/notes-vector/</loc>
     <lastmod>2019-06-23</lastmod>
   </url>  <url>
     <loc>https://louhc.github.io/2019/06/12/notes-distance/</loc>
@@ -236,9 +242,6 @@
     <lastmod>2019-01-23</lastmod>
   </url>  <url>
     <loc>https://louhc.github.io/2019/01/23/luogu1080-solution/</loc>
-    <lastmod>2019-01-23</lastmod>
-  </url>  <url>
-    <loc>https://louhc.github.io/2019/01/23/notes-discretization/</loc>
     <lastmod>2019-01-23</lastmod>
   </url>  <url>
     <loc>https://louhc.github.io/2019/01/23/notes-old-driver-tree/</loc>
